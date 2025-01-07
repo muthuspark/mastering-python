@@ -1,0 +1,132 @@
+---
+title: "Python Sets"
+date: "12/07/2024"
+categories: [ basic ]
+---
+
+
+Python sets are an unordered collection of unique elements.  This characteristic makes them incredibly useful for tasks involving membership testing, eliminating duplicates, and performing set operations like union, intersection, and difference.  Unlike lists or tuples, sets are mutable, meaning you can add or remove elements after creation.  Let's dive into the details with practical examples.
+
+## Creating Sets
+
+There are several ways to create a Python set:
+
+**1. Using curly braces `{}`:**
+
+```python
+my_set = {1, 2, 3, 4, 5}
+print(my_set)  # Output: {1, 2, 3, 4, 5}
+
+#Creating an empty set requires the set() constructor, not {} (which creates an empty dictionary)
+empty_set = set()
+print(empty_set) # Output: set()
+```
+
+**2. Using the `set()` constructor:**
+
+This method is particularly useful when converting other iterable objects (like lists or tuples) into sets:
+
+```python
+my_list = [1, 2, 2, 3, 4, 4, 5]
+my_set = set(my_list)
+print(my_set)  # Output: {1, 2, 3, 4, 5}  (duplicates removed)
+
+my_tuple = (10, 20, 30, 30, 40)
+my_set = set(my_tuple)
+print(my_set) # Output: {10, 20, 30, 40}
+```
+
+## Set Operations
+
+Python provides a rich set of operations for manipulating sets:
+
+**1. Union:** Combines elements from two or more sets.
+
+```python
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+union_set = set1 | set2  # Using the pipe operator
+print(union_set)  # Output: {1, 2, 3, 4, 5}
+
+union_set = set1.union(set2) # Using the union() method
+print(union_set) # Output: {1, 2, 3, 4, 5}
+```
+
+
+**2. Intersection:** Returns elements common to all sets.
+
+```python
+intersection_set = set1 & set2 # Using the ampersand operator
+print(intersection_set)  # Output: {3}
+
+intersection_set = set1.intersection(set2) #Using the intersection() method
+print(intersection_set) # Output: {3}
+```
+
+**3. Difference:** Returns elements present in the first set but not in the second.
+
+```python
+difference_set = set1 - set2 # Using the minus operator
+print(difference_set)  # Output: {1, 2}
+
+difference_set = set1.difference(set2) #Using the difference() method
+print(difference_set) # Output: {1, 2}
+```
+
+**4. Symmetric Difference:** Returns elements present in either set, but not in both.
+
+```python
+symmetric_difference_set = set1 ^ set2 #Using the caret operator
+print(symmetric_difference_set) # Output: {1, 2, 4, 5}
+
+symmetric_difference_set = set1.symmetric_difference(set2) #Using the symmetric_difference() method
+print(symmetric_difference_set) # Output: {1, 2, 4, 5}
+```
+
+## Modifying Sets
+
+Sets are mutable; you can add and remove elements:
+
+**1. Adding elements:**
+
+```python
+my_set = {1, 2, 3}
+my_set.add(4)
+print(my_set)  # Output: {1, 2, 3, 4}
+my_set.update([5,6,7]) #Add multiple elements at once
+print(my_set) # Output: {1, 2, 3, 4, 5, 6, 7}
+```
+
+**2. Removing elements:**
+
+```python
+my_set.remove(3) # Raises KeyError if element not found
+print(my_set)  # Output: {1, 2, 4, 5, 6, 7}
+
+my_set.discard(8) #Does not raise error if element not found
+print(my_set) # Output: {1, 2, 4, 5, 6, 7}
+
+removed_element = my_set.pop() #Removes and returns an arbitrary element
+print(removed_element) #Output: 1 (or any other element)
+print(my_set) #Output: {2, 4, 5, 6, 7}
+
+my_set.clear() #Removes all elements
+print(my_set) #Output: set()
+```
+
+## Membership Testing
+
+Checking if an element exists in a set is very efficient:
+
+```python
+my_set = {1, 2, 3}
+print(1 in my_set)  # Output: True
+print(4 in my_set)  # Output: False
+```
+
+## Other Useful Methods
+
+Sets offer several other helpful methods, including `len()`, `copy()`, and more.  Refer to the official Python documentation for a complete list.
+
+
+

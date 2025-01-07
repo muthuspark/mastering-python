@@ -1,0 +1,97 @@
+---
+title: "Class Decorators"
+date: "12/05/2024"
+categories: [ advanced ]
+---
+
+
+Python's decorators are a powerful feature that allows you to modify or enhance functions and methods in a clean and readable way.  While function decorators are widely understood, class decorators are often less explored, yet they offer similar benefits when working with classes. This post will demystify class decorators and show you how to use them effectively.
+
+## Understanding Class Decorators
+
+A class decorator is essentially a function that takes a class as input and returns a modified version of that class. This allows you to add functionality, modify behavior, or even create entirely new classes based on the original.  The syntax is remarkably similar to function decorators, using the `@` symbol.
+
+Let's start with a simple example.  Suppose we want to add a method to a class after it's defined:
+
+```python
+def add_method(cls):
+    """Adds a greet method to the class."""
+    setattr(cls, 'greet', lambda self: print("Hello from the decorated class!"))
+    return cls
+
+@add_method
+class MyClass:
+    pass
+
+my_instance = MyClass()
+my_instance.greet()  # Output: Hello from the decorated class!
+```
+
+In this example, `add_method` is our class decorator. It takes `MyClass` as input, adds a `greet` method using `setattr`, and then returns the modified class.  The `@add_method` syntax is syntactic sugar – it's equivalent to `MyClass = add_method(MyClass)`.
+
+## Decorating with Arguments
+
+Class decorators can also accept arguments, adding even greater flexibility. Consider a scenario where we want to add a configurable message to our `greet` method:
+
+```python
+def add_greet(message):
+    def decorator(cls):
+        setattr(cls, 'greet', lambda self: print(message))
+        return cls
+    return decorator
+
+@add_greet("Customized Greeting!")
+class MyClass:
+    pass
+
+my_instance = MyClass()
+my_instance.greet()  # Output: Customized Greeting!
+```
+
+Here, `add_greet` is a decorator factory. It takes the message as an argument and returns the actual decorator function, which then modifies the class.
+
+##  Modifying Class Attributes
+
+Class decorators aren't limited to adding methods; they can also modify existing attributes or add new ones.  For instance, let's add a version attribute to our class:
+
+```python
+def add_version(version):
+    def decorator(cls):
+        cls.version = version
+        return cls
+    return decorator
+
+@add_version("1.0")
+class MyClass:
+    pass
+
+print(MyClass.version) # Output: 1.0
+```
+
+##  Advanced Use Cases:  Singletons and More
+
+Class decorators can be instrumental in creating design patterns like Singletons, ensuring only one instance of a class exists:
+
+```python
+def singleton(cls):
+    instances = {}
+    def getinstance(*args, **kwargs):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kwargs)
+        return instances[cls]
+    return getinstance
+
+@singleton
+class MySingleton:
+    pass
+
+instance1 = MySingleton()
+instance2 = MySingleton()
+print(instance1 is instance2) # Output: True
+```
+
+This demonstrates a powerful application – enforcing the singleton pattern through a decorator.  This can improve code organization and maintainability.
+
+
+Further exploration into metaclasses, which provide even more control over class creation, builds upon the concepts of class decorators.  Understanding class decorators is a significant step towards mastering these advanced Python features.
+

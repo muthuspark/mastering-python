@@ -1,0 +1,88 @@
+---
+title: "Python Namespace and Scope"
+date: "02/03/2024"
+categories: [ advanced ]
+---
+
+
+Python's power and readability stem partly from its robust system for managing variables and their accessibility. This system relies on two key concepts: **namespaces** and **scope**.  Understanding these is crucial for writing clean, bug-free, and maintainable Python code.
+
+## What is a Namespace?
+
+A namespace is a container that holds names (identifiers) and their corresponding objects.  Think of it as a dictionary where keys are names (like variable names, function names, class names) and values are the objects those names refer to.  Namespaces help prevent naming conflicts.  You can have two variables named `count` in different parts of your program without them interfering with each other because they exist in separate namespaces.
+
+Python uses several types of namespaces:
+
+* **Built-in Namespace:** This contains pre-defined functions and constants available in Python (e.g., `print`, `len`, `True`). It's created when the Python interpreter starts and remains throughout the program's execution.
+
+* **Global Namespace:** This holds names defined at the top level of a module (a `.py` file).  It's created when a module is imported or executed.
+
+* **Local Namespace:** This contains names defined within a function or block of code (like a loop or conditional statement). It's created when the function or block is entered and destroyed when it exits.
+
+* **Enclosing Function Locals:** If a function is nested within another, the inner function has access to the local namespace of the outer function (this is relevant to nested functions and closures).
+
+
+## What is Scope?
+
+Scope determines the visibility and accessibility of a name within a program.  It defines where a name can be referenced or used.  Python uses the **LEGB rule** to determine the scope of a name:
+
+* **L**ocal: The innermost scope, searching within the current function or block.
+* **E**nclosing function locals: Searches the namespaces of any enclosing functions.
+* **G**lobal: The namespace of the module the current code is running in.
+* **B**uilt-in: The namespace containing pre-defined functions and constants.
+
+
+Let's illustrate with examples:
+
+```python
+global_var = 10
+
+def my_function():
+    # Local namespace
+    local_var = 5
+    print(f"Inside function: global_var = {global_var}, local_var = {local_var}")
+
+my_function()  # Output: Inside function: global_var = 10, local_var = 5
+print(f"Outside function: global_var = {global_var}") # Output: Outside function: global_var = 10
+#print(local_var) # This will raise a NameError because local_var is not in the global scope
+
+```
+
+Here, `global_var` is accessible inside `my_function()` because it's in the global scope.  `local_var` is only accessible within `my_function()`.
+
+
+```python
+x = 20  # Global scope
+
+def outer_function():
+    x = 30  # Enclosing function scope
+    def inner_function():
+        x = 40  # Local scope
+        print(f"Inside inner: x = {x}")
+    inner_function()
+    print(f"Inside outer: x = {x}")
+
+outer_function()
+print(f"Outside functions: x = {x}")
+```
+
+This demonstrates the LEGB rule in action. The inner function uses its own local `x`, the outer function its `x`, and the global `x` remains unchanged.
+
+```python
+def my_func():
+  global global_var #declare global_var can be modified in the function.
+  global_var = 50
+  print(f"Inside function : global_var = {global_var}")
+
+my_func()
+print(f"Outside function : global_var = {global_var}")
+#Output:
+#Inside function : global_var = 50
+#Outside function : global_var = 50
+```
+
+Using the `global` keyword allows modification of a global variable from within a function.  Avoid overusing `global` as it can make code harder to understand and maintain.
+
+
+Using namespaces and understanding scope are vital for writing well-structured Python programs.  By carefully managing names and their visibility, you can avoid conflicts and create more robust and maintainable applications.
+

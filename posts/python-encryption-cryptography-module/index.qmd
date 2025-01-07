@@ -1,0 +1,136 @@
+---
+title: "Python Encryption (Cryptography Module)"
+date: "10/01/2024"
+categories: [ advanced ]
+---
+
+
+Python offers robust encryption capabilities through its `cryptography` library, a powerful and versatile tool for securing sensitive data. Unlike the older, less secure `Crypto` library, `cryptography` provides modern, well-vetted algorithms and a cleaner, more intuitive API. This post explores its key features and functionalities with practical code examples.
+
+
+## Installation
+
+Before diving into the code, ensure you have the `cryptography` library installed. Use pip:
+
+```bash
+pip install cryptography
+```
+
+## Symmetric Encryption: AES
+
+Symmetric encryption uses the same key for both encryption and decryption.  Advanced Encryption Standard (AES) is a widely used and highly secure symmetric algorithm.  Let's encrypt a message using AES in CBC (Cipher Block Chaining) mode:
+
+```python
+from cryptography.fernet import Fernet
+
+key = Fernet.generate_key()
+f = Fernet(key)
+
+message = b"This is a secret message"
+
+encrypted_message = f.encrypt(message)
+print(f"Encrypted message: {encrypted_message}")
+
+decrypted_message = f.decrypt(encrypted_message)
+print(f"Decrypted message: {decrypted_message}")
+```
+
+This example demonstrates basic AES encryption using Fernet, a high-level wrapper that simplifies the process. Remember to securely store your key; compromising it compromises your encryption.
+
+
+## Asymmetric Encryption: RSA
+
+Asymmetric encryption employs separate keys for encryption (public key) and decryption (private key). RSA is a widely adopted asymmetric algorithm.  Here's how to encrypt and decrypt using RSA:
+
+```python
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.asymmetric import rsa
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import padding
+
+private_key = rsa.generate_private_key(
+    public_exponent=65537, key_size=2048, backend=default_backend()
+)
+
+public_key = private_key.public_key()
+
+private_pem = private_key.private_bytes(
+    encoding=serialization.Encoding.PEM,
+    format=serialization.PrivateFormat.TraditionalOpenSSL,
+    encryption_algorithm=serialization.NoEncryption(),
+)
+
+public_pem = public_key.public_bytes(
+    encoding=serialization.Encoding.PEM,
+    format=serialization.PublicFormat.SubjectPublicKeyInfo,
+)
+
+
+message = b"This is another secret message"
+ciphertext = public_key.encrypt(
+    message,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None,
+    ),
+)
+
+plaintext = private_key.decrypt(
+    ciphertext,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None,
+    ),
+)
+
+print(f"Plaintext: {plaintext}")
+print(f"Ciphertext: {ciphertext}")
+```
+
+This example showcases RSA encryption and decryption.  Note the use of padding (OAEP) which is crucial for RSA security.  Remember to handle key storage securely.  Losing your private key renders your encrypted data unrecoverable.
+
+
+## Hashing
+
+Hashing functions generate one-way fingerprints of data.  They are useful for verifying data integrity but not for encryption as they are not reversible.
+
+```python
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives import serialization
+
+digest = hashes.Hash(hashes.SHA256(), backend=default_backend())
+digest.update(b"This is some data")
+hashed_data = digest.finalize()
+print(f"Hashed data: {hashed_data}")
+
+```
+
+This example demonstrates SHA256 hashing.  Different hash algorithms offer varying levels of security and collision resistance.
+
+
+## Key Derivation Functions (KDFs)
+
+KDFs are crucial for securely deriving encryption keys from passwords.  They are essential for protecting against brute-force attacks.
+
+```python
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+
+password = b"mysecretpassword"  # NEVER store passwords directly! Use a secure password manager.
+salt = b"somesalt"  # Randomly generated salt is crucial for security.
+kdf = PBKDF2HMAC(
+    algorithm=hashes.SHA256(), length=32, salt=salt, iterations=100000
+)
+key = kdf.derive(password)
+print(f"Derived key: {key}")
+```
+
+
+This illustrates the use of PBKDF2, a strong KDF.  Remember to use a sufficiently strong password and a randomly generated, unique salt for each key derivation.  The number of iterations should be high enough to resist brute-force attacks (100,000 is a decent starting point).
+
+
+This post provides a foundational understanding of the `cryptography` library in Python.  Further exploration of this versatile library is highly recommended for those serious about data security.  Remember that proper key management is paramount for successful and secure encryption.
+

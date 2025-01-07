@@ -1,0 +1,110 @@
+---
+title: "Time Complexity in Python Code"
+date: "12/03/2024"
+categories: [ advanced ]
+---
+
+
+Time complexity is a crucial concept in computer science that describes how the runtime of an algorithm scales with the input size.  Understanding it helps you write efficient and performant Python code, especially when dealing with large datasets.  This post explores various time complexities with Python examples.
+
+## Big O Notation
+
+We use Big O notation to express time complexity.  It focuses on the dominant factors affecting runtime as the input size (often denoted as 'n') grows very large, ignoring constant factors and smaller terms.
+
+Here are some common time complexities:
+
+* **O(1) - Constant Time:** The runtime remains constant regardless of the input size.  This is the ideal scenario.
+
+```python
+def get_first_element(data):
+  """Returns the first element of a list. O(1) complexity."""
+  return data[0]
+
+my_list = [1, 2, 3, 4, 5]
+first = get_first_element(my_list)
+print(first) # Output: 1
+```
+
+* **O(log n) - Logarithmic Time:** The runtime increases logarithmically with the input size.  Algorithms like binary search exhibit this complexity.
+
+```python
+import math
+
+def binary_search(data, target):
+    """Performs a binary search. O(log n) complexity."""
+    low = 0
+    high = len(data) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if data[mid] == target:
+            return mid
+        elif data[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1  # Target not found
+
+sorted_data = [2, 5, 7, 8, 11, 12]
+index = binary_search(sorted_data, 11)
+print(index) # Output: 4
+
+```
+
+* **O(n) - Linear Time:** The runtime increases linearly with the input size.  Many simple algorithms fall into this category.
+
+```python
+def linear_search(data, target):
+    """Performs a linear search. O(n) complexity."""
+    for i in range(len(data)):
+        if data[i] == target:
+            return i
+    return -1 # Target not found
+
+my_list = [2, 5, 7, 8, 11, 12]
+index = linear_search(my_list, 8)
+print(index) #Output: 3
+```
+
+* **O(n log n) - Linearithmic Time:**  Common in efficient sorting algorithms like merge sort and heapsort.
+
+```python
+#Example of Merge Sort (O(n log n) - Implementation omitted for brevity.  Many readily available Python implementations exist.)
+```
+
+
+* **O(n^2) - Quadratic Time:** The runtime increases proportionally to the square of the input size.  This often occurs with nested loops.
+
+```python
+def bubble_sort(data):
+    """Performs a bubble sort. O(n^2) complexity."""
+    n = len(data)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if data[j] > data[j+1]:
+                data[j], data[j+1] = data[j+1], data[j]
+    return data
+
+my_list = [64, 34, 25, 12, 22, 11, 90]
+sorted_list = bubble_sort(my_list)
+print(sorted_list) # Output: [11, 12, 22, 25, 34, 64, 90]
+```
+
+* **O(2^n) - Exponential Time:** The runtime doubles with each addition to the input size.  This indicates a very inefficient algorithm for larger inputs (e.g., some recursive algorithms without optimization).
+
+```python
+def fibonacci_recursive(n):
+    """Recursive Fibonacci calculation. O(2^n) complexity."""
+    if n <= 1:
+        return n
+    else:
+        return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
+
+print(fibonacci_recursive(6)) # Output: 8
+
+```
+
+* **O(n!) - Factorial Time:** The runtime grows factorially with the input size. This is extremely slow for even moderately sized inputs (e.g., traveling salesman problem using brute force).
+
+
+Understanding these complexities allows you to choose appropriate algorithms and data structures for your Python programs, ensuring optimal performance.  Choosing an algorithm with a lower time complexity is crucial for handling large datasets efficiently.
+

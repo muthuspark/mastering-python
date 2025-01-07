@@ -1,0 +1,117 @@
+---
+title: "REST API Development in Python"
+date: "04/17/2024"
+categories: [ advanced ]
+---
+
+
+Building robust and scalable REST APIs is a crucial skill for any modern Python developer.  REST (Representational State Transfer) APIs are the backbone of countless web applications, allowing different systems to communicate and exchange data seamlessly. Python, with its rich ecosystem of libraries, provides an excellent environment for crafting efficient and maintainable REST APIs. This guide will walk you through the fundamentals, using Flask, a lightweight and versatile microframework.
+
+## Setting up your Development Environment
+
+Before we dive into the code, ensure you have Python installed (version 3.7 or higher is recommended). We'll use `pip`, Python's package installer, to manage dependencies.  Install Flask:
+
+```bash
+pip install Flask
+```
+
+## Creating a Simple REST API with Flask
+
+Let's build a basic API that manages a list of to-do items.  This example will cover creating, reading, updating, and deleting (CRUD) operations.
+
+```python
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+tasks = [
+    {
+        'id': 1,
+        'title': 'Buy groceries',
+        'description': 'Milk, Cheese, Pizza, Fruit, Tylenol',
+        'done': False
+    },
+    {
+        'id': 2,
+        'title': 'Learn Python',
+        'description': 'Need to find a good Python tutorial on the web',
+        'done': False
+    }
+]
+
+@app.route('/todo/api/v1.0/tasks', methods=['GET'])
+def get_tasks():
+    return jsonify({'tasks': tasks})
+
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
+def get_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        return jsonify({'error': 'Not found'}), 404
+    return jsonify({'task': task[0]})
+
+@app.route('/todo/api/v1.0/tasks', methods=['POST'])
+def create_task():
+    if not request.json or not 'title' in request.json:
+        return jsonify({'error': 'No title provided'}), 400
+    task = {
+        'id': tasks[-1]['id'] + 1,
+        'title': request.json['title'],
+        'description': request.json.get('description', ""),
+        'done': False
+    }
+    tasks.append(task)
+    return jsonify({'task': task}), 201
+
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['PUT'])
+def update_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        return jsonify({'error': 'Not found'}), 404
+    if not request.json:
+        return jsonify({'error': 'No data provided'}), 400
+    task[0]['title'] = request.json.get('title', task[0]['title'])
+    task[0]['description'] = request.json.get('description', task[0]['description'])
+    task[0]['done'] = request.json.get('done', task[0]['done'])
+    return jsonify({'task': task[0]})
+
+
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['DELETE'])
+def delete_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        return jsonify({'error': 'Not found'}), 404
+    tasks.remove(task[0])
+    return jsonify({'result': True})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+This code defines several routes:
+
+* `/todo/api/v1.0/tasks`:  GET requests retrieve all tasks, POST requests create a new task.
+* `/todo/api/v1.0/tasks/&lt;int:task_id&gt;`: GET requests retrieve a specific task, PUT requests update it, DELETE requests remove it.
+
+Remember to replace `"debug=True"` with `"debug=False"` in a production environment.
+
+
+## Handling HTTP Methods and Status Codes
+
+The example demonstrates using different HTTP methods (`GET`, `POST`, `PUT`, `DELETE`) and returning appropriate HTTP status codes (e.g., 200 OK, 201 Created, 400 Bad Request, 404 Not Found).  Proper HTTP method and status code usage is crucial for a well-structured REST API.
+
+
+##  Data Serialization with `jsonify`
+
+Flask's `jsonify` function simplifies the process of returning JSON responses, a common format for REST APIs.
+
+
+##  Error Handling
+
+The code includes basic error handling, returning appropriate error messages and status codes when necessary.  More robust error handling would be beneficial in a production-ready API.
+
+
+##  Beyond the Basics
+
+This is a rudimentary example.  Real-world REST APIs often involve database integration (using SQLAlchemy or similar), authentication and authorization mechanisms, input validation, and more sophisticated error handling.  Consider exploring these advanced topics as you build more complex APIs.  Libraries like Marshmallow can aid in serialization and data validation.  For larger projects, consider using a more full-featured framework like Django REST framework.
+

@@ -1,0 +1,109 @@
+---
+title: "Numbers in Python"
+date: "02/22/2024"
+categories: [ basic ]
+---
+
+
+Python, a versatile and widely-used programming language, offers robust support for various numerical data types.  This post delves into the different ways Python handles numbers, exploring integers, floating-point numbers, and complex numbers, along with their practical applications and limitations.
+
+## Integer Numbers (int)
+
+Integers in Python represent whole numbers without any fractional part. They can be positive, negative, or zero.  Python handles integers with arbitrary precision, meaning there's no practical limit to their size (unlike some other languages).
+
+```python
+x = 10
+y = -5
+z = 0
+
+print(type(x))  # Output: <class 'int'>
+print(x + y)    # Output: 5
+print(x * y)    # Output: -50
+```
+
+Integer operations are straightforward and intuitive. You can perform addition (+), subtraction (-), multiplication (*), division (/), modulo (%), exponentiation (**), and floor division (//).
+
+
+## Floating-Point Numbers (float)
+
+Floating-point numbers represent real numbers with a fractional part. They are commonly used to represent decimal values.  Python uses double-precision floating-point numbers, conforming to the IEEE 754 standard. This means they have a limited precision, which can lead to subtle inaccuracies in certain calculations.
+
+
+```python
+a = 3.14
+b = -2.5
+c = 0.0
+
+print(type(a))  # Output: <class 'float'>
+print(a + b)    # Output: 0.64
+print(a * b)    # Output: -7.85
+```
+
+Keep in mind that floating-point arithmetic isn't always perfectly precise due to the way they are stored in memory. For example:
+
+```python
+print(0.1 + 0.2 == 0.3)  # Output: False (due to floating-point limitations)
+```
+
+
+## Complex Numbers (complex)
+
+Python also supports complex numbers, which are numbers with a real and an imaginary part.  They are represented using the `j` or `J` suffix to denote the imaginary unit (√-1).
+
+```python
+d = 2 + 3j
+e = 1 - 1j
+
+print(type(d))  # Output: <class 'complex'>
+print(d + e)    # Output: (3+2j)
+print(d * e)    # Output: (5+5j)
+```
+
+Complex numbers are useful in various fields, such as electrical engineering and signal processing.
+
+## Type Conversion
+
+Python allows you to convert between different numerical types using built-in functions:
+
+```python
+x = 10       # Integer
+y = float(x) # Convert to float
+z = int(3.14) # Convert to integer (truncates decimal part)
+w = complex(x) #Convert to complex
+
+print(type(y))  # Output: <class 'float'>
+print(z)       # Output: 3
+print(type(w)) # Output: <class 'complex'>
+
+```
+
+Understanding these conversions is crucial for avoiding unexpected behavior in your code.
+
+
+## Number System Conversions
+
+Python provides built-in functions to convert numbers between different number systems (like decimal, binary, octal, and hexadecimal):
+
+```python
+decimal = 255
+binary = bin(decimal)  # Convert to binary
+octal = oct(decimal)   # Convert to octal
+hexadecimal = hex(decimal) #Convert to hexadecimal
+
+print(f"Binary: {binary}")       # Output: Binary: 0b11111111
+print(f"Octal: {octal}")        # Output: Octal: 0o377
+print(f"Hexadecimal: {hexadecimal}") # Output: Hexadecimal: 0xff
+
+#Converting back to decimal
+decimal_from_binary = int(binary, 2)
+decimal_from_octal = int(octal, 8)
+decimal_from_hex = int(hexadecimal, 16)
+print(decimal_from_binary) #Output 255
+print(decimal_from_octal) #Output 255
+print(decimal_from_hex) #Output 255
+
+```
+
+
+These functions facilitate working with numbers represented in different bases, which is particularly relevant in low-level programming or when dealing with data from external sources.
+

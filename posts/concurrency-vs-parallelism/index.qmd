@@ -1,0 +1,106 @@
+---
+title: "Concurrency vs Parallelism"
+date: "07/20/2024"
+categories: [ advanced ]
+---
+
+
+Python, despite its reputation for elegance and readability, can sometimes struggle with performance when dealing with computationally intensive tasks.  Understanding the difference between concurrency and parallelism is crucial for optimizing your code and leveraging your system's resources effectively.  This post will explore these concepts in the context of Python programming, providing clear explanations and illustrative examples.
+
+
+## Concurrency: Doing Multiple Things Seemingly at Once
+
+Concurrency refers to the ability of a program to manage multiple tasks at the same time, *even if they're not actually executing simultaneously*.  This is achieved through techniques like multithreading or asynchronous programming. The key here is that the tasks are *interleaved*, switching between them rapidly, giving the illusion of parallel execution.
+
+**Example: Multithreading**
+
+Multithreading utilizes multiple threads within a single process. Each thread can execute a part of the program concurrently. However, Python's Global Interpreter Lock (GIL) limits true parallelism within a single process; only one thread can hold control of the Python interpreter at any given time. This means that CPU-bound tasks might not see significant speedups with multithreading in Python.
+
+```python
+import threading
+import time
+
+def task(name, delay):
+    print(f"Task {name}: starting")
+    time.sleep(delay)
+    print(f"Task {name}: finishing")
+
+threads = []
+for i in range(3):
+    thread = threading.Thread(target=task, args=(i, 1))  # Each thread sleeps for 1 second.
+    threads.append(thread)
+    thread.start()
+
+for thread in threads:
+    thread.join() # Wait for all threads to finish
+
+print("All tasks completed.")
+```
+
+This code starts three threads, each performing a simple task that involves a delay.  While the threads run concurrently, the GIL prevents true parallel execution on multiple CPU cores.
+
+
+**Example: Asynchronous Programming (asyncio)**
+
+Asynchronous programming uses a different approach.  Instead of threads, it uses a single thread to manage multiple tasks using coroutines.  When a task is waiting (e.g., for an I/O operation like a network request), the thread switches to another task, maximizing efficiency for I/O-bound operations.
+
+```python
+import asyncio
+
+async def task(name, delay):
+    print(f"Task {name}: starting")
+    await asyncio.sleep(delay)
+    print(f"Task {name}: finishing")
+
+async def main():
+    tasks = [task(i, 1) for i in range(3)] # Each task sleeps for 1 second.
+    await asyncio.gather(*tasks) # Run all tasks concurrently.
+
+    print("All tasks completed.")
+
+
+asyncio.run(main())
+```
+
+This asynchronous example achieves concurrency without relying on multiple threads, making it highly effective for I/O-bound operations.
+
+
+## Parallelism: Doing Multiple Things Simultaneously
+
+Parallelism involves the actual simultaneous execution of multiple tasks. This requires multiple processing cores.  In Python, this can be achieved using the `multiprocessing` module.
+
+**Example: Multiprocessing**
+
+The `multiprocessing` module bypasses the GIL limitation by creating multiple processes, each with its own interpreter and memory space. This enables true parallel execution, leading to significant speed improvements for CPU-bound tasks.
+
+```python
+import multiprocessing
+import time
+
+def task(name, delay):
+    print(f"Task {name}: starting")
+    time.sleep(delay)
+    print(f"Task {name}: finishing")
+
+if __name__ == '__main__':
+    with multiprocessing.Pool(processes=3) as pool:
+        results = pool.starmap(task, [(i, 1) for i in range(3)]) # Each process sleeps for 1 second.
+
+    print("All tasks completed.")
+```
+
+This example uses a process pool to execute three tasks in parallel. Each task runs in a separate process, allowing for true parallel execution on multiple cores.  Note the `if __name__ == '__main__':` block; this is crucial for proper multiprocessing behavior.
+
+
+## Key Differences Summarized
+
+| Feature       | Concurrency                               | Parallelism                                  |
+|---------------|-------------------------------------------|---------------------------------------------|
+| Execution     | Interleaved execution of tasks             | Simultaneous execution of tasks              |
+| Resource Use  | Single process (often), shares resources | Multiple processes, dedicated resources     |
+| GIL Impact    | Affected by GIL (Python)                   | Unaffected by GIL                           |
+| Best For      | I/O-bound tasks (network, disk)          | CPU-bound tasks (computationally intensive) |
+
+
+Choosing between concurrency and parallelism depends heavily on the nature of your task.  For I/O-bound operations, concurrency (asyncio) is often sufficient and efficient. For CPU-bound tasks, parallelism (`multiprocessing`) is necessary to fully utilize the available processing power.
+

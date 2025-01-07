@@ -1,0 +1,144 @@
+---
+title: "Abstract Base Classes (ABC)"
+date: "02/04/2024"
+categories: [ advanced ]
+---
+
+
+Python's Abstract Base Classes (ABCs) are a powerful tool for defining interfaces and enforcing code structure. They provide a way to specify what methods a class *must* implement, without dictating how those methods should be implemented. This promotes code reusability, maintainability, and helps prevent runtime errors.  This blog post will explore ABCs in detail, providing clear explanations and practical examples.
+
+## What are Abstract Base Classes?
+
+An abstract base class is a class that cannot be instantiated directly. Its primary purpose is to serve as a blueprint for other classes, defining a common interface.  This interface is enforced through the use of abstract methods. An abstract method is a method declared but not implemented in the ABC.  Subclasses *must* provide concrete implementations for these abstract methods.  Failure to do so will result in a `TypeError` at runtime.
+
+The `abc` module provides the necessary tools for working with ABCs.
+
+
+## Creating an Abstract Base Class
+
+Let's start by creating a simple ABC for representing geometric shapes:
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):  # Inherits from ABC
+
+    @abstractmethod
+    def area(self):
+        pass  # Abstract method - no implementation
+
+    @abstractmethod
+    def perimeter(self):
+        pass # Abstract method - no implementation
+
+```
+
+Notice the use of `@abstractmethod` decorator. This decorator designates `area` and `perimeter` as abstract methods.  The `pass` statement indicates that there's no implementation within the ABC itself.
+
+
+## Implementing Abstract Methods in Subclasses
+
+Now, let's create concrete subclasses of `Shape`, such as `Circle` and `Rectangle`:
+
+```python
+import math
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius**2
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+```
+
+Both `Circle` and `Rectangle` provide concrete implementations for `area` and `perimeter`, fulfilling the contract defined by the `Shape` ABC.
+
+
+## Benefits of Using ABCs
+
+* **Enforced Structure:**  ABCs ensure that subclasses adhere to a predefined interface.
+* **Polymorphism:** You can treat instances of different subclasses uniformly, as long as they share the same ABC.
+* **Improved Code Readability and Maintainability:**  ABCs enhance code organization and make it easier to understand the relationships between classes.
+* **Early Error Detection:**  The runtime `TypeError` helps catch errors early in the development process, preventing unexpected behavior later.
+
+
+
+## Abstract Properties
+
+Besides abstract methods, you can also define abstract properties in an ABC:
+
+```python
+from abc import ABC, abstractmethod, abstractproperty
+
+class DataProcessor(ABC):
+    @abstractproperty
+    def data(self):
+        pass
+
+    @abstractmethod
+    def process(self):
+        pass
+
+class CSVProcessor(DataProcessor):
+    def __init__(self, filename):
+        self._data = self._load_csv(filename)
+
+    def _load_csv(self, filename):
+      #Simulate loading data from CSV
+      return ["data1","data2"]
+
+    @property
+    def data(self):
+        return self._data
+
+    def process(self):
+        # Process the CSV data
+        print("Processing CSV data:", self.data)
+
+```
+
+Here, `data` is defined as an abstract property, requiring subclasses to provide a getter.
+
+
+
+##  Registering Subclasses
+
+The `register()` method allows you to explicitly register a class as a subclass of an ABC, even if it doesn't directly inherit from it. This can be useful for working with existing classes that you want to integrate into an ABC-based system.
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class MyShape:  # Doesn't inherit from Shape
+    def area(self):
+        return 10
+
+Shape.register(MyShape) # Register MyShape as a subclass of Shape
+
+instance = MyShape()
+print(isinstance(instance, Shape)) # True, even though MyShape doesn't explicitly inherit from Shape
+
+```
+
+
+This demonstrates how to leverage the power of ABCs for designing robust and maintainable Python code.  Using ABCs effectively can significantly improve your software's architecture and reduce the likelihood of runtime errors.
+

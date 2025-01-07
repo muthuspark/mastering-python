@@ -1,0 +1,111 @@
+---
+title: "Python Scope"
+date: "08/30/2024"
+categories: [ basic ]
+---
+
+
+Python's scope rules dictate where and how you can access variables within your code.  Mastering scope is crucial for writing clean, bug-free, and maintainable Python programs.  Let's explore the different levels of scope in Python and illustrate them with practical examples.
+
+
+## Levels of Scope in Python
+
+Python uses the LEGB rule to determine the scope of a variable:
+
+* **L**ocal: This is the innermost scope, defined within a function or block of code (like a loop or conditional statement).  Variables defined here are only accessible within that specific function or block.
+
+* **E**nclosing function locals: If a variable isn't found locally, Python searches the enclosing function's scope. This applies to nested functions—inner functions can access variables from their outer functions.
+
+* **G**lobal: This scope encompasses variables defined at the top level of a module (a `.py` file).  These variables are accessible from anywhere within that module, but not from other modules unless explicitly imported.
+
+* **B**uilt-in: This is the outermost scope, containing pre-defined functions and constants available in Python (e.g., `print`, `len`, `True`).
+
+
+## Code Examples Illustrating Scope
+
+Let's illustrate these scope levels with code:
+
+**Example 1: Local Scope**
+
+```python
+def my_function():
+  x = 10  # Local variable
+  print(x)
+
+my_function()  # Output: 10
+print(x)  # This will raise a NameError because x is not defined in the global scope
+```
+
+In this example, `x` is only accessible within `my_function()`.
+
+
+**Example 2: Enclosing Function Locals (Nested Functions)**
+
+```python
+def outer_function():
+  y = 20  # Enclosing function variable
+
+  def inner_function():
+    print(y)  # Accessing y from the enclosing function
+
+  inner_function()
+
+outer_function()  # Output: 20
+```
+
+`inner_function()` can access `y` because it's in its enclosing function's scope.
+
+
+**Example 3: Global Scope**
+
+```python
+z = 30  # Global variable
+
+def my_function():
+  print(z)  # Accessing the global variable
+
+my_function()  # Output: 30
+```
+
+`my_function()` can directly access the global variable `z`.
+
+
+**Example 4: Modifying Global Variables from Within a Function**
+
+To modify a global variable inside a function, you need to use the `global` keyword:
+
+```python
+global_var = 40
+
+def modify_global():
+  global global_var  # Declare global_var as a global variable
+  global_var = 50
+
+modify_global()
+print(global_var)  # Output: 50
+```
+
+
+**Example 5: The `nonlocal` Keyword**
+
+The `nonlocal` keyword is used to modify variables in enclosing functions within nested functions.
+
+```python
+def outer():
+    a = 10
+    def inner():
+        nonlocal a
+        a = 20
+    inner()
+    print(a) # Output: 20
+
+outer()
+```
+
+Without `nonlocal`, assigning to `a` within `inner()` would create a new local variable, leaving the `a` in `outer()` unchanged.
+
+
+##  Understanding Scope for Better Code
+
+By understanding Python's scope rules, you can write more organized, predictable, and maintainable code.  Proper scope management helps avoid naming conflicts and makes your code easier to debug and understand.  Careful consideration of scope is particularly important when working with larger, more complex projects.
+

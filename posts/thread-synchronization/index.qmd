@@ -1,0 +1,168 @@
+---
+title: "Thread Synchronization"
+date: "12/06/2024"
+categories: [ advanced ]
+---
+
+
+Python's threading capabilities offer a powerful way to enhance application performance by executing tasks concurrently. However, uncontrolled access to shared resources by multiple threads can lead to race conditions and data corruption. This is where thread synchronization comes into play.  This post will explore several crucial synchronization techniques in Python, providing clear code examples to illustrate their usage.
+
+## Understanding Race Conditions
+
+Before diving into synchronization, let's understand why it's necessary.  Imagine two threads updating a shared counter variable.  Both read the current value, increment it, and write it back. If this happens concurrently, one increment could be lost, resulting in an inaccurate count. This is a classic race condition.
+
+```python
+import threading
+counter = 0
+
+def increment_counter():
+  global counter
+  for _ in range(100000):
+    counter += 1
+
+thread1 = threading.Thread(target=increment_counter)
+thread2 = threading.Thread(target=increment_counter)
+
+thread1.start()
+thread2.start()
+thread1.join()
+thread2.join()
+
+print(f"Final counter value: {counter}") #Likely less than 200000
+```
+
+The final counter value is often less than the expected 200000 because of the race condition.
+
+
+## Synchronization Mechanisms
+
+Python offers several mechanisms to prevent race conditions. Let's examine the most common:
+
+
+### 1. Locks (Mutexes)
+
+The simplest approach is using a `threading.Lock`. A lock acts like a key; only one thread can hold the lock at a time.  Other threads attempting to acquire the lock will block until it's released.
+
+```python
+import threading
+
+counter = 0
+lock = threading.Lock()
+
+def increment_counter():
+  global counter
+  for _ in range(100000):
+    with lock: # Acquire lock before accessing shared resource
+      counter += 1
+
+thread1 = threading.Thread(target=increment_counter)
+thread2 = threading.Thread(target=increment_counter)
+
+thread1.start()
+thread2.start()
+thread1.join()
+thread2.join()
+
+print(f"Final counter value: {counter}") # Now likely 200000
+```
+
+The `with lock:` statement ensures that the `counter` is accessed atomically, preventing race conditions.
+
+
+### 2. Semaphores
+
+Semaphores generalize locks by allowing a specified number of threads to access a shared resource concurrently.  This is useful for controlling access to a limited resource pool.
+
+```python
+import threading
+import time
+
+semaphore = threading.Semaphore(2) # Allow only 2 concurrent accesses
+
+def access_resource():
+  with semaphore:
+    print(f"Thread {threading.current_thread().name} accessing resource")
+    time.sleep(2)
+    print(f"Thread {threading.current_thread().name} releasing resource")
+
+threads = []
+for i in range(5):
+  thread = threading.Thread(target=access_resource)
+  threads.append(thread)
+  thread.start()
+
+for thread in threads:
+  thread.join()
+```
+
+This example limits concurrent access to the `access_resource` function to two threads.
+
+
+### 3. Condition Variables
+
+Condition variables allow threads to wait for a specific condition to become true before proceeding. They often work in conjunction with locks.
+
+```python
+import threading
+import time
+
+condition = threading.Condition()
+data_ready = False
+
+def producer():
+  global data_ready
+  with condition:
+    print("Producer: producing data...")
+    time.sleep(2)
+    data_ready = True
+    condition.notify() # Notify waiting consumers
+
+def consumer():
+  global data_ready
+  with condition:
+    print("Consumer: waiting for data...")
+    condition.wait_for(lambda: data_ready) # Wait until data_ready is True
+    print("Consumer: processing data...")
+
+producer_thread = threading.Thread(target=producer)
+consumer_thread = threading.Thread(target=consumer)
+
+producer_thread.start()
+consumer_thread.start()
+producer_thread.join()
+consumer_thread.join()
+
+```
+
+The consumer thread waits using `condition.wait_for` until the producer signals it via `condition.notify`.
+
+
+### 4. Event Objects
+
+Event objects provide a simple way for one thread to signal another.
+
+```python
+import threading
+import time
+
+event = threading.Event()
+
+def worker():
+  print("Worker: waiting for event...")
+  event.wait() # Wait for the event to be set
+  print("Worker: processing...")
+
+worker_thread = threading.Thread(target=worker)
+worker_thread.start()
+
+time.sleep(1)
+print("Main: setting event...")
+event.set() # Set the event
+worker_thread.join()
+```
+
+The `event.set()` call signals the worker thread to proceed.
+
+
+These are some of the fundamental techniques for thread synchronization in Python.  Properly using these mechanisms is crucial for building robust and reliable multithreaded applications.  Choosing the appropriate technique depends on the specific concurrency requirements of your application.
+

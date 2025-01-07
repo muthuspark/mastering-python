@@ -1,0 +1,103 @@
+---
+title: "If-Else Statement"
+date: "03/08/2024"
+categories: [ basic ]
+---
+
+
+Python's `if-else` statement is a fundamental control flow structure that allows your program to make decisions based on conditions.  It dictates which block of code executes based on whether a condition evaluates to `True` or `False`.  Understanding and effectively using `if-else` statements is crucial for writing any non-trivial Python program.
+
+## The Basic `if` Statement
+
+The simplest form involves a single condition. If the condition is true, the indented code block is executed. Otherwise, it's skipped.
+
+```python
+x = 10
+if x > 5:
+  print("x is greater than 5") 
+```
+
+This code will print "x is greater than 5" because the condition `x > 5` is true.
+
+
+## The `if-else` Statement
+
+This extends the `if` statement by adding an `else` block. The `else` block executes only if the `if` condition is false.
+
+```python
+y = 3
+if y > 5:
+  print("y is greater than 5")
+else:
+  print("y is not greater than 5")
+```
+
+Here, the output will be "y is not greater than 5" because `y > 5` is false.
+
+
+## `elif` (Else If) for Multiple Conditions
+
+For situations with more than two possibilities, the `elif` (else if) keyword provides a concise way to chain conditions.
+
+```python
+z = 7
+if z > 10:
+  print("z is greater than 10")
+elif z > 5:
+  print("z is greater than 5 but not greater than 10")
+else:
+  print("z is less than or equal to 5")
+```
+
+This code will print "z is greater than 5 but not greater than 10". The conditions are checked sequentially; the first true condition's block executes, and the rest are skipped.
+
+
+## Nested `if-else` Statements
+
+You can nest `if-else` statements within each other to handle more complex scenarios.  However, excessive nesting can reduce readability; consider refactoring into functions for better clarity if your nesting becomes too deep.
+
+```python
+age = 20
+income = 30000
+
+if age >= 18:
+  if income >= 25000:
+    print("Eligible for loan")
+  else:
+    print("Income too low for loan")
+else:
+  print("Too young for loan")
+```
+
+
+## Conditional Expressions (Ternary Operator)
+
+For simple `if-else` logic, Python offers a concise syntax called a conditional expression:
+
+```python
+a = 10
+b = 20
+max_value = a if a > b else b  # max_value will be 20
+print(max_value)
+```
+
+This single line achieves the same result as a longer `if-else` block.  It's particularly useful for assigning values based on conditions.
+
+
+##  Handling Multiple Conditions with `and` and `or`
+
+You can combine multiple conditions using the logical operators `and` and `or`.  The `and` operator requires both conditions to be true, while the `or` operator requires at least one condition to be true.
+
+```python
+temperature = 25
+is_raining = True
+
+if temperature > 20 and not is_raining:
+    print("It's a beautiful day!")
+elif temperature < 10 or is_raining:
+    print("It's cold or rainy!")
+```
+
+
+These examples demonstrate the versatility and power of `if-else` statements in Python.  They are essential for creating programs that can adapt to different situations and make informed decisions.
+

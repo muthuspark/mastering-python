@@ -1,0 +1,133 @@
+---
+title: "Python Queue Module"
+date: "03/08/2024"
+categories: [ advanced ]
+---
+
+
+Python's `queue` module provides a robust and versatile way to manage data structures that follow the First-In, First-Out (FIFO) and Last-In, First-Out (LIFO) principles. This is invaluable for tasks involving asynchronous programming, multiprocessing, and handling tasks in a specific order. This post dives deep into the `queue` module, showcasing its functionality with clear code examples.
+
+## Understanding Queues: FIFO and LIFO
+
+At its core, a queue is a linear data structure. The `queue` module offers two primary queue types:
+
+* **FIFO Queue (`Queue`):**  Elements are added to the rear (enqueue) and removed from the front (dequeue).  Think of a real-world queue – the first person in line is the first person served.
+
+* **LIFO Queue (`LifoQueue`):** Elements are added to the top (push) and removed from the top (pop). This is similar to a stack of plates; the last plate placed on top is the first one removed.
+
+
+## Basic Usage: Enqueue and Dequeue
+
+Let's start with simple examples illustrating enqueue (adding elements) and dequeue (removing elements) operations using both FIFO and LIFO queues.
+
+```python
+import queue
+import threading
+import time
+
+fifo_queue = queue.Queue()
+fifo_queue.put(10)
+fifo_queue.put(20)
+fifo_queue.put(30)
+
+print("FIFO Queue:", fifo_queue.qsize()) #Check queue size
+print("FIFO Queue - First element:", fifo_queue.get())  #Dequeue: removes and returns the first element
+print("FIFO Queue:", fifo_queue.qsize()) #Check queue size
+
+#LIFO Queue
+lifo_queue = queue.LifoQueue()
+lifo_queue.put(10)
+lifo_queue.put(20)
+lifo_queue.put(30)
+
+print("\nLIFO Queue:", lifo_queue.qsize()) #Check queue size
+print("LIFO Queue - First element:", lifo_queue.get()) # Dequeue: removes and returns the last element added.
+print("LIFO Queue:", lifo_queue.qsize()) #Check queue size
+
+```
+
+This code demonstrates the fundamental operations of adding and removing elements from both FIFO and LIFO queues. Notice how the order of retrieval differs based on the queue type.
+
+
+## Handling Exceptions: `empty()` and `full()`
+
+Queues have a limited capacity (by default, unlimited, but can be set during initialization).  The `queue` module provides methods to check for empty and full queues, preventing errors.
+
+```python
+fifo_queue = queue.Queue(maxsize=2)  #Creating queue with max size of 2
+
+fifo_queue.put(1)
+fifo_queue.put(2)
+
+print(fifo_queue.full()) # Check if the queue is full
+
+try:
+  fifo_queue.put(3, block=False) #Try adding another element without blocking.
+except queue.Full:
+  print("Queue is full!")
+
+
+print(fifo_queue.empty()) # Check if the queue is empty
+
+print(fifo_queue.get())
+print(fifo_queue.get())
+print(fifo_queue.empty())  #Check if the queue is empty after removing all elements.
+```
+
+This example showcases how to check queue status and handle exceptions when the queue is full or empty.  The `block=False` argument in `put()` prevents the program from blocking if the queue is full.
+
+
+## Prioritized Queues (`PriorityQueue`)
+
+The `PriorityQueue` allows you to add items with priorities. Items with lower priority values are dequeued first.
+
+```python
+import queue
+
+priority_queue = queue.PriorityQueue()
+priority_queue.put((1, 'Task A'))  # Lower priority value (1) dequeued first
+priority_queue.put((3, 'Task B'))
+priority_queue.put((2, 'Task C'))
+
+while not priority_queue.empty():
+    priority, task = priority_queue.get()
+    print(f"Priority: {priority}, Task: {task}")
+
+```
+
+In this example, 'Task A' will be processed first, followed by 'Task C', and finally 'Task B'.
+
+
+## Threading and Queues
+
+The `queue` module is particularly useful when working with multiple threads.  It ensures safe and synchronized access to shared data, preventing race conditions.  
+
+```python
+import queue
+import threading
+import time
+
+def worker(q, num):
+    while True:
+        item = q.get()
+        print(f"Thread {num}: Processing {item}")
+        q.task_done()  #Signal task completion
+        time.sleep(1)
+
+q = queue.Queue()
+num_threads = 3
+for i in range(num_threads):
+    t = threading.Thread(target=worker, args=(q,i))
+    t.daemon = True  # Allow the program to exit even if threads are running
+    t.start()
+
+for item in range(10):
+    q.put(item)
+
+q.join()  #Wait for all items to be processed.
+print("All tasks are complete.")
+
+```
+
+This advanced example demonstrates how to use a queue to distribute tasks efficiently among multiple threads, a common pattern in concurrent programming.  The `task_done()` and `join()` methods are crucial for ensuring proper synchronization and program termination.  This is a powerful application of the `queue` module for managing concurrent processes.
+

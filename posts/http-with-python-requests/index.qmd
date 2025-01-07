@@ -1,0 +1,147 @@
+---
+title: "HTTP with Python Requests"
+date: "04/16/2024"
+categories: [ advanced ]
+---
+
+
+Python's `requests` library is a powerful and user-friendly tool for making HTTP requests.  Whether you're fetching data from an API, scraping web pages, or interacting with web services, `requests` simplifies the process significantly compared to using lower-level libraries. This guide will walk you through the fundamentals of using `requests` with clear code examples.
+
+
+## Installation
+
+Before you begin, make sure you have the `requests` library installed.  If not, you can install it using pip:
+
+```bash
+pip install requests
+```
+
+
+## Basic GET Requests
+
+The most common type of HTTP request is GET, used to retrieve data from a server.  Here's how to perform a GET request using `requests`:
+
+```python
+import requests
+
+response = requests.get("https://www.example.com")
+
+print(response.status_code)  # 200 indicates success
+
+print(response.text)  # The HTML content of the page
+
+```
+
+This code snippet sends a GET request to `https://www.example.com`.  The `response` object contains various attributes, including the status code (`status_code`) and the response content (`text`). If the server returns JSON data, you can use `response.json()` to parse it into a Python dictionary.
+
+
+## Handling Different HTTP Methods
+
+`requests` supports all common HTTP methods, including POST, PUT, DELETE, etc.  Let's look at a POST request example:
+
+```python
+import requests
+
+payload = {'key1': 'value1', 'key2': 'value2'}
+response = requests.post("https://httpbin.org/post", data=payload)
+
+print(response.status_code)
+print(response.json()) #httpbin.org returns the payload as json
+```
+
+This example sends a POST request to `https://httpbin.org/post` with the specified data in the `payload` dictionary.  Remember to adapt the URL and payload to your specific needs.  Similar methods exist for PUT and DELETE requests using `requests.put()` and `requests.delete()`.
+
+
+## Adding Headers
+
+HTTP headers provide additional information about the request. You can add headers using the `headers` parameter:
+
+```python
+import requests
+
+headers = {'User-Agent': 'My custom User-Agent'}
+response = requests.get("https://www.example.com", headers=headers)
+print(response.status_code)
+```
+
+This adds a custom `User-Agent` header to the request.  This is often necessary when interacting with APIs that require specific headers for authentication or other purposes.
+
+
+## Handling Parameters
+
+You can include query parameters in your GET requests using the `params` parameter:
+
+```python
+import requests
+
+params = {'param1': 'value1', 'param2': 'value2'}
+response = requests.get("https://httpbin.org/get", params=params)
+print(response.json()) #httpbin.org returns the parameters as json
+```
+
+This adds `param1=value1&param2=value2` to the URL.
+
+
+## Handling Errors
+
+It's crucial to handle potential errors gracefully.  `requests` raises exceptions for various error conditions, such as network issues or non-200 status codes.
+
+```python
+import requests
+
+try:
+    response = requests.get("https://www.example.com")
+    response.raise_for_status() # Raises an exception for bad status codes (4xx or 5xx)
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred: {e}")
+```
+
+`response.raise_for_status()` checks for HTTP error status codes (4xx or 5xx) and raises an exception if one is found.  The `try...except` block handles potential exceptions, preventing your program from crashing.
+
+
+
+## Working with Files
+
+To upload files, use the `files` parameter with a dictionary:
+
+```python
+import requests
+
+files = {'file': open('my_file.txt', 'rb')}
+response = requests.post("https://httpbin.org/post", files=files)
+print(response.json())
+```
+
+Remember to close the file after the request is complete.
+
+
+
+##  Authentication
+
+Many APIs require authentication. `requests` supports various authentication methods.  For example, using Basic Authentication:
+
+```python
+import requests
+
+response = requests.get("https://api.example.com", auth=('username', 'password'))
+print(response.status_code)
+```
+
+Replace `"https://api.example.com"`, `'username'`, and `'password'` with your actual API endpoint and credentials.  Other authentication methods like OAuth can be implemented using dedicated libraries.
+
+
+## Timeouts
+
+To prevent requests from hanging indefinitely, set a timeout:
+
+```python
+import requests
+
+response = requests.get("https://www.example.com", timeout=5) # Timeout after 5 seconds
+print(response.status_code)
+```
+
+
+These examples illustrate the fundamental capabilities of Python's `requests` library. With its intuitive API and comprehensive features, `requests` simplifies the process of interacting with web services and APIs, making it an essential tool for any Python developer working with HTTP.
+

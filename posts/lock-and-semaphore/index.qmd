@@ -1,0 +1,87 @@
+---
+title: "Lock and Semaphore"
+date: "03/14/2024"
+categories: [ advanced ]
+---
+
+
+Python's concurrency model, leveraging threads and processes, presents unique challenges when managing shared resources.  Multiple threads or processes accessing the same data simultaneously can lead to race conditions and unpredictable behavior.  This is where synchronization primitives like locks and semaphores become crucial.  This post will delve into their functionalities and demonstrate their usage with clear code examples.
+
+
+## Understanding Locks in Python
+
+A lock, also known as a mutex (mutual exclusion), is a synchronization mechanism that ensures only one thread can access a shared resource at a time.  This prevents race conditions by serializing access.  Python provides the `threading.Lock` class for this purpose.
+
+**Example: Protecting a shared counter**
+
+Imagine a scenario where multiple threads increment a shared counter. Without a lock, the final count would likely be incorrect due to race conditions. A lock guarantees atomicity:
+
+```python
+import threading
+
+counter = 0
+lock = threading.Lock()
+
+def increment_counter():
+    global counter
+    for _ in range(100000):
+        with lock:  # Acquire the lock before accessing the counter
+            counter += 1
+
+threads = []
+for i in range(10):
+    thread = threading.Thread(target=increment_counter)
+    threads.append(thread)
+    thread.start()
+
+for thread in threads:
+    thread.join()
+
+print(f"Final counter value: {counter}") #Expect 1000000 if no race condition occurs
+
+```
+
+The `with lock:` statement ensures that the lock is automatically acquired before entering the block and released afterward, even if exceptions occur.
+
+
+## Semaphores: Managing Limited Resources
+
+A semaphore is a more generalized synchronization primitive that controls access to a shared resource by a fixed number of threads concurrently.  It's like a counter that starts at a given value (initial count).  Threads can acquire the semaphore (decrementing the counter), accessing the resource if the counter is greater than zero.  When they're finished, they release the semaphore (incrementing the counter), making the resource available for others.
+
+Python's `threading.Semaphore` class implements semaphores.
+
+**Example: Limiting concurrent access to a database**
+
+Suppose you have a database connection pool with a limited number of connections.  A semaphore can ensure that no more than, say, 5 threads access the database concurrently.
+
+```python
+import threading
+import time
+
+semaphore = threading.Semaphore(5)  # Only 5 threads can access the database at once
+
+def access_database():
+    with semaphore:
+        print(f"Thread {threading.current_thread().name} accessing database...")
+        time.sleep(2)  # Simulate database operation
+        print(f"Thread {threading.current_thread().name} releasing database...")
+
+
+threads = []
+for i in range(10):
+    thread = threading.Thread(target=access_database)
+    threads.append(thread)
+    thread.start()
+
+for thread in threads:
+    thread.join()
+
+```
+
+This example demonstrates how the semaphore limits concurrent database access.  Threads will block until a connection becomes available.
+
+
+## Choosing Between Locks and Semaphores
+
+Locks are best suited for protecting shared resources where only one thread should access them at a time.  Semaphores are more flexible and suitable for managing resources that can be accessed concurrently by a limited number of threads.  The choice depends on the specific concurrency control needs of your application.
+

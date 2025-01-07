@@ -1,0 +1,135 @@
+---
+title: "SQLAlchemy ORM"
+date: "01/31/2024"
+categories: [ advanced ]
+---
+
+
+SQLAlchemy is a powerful and flexible Object-Relational Mapper (ORM) for Python.  It allows you to interact with databases using Python objects instead of writing raw SQL queries, making database interaction cleaner, more maintainable, and less prone to errors.  This post will guide you through the basics of SQLAlchemy ORM, demonstrating its capabilities with clear code examples.
+
+
+## Setting up SQLAlchemy
+
+Before we begin, ensure you have SQLAlchemy installed:
+
+```bash
+pip install sqlalchemy
+```
+
+We'll also need a database. For simplicity, we'll use SQLite, which doesn't require a separate server.  You can easily adapt these examples to other databases like PostgreSQL, MySQL, or MSSQL by changing the connection string.
+
+
+## Defining a Model
+
+The core of SQLAlchemy ORM is the model.  A model defines the structure of your database tables using Python classes.  Let's create a simple `User` model:
+
+```python
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String
+
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'  # Table name in the database
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    fullname = Column(String)
+    nickname = Column(String)
+
+```
+
+This code defines a `User` class with an `id` (primary key), `name`, `fullname`, and `nickname` columns.  `declarative_base()` provides a base class for our models.
+
+
+## Creating the Database and Table
+
+Now, let's create the database and table:
+
+```python
+from sqlalchemy import create_engine
+
+engine = create_engine('sqlite:///./mydatabase.db') # Connects to an SQLite database
+Base.metadata.create_all(engine)
+```
+
+This creates an SQLite database file named `mydatabase.db` and generates the `users` table based on our `User` model.  Replace `'sqlite:///./mydatabase.db'` with your database connection string if you are using a different database.
+
+
+## Working with the Database Session
+
+To interact with the database, we use a `Session`:
+
+```python
+from sqlalchemy.orm import sessionmaker
+
+Session = sessionmaker(bind=engine)
+session = Session()
+```
+
+The session is a context manager for database transactions.
+
+
+## Adding and Retrieving Data
+
+Let's add some users:
+
+```python
+new_user = User(name='Alice', fullname='Alice Smith', nickname='alicesmith')
+session.add(new_user)
+session.commit()
+
+all_users = session.query(User).all()
+for user in all_users:
+    print(f"Name: {user.name}, Full Name: {user.fullname}, Nickname: {user.nickname}")
+```
+
+This code adds a new user and then retrieves all users from the database.
+
+
+## Querying Data
+
+SQLAlchemy provides powerful querying capabilities:
+
+```python
+user = session.query(User).filter_by(name='Alice').first()
+print(f"Found user: {user.name}")
+
+users_with_nickname = session.query(User).filter(User.nickname.like('%smith%')).all()
+for user in users_with_nickname:
+    print(f"User with 'smith' in nickname: {user.name}")
+
+```
+
+This demonstrates filtering users based on name and nickname using `filter_by` and `filter`.
+
+
+## Updating and Deleting Data
+
+Updating is straightforward:
+
+```python
+user.fullname = 'Alice Johnson'
+session.commit()
+```
+
+And deleting:
+
+
+```python
+session.delete(user)
+session.commit()
+```
+
+
+## Relationships
+
+SQLAlchemy excels at managing relationships between tables. We'll expand on this in a future post.  For now, this introduction provides a solid foundation for using the SQLAlchemy ORM.  Remember to close the session when finished:
+
+```python
+session.close()
+```
+
+
+Remember to handle potential exceptions using `try...except` blocks in production code for robust error management.
+

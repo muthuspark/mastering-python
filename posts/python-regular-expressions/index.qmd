@@ -1,0 +1,112 @@
+---
+title: "Python Regular Expressions"
+date: "07/23/2024"
+categories: [ basic ]
+---
+
+
+Regular expressions (regex or regexp) are powerful tools for pattern matching within strings.  Python's built-in `re` module provides comprehensive support for working with regular expressions, enabling you to efficiently search, extract, and manipulate text data. This guide will walk you through the fundamentals of Python regular expressions with practical code examples.
+
+
+## Understanding the Basics
+
+At its core, a regular expression is a sequence of characters that define a search pattern.  This pattern can be simple, like searching for a specific word, or incredibly complex, allowing you to match intricate structures within text.  The `re` module provides functions to compile and use these patterns.
+
+Let's start with a simple example: finding all occurrences of the word "cat" in a string.
+
+```python
+import re
+
+text = "The cat sat on the mat, and another cat was nearby."
+pattern = r"cat"  # r"" denotes a raw string, preventing backslash escaping issues
+
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['cat', 'cat']
+```
+
+`re.findall()` finds all non-overlapping matches of the pattern in the string and returns them as a list.
+
+
+## Special Characters and Metacharacters
+
+Regular expressions go beyond simple literal string matching.  Metacharacters provide powerful features for pattern specification:
+
+* **`.` (dot):** Matches any single character (except newline).
+* **`^` (caret):** Matches the beginning of a string.
+* **`$` (dollar):** Matches the end of a string.
+* **`*` (asterisk):** Matches zero or more occurrences of the preceding character.
+* **`+` (plus):** Matches one or more occurrences of the preceding character.
+* **`?` (question mark):** Matches zero or one occurrence of the preceding character.
+* **`[]` (square brackets):** Defines a character set.  `[abc]` matches 'a', 'b', or 'c'.
+* **`()` (parentheses):** Creates a capturing group.
+* **`\|` (vertical bar):** Acts as an "or" operator.
+
+
+Example using some metacharacters:
+
+```python
+text = "My phone number is 123-456-7890 and another is 987-654-3210."
+pattern = r"\d{3}-\d{3}-\d{4}"  # \d matches digits, {n} matches n repetitions
+
+matches = re.findall(pattern, text)
+print(matches) # Output: ['123-456-7890', '987-654-3210']
+```
+
+
+## Character Classes and Quantifiers
+
+Character classes allow for more concise and flexible pattern definitions:
+
+* `\d`: Matches any digit (0-9).
+* `\D`: Matches any non-digit character.
+* `\w`: Matches any alphanumeric character (a-z, A-Z, 0-9, _).
+* `\W`: Matches any non-alphanumeric character.
+* `\s`: Matches any whitespace character (space, tab, newline).
+* `\S`: Matches any non-whitespace character.
+
+
+Quantifiers control how many times a preceding element should be matched:
+
+* `*`: Zero or more times.
+* `+`: One or more times.
+* `?`: Zero or one time.
+* `{n}`: Exactly n times.
+* `{n,}`: n or more times.
+* `{n,m}`: Between n and m times.
+
+
+Example using character classes and quantifiers:
+
+```python
+text = "This is a sample string with 123 numbers and some words."
+pattern = r"\b\w{4}\b" # \b matches word boundaries, \w{4} matches four word characters
+
+matches = re.findall(pattern, text)
+print(matches) # Output: ['This', 'with', 'some', 'words']
+```
+
+
+
+## Using `re.search()` and `re.sub()`
+
+`re.search()` finds the *first* match of a pattern in a string:
+
+```python
+text = "The quick brown fox jumps over the lazy dog."
+pattern = r"fox"
+match = re.search(pattern, text)
+if match:
+    print(match.group(0))  # Output: fox
+```
+
+`re.sub()` replaces all occurrences of a pattern with a replacement string:
+
+```python
+text = "apple, banana, apple, orange"
+pattern = r"apple"
+replaced_text = re.sub(pattern, "grape", text)
+print(replaced_text)  # Output: grape, banana, grape, orange
+```
+
+These examples demonstrate the power and flexibility of Python's regular expressions. More advanced techniques like lookarounds and named capturing groups will be covered in future articles.
+

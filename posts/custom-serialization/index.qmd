@@ -1,0 +1,104 @@
+---
+title: "Custom Serialization"
+date: "12/09/2024"
+categories: [ advanced ]
+---
+
+
+Python offers built-in serialization tools like `pickle` and `json`, but they often fall short when dealing with complex objects or specific data formats.  This is where custom serialization shines.  Custom serialization allows you to precisely control how your Python objects are converted into a byte stream (for storage or transmission) and back again.  This post explores how to implement custom serialization, focusing on its advantages and demonstrating practical examples.
+
+
+## When to Consider Custom Serialization
+
+Standard libraries like `pickle` (for Python-specific serialization) and `json` (for human-readable JSON) are excellent for many scenarios. However, consider custom serialization if:
+
+* **You have complex object graphs:**  `pickle` can struggle with circular references or objects containing custom methods that aren't easily serialized.  `json` simply can't handle them.
+* **You need a specific data format:**  Neither `pickle` nor `json` might directly support your required format (e.g., a binary protocol, a custom XML structure).
+* **You need to optimize for size or speed:**  Custom serialization lets you fine-tune the encoding to minimize the size of the serialized data or improve serialization/deserialization performance.
+* **Security is paramount:**  `pickle` is known to be vulnerable to insecure deserialization; custom serialization offers more control to mitigate such risks.
+
+
+## Implementing Custom Serialization
+
+A typical approach to custom serialization involves defining two methods: one for serialization (`serialize`) and one for deserialization (`deserialize`).  These methods work together to convert your objects to and from a suitable representation (e.g., a string, bytes).
+
+
+```python
+import json
+
+class MyCustomObject:
+    def __init__(self, name, value):
+        self.name = name
+        self.value = value
+
+    def serialize(self):
+        return json.dumps({'name': self.name, 'value': self.value})
+
+    @staticmethod
+    def deserialize(data):
+        d = json.loads(data)
+        return MyCustomObject(d['name'], d['value'])
+
+obj = MyCustomObject("Example", 123)
+serialized_data = obj.serialize()
+print(f"Serialized data: {serialized_data}")
+
+deserialized_obj = MyCustomObject.deserialize(serialized_data)
+print(f"Deserialized object: {deserialized_obj.name}, {deserialized_obj.value}")
+
+```
+
+This example leverages `json` internally for simplicity.  However, you can use any serialization technique, including custom binary formats or even protocol buffers for more efficient and compact serialization.
+
+
+##  Handling Complex Objects
+
+For classes with multiple attributes or nested objects, your serialization logic needs to recursively handle each component:
+
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def serialize(self):
+        return json.dumps({'x': self.x, 'y': self.y})
+
+    @staticmethod
+    def deserialize(data):
+        d = json.loads(data)
+        return Point(d['x'], d['y'])
+
+
+class Shape:
+    def __init__(self, name, points):
+        self.name = name
+        self.points = points
+
+    def serialize(self):
+        return json.dumps({'name': self.name, 'points': [p.serialize() for p in self.points]})
+
+    @staticmethod
+    def deserialize(data):
+        d = json.loads(data)
+        points = [Point.deserialize(p) for p in d['points']]
+        return Shape(d['name'], points)
+
+p1 = Point(1,2)
+p2 = Point(3,4)
+shape = Shape("Rectangle", [p1, p2])
+serialized_shape = shape.serialize()
+print(serialized_shape)
+deserialized_shape = Shape.deserialize(serialized_shape)
+print(deserialized_shape.name, [p.x for p in deserialized_shape.points])
+```
+
+This showcases how to handle nested `Point` objects within the `Shape` class.  Remember to adapt this pattern for your specific object hierarchy.
+
+
+
+##  Beyond JSON: Exploring Other Options
+
+While JSON is often a convenient choice, consider other options for enhanced performance or specific format requirements.  Libraries like `struct` for packing data into binary formats or protocol buffers (using the `protobuf` library) offer more compact and efficient serialization, particularly beneficial for large datasets or network communication.  The choice depends on the application's constraints and desired characteristics.
+

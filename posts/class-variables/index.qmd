@@ -1,0 +1,124 @@
+---
+title: "Class Variables"
+date: "09/29/2024"
+categories: [ basic ]
+---
+
+
+Class variables are attributes that belong to the class itself, rather than to individual instances (objects) of the class.  They're shared among all instances of the class, meaning any change to a class variable affects all objects. This differs from instance variables, which are unique to each object. Understanding this distinction is crucial for writing efficient and well-structured Python code.
+
+
+## Defining Class Variables
+
+Class variables are declared within the class definition but outside of any methods.  They're typically assigned a value directly.  Conventionally, they're written in uppercase to distinguish them from instance variables (which are usually lowercase).
+
+```python
+class Dog:
+    species = "Canis familiaris"  # Class variable
+
+    def __init__(self, name, age):
+        self.name = name  # Instance variable
+        self.age = age    # Instance variable
+
+my_dog = Dog("Buddy", 3)
+your_dog = Dog("Lucy", 5)
+
+print(my_dog.species)  # Output: Canis familiaris
+print(your_dog.species) # Output: Canis familiaris
+print(Dog.species)     # Output: Canis familiaris
+
+Dog.species = "Canis lupus familiaris" #Modifying Class Variable
+
+print(my_dog.species)  # Output: Canis lupus familiaris
+print(your_dog.species) # Output: Canis lupus familiaris
+```
+
+As you can see, changing `species` through the class itself (`Dog.species`) alters the value for all instances.
+
+
+## Accessing Class Variables
+
+You can access class variables in several ways:
+
+* **Through the class itself:** `Dog.species`
+* **Through an instance of the class:** `my_dog.species`
+
+While both methods work, accessing through the class is generally preferred for clarity and to avoid potential confusion with instance variables, especially in larger projects.
+
+
+## Modifying Class Variables Through Instances
+
+While you *can* modify a class variable through an instance, it's generally best avoided unless you have a specific reason to do so. It can lead to unexpected behavior and make your code harder to maintain.
+
+```python
+my_dog.species = "New Species"  #Modifying through Instance
+print(my_dog.species) # Output: New Species
+print(your_dog.species) # Output: Canis lupus familiaris
+print(Dog.species) # Output: Canis lupus familiaris
+```
+
+Notice that changing the class variable through an instance (`my_dog.species`) *doesn't* change the class variable for other instances. Instead, it creates a new instance variable that shadows the class variable for that specific instance.  `your_dog` and `Dog.species` remain unaffected.
+
+
+
+## Class Variables as Counters
+
+A common use case for class variables is creating counters:
+
+```python
+class Counter:
+    count = 0
+
+    def __init__(self):
+        Counter.count += 1
+
+c1 = Counter()
+c2 = Counter()
+c3 = Counter()
+
+print(Counter.count)  # Output: 3
+```
+
+Each time a `Counter` object is created, the `count` class variable is incremented, keeping track of the total number of instances.
+
+
+##  Using Class Variables for Default Values
+
+Class variables can also provide default values for instance variables:
+
+
+```python
+class Person:
+    default_city = "New York"
+
+    def __init__(self, name, city=None):
+        self.name = name
+        self.city = city or Person.default_city
+
+p1 = Person("Alice")
+p2 = Person("Bob", "Los Angeles")
+
+print(p1.city)  # Output: New York
+print(p2.city)  # Output: Los Angeles
+```
+
+Here, if the `city` parameter is not provided during object creation, the instance variable `city` defaults to the value of the class variable `default_city`.
+
+
+## Static Methods
+
+Static methods are methods that are bound to the class and not the instance of the class. They don't have access to `self` (or the instance) and are typically used for utility functions related to the class.
+
+```python
+class MathHelper:
+    @staticmethod
+    def add(x, y):
+        return x + y
+
+result = MathHelper.add(5, 3) # No need for an instance
+print(result) #Output: 8
+
+```
+
+Static methods are declared using the `@staticmethod` decorator.  They are useful when you need to group related functionality within a class but don't need access to instance variables.
+

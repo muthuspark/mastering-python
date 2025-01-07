@@ -1,0 +1,101 @@
+---
+title: "Python Descriptors"
+date: "12/11/2024"
+categories: [ advanced ]
+---
+
+
+Python descriptors are a powerful, yet often misunderstood, feature that allows you to control attribute access on classes.  They provide a mechanism to intercept and manage how attributes are retrieved, set, and deleted. This opens doors to implementing sophisticated behavior without cluttering your class code.  This post will illuminate the inner workings of descriptors and demonstrate their practical applications with clear examples.
+
+## What are Python Descriptors?
+
+A descriptor is any object that implements one or more of the special methods: `__get__`, `__set__`, and `__delete__`. These methods are called when you access an attribute of a class instance using the dot notation (`.`).
+
+* **`__get__(self, instance, owner)`:** This method is called when you retrieve an attribute's value.  `instance` refers to the instance of the class, `owner` refers to the class itself.
+
+* **`__set__(self, instance, value)`:** This method is called when you assign a value to an attribute.
+
+* **`__delete__(self, instance)`:** This method is called when you delete an attribute using `del`.
+
+If a descriptor implements only `__get__`, it's called a *getter*.  If it implements `__set__` and/or `__delete__`, it acts as a *setter* and/or *deleter*.
+
+## Implementing a Simple Descriptor
+
+Let's create a simple descriptor that ensures a value is always positive:
+
+```python
+class PositiveValue:
+    def __init__(self, name):
+        self.name = name
+
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self  # Accessing the descriptor itself
+        return instance.__dict__[self.name]
+
+    def __set__(self, instance, value):
+        if value < 0:
+            raise ValueError("Value must be non-negative")
+        instance.__dict__[self.name] = value
+
+    def __delete__(self, instance):
+        del instance.__dict__[self.name]
+
+class MyClass:
+    positive_attr = PositiveValue("positive_attr")
+
+
+my_instance = MyClass()
+my_instance.positive_attr = 5
+print(my_instance.positive_attr)  # Output: 5
+
+my_instance.positive_attr = -2 # Raises ValueError
+
+del my_instance.positive_attr
+```
+
+This example shows how `PositiveValue` intercepts attribute access. The `__set__` method ensures the value is always positive, while `__get__` and `__delete__` handle retrieval and deletion.
+
+
+##  Property vs. Descriptor
+
+Python's built-in `property` function is a convenient way to create simple descriptors.  It simplifies the process of creating getters, setters, and deleters:
+
+```python
+class MyClass:
+    def __init__(self):
+        self._x = 0
+
+    def get_x(self):
+        return self._x
+
+    def set_x(self, value):
+        self._x = value
+
+    def del_x(self):
+        del self._x
+
+    x = property(get_x, set_x, del_x)
+
+
+my_instance = MyClass()
+my_instance.x = 10
+print(my_instance.x)  # Output: 10
+del my_instance.x
+```
+
+`property` is a shortcut, while descriptors offer more control and flexibility for complex scenarios.
+
+## Advanced Descriptor Use Cases
+
+Descriptors are invaluable for:
+
+* **Data Validation:**  Enforce specific data types, ranges, or formats.
+* **Caching:** Store computed values to improve performance.
+* **Logging:** Track attribute changes.
+* **Lazy Loading:**  Delay initialization of attributes until needed.
+* **Computed Properties:**  Derive attribute values from other attributes.
+
+
+By mastering Python descriptors, you can create more robust and maintainable classes with sophisticated attribute management.  They unlock advanced capabilities, pushing your Python coding to the next level.
+

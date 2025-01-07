@@ -1,0 +1,102 @@
+---
+title: "Python Memory-Mapped Files"
+date: "05/29/2024"
+categories: [ advanced ]
+---
+
+
+Python's `mmap` module offers a powerful way to interact with files by mapping them directly into your program's address space.  This technique, known as memory-mapped files, can significantly boost performance for certain file I/O operations, especially when dealing with large files or requiring random access.  Instead of reading and writing data in chunks, memory-mapped files treat the file as if it were a part of your program's memory. This eliminates the overhead associated with traditional file I/O calls, resulting in faster access times.
+
+## How Memory-Mapped Files Work
+
+Imagine you have a large file.  Normally, reading a specific part of that file involves several steps:  opening the file, seeking to the desired position, reading the bytes, and closing the file (or keeping it open and managing the file pointer). With memory-mapped files, the operating system handles the low-level details. Your Python code treats the file's contents as a simple `bytes` object or, if you specify a suitable type, as a NumPy array. Changes you make to this in-memory representation are automatically written back to the file on disk (depending on the `mmap` flags you use).
+
+## Getting Started with `mmap`
+
+To use memory-mapped files, you'll need the `mmap` module, which is built into Python. Let's start with a simple example of reading a file using `mmap`:
+
+```python
+import mmap
+import os
+
+filename = "my_large_file.txt"  # Replace with your file
+
+with open(filename, "wb") as f:
+    f.write(b"A" * (1024 * 1024 * 10)) # 10MB file filled with 'A'
+
+try:
+    with open(filename, "r+b") as f:  # Open in read/write binary mode
+        mm = mmap.mmap(f.fileno(), 0)  # Map the entire file
+
+        # Access data like a byte array
+        data = mm[:10]  # Read the first 10 bytes
+        print(f"First 10 bytes: {data}")
+
+        # Modify the file in memory
+        mm[0:5] = b"Hello" # Modify the first 5 bytes
+
+        mm.close()
+except FileNotFoundError:
+    print(f"File '{filename}' not found.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+finally:
+    if os.path.exists(filename):
+        os.remove(filename) # Clean up the test file
+
+```
+
+This code opens a file, maps it into memory, reads the first 10 bytes, modifies the first five bytes, and closes the mapping.  Crucially, the modifications are reflected in the file on disk.
+
+
+## Different Mapping Modes
+
+The `mmap` module offers various access modes, controlled by flags passed to the `mmap()` function.  For example:
+
+* `mmap.ACCESS_READ`: Read-only access.
+* `mmap.ACCESS_WRITE`: Read-write access.
+* `mmap.ACCESS_COPY`: A private copy of the file is mapped (changes are not written back).
+
+These flags allow you to tailor the mapping to your specific needs, optimizing for performance and data integrity.  Consult the Python documentation for a complete list and explanation of all available flags.
+
+
+##  Using with NumPy
+
+The power of memory-mapped files truly shines when combined with libraries like NumPy.  NumPy can directly interpret a memory-mapped file as a multi-dimensional array, enabling highly efficient numerical computations on large datasets without loading them entirely into RAM.
+
+```python
+import mmap
+import numpy as np
+import os
+
+filename = "my_numpy_array.dat"
+
+#Create a sample NumPy array
+array = np.arange(1000000, dtype=np.int32).reshape(1000,1000)
+with open(filename, "wb") as f:
+    array.tofile(f)
+
+try:
+    with open(filename, "r+b") as f:
+        mm = mmap.mmap(f.fileno(), 0)
+        mapped_array = np.frombuffer(mm, dtype=np.int32).reshape(1000, 1000)
+        #Now you can perform operations directly on mapped_array
+        print(mapped_array[0,0]) #Access a single element
+        mapped_array[0,0] = 42 #Modify a single element
+        mm.close()
+except Exception as e:
+    print(f"An error occurred: {e}")
+finally:
+    if os.path.exists(filename):
+        os.remove(filename)
+
+```
+
+This example demonstrates how to map a binary file containing a NumPy array into memory and access and modify it efficiently.  Remember to always close the `mmap` object when you're finished to ensure data is properly flushed to disk.
+
+
+
+## Advanced Techniques and Considerations
+
+Memory-mapped files are a valuable tool for many applications, but they are not a silver bullet.   For instance, excessive memory mapping might lead to high memory consumption.   The optimal approach depends on the specific application and the size and nature of the data you are working with.  Understanding the intricacies of memory mapping, including the various flags and potential limitations, is essential for effective usage.
+

@@ -1,0 +1,108 @@
+---
+title: "Python Data Analysis (Pandas)"
+date: "02/05/2024"
+categories: [ advanced ]
+---
+
+
+Python has rapidly become the go-to language for data analysis, and at the heart of this power lies the Pandas library. Pandas provides high-performance, easy-to-use data structures and data analysis tools.  This post will walk you through the essentials of Pandas, equipping you to tackle your data analysis tasks with confidence.
+
+## Getting Started with Pandas
+
+Before we dive into the details, let's make sure you have Pandas installed.  If you don't, open your terminal or command prompt and type:
+
+```bash
+pip install pandas
+```
+
+Now, let's import Pandas into your Python environment:
+
+```python
+import pandas as pd
+```
+
+We use `pd` as a common shorthand for Pandas, making your code cleaner and more readable.
+
+
+## The Pandas DataFrame: Your Data's New Home
+
+The core data structure in Pandas is the DataFrame. Think of it as a highly organized spreadsheet or SQL table, capable of holding various data types (numbers, text, dates, etc.) in a tabular format with rows and columns.
+
+Let's create a simple DataFrame:
+
+```python
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 28],
+        'City': ['New York', 'London', 'Paris']}
+
+df = pd.DataFrame(data)
+print(df)
+```
+
+This code creates a DataFrame with three columns ('Name', 'Age', 'City') and three rows of data.  The `print(df)` statement displays the DataFrame neatly in your console.
+
+## Exploring Your DataFrame
+
+Once you have a DataFrame, you can explore its contents using various methods:
+
+* **Viewing the first few rows:** `df.head()` (defaults to 5 rows)
+* **Viewing the last few rows:** `df.tail()` (defaults to 5 rows)
+* **Getting information about the DataFrame:** `df.info()` (shows data types, non-null counts, etc.)
+* **Viewing summary statistics:** `df.describe()` (calculates mean, std, min, max, etc. for numeric columns)
+
+
+```python
+print(df.head(2)) # Shows the first 2 rows
+print(df.info())   # Provides information about the DataFrame
+print(df.describe()) # Provides summary statistics
+```
+
+
+## Data Manipulation with Pandas
+
+Pandas provides a powerful toolkit for manipulating your data:
+
+* **Selecting columns:**  `df['Name']` selects the 'Name' column.
+* **Selecting multiple columns:** `df[['Name', 'Age']]` selects the 'Name' and 'Age' columns.
+* **Filtering rows:** `df[df['Age'] > 28]` selects rows where 'Age' is greater than 28.
+* **Adding a new column:** `df['Country'] = ['USA', 'UK', 'France']` adds a 'Country' column.
+
+
+```python
+print(df['Name'])          # Select the 'Name' column
+print(df[df['Age'] > 28]) # Filter rows where Age > 28
+df['Country'] = ['USA', 'UK', 'France'] # Add a new column
+print(df)
+```
+
+## Handling Missing Data
+
+Real-world datasets often contain missing values. Pandas provides tools to handle this:
+
+* **Checking for missing values:** `df.isnull().sum()` counts missing values in each column.
+* **Dropping rows with missing values:** `df.dropna()` removes rows containing any missing values.
+* **Filling missing values:** `df.fillna(0)` replaces missing values with 0.
+
+
+```python
+#Example with missing data (add a NaN value)
+df.loc[1, 'Country'] = float('NaN')
+print(df.isnull().sum()) #check for null values
+print(df.dropna())       # Remove rows with missing data
+```
+
+
+## Reading and Writing Data
+
+Pandas seamlessly integrates with various file formats:
+
+* **Reading a CSV file:** `pd.read_csv('file.csv')`
+* **Reading an Excel file:** `pd.read_excel('file.xlsx')`
+* **Writing to a CSV file:** `df.to_csv('output.csv', index=False)`
+
+
+```python
+```
+
+This is just a glimpse into the capabilities of Pandas.  Explore the official Pandas documentation for a deeper dive into its extensive features.  With Pandas, you're well-equipped to analyze and manipulate your data efficiently and effectively.
+

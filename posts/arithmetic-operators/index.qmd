@@ -1,0 +1,99 @@
+---
+title: "Arithmetic Operators"
+date: "03/25/2024"
+categories: [ basic ]
+---
+
+
+Python, renowned for its readability and versatility, offers a robust set of arithmetic operators to perform various mathematical calculations.  Understanding these operators is fundamental to any Python programmer, regardless of experience level. This guide provides a detailed walkthrough of each operator, complete with illustrative examples.
+
+
+## The Core Arithmetic Operators
+
+Python's arithmetic operators mirror those found in standard mathematics, making them intuitive to use. Let's explore each one:
+
+**1. Addition (+):**  The addition operator adds two operands together.
+
+```python
+a = 10
+b = 5
+sum = a + b  # sum will be 15
+print(f"The sum of {a} and {b} is: {sum}")
+```
+
+**2. Subtraction (-):** The subtraction operator subtracts the second operand from the first.
+
+```python
+a = 10
+b = 5
+difference = a - b # difference will be 5
+print(f"The difference between {a} and {b} is: {difference}")
+```
+
+**3. Multiplication (*):** The multiplication operator multiplies two operands.
+
+```python
+a = 10
+b = 5
+product = a * b # product will be 50
+print(f"The product of {a} and {b} is: {product}")
+```
+
+**4. Division (/):** The division operator divides the first operand by the second.  Note that the result is always a floating-point number.
+
+```python
+a = 10
+b = 5
+quotient = a / b # quotient will be 2.0
+print(f"The quotient of {a} and {b} is: {quotient}")
+
+a = 10
+b = 3
+quotient = a / b # quotient will be 3.3333333333333335
+print(f"The quotient of {a} and {b} is: {quotient}")
+
+```
+
+**5. Floor Division (//):** This operator performs division and rounds the result down to the nearest whole number (integer).
+
+```python
+a = 10
+b = 3
+floor_quotient = a // b  # floor_quotient will be 3
+print(f"The floor division of {a} and {b} is: {floor_quotient}")
+```
+
+**6. Modulo (%):** The modulo operator returns the remainder of a division.
+
+```python
+a = 10
+b = 3
+remainder = a % b  # remainder will be 1
+print(f"The remainder of {a} divided by {b} is: {remainder}")
+```
+
+**7. Exponentiation (**):** This operator raises the first operand to the power of the second operand.
+
+```python
+a = 2
+b = 3
+power = a ** b  # power will be 8 (2 raised to the power of 3)
+print(f"{a} raised to the power of {b} is: {power}")
+```
+
+
+## Operator Precedence
+
+Python follows standard mathematical operator precedence.  Multiplication, division, and modulo operations are performed before addition and subtraction.  Parentheses `()` can be used to override this precedence.
+
+
+```python
+result = 10 + 5 * 2  # result will be 20 (multiplication before addition)
+result2 = (10 + 5) * 2 # result2 will be 30 (parentheses change the order)
+print(f"Result 1: {result}")
+print(f"Result 2: {result2}")
+
+```
+
+This guide provides a solid foundation for working with arithmetic operators in Python.  Experiment with these examples and try incorporating them into your own programs to solidify your understanding.  Remember to consult the official Python documentation for a more exhaustive reference.
+

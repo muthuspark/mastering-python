@@ -1,0 +1,100 @@
+---
+title: "Reading Files"
+date: "10/03/2024"
+categories: [ basic ]
+---
+
+
+Python offers robust tools for handling files, making it a go-to language for data processing and analysis.  This post focuses on the essential techniques for reading files in Python, covering various scenarios and best practices. We'll explore different methods, from simple text files to more complex formats, equipping you with the knowledge to efficiently handle your file I/O needs.
+
+
+## Reading Text Files: The Basics
+
+The most common file reading task involves working with plain text files (.txt, .csv, etc.).  Python provides the built-in `open()` function to achieve this.  The `open()` function takes the file path as the first argument and the file mode as the second ( 'r' for reading).
+
+```python
+file_path = "my_file.txt"  # Replace with your file path
+
+try:
+    with open(file_path, 'r') as file:
+        contents = file.read()  # Reads the entire file into a single string
+        print(contents)
+except FileNotFoundError:
+    print(f"Error: File '{file_path}' not found.")
+```
+
+The `with` statement ensures the file is automatically closed even if errors occur.  The `try...except` block handles potential `FileNotFoundError` exceptions.
+
+
+### Reading Line by Line
+
+For large files, reading the entire content into memory at once can be inefficient.  It's often more practical to read and process the file line by line:
+
+```python
+try:
+    with open(file_path, 'r') as file:
+        for line in file:
+            # Process each line individually
+            print(line.strip()) # strip() removes leading/trailing whitespace
+except FileNotFoundError:
+    print(f"Error: File '{file_path}' not found.")
+```
+
+
+## Reading CSV Files
+
+Comma Separated Values (CSV) files are a common format for tabular data.  While you can read them line by line as shown above, using the `csv` module provides a more structured approach:
+
+```python
+import csv
+
+try:
+    with open("data.csv", 'r', newline='') as file: # newline='' is important to avoid extra blank lines
+        reader = csv.reader(file)
+        # Skip the header row (if present)
+        next(reader, None)  
+        for row in reader:
+            print(row) # each row is a list of strings
+except FileNotFoundError:
+    print("Error: File 'data.csv' not found.")
+
+```
+
+The `csv` module offers functions for handling different delimiters and quoting conventions.
+
+
+## Handling Different Encodings
+
+Text files can use various encodings (e.g., UTF-8, Latin-1).  If you encounter encoding errors, specify the encoding explicitly when opening the file:
+
+
+```python
+try:
+    with open("my_file.txt", 'r', encoding='utf-8') as file:
+        contents = file.read()
+        print(contents)
+except FileNotFoundError:
+    print(f"Error: File '{file_path}' not found.")
+except UnicodeDecodeError:
+    print("Error: Could not decode file. Check the encoding.")
+```
+
+Remember to replace `"my_file.txt"` and `"utf-8"` with your actual file path and encoding, respectively.
+
+
+## Reading Binary Files
+
+For non-text files (images, audio, etc.), you need to open them in binary mode ('rb'):
+
+```python
+try:
+    with open("image.jpg", 'rb') as file:
+        data = file.read() # Reads the entire file as bytes
+        # Process binary data (e.g., save, manipulate)
+
+except FileNotFoundError:
+    print(f"Error: File 'image.jpg' not found.")
+```
+
+This is a basic overview.  More advanced techniques, like using generators for memory efficiency with very large files, or working with specific file formats (JSON, XML) using dedicated libraries, will be covered in future posts.
+

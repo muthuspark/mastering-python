@@ -1,0 +1,199 @@
+---
+title: "Decorators and Advanced Usage"
+date: "12/26/2024"
+categories: [ advanced ]
+---
+
+
+Python decorators are a powerful and expressive feature that allows you to modify or enhance functions and methods in a clean and readable way.  While the basic concept is relatively straightforward, understanding advanced usage unlocks significant potential for writing elegant and reusable code. This post will guide you through decorators, starting with the fundamentals and progressing to more intricate applications.
+
+
+## Understanding the Basics
+
+At its core, a decorator is a function that takes another function as input and returns a modified version of that function. This modification can involve adding functionality before, after, or around the original function's execution.
+
+Let's illustrate with a simple example:
+
+```python
+def my_decorator(func):
+    def wrapper():
+        print("Before function execution")
+        func()
+        print("After function execution")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+```
+
+Output:
+
+```
+Before function execution
+Hello!
+After function execution
+```
+
+Here, `my_decorator` is our decorator. It wraps `say_hello`, adding print statements before and after its execution. The `@` syntax is syntactic sugar for `say_hello = my_decorator(say_hello)`.
+
+
+## Decorators with Arguments
+
+Things get more interesting when the function being decorated accepts arguments.  We need to ensure the `wrapper` function handles these arguments correctly:
+
+```python
+def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Before function execution")
+        result = func(*args, **kwargs)
+        print("After function execution")
+        return result
+    return wrapper
+
+@my_decorator
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("World")
+```
+
+Output:
+
+```
+Before function execution
+Hello, World!
+After function execution
+```
+
+The `*args` and `**kwargs` allow the `wrapper` to accept any number of positional and keyword arguments, passing them transparently to the decorated function.
+
+
+## Decorators with Parameters
+
+We can also create decorators that take their own parameters:
+
+```python
+def repeat(num_times):
+    def decorator_repeat(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(num_times):
+                result = func(*args, **kwargs)
+            return result
+        return wrapper
+    return decorator_repeat
+
+@repeat(num_times=3)
+def print_message(message):
+    print(message)
+
+print_message("Hello!")
+```
+
+Output:
+
+```
+Hello!
+Hello!
+Hello!
+```
+
+This example shows a decorator factory (`repeat`) that creates a decorator based on the provided `num_times` parameter.
+
+
+##  Class-Based Decorators
+
+Decorators can also be implemented using classes:
+
+```python
+class CountCalls:
+    def __init__(self, func):
+        self.func = func
+        self.num_calls = 0
+
+    def __call__(self, *args, **kwargs):
+        self.num_calls += 1
+        print(f"Call {self.num_calls} to {self.func.__name__}")
+        return self.func(*args, **kwargs)
+
+@CountCalls
+def say_hello_again():
+    print("Hello again!")
+
+say_hello_again()
+say_hello_again()
+```
+
+Output:
+
+```
+Call 1 to say_hello_again
+Hello again!
+Call 2 to say_hello_again
+Hello again!
+```
+
+The `__call__` method allows the instance of the `CountCalls` class to behave like a function.
+
+
+##  Nested Decorators
+
+You can even apply multiple decorators to a single function:
+
+```python
+def bold_decorator(func):
+    def wrapper(*args, **kwargs):
+        return f"<b>{func(*args, **kwargs)}</b>"
+    return wrapper
+
+def italic_decorator(func):
+    def wrapper(*args, **kwargs):
+        return f"<i>{func(*args, **kwargs)}</i>"
+    return wrapper
+
+@bold_decorator
+@italic_decorator
+def get_message():
+    return "Hello, world!"
+
+print(get_message())
+```
+
+Output:
+
+```
+<b><i>Hello, world!</i></b>
+```
+
+The decorators are applied in the order they are listed, from the bottom up.
+
+
+##  Using functools.wraps
+
+When creating decorators, it’s crucial to preserve metadata of the original function using `functools.wraps`.  This maintains the function's name, docstring, and other attributes.
+
+```python
+import functools
+
+def my_decorator(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print("Before function execution")
+        result = func(*args, **kwargs)
+        print("After function execution")
+        return result
+    return wrapper
+
+@my_decorator
+def improved_greet(name):
+    """Greets the person passed in as a parameter."""
+    print(f"Hello, {name}!")
+
+print(improved_greet.__name__) # Output: improved_greet
+print(improved_greet.__doc__) # Output: Greets the person passed in as a parameter.
+```
+
+Without `functools.wraps`,  `improved_greet.__name__` would be `wrapper`, losing the original function's identity.
+

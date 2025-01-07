@@ -1,0 +1,104 @@
+---
+title: "Web Scraping with Scrapy"
+date: "05/03/2024"
+categories: [ advanced ]
+---
+
+
+Web scraping is a powerful technique for extracting data from websites.  While libraries like `requests` and `Beautiful Soup` are useful, Scrapy offers a more robust and efficient framework for large-scale scraping projects.  This guide will walk you through the basics of web scraping with Scrapy in Python, providing code examples along the way.
+
+
+## Setting up your Scrapy environment
+
+Before we begin, ensure you have Python installed.  Then, install Scrapy using pip:
+
+```bash
+pip install scrapy
+```
+
+## Creating your first Scrapy project
+
+Let's create a project to scrape a website.  We'll use the example of scraping product titles and prices from a simple e-commerce site (replace `my_scraper` with your desired project name):
+
+```bash
+scrapy startproject my_scraper
+```
+
+This command creates a project directory with several files.  The most important is the `spiders` directory, where you'll define your scraping logic.
+
+
+## Defining your spider
+
+Navigate into the `spiders` directory and create a Python file (e.g., `products.py`).  This file will contain the spider that defines how to scrape the target website.  Here's an example:
+
+
+```python
+import scrapy
+
+class ProductsSpider(scrapy.Spider):
+    name = "products"
+    start_urls = ["https://www.example.com/products"] # Replace with your target URL
+
+    def parse(self, response):
+        for product in response.css("div.product"): # Adjust CSS selector to match your target website
+            yield {
+                "title": product.css("h2.title::text").get(),
+                "price": product.css("span.price::text").get(),
+            }
+```
+
+This spider defines:
+
+* `name`: A unique identifier for the spider.
+* `start_urls`: A list of URLs to start scraping from.  **Replace `https://www.example.com/products` with the actual URL of the page you want to scrape.**
+* `parse()`: A method that processes the response from the website.  This example uses CSS selectors (`response.css()`) to extract the product title and price.  **You'll need to inspect the target website's HTML source to identify the correct CSS selectors.**
+
+
+## Running your spider
+
+Now, let's run the spider:
+
+```bash
+scrapy crawl products -O products.json
+```
+
+This command runs the "products" spider and saves the extracted data to a JSON file named `products.json`.
+
+
+## Handling Pagination
+
+Many websites display results across multiple pages.  To handle pagination, you'll need to modify your spider to follow links to subsequent pages.  Here's an example assuming the next page link has a class "next-page":
+
+```python
+import scrapy
+
+class ProductsSpider(scrapy.Spider):
+    name = "products"
+    start_urls = ["https://www.example.com/products"]
+
+    def parse(self, response):
+        for product in response.css("div.product"):
+            yield {
+                "title": product.css("h2.title::text").get(),
+                "price": product.css("span.price::text").get(),
+            }
+
+        next_page = response.css("a.next-page::attr(href)").get()
+        if next_page:
+            yield response.follow(next_page, callback=self.parse)
+```
+
+This enhanced spider uses `response.follow()` to recursively call the `parse()` method for each subsequent page.
+
+
+## Advanced Techniques
+
+Scrapy offers many advanced features, including:
+
+* **Item Pipelines:**  Process and store scraped data efficiently.
+* **Middleware:** Customize request and response handling.
+* **Selectors:**  Use XPath selectors for more complex scenarios.
+* **Robust error handling:** Implement strategies to gracefully handle network issues and website changes.
+
+Remember to always respect the website's `robots.txt` file and terms of service before scraping.  Excessive scraping can overload a server and may lead to your IP being blocked.  Always be ethical and responsible in your scraping practices.
+

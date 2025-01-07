@@ -1,0 +1,123 @@
+---
+title: "Polymorphism in Python"
+date: "05/20/2024"
+categories: [ basic ]
+---
+
+
+Polymorphism, a cornerstone of object-oriented programming (OOP), allows you to treat objects of different classes in a uniform way.  In simpler terms, it's the ability of an object to take on many forms. Python, being a dynamically typed language, supports polymorphism implicitly and explicitly, making it a powerful tool for writing flexible and reusable code.
+
+## Polymorphism in Action: Duck Typing
+
+Python employs a style of polymorphism known as "duck typing."  This means that the type or class of an object is less important than whether it *behaves* in the expected way. If it walks like a duck and quacks like a duck, then it must be a duck!
+
+Let's illustrate with a simple example:
+
+```python
+class Dog:
+    def speak(self):
+        print("Woof!")
+
+class Cat:
+    def speak(self):
+        print("Meow!")
+
+def animal_sound(animal):
+    animal.speak()
+
+dog = Dog()
+cat = Cat()
+
+animal_sound(dog) # Output: Woof!
+animal_sound(cat) # Output: Meow!
+```
+
+Notice how the `animal_sound` function doesn't need to know the specific type of animal. It only cares that the animal has a `speak()` method.  This is duck typing in action.  Both `Dog` and `Cat` objects, despite being different classes, are treated uniformly by the `animal_sound` function.
+
+## Method Overriding:  Extending Polymorphism
+
+Method overriding allows subclasses to provide a specific implementation for a method that is already defined in their superclass. This enhances polymorphism by enabling objects of different classes to respond differently to the same method call.
+
+```python
+class Animal:
+    def speak(self):
+        print("Generic animal sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof! (Overridden)")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow! (Overridden)")
+
+animal = Animal()
+dog = Dog()
+cat = Cat()
+
+animal.speak()       # Output: Generic animal sound
+dog.speak()         # Output: Woof! (Overridden)
+cat.speak()         # Output: Meow! (Overridden)
+```
+
+Here, `Dog` and `Cat` override the `speak()` method inherited from `Animal`, providing their own unique implementations.  This illustrates how polymorphism allows for flexible and extensible code.
+
+
+## Polymorphism with Inheritance and Abstract Classes
+
+Abstract classes, combined with inheritance, offer a more structured approach to polymorphism. Abstract classes cannot be instantiated directly but serve as blueprints for subclasses.  They often define abstract methods, which are methods that must be implemented by subclasses.
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC): # Abstract Base Class
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14159 * self.radius * self.radius
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side * self.side
+
+circle = Circle(5)
+square = Square(4)
+
+print(circle.area())  # Output: 78.53975
+print(square.area()) # Output: 16
+```
+
+The `Shape` class is abstract, forcing `Circle` and `Square` to implement the `area()` method. This ensures consistent behavior across different shapes while maintaining flexibility.
+
+
+##  Operators Overloading:  A Different Facet of Polymorphism
+
+Operator overloading allows you to define how standard Python operators (+, -, *, /, etc.) behave when used with objects of your custom classes. This is another manifestation of polymorphism, enabling uniform treatment of different objects within arithmetic or comparison operations.
+
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+p3 = p1 + p2
+print(p3.x, p3.y)  # Output: 4 6
+```
+
+Here, the `__add__` method overrides the '+' operator's behavior for `Point` objects, allowing for intuitive addition of points.
+

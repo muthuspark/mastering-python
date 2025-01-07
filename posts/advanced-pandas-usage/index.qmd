@@ -1,0 +1,112 @@
+---
+title: "Advanced Pandas Usage"
+date: "05/13/2024"
+categories: [ advanced ]
+---
+
+
+Pandas is a cornerstone library in Python for data manipulation and analysis. While many are familiar with its basic functionalities, mastering advanced techniques unlocks significantly greater efficiency and power. This post delves into several such techniques, providing code examples to illustrate their practical application.
+
+
+## 1.  Beyond `loc` and `iloc`: Advanced Indexing
+
+While `loc` (label-based) and `iloc` (integer-based) indexing are fundamental, Pandas offers more nuanced selection methods.  Let's explore some:
+
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {'col1': [1, 2, 3, 4, 5], 
+        'col2': [6, 7, 8, 9, 10], 
+        'col3': ['A', 'B', 'C', 'D', 'E']}
+df = pd.DataFrame(data)
+
+print("Rows where col1 > 2:\n", df[df['col1'] > 2])
+
+print("\nRows where col1 > 2 and col2 < 9 using .query():\n", df.query('col1 > 2 and col2 < 9'))
+
+print("\nSelecting first two rows and col1 and col3:\n", df.iloc[:2, [0,2]])
+
+df.at[0, 'col1'] = 100
+print("\nDataFrame after changing value at position 0, 'col1':\n", df)
+
+
+```
+
+## 2.  Data Transformation with `apply()` and `applymap()`
+
+The `apply()` and `applymap()` methods provide powerful ways to transform data. `apply()` operates on rows or columns, while `applymap()` operates on individual elements.
+
+
+```python
+def custom_function(row):
+    return row['col1'] * row['col2']
+
+df['col4'] = df.apply(custom_function, axis=1)
+print("\nDataFrame after applying custom function:\n", df)
+
+df['col3'] = df['col3'].applymap(lambda x: x.lower())
+print("\nDataFrame after applying applymap to lowercase col3:\n", df)
+
+
+```
+
+
+## 3.  Efficient Data Cleaning with `fillna()` and `replace()`
+
+
+Missing data and inconsistent values are common challenges. Pandas provides excellent tools to address these.
+
+
+```python
+df_nan = pd.DataFrame({'A': [1, np.nan, 3], 'B': [4, 5, np.nan]})
+
+df_filled = df_nan.fillna(0)
+print("\nDataFrame after filling NaN with 0:\n", df_filled)
+
+
+#Filling NaN values with Forward Fill
+df_ffill = df_nan.ffill()
+print("\nDataFrame after Forward Fill:\n", df_ffill)
+
+
+df_replaced = df_filled.replace(0, 100)
+print("\nDataFrame after replacing 0 with 100:\n", df_replaced)
+
+```
+
+
+## 4.  Data Aggregation and Grouping with `groupby()`
+
+
+The `groupby()` method enables powerful data aggregation and analysis based on groups.
+
+
+```python
+grouped = df.groupby('col3')['col1'].mean()
+print("\nMean of col1 grouped by col3:\n", grouped)
+
+```
+
+
+## 5.  Working with Time Series Data
+
+
+Pandas excels in handling time series data.  It offers functionalities for resampling, rolling calculations, and more.
+
+
+```python
+dates = pd.date_range('20240101', periods=6)
+ts = pd.Series(np.random.randn(6), index=dates)
+print("\nTime Series Data:\n", ts)
+
+daily_ts = ts.resample('D').mean()
+print("\nResampled Time Series Data:\n", daily_ts)
+
+
+```
+
+
+These examples showcase only a fraction of advanced Pandas capabilities.  Exploring functionalities like pivot tables, merging and joining DataFrames, and vectorized string operations will further enhance your data manipulation skills.  Continuous exploration and practical application are key to mastering the full potential of this powerful library.
+

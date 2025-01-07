@@ -1,0 +1,108 @@
+---
+title: "Python Loops"
+date: "12/10/2024"
+categories: [ basic ]
+---
+
+
+Python offers several ways to iterate over sequences (like lists, tuples, strings) or perform repetitive tasks.  This guide dives into the core looping constructs: `for` and `while` loops, demonstrating their usage with clear examples.
+
+## The `for` Loop: Iterating Over Iterables
+
+The `for` loop is ideal for iterating over a sequence, executing a block of code for each item.  Its syntax is remarkably clean and readable:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+  print(fruit)
+```
+
+This code snippet prints each fruit in the `fruits` list.  Notice how the `fruit` variable automatically takes on the value of each item during each iteration.
+
+You can also use `for` loops with `range()` to iterate a specific number of times:
+
+```python
+for i in range(5):  # Iterates from 0 to 4
+  print(i)
+```
+
+`range()` is incredibly versatile.  You can specify a start, stop, and step value:
+
+```python
+for i in range(1, 11, 2):  # Iterates from 1 to 10, incrementing by 2
+  print(i)
+```
+
+Iterating through dictionaries requires a slightly different approach:
+
+```python
+student = {"name": "Alice", "age": 20, "grade": "A"}
+for key, value in student.items():
+  print(f"{key}: {value}")
+```
+
+This example uses the `.items()` method to iterate through both keys and values simultaneously.
+
+
+## The `while` Loop: Repeating Until a Condition is False
+
+The `while` loop continues executing a block of code as long as a specified condition remains true.  It's perfect for situations where the number of iterations isn't known beforehand.
+
+```python
+count = 0
+while count < 5:
+  print(count)
+  count += 1
+```
+
+This loop prints numbers from 0 to 4.  It's crucial to ensure the condition eventually becomes false; otherwise, you'll create an infinite loop.
+
+Here's an example demonstrating a `while` loop with user input:
+
+```python
+answer = ""
+while answer.lower() != "quit":
+  answer = input("Enter a command (or 'quit' to exit): ")
+  print(f"You entered: {answer}")
+```
+
+This loop continues until the user enters "quit" (case-insensitive).
+
+
+## Loop Control Statements: `break` and `continue`
+
+`break` and `continue` offer fine-grained control over loop execution:
+
+* **`break`:** Immediately terminates the loop.
+* **`continue`:** Skips the remaining code in the current iteration and proceeds to the next.
+
+```python
+for i in range(10):
+  if i == 5:
+    break  # Stops the loop when i is 5
+  print(i)
+
+
+for i in range(10):
+  if i % 2 == 0:
+    continue  # Skips even numbers
+  print(i)
+```
+
+These examples demonstrate how `break` and `continue` modify the standard loop behavior.  Understanding these statements enhances your ability to create more efficient and flexible Python code.
+
+
+## Nested Loops
+
+Python also supports nested loops, where one loop is placed inside another.  This is commonly used for tasks like processing matrices or generating patterns.
+
+
+```python
+for i in range(3):
+  for j in range(3):
+    print(f"({i}, {j})", end=" ")
+  print() # New line after each inner loop completes
+```
+
+This code produces a 3x3 grid of coordinates.  Nested loops are powerful but can be computationally expensive if not carefully designed.
+

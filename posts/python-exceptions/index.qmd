@@ -1,0 +1,117 @@
+---
+title: "Python Exceptions"
+date: "07/10/2024"
+categories: [ basic ]
+---
+
+
+Python, like any other robust programming language, employs exceptions to handle runtime errors gracefully.  Understanding and effectively using exceptions is crucial for writing clean, robust, and maintainable Python code. This post delves into the world of Python exceptions, providing clear explanations and practical code examples.
+
+
+## What are Exceptions?
+
+Exceptions are events that disrupt the normal flow of a program's execution. They occur when something unexpected happens, such as attempting to open a non-existent file, dividing by zero, or accessing an invalid index in a list.  Without exception handling, these errors would typically crash your program.
+
+## Common Exception Types
+
+Python offers a wide range of built-in exceptions. Here are some of the most frequently encountered:
+
+* **`ZeroDivisionError`:** Raised when dividing by zero.
+* **`TypeError`:** Raised when an operation is performed on an object of an inappropriate type.
+* **`NameError`:** Raised when a variable is used before it has been assigned a value.
+* **`FileNotFoundError`:** Raised when trying to open a file that doesn't exist.
+* **`IndexError`:** Raised when trying to access an index that is out of range for a sequence (like a list or string).
+* **`ValueError`:** Raised when a function receives an argument of the correct type but an inappropriate value.
+* **`KeyError`:** Raised when trying to access a dictionary key that doesn't exist.
+
+
+## Handling Exceptions with `try-except` Blocks
+
+The core mechanism for handling exceptions in Python is the `try-except` block.  This allows you to anticipate potential errors and execute alternative code if an exception occurs.
+
+```python
+try:
+    result = 10 / 0  # Potential ZeroDivisionError
+except ZeroDivisionError:
+    print("Error: Division by zero!")
+```
+
+This code attempts to divide 10 by 0.  Since this will raise a `ZeroDivisionError`, the `except` block catches it and prints an error message instead of crashing the program.
+
+
+## Handling Multiple Exceptions
+
+A single `try` block can have multiple `except` blocks to handle different exception types:
+
+```python
+try:
+    file = open("nonexistent_file.txt", "r")
+    data = file.read()
+except FileNotFoundError:
+    print("Error: File not found!")
+except Exception as e:  # Catching any other exception
+    print(f"An unexpected error occurred: {e}")
+finally:
+    file.close() # Always execute regardless of exceptions.
+```
+
+This example demonstrates handling both `FileNotFoundError` and any other potential exception using a generic `Exception` handler.  The `finally` block ensures that the file is closed, regardless of whether an exception occurred or not.
+
+
+## Raising Exceptions
+
+You can also explicitly raise exceptions using the `raise` keyword.  This is useful for signaling errors in your own functions or methods:
+
+```python
+def check_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    elif age > 120:
+        raise ValueError("Age is unrealistically high")
+    return True
+
+try:
+  check_age(-5)
+except ValueError as e:
+  print(e)
+```
+
+This `check_age` function raises a `ValueError` if the input age is invalid.
+
+
+##  Custom Exceptions
+
+For more complex error handling, you can define your own custom exception classes by inheriting from the built-in `Exception` class:
+
+```python
+class InvalidInputError(Exception):
+    pass
+
+def process_input(data):
+    if not data:
+        raise InvalidInputError("Input cannot be empty")
+    # ...rest of the processing...
+```
+
+This creates a custom exception `InvalidInputError` that can be used to signal specific error conditions within your application.
+
+
+## Using `else` and `finally` Clauses
+
+* **`else`:**  An optional `else` clause can be added after the `except` block(s).  The code within the `else` block executes only if *no* exceptions were raised in the `try` block.
+
+* **`finally`:** The `finally` clause, also optional, contains code that *always* executes, regardless of whether an exception occurred or not. This is frequently used for cleanup tasks, such as closing files or releasing resources.
+
+
+```python
+try:
+    # Some code that might raise an exception
+    x = 10 / 2
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero")
+else:
+    print(f"Result: {x}")
+finally:
+    print("This always executes.")
+```
+

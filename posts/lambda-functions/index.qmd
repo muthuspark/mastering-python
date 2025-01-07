@@ -1,0 +1,107 @@
+---
+title: "Lambda Functions"
+date: "08/09/2024"
+categories: [ basic ]
+---
+
+
+Python's lambda functions, also known as anonymous functions, offer a concise way to create small, single-expression functions without the need for the standard `def` keyword.  They're incredibly useful for short, simple operations where defining a full function might be overkill. This post will explore their syntax, usage, and practical applications with clear code examples.
+
+## Understanding Lambda Function Syntax
+
+The basic syntax of a lambda function is remarkably straightforward:
+
+```python
+lambda arguments: expression
+```
+
+Let's break it down:
+
+* **`lambda`:** This keyword signifies the start of a lambda function definition.
+* **`arguments`:**  These are the input parameters, similar to those in a regular function.  You can have multiple arguments separated by commas.
+* **`expression`:** This is a single expression that is evaluated and returned.  Lambda functions cannot contain multiple statements or complex logic.
+
+## Simple Examples: Getting Started
+
+Here are a few basic examples to illustrate the core concept:
+
+**1. Adding two numbers:**
+
+```python
+add = lambda x, y: x + y
+print(add(5, 3))  # Output: 8
+```
+
+This creates a lambda function `add` that takes two arguments (`x` and `y`) and returns their sum.
+
+**2. Squaring a number:**
+
+```python
+square = lambda x: x**2
+print(square(4))  # Output: 16
+```
+
+This lambda function `square` takes a single argument and returns its square.
+
+
+**3. Checking if a number is even:**
+
+```python
+is_even = lambda x: x % 2 == 0
+print(is_even(10))  # Output: True
+print(is_even(7))  # Output: False
+```
+
+This lambda function `is_even` checks if a number is even and returns a boolean value.
+
+
+##  Lambda Functions with `map()` and `filter()`
+
+Lambda functions shine when used in conjunction with higher-order functions like `map()` and `filter()`.  These functions operate on iterables (like lists) and apply a given function to each element.
+
+**1. Using `map()` to square a list of numbers:**
+
+```python
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x**2, numbers))
+print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
+```
+
+`map()` applies the lambda function (squaring) to each element in the `numbers` list.
+
+
+**2. Using `filter()` to find even numbers in a list:**
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # Output: [2, 4, 6, 8, 10]
+```
+
+`filter()` applies the lambda function (checking for even numbers) to each element and returns only those that satisfy the condition.
+
+
+##  Lambda Functions with `sorted()`
+
+You can also use lambda functions as the `key` argument in the `sorted()` function to customize sorting criteria.
+
+```python
+points = [(1, 2), (4, 1), (9, 10)]
+sorted_points = sorted(points, key=lambda point: point[0]) #Sort by the first element of the tuple
+print(sorted_points) # Output: [(1, 2), (4, 1), (9, 10)]
+
+sorted_points_y = sorted(points, key=lambda point: point[1]) #Sort by the second element of the tuple
+
+print(sorted_points_y) # Output: [(4, 1), (1, 2), (9, 10)]
+
+```
+
+This sorts the list of tuples based on the first element of each tuple.
+
+
+##  Beyond the Basics: More Advanced Usage
+
+While often used for simple operations, lambda functions can be combined with other techniques to create more complex behaviors.  However, remember to keep them concise; if your lambda function becomes overly complicated, it's generally better to define a regular function for readability and maintainability.
+
+
+

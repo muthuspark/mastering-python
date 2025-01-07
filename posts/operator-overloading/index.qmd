@@ -1,0 +1,108 @@
+---
+title: "Operator Overloading"
+date: "11/15/2024"
+categories: [ advanced ]
+---
+
+
+Operator overloading is a powerful feature in Python that allows you to redefine the behavior of built-in operators (like +, -, *, /, etc.) for custom classes. This means you can use these operators with your objects in a way that's intuitive and familiar to users, making your code cleaner and more readable.  This post will walk you through the basics, providing clear explanations and practical code examples.
+
+
+## Why Use Operator Overloading?
+
+Imagine you're working with a `Vector` class representing a 2D vector.  Without operator overloading, adding two vectors would look like this:
+
+```python
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+v1 = Vector(2, 3)
+v2 = Vector(4, 1)
+
+v3 = Vector(v1.x + v2.x, v1.y + v2.y) 
+print(f"({v3.x}, {v3.y})") # Output: (6, 4)
+```
+
+This is functional, but not very elegant.  Operator overloading lets us use the `+` operator directly:
+
+```python
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):  # Overloading the + operator
+        return Vector(self.x + other.x, self.y + other.y)
+
+v1 = Vector(2, 3)
+v2 = Vector(4, 1)
+
+v3 = v1 + v2  # Using the + operator directly
+print(f"({v3.x}, {v3.y})") # Output: (6, 4)
+```
+
+
+Much better! This is just one example; you can overload many operators.
+
+
+## Common Operator Overloading Methods
+
+Here's a table summarizing some frequently overloaded operators and their corresponding special methods:
+
+| Operator | Method        | Example             |
+|----------|----------------|----------------------|
+| `+`      | `__add__(self, other)` | `a + b`             |
+| `-`      | `__sub__(self, other)` | `a - b`             |
+| `*`      | `__mul__(self, other)` | `a * b`             |
+| `/`      | `__truediv__(self, other)` | `a / b`             |
+| `//`     | `__floordiv__(self, other)` | `a // b`            |
+| `%`      | `__mod__(self, other)`   | `a % b`             |
+| `**`     | `__pow__(self, other)`   | `a ** b`            |
+| `+=`     | `__iadd__(self, other)`  | `a += b`            |
+| `-=`     | `__isub__(self, other)`  | `a -= b`            |
+| `==`     | `__eq__(self, other)`    | `a == b`            |
+| `!=`     | `__ne__(self, other)`    | `a != b`            |
+| `<`      | `__lt__(self, other)`    | `a < b`             |
+| `>`      | `__gt__(self, other)`    | `a > b`             |
+| `<=`     | `__le__(self, other)`    | `a <= b`            |
+| `>=`     | `__ge__(self, other)`    | `a >= b`            |
+
+
+## Example: Complex Number Class
+
+Let's create a `ComplexNumber` class and overload the `+` and `*` operators:
+
+```python
+class ComplexNumber:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def __add__(self, other):
+        real = self.real + other.real
+        imag = self.imag + other.imag
+        return ComplexNumber(real, imag)
+
+    def __mul__(self, other):
+        real = self.real * other.real - self.imag * other.imag
+        imag = self.real * other.imag + self.imag * other.real
+        return ComplexNumber(real, imag)
+
+    def __str__(self): #for better printing
+        return f"{self.real} + {self.imag}j"
+
+c1 = ComplexNumber(2, 3)
+c2 = ComplexNumber(4, 1)
+
+c3 = c1 + c2
+c4 = c1 * c2
+
+print(f"c1 + c2 = {c3}") # Output: c1 + c2 = 6 + 4j
+print(f"c1 * c2 = {c4}") # Output: c1 * c2 = 5 + 14j
+
+```
+
+This demonstrates how to add functionality to your classes using operator overloading, enhancing code readability and maintainability.  Remember to consider the logical implications of overloading operators; ensure the overloaded behavior aligns with the expected mathematical or logical operations.  Incorrect overloading can lead to unexpected results or errors.
+

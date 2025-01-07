@@ -1,0 +1,103 @@
+---
+title: "Garbage Collection in Python"
+date: "10/19/2024"
+categories: [ advanced ]
+---
+
+
+Python, renowned for its ease of use, handles memory management automatically through a process called garbage collection (GC). Unlike languages like C or C++, where developers manually allocate and deallocate memory, Python's GC reclaims unused memory, preventing memory leaks and simplifying development.  This post will explore how Python's GC works, its different mechanisms, and how to potentially influence its behavior.
+
+## How Python's Garbage Collection Works
+
+Python primarily employs a **reference counting** garbage collection mechanism.  Every object in Python maintains a count of how many references point to it. When this count drops to zero, meaning no part of the program is using the object anymore, the object is immediately deallocated, and its memory is freed.
+
+```python
+import gc
+
+a = [1, 2, 3]  # Reference count is 1
+b = a         # Reference count becomes 2
+del a         # Reference count goes back to 1
+del b         # Reference count becomes 0; object is garbage collected
+```
+
+While reference counting is efficient for many scenarios, it struggles with **cyclic references**.  This occurs when two or more objects refer to each other, creating a cycle even if no other part of the program references them.  Reference counting alone wouldn't detect these as garbage.
+
+To address this limitation, Python uses a **cyclic garbage collector** which runs periodically as a separate process.  This collector employs a cycle-detecting algorithm to identify and reclaim memory occupied by cyclically referenced objects.
+
+```python
+import gc
+
+a = []
+b = []
+a.append(b)
+b.append(a)  # Cyclic reference
+
+gc.collect() #Manually trigger garbage collection
+```
+
+##  Garbage Collection Tuning
+
+While generally automatic, you can influence Python's garbage collection behavior through the `gc` module.
+
+* **`gc.collect()`:** Manually triggers garbage collection.  While generally not needed, it can be useful in specific situations, like after a large operation where you want to explicitly free memory.  Overuse can negatively impact performance.
+
+```python
+import gc
+import sys
+
+#Allocate some large objects.
+
+large_list = [i for i in range(1000000)]
+large_dict = {i: i**2 for i in range(1000000)}
+
+print(f"Memory usage before garbage collection: {sys.getsizeof(large_list) + sys.getsizeof(large_dict)} bytes")
+
+gc.collect()
+
+print(f"Memory usage after garbage collection: {sys.getsizeof(large_list) + sys.getsizeof(large_dict)} bytes") #Note that size difference might be less than expected due to how Python manages memory.
+
+
+del large_list
+del large_dict
+
+gc.collect()
+
+
+```
+
+* **`gc.disable()` and `gc.enable()`:** You can temporarily disable and re-enable the garbage collector.  Disabling it might improve performance in very specific, carefully controlled situations, but it is generally not recommended unless you have a thorough understanding of the implications.
+
+* **`gc.get_threshold()` and `gc.set_threshold()`:**  This allows you to control the garbage collector's thresholds which determine how often the cyclic garbage collector runs. These thresholds are typically set as a tuple of three integers, representing the number of object allocations, collections, and thresholds for each.
+
+
+## Generational Garbage Collection
+
+Python's garbage collector is not purely generational, but it exhibits some generational behavior. Objects are implicitly grouped into generations based on their age and survival through previous garbage collection cycles. Older generations are collected less frequently.  This optimization aims to improve efficiency by focusing on the most recently created objects, which are more likely to be garbage.  However, understanding the specifics of Python's generational behavior requires delving into the CPython implementation details.
+
+##  Weak References
+
+
+`weakref` module in Python allows you to create weak references to objects.  These references don't increment the object's reference count.  This is particularly useful in situations where you want to keep a reference to an object without preventing it from being garbage collected.
+
+
+```python
+import weakref
+
+class MyClass:
+    pass
+
+obj = MyClass()
+weak_ref = weakref.ref(obj)
+
+print(weak_ref())  # Output: <__main__.MyClass object at ...>
+
+del obj #Object deleted.
+
+print(weak_ref()) # Output: None (object garbage collected)
+
+
+```
+
+
+These mechanisms, combined with Python's automatic memory management, ensure efficient and relatively transparent memory usage within your programs. Understanding these concepts can help developers write more efficient and robust applications.
+

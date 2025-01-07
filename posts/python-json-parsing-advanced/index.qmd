@@ -1,0 +1,125 @@
+---
+title: "Python JSON Parsing (Advanced)"
+date: "01/06/2025"
+categories: [ advanced ]
+---
+
+
+Python's built-in `json` library provides straightforward methods for parsing JSON data.  However, real-world JSON often presents complexities that require more advanced techniques. This post dives into these, equipping you with the skills to handle challenging JSON structures efficiently.
+
+
+## Handling Nested JSON
+
+Nested JSON, where objects are contained within other objects, is very common.  Simple `json.load()` or `json.loads()` won't suffice for extracting specific data deeply buried within the structure.  Let's explore how to navigate this effectively.
+
+```python
+import json
+
+nested_json = '''
+{
+  "name": "Example Corp",
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "zip": "12345"
+  },
+  "employees": [
+    {"id": 1, "name": "Alice"},
+    {"id": 2, "name": "Bob"}
+  ]
+}
+'''
+
+data = json.loads(nested_json)
+
+street = data['address']['street']
+print(f"Street: {street}")
+
+for employee in data['employees']:
+  print(f"Employee ID: {employee['id']}, Name: {employee['name']}")
+```
+
+
+## Dealing with Missing Keys
+
+Robust JSON parsing requires gracefully handling situations where expected keys might be absent.  Using `.get()` with a default value prevents `KeyError` exceptions.
+
+```python
+import json
+
+json_data = '''
+{
+  "name": "Example",
+  "optional_field": null
+}
+'''
+
+data = json.loads(json_data)
+
+name = data.get('name', 'Unknown')
+optional = data.get('optional_field', 'Not provided')  #Handles null values as well
+
+print(f"Name: {name}")
+print(f"Optional Field: {optional}")
+
+#Check for existence before accessing
+if 'another_missing_field' in data:
+    print(data['another_missing_field'])
+else:
+    print("another_missing_field is missing.")
+```
+
+## Efficiently Parsing Large JSON Files
+
+For extremely large JSON files, loading the entire file into memory at once can be inefficient and lead to memory errors.  Instead, use iterative parsing:
+
+```python
+import json
+
+def parse_large_json(filepath):
+    with open(filepath, 'r') as f:
+        for line in f:
+            try:
+                data = json.loads(line)  #Assumes each line is a valid JSON object
+                #Process individual JSON object here.
+                print(data['name']) #Example processing
+            except json.JSONDecodeError as e:
+                print(f"Error decoding JSON: {e}")
+
+
+#Example usage (replace 'large_file.json' with your file)
+parse_large_json('large_file.json')
+```
+
+This approach processes one JSON object at a time, significantly reducing memory usage.  Remember to adapt the `#Process individual JSON object here` comment to your specific needs.
+
+
+##  Handling JSON with Different Data Types
+
+JSON can contain diverse data types like numbers (integers and floats), strings, booleans, lists, and dictionaries.  Your parsing logic needs to be flexible enough to handle this variety.  Type checking or using `isinstance()` is crucial.
+
+```python
+import json
+
+data = json.loads('{"value": 123.45, "is_active": true, "items": [1,2,"three"]}')
+
+value = data['value']
+is_active = data['is_active']
+items = data['items']
+
+print(f"Value: {value}, Type: {type(value)}")
+print(f"Is Active: {is_active}, Type: {type(is_active)}")
+print(f"Items: {items}, Type: {type(items)}")
+```
+
+
+
+## Using External Libraries for Complex Scenarios
+
+For exceptionally complex or malformed JSON, consider using libraries like `ijson` for streaming JSON parsing or `jsonpath-ng` for flexible data extraction using JSONPath expressions.  These tools can significantly simplify processing intricate JSON structures.
+
+
+##  Error Handling and Validation
+
+Always incorporate error handling (`try-except` blocks) to catch potential `json.JSONDecodeError` exceptions arising from invalid JSON.  In applications where data validity is critical, validation against a schema (using libraries like `jsonschema`) ensures data integrity.
+

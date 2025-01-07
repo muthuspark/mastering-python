@@ -1,0 +1,102 @@
+---
+title: "Python Global and Local Variables"
+date: "02/25/2024"
+categories: [ basic ]
+---
+
+
+Python, like many other programming languages, distinguishes between global and local variables.  Understanding this distinction is crucial for writing clean, efficient, and bug-free code.  Let's delve into the specifics with clear examples.
+
+## What are Global Variables?
+
+Global variables are declared outside of any function or block of code.  They have global scope, meaning they can be accessed and modified from anywhere in your program, both inside and outside functions.
+
+```python
+global_var = 10  # This is a global variable
+
+def my_function():
+  print(global_var)  # Accessing the global variable inside a function
+
+my_function()  # Output: 10
+print(global_var)  # Output: 10
+```
+
+## What are Local Variables?
+
+Local variables are declared inside a function or block of code.  Their scope is limited to that specific function or block.  They cannot be directly accessed from outside their defined scope.
+
+```python
+def my_function():
+  local_var = 5  # This is a local variable
+  print(local_var)  # Accessing the local variable
+
+my_function()  # Output: 5
+#print(local_var)  # This will cause an error because local_var is not accessible here
+```
+
+## Modifying Global Variables Inside Functions
+
+If you want to modify a global variable from within a function, you must explicitly declare it using the `global` keyword.  Failure to do so will result in a new local variable with the same name being created.
+
+```python
+global_var = 10
+
+def modify_global():
+  global global_var  # Declare that we are modifying the global variable
+  global_var = 20
+
+modify_global()
+print(global_var)  # Output: 20
+```
+
+Without the `global` keyword:
+
+```python
+global_var = 10
+
+def modify_global():
+  global_var = 20 #This creates a new local variable
+
+modify_global()
+print(global_var)  # Output: 10 (the global variable remains unchanged)
+```
+
+## Nested Functions and Variable Scope
+
+Variable scope also applies to nested functions.  Inner functions can access variables from their enclosing functions (but not vice versa), as well as global variables. This is known as closure.
+
+```python
+def outer_function():
+  outer_var = 15
+
+  def inner_function():
+    print(outer_var) # inner_function can access outer_var
+
+  inner_function()
+
+outer_function() # Output: 15
+#print(outer_var) # This will cause an error because outer_var is not accessible here.
+```
+
+##  `global` Keyword and Nested Functions
+
+Using the `global` keyword inside a nested function will still refer to the global variable, not the variable in the enclosing function.
+
+
+```python
+global_var = 10
+
+def outer_function():
+  outer_var = 15
+  def inner_function():
+      global global_var
+      global_var = 25
+
+  inner_function()
+
+outer_function()
+print(global_var) # Output: 25
+```
+
+Understanding the nuances of global and local variables is vital for writing well-structured and maintainable Python code.  Careful consideration of variable scope helps avoid unexpected behavior and makes your code easier to debug.
+

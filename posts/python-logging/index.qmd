@@ -1,0 +1,137 @@
+---
+title: "Python Logging"
+date: "09/10/2024"
+categories: [ basic ]
+---
+
+
+Python's built-in `logging` module is a powerful tool for managing and recording application events.  Effective logging is crucial for debugging, monitoring, and auditing your applications. This post dives deep into Python logging, showing you how to use it effectively with clear code examples.
+
+## Why Use Python Logging?
+
+Before we jump into the code, let's understand why logging is so important:
+
+* **Debugging:** Track the flow of your program, identify errors, and pinpoint their source quickly.
+* **Monitoring:** Monitor the health and performance of your application in real-time or retrospectively.
+* **Auditing:** Create an audit trail of important events for security and compliance reasons.
+* **Maintainability:**  Well-structured logs make your code easier to maintain and understand, especially in larger projects.
+
+
+## Basic Logging Setup
+
+The simplest way to use Python's logging module is to use the `basicConfig()` function. This sets up a basic logger configuration, writing messages to the console.
+
+```python
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+logging.debug('This is a debug message.')
+logging.info('This is an info message.')
+logging.warning('This is a warning message.')
+logging.error('This is an error message.')
+logging.critical('This is a critical message.')
+```
+
+This code will output messages to the console, each with a timestamp, log level, and the message itself.  The `level` argument controls which messages are displayed (DEBUG is the most verbose).
+
+## Customizing Log Output
+
+For more control, you can create a logger instance and configure it manually:
+
+```python
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+file_handler = logging.FileHandler('my_app.log')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+logger.debug('This debug message goes to the file.')
+logger.info('So does this info message.')
+```
+
+This example creates a logger named `__name__` (which usually reflects the module name), writes to a file (`my_app.log`), and uses a custom formatter for more detailed output.
+
+## Handling Different Log Levels
+
+Each log message has an associated level: DEBUG, INFO, WARNING, ERROR, and CRITICAL.  You can control which levels are logged using the `setLevel()` method on both the logger and handlers. For example, setting the level to `WARNING` will only log WARNING, ERROR, and CRITICAL messages.
+
+
+```python
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.WARNING) # Only WARNING and above are logged
+
+
+logger.debug('This debug message will be ignored.')
+logger.warning('This warning message will be logged.')
+
+```
+
+##  Logging Exceptions
+
+Logging exceptions is crucial for debugging. You can use the `exc_info=True` argument within your logging calls:
+
+
+```python
+import logging
+
+try:
+    # Some code that might raise an exception
+    result = 10 / 0
+except ZeroDivisionError:
+    logger.exception("An error occurred:")
+```
+
+This will log the traceback information along with the error message, making it easier to diagnose the problem.
+
+
+##  Using Handlers for Different Output Destinations
+
+You can add multiple handlers to send logs to different destinations (e.g., console, file, email).  This allows for flexible log management based on your needs.
+
+
+```python
+import logging
+
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO) #only INFO and above to console
+console_handler.setFormatter(formatter)
+
+logger.addHandler(console_handler)
+
+```
+
+
+This example adds a `StreamHandler` (for console output) and sets it to only log messages of `INFO` level or higher, allowing more detailed debugging information to go to the file only.
+
+
+## Loggers Hierarchy
+
+Python's logging module utilizes a hierarchy of loggers.  Loggers inherit from their parent loggers, allowing for flexible configuration and propagation of messages.  You can create child loggers to organize your logs by module or functionality.
+
+
+```python
+import logging
+
+logger = logging.getLogger(__name__)
+module_logger = logging.getLogger(__name__ + ".module")
+
+logger.info("Message from parent logger")
+module_logger.debug("Message from child logger")
+
+```
+
+This structure allows you to control logging at different levels within your application.
+
+
+This guide provides a solid foundation for using Python's logging capabilities.  Remember, well-structured logging is a vital part of building robust and maintainable applications.
+

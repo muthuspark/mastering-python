@@ -1,0 +1,136 @@
+---
+title: "Dictionary Methods"
+date: "10/08/2024"
+categories: [ basic ]
+---
+
+
+Python dictionaries are fundamental data structures, offering a powerful way to store and access data using key-value pairs.  Understanding dictionary methods is crucial for efficiently manipulating and working with this versatile data type. This post explores key dictionary methods with clear explanations and practical code examples.
+
+
+## Essential Dictionary Methods:  A Practical Guide
+
+Let's delve into some of the most frequently used dictionary methods:
+
+
+### 1. `clear()`
+
+The `clear()` method removes all items from a dictionary, leaving it empty.
+
+```python
+my_dict = {"a": 1, "b": 2, "c": 3}
+my_dict.clear()
+print(my_dict)  # Output: {}
+```
+
+### 2. `copy()`
+
+The `copy()` method creates a shallow copy of a dictionary.  Changes made to the original dictionary won't affect the copy, and vice versa (unless you modify mutable objects within the dictionary).
+
+```python
+original_dict = {"x": 10, "y": [1, 2]}
+copied_dict = original_dict.copy()
+copied_dict["x"] = 20
+print(original_dict)  # Output: {'x': 10, 'y': [1, 2]}
+print(copied_dict)  # Output: {'x': 20, 'y': [1, 2]}
+```
+
+### 3. `fromkeys()`
+
+The `fromkeys()` method creates a new dictionary from a given iterable (like a list or tuple) of keys, all assigned to a specified value.
+
+```python
+keys = ["apple", "banana", "cherry"]
+my_dict = dict.fromkeys(keys, 0) #assigns 0 to all keys
+print(my_dict)  # Output: {'apple': 0, 'banana': 0, 'cherry': 0}
+```
+
+### 4. `get()`
+
+The `get()` method retrieves the value associated with a specified key.  Crucially, it avoids `KeyError` exceptions if the key doesn't exist; instead, it returns a default value (None by default, or a specified value).
+
+```python
+my_dict = {"name": "Alice", "age": 30}
+print(my_dict.get("name"))  # Output: Alice
+print(my_dict.get("city"))  # Output: None
+print(my_dict.get("city", "Unknown")) # Output: Unknown
+```
+
+### 5. `items()`
+
+The `items()` method returns a view object containing key-value pairs as tuples. This is useful for iterating through the dictionary.
+
+```python
+my_dict = {"a": 1, "b": 2, "c": 3}
+for key, value in my_dict.items():
+    print(f"Key: {key}, Value: {value}")
+```
+
+### 6. `keys()`
+
+The `keys()` method returns a view object containing all the keys in the dictionary.
+
+```python
+my_dict = {"a": 1, "b": 2, "c": 3}
+print(list(my_dict.keys()))  # Output: ['a', 'b', 'c']
+```
+
+### 7. `pop()`
+
+The `pop()` method removes and returns the value associated with a specified key.  It raises a `KeyError` if the key is not found.
+
+```python
+my_dict = {"a": 1, "b": 2, "c": 3}
+removed_value = my_dict.pop("b")
+print(removed_value)  # Output: 2
+print(my_dict)  # Output: {'a': 1, 'c': 3}
+```
+
+### 8. `popitem()`
+
+The `popitem()` method removes and returns an arbitrary key-value pair (as a tuple). In Python 3.7+, it's guaranteed to remove the last inserted item.
+
+```python
+my_dict = {"a": 1, "b": 2, "c": 3}
+removed_item = my_dict.popitem()
+print(removed_item) # Output will vary depending on Python version prior to 3.7, but will be a (key,value) tuple
+print(my_dict)
+```
+
+### 9. `setdefault()`
+
+The `setdefault()` method returns the value of a key if it exists. If not, it inserts the key with a specified default value and returns the default value.
+
+```python
+my_dict = {"a": 1, "b": 2}
+value = my_dict.setdefault("c", 3) # adds key 'c' with value 3
+print(value)  # Output: 3
+print(my_dict)  # Output: {'a': 1, 'b': 2, 'c': 3}
+
+value = my_dict.setdefault("a", 10) #'a' already exists, so its value is returned
+print(value) #Output: 1
+```
+
+### 10. `update()`
+
+The `update()` method merges another dictionary or iterable of key-value pairs into the current dictionary. Existing keys are updated, while new keys are added.
+
+
+```python
+my_dict = {"a": 1, "b": 2}
+my_dict.update({"c": 3, "b": 4}) # 'b' is updated, 'c' is added
+print(my_dict)  # Output: {'a': 1, 'b': 4, 'c': 3}
+```
+
+### 11. `values()`
+
+The `values()` method returns a view object containing all the values in the dictionary.
+
+```python
+my_dict = {"a": 1, "b": 2, "c": 3}
+print(list(my_dict.values()))  # Output: [1, 2, 3]
+```
+
+
+These are some of the most commonly used dictionary methods in Python.  Proficient use of these methods will significantly improve your code's efficiency and readability when dealing with dictionaries.
+

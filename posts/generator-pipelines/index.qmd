@@ -1,0 +1,102 @@
+---
+title: "Generator Pipelines"
+date: "06/08/2024"
+categories: [ advanced ]
+---
+
+
+Python's generators are a powerful tool for creating iterators efficiently.  But their true potential shines when combined into *pipelines*, allowing you to chain multiple generator functions together for elegant and performant data processing.  This post will explore the art of crafting effective generator pipelines in Python.
+
+
+## Understanding Generators
+
+Before diving into pipelines, let's briefly review generators.  Generators are functions that use the `yield` keyword. Instead of returning a single value and terminating, they yield a value and pause their execution, resuming from where they left off on the next iteration. This makes them memory-efficient for processing large datasets, as they don't store the entire dataset in memory at once.
+
+```python
+def my_generator(n):
+  for i in range(n):
+    yield i * 2
+
+for num in my_generator(5):
+  print(num)  # Output: 0 2 4 6 8
+```
+
+
+## Building Generator Pipelines
+
+The magic of generator pipelines lies in their ability to seamlessly pass data between generators.  Each generator takes the output of the previous one as its input. This allows you to build complex data transformation workflows in a clean and readable manner.
+
+Let's create a simple pipeline that filters and transforms a list of numbers:
+
+
+```python
+def even_numbers(numbers):
+  for num in numbers:
+    if num % 2 == 0:
+      yield num
+
+def square_numbers(numbers):
+  for num in numbers:
+    yield num * num
+
+numbers = range(10)
+even_squared = (num for num in square_numbers(even_numbers(numbers)))
+
+for num in even_squared:
+  print(num)  # Output: 0 4 16 36 64
+```
+
+In this example:
+
+1. `even_numbers` filters the input to only include even numbers.
+2. `square_numbers` takes the even numbers and squares them.
+3. The final generator expression combines these two, creating the pipeline.  Notice the use of a generator expression `(num for num in ...)` for concise chaining.
+
+
+##  More Complex Pipelines:  A Real-World Scenario
+
+Let's imagine processing log files.  We might want to filter lines containing specific error messages, extract timestamps, and then count the occurrences of each error.
+
+
+```python
+import re
+
+def log_lines(filepath):
+    with open(filepath, 'r') as f:
+        for line in f:
+            yield line.strip()
+
+def filter_errors(lines, error_pattern):
+    for line in lines:
+        if re.search(error_pattern, line):
+            yield line
+
+def extract_timestamps(lines, timestamp_pattern):
+    for line in lines:
+        match = re.search(timestamp_pattern, line)
+        if match:
+            yield match.group(1) # Assuming timestamp is the first capture group
+
+def count_errors(timestamps):
+  counts = {}
+  for timestamp in timestamps:
+    counts[timestamp] = counts.get(timestamp, 0) + 1
+  return counts # Note: This is not a generator, it returns a dictionary
+
+
+filepath = "my_log.txt" # Replace with your log file path
+error_pattern = r"ERROR: (.*)"
+timestamp_pattern = r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})"
+
+error_counts = count_errors(extract_timestamps(filter_errors(log_lines(filepath), error_pattern), timestamp_pattern))
+print(error_counts)
+
+```
+
+This demonstrates a more realistic application.  The pipeline filters, extracts, and then counts, all in a structured and efficient manner.  Note that the final `count_errors` function doesn't need to be a generator because it's the end of the pipeline and performs a final aggregation.
+
+
+##  Lazy Evaluation and Efficiency
+
+The beauty of generator pipelines lies in their *lazy evaluation*.  Each generator only produces values when requested by the next one in the chain.  This prevents unnecessary computation and memory usage, especially crucial when dealing with massive datasets or computationally expensive operations.  This makes them a highly efficient approach for data processing in Python.
+

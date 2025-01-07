@@ -1,0 +1,129 @@
+---
+title: "Data Types in Python"
+date: "05/11/2024"
+categories: [ basic ]
+---
+
+
+Python, renowned for its readability and versatility, relies on a robust system of data types to manage different kinds of information.  Understanding these data types is crucial for writing effective and error-free Python code. This post delves into the core data types, providing clear explanations and practical examples.
+
+
+## Fundamental Data Types
+
+Python offers several built-in data types, each designed to handle specific kinds of data:
+
+**1. Numeric Types:**
+
+These types represent numbers in various forms:
+
+* **`int` (Integers):**  Whole numbers without decimal points.
+
+```python
+x = 10
+y = -5
+print(type(x))  # Output: <class 'int'>
+print(type(y))  # Output: <class 'int'>
+```
+
+* **`float` (Floating-Point Numbers):** Numbers with decimal points.
+
+```python
+a = 3.14
+b = -2.5
+print(type(a))  # Output: <class 'float'>
+print(type(b))  # Output: <class 'float'>
+```
+
+* **`complex` (Complex Numbers):** Numbers with a real and an imaginary part (e.g., 2+3j).
+
+```python
+c = 2 + 3j
+print(type(c))  # Output: <class 'complex'>
+```
+
+
+**2. Text Type:**
+
+* **`str` (Strings):** Sequences of characters enclosed in single (' ') or double (" ") quotes.
+
+```python
+name = "Python"
+message = 'Hello, world!'
+print(type(name))  # Output: <class 'str'>
+print(type(message)) # Output: <class 'str'>
+```
+
+
+**3. Sequence Types:**
+
+These types represent ordered collections of items:
+
+* **`list` (Lists):** Ordered, mutable (changeable) sequences of items.  Items can be of different data types.
+
+```python
+my_list = [1, "hello", 3.14, True]
+print(type(my_list))  # Output: <class 'list'>
+my_list[0] = 10 # Modifying a list element
+print(my_list) # Output: [10, 'hello', 3.14, True]
+```
+
+* **`tuple` (Tuples):** Ordered, immutable (unchangeable) sequences of items.
+
+```python
+my_tuple = (1, "hello", 3.14, True)
+print(type(my_tuple))  # Output: <class 'tuple'>
+```
+
+* **`range` (Ranges):** Represents a sequence of numbers.  Often used in loops.
+
+```python
+numbers = range(1, 6) # Creates a sequence from 1 to 5
+print(list(numbers)) # Output: [1, 2, 3, 4, 5]
+print(type(numbers)) # Output: <class 'range'>
+```
+
+
+**4. Mapping Type:**
+
+* **`dict` (Dictionaries):**  Unordered collections of key-value pairs. Keys must be immutable (e.g., strings, numbers, tuples).
+
+```python
+my_dict = {"name": "Alice", "age": 30, "city": "New York"}
+print(type(my_dict))  # Output: <class 'dict'>
+print(my_dict["name"])  # Output: Alice
+```
+
+
+**5. Set Types:**
+
+* **`set` (Sets):** Unordered collections of unique items.
+
+```python
+my_set = {1, 2, 2, 3, 4}  # Duplicates are automatically removed
+print(type(my_set))  # Output: <class 'set'>
+print(my_set)  # Output: {1, 2, 3, 4}
+```
+
+* **`frozenset` (Frozen Sets):** Immutable versions of sets.
+
+
+**6. Boolean Type:**
+
+* **`bool` (Booleans):** Represents truth values: `True` or `False`.
+
+```python
+is_adult = True
+is_minor = False
+print(type(is_adult))  # Output: <class 'bool'>
+```
+
+
+**7. Binary Types:**
+
+* **`bytes`:**  Sequence of bytes.
+* **`bytearray`:** Mutable sequence of bytes.
+* **`memoryview`:** Allows access to the internal data of an object without copying.
+
+
+These data types form the foundation of Python programming.  Choosing the appropriate data type is crucial for efficient and correct code execution.  Further exploration into more advanced data structures and their applications will enhance your Python programming skills significantly.
+

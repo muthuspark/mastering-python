@@ -1,0 +1,151 @@
+---
+title: "Operators in Python"
+date: "01/25/2024"
+categories: [ basic ]
+---
+
+
+Python, known for its readability and versatility, relies heavily on operators to perform various operations on data.  Understanding these operators is crucial for writing efficient and effective Python code. This guide delves into the different types of operators in Python, providing clear explanations and practical examples.
+
+
+## Arithmetic Operators
+
+These operators perform basic mathematical calculations.
+
+| Operator | Description          | Example       | Result |
+|----------|----------------------|---------------|--------|
+| `+`      | Addition              | `10 + 5`     | 15     |
+| `-`      | Subtraction           | `10 - 5`     | 5      |
+| `*`      | Multiplication        | `10 * 5`     | 50     |
+| `/`      | Division              | `10 / 5`     | 2.0    |
+| `//`     | Floor Division       | `10 // 5`    | 2      |
+| `%`      | Modulus (remainder) | `10 % 3`     | 1      |
+| `**`     | Exponentiation       | `10 ** 2`    | 100    |
+
+
+```python
+x = 10
+y = 5
+
+print(x + y)  # Output: 15
+print(x - y)  # Output: 5
+print(x * y)  # Output: 50
+print(x / y)  # Output: 2.0
+print(x // y) # Output: 2
+print(x % y)  # Output: 0
+print(x ** y) # Output: 100000
+```
+
+
+## Comparison Operators
+
+These operators compare two values and return a Boolean value (True or False).
+
+| Operator | Description          | Example       | Result |
+|----------|----------------------|---------------|--------|
+| `==`     | Equal to             | `10 == 5`    | False  |
+| `!=`     | Not equal to         | `10 != 5`    | True   |
+| `>`      | Greater than         | `10 > 5`     | True   |
+| `<`      | Less than            | `10 < 5`     | False  |
+| `>=`     | Greater than or equal to | `10 >= 5`   | True   |
+| `<=`     | Less than or equal to  | `10 <= 5`   | False  |
+
+
+```python
+a = 10
+b = 5
+
+print(a == b)  # Output: False
+print(a != b)  # Output: True
+print(a > b)   # Output: True
+print(a < b)   # Output: False
+print(a >= b)  # Output: True
+print(a <= b)  # Output: False
+```
+
+
+## Logical Operators
+
+These operators combine or modify Boolean expressions.
+
+| Operator | Description       | Example           | Result |
+|----------|--------------------|--------------------|--------|
+| `and`    | Logical AND        | `True and False`  | False  |
+| `or`     | Logical OR         | `True or False`   | True   |
+| `not`    | Logical NOT        | `not True`        | False  |
+
+
+```python
+p = True
+q = False
+
+print(p and q)  # Output: False
+print(p or q)   # Output: True
+print(not p)    # Output: False
+```
+
+
+## Bitwise Operators
+
+These operators perform operations on individual bits of integers.  (We will not cover these in detail here, but you should look them up if you need them)
+
+
+## Assignment Operators
+
+These operators assign values to variables.
+
+| Operator | Description              | Example          | Equivalent |
+|----------|--------------------------|-------------------|------------|
+| `=`      | Simple assignment        | `x = 10`         | `x = 10`    |
+| `+=`     | Add and assign          | `x += 5`         | `x = x + 5` |
+| `-=`     | Subtract and assign      | `x -= 5`         | `x = x - 5` |
+| `*=`     | Multiply and assign     | `x *= 5`         | `x = x * 5` |
+| `/=`     | Divide and assign       | `x /= 5`         | `x = x / 5` |
+| `//=`    | Floor divide and assign | `x //= 5`        | `x = x // 5`|
+| `%=`     | Modulus and assign      | `x %= 5`         | `x = x % 5` |
+| `**=`    | Exponentiate and assign | `x **= 5`        | `x = x ** 5`|
+
+
+```python
+x = 10
+x += 5  # x is now 15
+x -= 3  # x is now 12
+print(x) # Output: 12
+```
+
+
+## Membership Operators
+
+These operators check for membership in sequences (like strings, lists, tuples).
+
+| Operator | Description           | Example              | Result |
+|----------|------------------------|-----------------------|--------|
+| `in`     | Check if present       | `'a' in 'abc'`      | True   |
+| `not in` | Check if not present | `'d' not in 'abc'`   | True   |
+
+
+```python
+my_list = [1, 2, 3]
+print(2 in my_list)  # Output: True
+print(4 not in my_list) # Output: True
+```
+
+
+## Identity Operators
+
+These operators compare the memory addresses of two objects.
+
+| Operator | Description                | Example                   | Result (if x and y point to different objects)|
+|----------|----------------------------|---------------------------|-------------------------------------------|
+| `is`     | Check if objects are same | `x is y`                 | False                                       |
+| `is not` | Check if objects are not same | `x is not y`              | True                                        |
+
+```python
+x = [1, 2, 3]
+y = [1, 2, 3]
+print(x is y)  # Output: False (different objects in memory)
+z = x
+print(x is z) # Output: True (x and z refer to the same object)
+```
+
+

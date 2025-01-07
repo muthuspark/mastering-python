@@ -1,0 +1,131 @@
+---
+title: "Python Sockets"
+date: "01/02/2024"
+categories: [ advanced ]
+---
+
+
+Python's socket module is a powerful tool for building network applications.  Whether you're creating a simple chat application, a web server, or a complex distributed system, understanding sockets is crucial. This post provides a comprehensive introduction to Python sockets, covering both the basics and some advanced concepts, with practical code examples to solidify your understanding.
+
+## What are Sockets?
+
+In essence, a socket is an endpoint of a two-way communication link between two programs running on a network. It's like a virtual telephone line, allowing data to flow between different machines.  Sockets are characterized by an IP address and a port number, which uniquely identify the connection.  The IP address specifies the location of the machine, while the port number identifies a specific application running on that machine.
+
+
+## Socket Types: TCP vs. UDP
+
+Python supports two primary socket types:
+
+* **TCP (Transmission Control Protocol):** TCP is a connection-oriented protocol.  This means that before data can be transmitted, a connection must be established between the client and the server. TCP guarantees reliable, ordered delivery of data.  If data is lost or corrupted, TCP will retransmit it.
+
+* **UDP (User Datagram Protocol):** UDP is a connectionless protocol.  Data is sent without establishing a connection beforehand.  UDP is faster than TCP but doesn't guarantee reliable delivery. Data packets can be lost or arrive out of order.
+
+
+## A Simple TCP Server and Client
+
+Let's start with a basic TCP server and client example.  The server listens for incoming connections, while the client initiates a connection and sends data.
+
+**Server (server.py):**
+
+```python
+import socket
+
+def start_server():
+    host = '127.0.0.1'  # localhost
+    port = 65432        # Port to listen on (non-privileged ports are > 1023)
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind((host, port))
+        s.listen()
+        conn, addr = s.accept()
+        with conn:
+            print('Connected by', addr)
+            while True:
+                data = conn.recv(1024)
+                if not data:
+                    break
+                print('Received:', data.decode())
+                conn.sendall(b'Message received')
+
+if __name__ == "__main__":
+    start_server()
+
+```
+
+**Client (client.py):**
+
+```python
+import socket
+
+def start_client():
+    host = '127.0.0.1'
+    port = 65432
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((host, port))
+        s.sendall(b'Hello, world!')
+        data = s.recv(1024)
+
+    print('Received', repr(data))
+
+if __name__ == "__main__":
+    start_client()
+```
+
+To run this, first start the server (`python server.py`), then the client (`python client.py`). The client will send a message, and the server will print it and send a response.
+
+
+##  A Simple UDP Example
+
+Here's a basic UDP example showing how to send and receive datagrams:
+
+**UDP Server (udp_server.py):**
+
+```python
+import socket
+
+def start_udp_server():
+    host = '127.0.0.1'
+    port = 5000
+
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+        s.bind((host, port))
+        while True:
+            data, addr = s.recvfrom(1024)
+            print(f"Received {data.decode()} from {addr}")
+            s.sendto(b"UDP Message Received", addr)
+
+if __name__ == "__main__":
+    start_udp_server()
+```
+
+**UDP Client (udp_client.py):**
+
+```python
+import socket
+
+def start_udp_client():
+    host = '127.0.0.1'
+    port = 5000
+
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+        s.sendto(b"Hello, UDP!", (host, port))
+        data, addr = s.recvfrom(1024)
+        print(f"Received {data.decode()} from {addr}")
+
+if __name__ == "__main__":
+    start_udp_client()
+```
+
+Remember to run the server before the client.
+
+
+## Handling Errors
+
+Real-world network applications need robust error handling.  Always include `try...except` blocks to catch potential exceptions like `socket.error` and `ConnectionRefusedError`.
+
+
+##  Beyond the Basics
+
+This introduction covers the fundamental concepts of Python sockets.  More advanced topics include asynchronous I/O with `asyncio`, handling multiple clients concurrently, and using different socket options for fine-grained control over the network connection.  These are topics for further exploration.
+

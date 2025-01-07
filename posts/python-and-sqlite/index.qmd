@@ -1,0 +1,110 @@
+---
+title: "Python and SQLite"
+date: "02/06/2024"
+categories: [ advanced ]
+---
+
+
+Python's versatility is amplified when combined with SQLite, a lightweight and serverless database engine. This pairing offers a streamlined solution for managing data within Python applications, eliminating the need for complex database server setups.  This post explores how to effectively integrate SQLite into your Python projects, providing practical code examples to guide you.
+
+## Why Choose SQLite with Python?
+
+SQLite's strengths are perfectly complementary to Python's ease of use.  Here's why this combination is popular:
+
+* **Simplicity:** SQLite is self-contained, requiring no separate server process.  This simplifies deployment and makes it ideal for smaller applications or projects where managing a full-blown database server is overkill.
+* **File-based:**  SQLite stores data in a single file, making it easy to back up, transport, and version control.
+* **Python Integration:** Python's `sqlite3` module provides a straightforward interface for interacting with SQLite databases.
+* **Portability:**  SQLite works across multiple operating systems, ensuring your application's database remains compatible regardless of the platform.
+
+## Getting Started: Connecting and Creating a Database
+
+Before you can work with SQLite in Python, you'll need to establish a connection.  This is handled using the `sqlite3` module. Let's create a simple database file named `mydatabase.db`:
+
+```python
+import sqlite3
+
+conn = sqlite3.connect('mydatabase.db') # Creates the database file if it doesn't exist
+cursor = conn.cursor()  # Creates a cursor object to execute SQL commands
+
+print("Database connected successfully!")
+```
+
+## Creating Tables and Inserting Data
+
+Now that we have a connection, let's create a table to store some data. We'll create a table to store information about books:
+
+```python
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS books (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT,
+        author TEXT,
+        isbn TEXT
+    )
+''')
+conn.commit() # Save changes to the database
+
+print("Table 'books' created successfully!")
+```
+
+Next, let's insert some book information:
+
+```python
+book_data = [
+    ('The Hitchhiker\'s Guide to the Galaxy', 'Douglas Adams', '978-0345391803'),
+    ('Pride and Prejudice', 'Jane Austen', '978-0141439518'),
+    ('1984', 'George Orwell', '978-0451524935')
+]
+
+cursor.executemany("INSERT INTO books (title, author, isbn) VALUES (?, ?, ?)", book_data)
+conn.commit()
+
+print("Book data inserted successfully!")
+```
+
+## Retrieving Data
+
+We can retrieve data using SQL `SELECT` statements:
+
+```python
+cursor.execute("SELECT * FROM books")
+books = cursor.fetchall()
+
+for book in books:
+    print(book)
+```
+
+This will print out all rows in the `books` table.  You can refine your queries using `WHERE` clauses and other SQL functionalities.  For example, to find books by a specific author:
+
+```python
+cursor.execute("SELECT * FROM books WHERE author = ?", ('Jane Austen',))
+austen_books = cursor.fetchall()
+print(austen_books)
+```
+
+## Updating and Deleting Data
+
+Modifying data is equally straightforward:
+
+```python
+cursor.execute("UPDATE books SET title = ? WHERE id = ?", ('The Definitive Hitchhiker\'s Guide', 1))
+conn.commit()
+
+cursor.execute("DELETE FROM books WHERE id = ?", (3,))
+conn.commit()
+```
+
+Remember to always commit your changes using `conn.commit()` to persist them to the database.
+
+
+## Closing the Connection
+
+It's crucial to close the database connection when finished:
+
+```python
+conn.close()
+print("Database connection closed.")
+```
+
+This ensures that resources are released properly.  These examples demonstrate the fundamental operations.  The `sqlite3` module offers more advanced features for handling transactions, managing errors, and optimizing performance, allowing you to build robust and efficient database-driven applications using Python and SQLite.
+

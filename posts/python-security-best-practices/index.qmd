@@ -1,0 +1,141 @@
+---
+title: "Python Security Best Practices"
+date: "04/27/2024"
+categories: [ advanced ]
+---
+
+
+Python's ease of use and extensive libraries make it a popular choice for various applications. However, this popularity also makes it a target for malicious actors.  Ignoring security best practices can lead to vulnerabilities that compromise your applications and data.  This post highlights crucial security considerations for writing robust and secure Python code.
+
+
+## Input Validation and Sanitization
+
+One of the most common attack vectors is injection – SQL injection, command injection, and cross-site scripting (XSS) being prime examples.  Always validate and sanitize user inputs before using them in your application.
+
+**Example: Preventing SQL Injection**
+
+Instead of directly embedding user input into SQL queries (highly vulnerable!), use parameterized queries or prepared statements:
+
+
+```python
+import sqlite3
+
+username = input("Enter username: ")
+password = input("Enter password: ")
+query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
+cursor.execute(query)
+
+username = input("Enter username: ")
+password = input("Enter password: ")
+cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+```
+
+**Example: Sanitizing User Input for HTML Display**
+
+To prevent XSS attacks, sanitize user-provided data before displaying it on a web page:
+
+```python
+from html import escape
+
+user_input = input("Enter text: ")
+safe_html = escape(user_input)  # Escapes special characters like <, >, &, ", '
+print(f"<p>{safe_html}</p>")
+```
+
+
+## Secure Handling of Sensitive Data
+
+Protecting sensitive data like passwords, API keys, and credit card information is paramount.
+
+**Avoid hardcoding sensitive data:** Never hardcode sensitive information directly into your code. Use environment variables or configuration files instead.
+
+```python
+API_KEY = "your_secret_api_key"
+
+import os
+API_KEY = os.environ.get("API_KEY")
+if API_KEY is None:
+    raise ValueError("API_KEY environment variable not set")
+```
+
+**Use strong cryptography:** For password hashing, use libraries like `bcrypt` or `scrypt` which are designed to resist brute-force and rainbow table attacks. Avoid using weaker algorithms like MD5 or SHA1.
+
+```python
+import bcrypt
+
+password = input("Enter password: ")
+hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+print(hashed_password)
+
+stored_hashed_password = #... retrieved from database
+if bcrypt.checkpw(password.encode('utf-8'), stored_hashed_password):
+    print("Password matches!")
+```
+
+**Securely store sensitive data:** If you must store sensitive data, encrypt it at rest and in transit using appropriate encryption algorithms and key management practices.
+
+
+## Dependency Management and Updates
+
+Outdated libraries can contain known vulnerabilities. Regularly update your dependencies using a package manager like `pip`.
+
+```bash
+pip install --upgrade <package_name>
+```
+
+Use a requirements file to manage dependencies and ensure consistency across environments:
+
+```
+requests==2.28.1
+beautifulsoup4==4.11.1
+```
+
+
+## Secure Coding Practices
+
+* **Principle of least privilege:** Grant only the necessary permissions to your code and users.
+* **Error handling:** Implement robust error handling to prevent unexpected crashes and information leaks.  Avoid revealing sensitive information in error messages.
+* **Regular security audits:** Conduct regular security audits and penetration testing to identify and address potential vulnerabilities.
+* **Use a linter:** Employ static analysis tools like Pylint to catch potential security issues early in the development process.
+
+
+## Authentication and Authorization
+
+Implement strong authentication and authorization mechanisms to control access to your application's resources. Use established authentication protocols and libraries.  Avoid rolling your own authentication system unless absolutely necessary.
+
+
+##  Input Validation and Sanitization: A Deeper Dive
+
+
+Let's expand on input validation with some specific examples:
+
+
+**Validating Email Addresses:**  Don't rely solely on the user's input. Validate the email format using regular expressions:
+
+```python
+import re
+
+email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+email = input("Enter email address: ")
+if re.match(email_pattern, email):
+    print("Valid email address")
+else:
+    print("Invalid email address")
+```
+
+**Integer Validation:** Ensure inputs are integers within an expected range:
+
+
+```python
+try:
+    age = int(input("Enter your age: "))
+    if 0 < age < 120:
+        print("Valid age")
+    else:
+        print("Invalid age")
+except ValueError:
+    print("Invalid input. Please enter an integer.")
+
+```
+Remember, thorough input validation is a crucial first line of defense against many security threats.  Always validate *before* using the input in your application logic.
+

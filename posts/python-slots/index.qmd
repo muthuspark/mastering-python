@@ -1,0 +1,85 @@
+---
+title: "Python Slots"
+date: "04/04/2024"
+categories: [ advanced ]
+---
+
+
+Python is known for its flexibility and dynamic nature, but this flexibility comes at a cost: memory consumption.  When you create a Python class instance, it typically stores attributes in a dictionary.  This dictionary allows for dynamic attribute addition, but it also incurs overhead in terms of memory and lookup time.  This is where `__slots__` comes in.
+
+`__slots__` is a special class attribute that allows you to explicitly define the attributes that an instance of your class can have.  By doing so, you effectively trade the flexibility of dynamic attribute addition for significant memory savings and potentially faster attribute access.
+
+**How `__slots__` Works**
+
+Instead of using a dictionary to store attributes, Python uses a tuple or a fixed-size array when `__slots__` is defined.  This means attribute access becomes faster and, more importantly, consumes less memory, especially when dealing with a large number of instances.
+
+**Basic Example**
+
+Let's illustrate the difference with a simple example:
+
+```python
+import sys
+
+class MyClass:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class MySlotClass:
+    __slots__ = ['name', 'age']
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+instance1 = MyClass("Alice", 30)
+instance2 = MySlotClass("Bob", 25)
+
+print(f"Size of MyClass instance: {sys.getsizeof(instance1)} bytes")
+print(f"Size of MySlotClass instance: {sys.getsizeof(instance2)} bytes")
+```
+
+You'll observe that the `MySlotClass` instance (using `__slots__`) is significantly smaller than the `MyClass` instance. The difference becomes more pronounced as the number of attributes and instances increases.
+
+
+**Adding Attributes After Instance Creation**
+
+One crucial limitation of `__slots__` is that you cannot add new attributes to instances after creation.  Attempting to do so will raise an `AttributeError`.
+
+
+```python
+instance2.city = "New York"  # This will raise an AttributeError
+```
+
+**Inheritance and `__slots__`**
+
+Inheritance with `__slots__` requires careful consideration.  Subclasses inheriting from a class with `__slots__` must explicitly define their own `__slots__`, listing all attributes from the parent class and any new attributes.  Failing to do so will allow dynamic attribute assignment in the subclass, negating the memory benefits of `__slots__` in the parent class.
+
+
+```python
+class ParentSlotClass:
+    __slots__ = ['name']
+    def __init__(self, name):
+        self.name = name
+
+
+class ChildSlotClass(ParentSlotClass):
+    __slots__ = ['name', 'age'] # Must include 'name' from parent
+    def __init__(self, name, age):
+        super().__init__(name)
+        self.age = age
+
+```
+
+**When to Use `__slots__`**
+
+`__slots__` are particularly beneficial in scenarios where:
+
+
+*   You have a large number of instances of a class.
+*   Memory usage is a critical concern.
+*   You need a slight performance boost in attribute access.
+*   You want to enforce a fixed set of attributes for a class, preventing accidental attribute additions.
+
+
+However, remember that `__slots__` reduces flexibility.  If you anticipate needing dynamic attribute addition, then `__slots__` is not the right choice.
+

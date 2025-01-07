@@ -1,0 +1,128 @@
+---
+title: "GraphQL in Python"
+date: "07/02/2024"
+categories: [ advanced ]
+---
+
+
+GraphQL has rapidly become a popular alternative to REST for building APIs. Its ability to fetch only the data you need, reducing over-fetching and under-fetching, makes it a highly efficient choice.  This post will guide you through the basics of using GraphQL with Python, providing practical code examples to get you started.
+
+## Why Choose GraphQL?
+
+Before diving into the code, let's quickly recap the benefits of GraphQL:
+
+* **Efficient Data Fetching:**  Request *only* the data you need, eliminating unnecessary data transfer.
+* **Strong Typing:**  Improved code reliability and maintainability through schema definition.
+* **Introspection:**  Easily explore the available data and its structure.
+* **Client-specified queries:** Clients dictate the shape of the response.
+
+## Setting up your Python GraphQL Environment
+
+We'll use `graphene` and `ariadne` which are popular Python GraphQL libraries.  You can install them using pip:
+
+```bash
+pip install graphene ariadne
+```
+
+## Building a Simple GraphQL Schema with Graphene
+
+Let's create a basic schema with a `Query` type that returns a `Hello` object.
+
+```python
+import graphene
+
+class Hello(graphene.ObjectType):
+    message = graphene.String()
+
+class Query(graphene.ObjectType):
+    hello = graphene.Field(Hello)
+
+    def resolve_hello(self, info):
+        return Hello(message="Hello, GraphQL!")
+
+schema = graphene.Schema(query=Query)
+```
+
+This code defines a `Hello` object with a `message` field and a `Query` type containing a `hello` field that resolves to a `Hello` object.
+
+## Executing Queries with Graphene
+
+Now, let's execute a query against our schema:
+
+```python
+query_string = """
+    query {
+        hello {
+            message
+        }
+    }
+"""
+
+result = schema.execute(query_string)
+print(result.data['hello']['message']) # Output: Hello, GraphQL!
+```
+
+This code executes a GraphQL query that retrieves the `message` field from the `hello` object.  The `result.data` contains the response data.
+
+##  A More Complex Example with Ariadne
+
+Ariadne offers a more flexible and potentially more scalable approach, especially for larger applications.  Let's build a slightly more complex example:
+
+```python
+from ariadne import QueryType, gql, make_executable_schema
+from ariadne.asgi import GraphQL
+
+type_defs = gql("""
+    type Query {
+        books: [Book]
+        book(id: Int!): Book
+    }
+    type Book {
+        id: Int!
+        title: String!
+        author: String!
+    }
+""")
+
+query = QueryType()
+
+@query.field("books")
+def resolve_books(*_):
+    return [
+        {"id": 1, "title": "The Lord of the Rings", "author": "J.R.R. Tolkien"},
+        {"id": 2, "title": "The Hitchhiker's Guide to the Galaxy", "author": "Douglas Adams"},
+    ]
+
+@query.field("book")
+def resolve_book(*_, id):
+    books = [
+        {"id": 1, "title": "The Lord of the Rings", "author": "J.R.R. Tolkien"},
+        {"id": 2, "title": "The Hitchhiker's Guide to the Galaxy", "author": "Douglas Adams"},
+    ]
+    for book in books:
+        if book["id"] == id:
+            return book
+    return None
+
+
+schema = make_executable_schema(type_defs, query)
+app = GraphQL(schema)
+
+```
+
+This Ariadne example defines a `Query` type with `books` and `book` fields, demonstrating querying a list and a single item. Note the use of resolvers to fetch data.  Integration with an ASGI server is shown for deployment considerations.  More advanced features like mutations would be added in a similar way.
+
+
+## Integrating with Databases
+
+For real-world applications, you'll typically integrate your GraphQL schema with a database.  You would replace the in-memory data structures in the resolver functions with database queries using libraries like SQLAlchemy or Django ORM.
+
+
+## Handling Mutations
+
+Mutations allow you to modify data on your server.  This requires extending the schema with a `Mutation` type, defining appropriate fields and resolvers.  We won't cover mutations in this introductory post, but they are a crucial aspect of building fully functional GraphQL APIs.
+
+##  Exploring Advanced Features
+
+Beyond the basics covered here, GraphQL offers many advanced features like subscriptions (for real-time updates), directives, and schema stitching. As your needs grow, exploring these features will enhance the capabilities of your GraphQL APIs.
+
