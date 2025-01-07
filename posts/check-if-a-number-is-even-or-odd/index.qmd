@@ -1,0 +1,94 @@
+---
+title: "Check if a Number is Even or Odd"
+date: "03/18/2024"
+categories: [ problem-solving ]
+---
+
+
+Determining whether a number is even or odd is a fundamental task in programming.  Python, with its clear syntax and efficient operators, makes this check remarkably straightforward. This guide will explore various methods to accomplish this, catering to both beginners and those looking to refine their Python skills.
+
+
+## Method 1: Using the Modulo Operator (%)
+
+The most common and efficient method utilizes the modulo operator (`%`). The modulo operator returns the remainder of a division. If a number is even, the remainder when divided by 2 will be 0; otherwise, it will be 1.
+
+```python
+def is_even_odd(number):
+  """Checks if a number is even or odd using the modulo operator.
+
+  Args:
+    number: An integer.
+
+  Returns:
+    "Even" if the number is even, "Odd" otherwise.
+  """
+  if number % 2 == 0:
+    return "Even"
+  else:
+    return "Odd"
+
+print(is_even_odd(10))  # Output: Even
+print(is_even_odd(7))   # Output: Odd
+```
+
+This approach is concise, readable, and highly performant, making it the preferred method for most situations.
+
+
+## Method 2: Using Bitwise AND Operator (&)
+
+For those seeking a more bitwise approach, the bitwise AND operator offers an alternative.  The least significant bit of an even number is always 0, while for an odd number, it's 1.
+
+```python
+def is_even_odd_bitwise(number):
+  """Checks if a number is even or odd using the bitwise AND operator.
+
+  Args:
+    number: An integer.
+
+  Returns:
+    "Even" if the number is even, "Odd" otherwise.
+  """
+  if number & 1 == 0:
+    return "Even"
+  else:
+    return "Odd"
+
+print(is_even_odd_bitwise(10))  # Output: Even
+print(is_even_odd_bitwise(7))   # Output: Odd
+```
+
+While functionally equivalent to the modulo method, the bitwise approach might offer slight performance gains in specific scenarios, although the difference is often negligible for most applications.
+
+
+## Handling Non-Integer Inputs
+
+The above methods assume integer input.  To handle potential non-integer inputs gracefully, we can add error handling:
+
+```python
+def is_even_odd_robust(number):
+  """Checks if a number is even or odd, handling non-integer inputs.
+
+  Args:
+    number: A number.
+
+  Returns:
+    "Even" if the number is an even integer, "Odd" if it's an odd integer,
+    and an error message otherwise.
+  """
+  try:
+    number = int(number)
+    if number % 2 == 0:
+      return "Even"
+    else:
+      return "Odd"
+  except ValueError:
+    return "Invalid input: Please provide an integer."
+
+print(is_even_odd_robust(10))      # Output: Even
+print(is_even_odd_robust(7.5))     # Output: Invalid input: Please provide an integer.
+print(is_even_odd_robust("hello")) # Output: Invalid input: Please provide an integer.
+
+```
+
+This robust version includes a `try-except` block to catch `ValueError` exceptions that might arise if the input is not a valid integer, enhancing the reliability of your code.  This is crucial for creating user-friendly applications.
+

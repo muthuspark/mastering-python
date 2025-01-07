@@ -1,0 +1,70 @@
+---
+title: "NumPy Tan and Arctan"
+date: "09/30/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, provides efficient functions for a wide range of mathematical operations.  Among these are trigonometric functions, specifically `tan()` and `arctan()`, which are crucial for various applications in science, engineering, and data analysis. This post delves into the usage of these functions, showcasing their capabilities with clear code examples.
+
+## NumPy's `tan()` Function: Calculating Tangents
+
+The `tan()` function in NumPy computes the tangent of an angle (in radians).  It's a vectorized function, meaning it can operate on single values, arrays, or even matrices with remarkable efficiency.
+
+
+```python
+import numpy as np
+
+angle_rad = np.pi / 4  # 45 degrees in radians
+tangent = np.tan(angle_rad)
+print(f"The tangent of {angle_rad} radians is: {tangent}")
+
+angles_rad = np.array([0, np.pi/2, np.pi])
+tangents = np.tan(angles_rad)
+print(f"Tangents of angles: {tangents}") # Note: you'll get an inf for pi/2
+
+#Handling potential errors
+angles_rad = np.array([0, np.pi/2, np.pi])
+
+try:
+    tangents = np.tan(angles_rad)
+    print(f"Tangents of angles: {tangents}")
+except RuntimeWarning as e:
+    print(f"Error calculating tangent: {e}")
+
+```
+
+The output demonstrates how `tan()` gracefully handles both scalar and array inputs. Remember that angles must be provided in radians.  The example also shows error handling for cases where the tangent is undefined, such as at pi/2
+
+
+## NumPy's `arctan()` Function: Finding Arctangents
+
+The inverse trigonometric function `arctan()`, also known as `tan⁻¹()`, calculates the angle whose tangent is a given value.  Like `tan()`, it's vectorized and operates on various input types. The result is in radians.
+
+
+```python
+import numpy as np
+
+tangent_value = 1
+angle_rad = np.arctan(tangent_value)
+print(f"The arctangent of {tangent_value} is: {angle_rad} radians")
+
+tangent_values = np.array([0, 1, -1])
+angles_rad = np.arctan(tangent_values)
+print(f"Arctangents of values: {angles_rad} radians")
+
+#Using arctan2 for a more robust solution
+x_values = np.array([1, 1, -1, -1])
+y_values = np.array([1, -1, 1, -1])
+angles_rad = np.arctan2(y_values, x_values)
+print(f"Arctangents using arctan2: {angles_rad} radians")
+
+```
+
+The code showcases the basic usage of `arctan()`. Note that `arctan()` returns values in the range (-π/2, π/2). For a more comprehensive solution that accounts for all four quadrants,  consider using `arctan2(y, x)`, which takes both the y and x coordinates as input, providing a more accurate angle.
+
+
+##  Beyond the Basics:  Degrees and Broadcasting
+
+While `tan()` and `arctan()` operate on radians, you can easily convert between radians and degrees using NumPy's `degrees()` and `radians()` functions. NumPy's broadcasting rules allow for seamless operations between arrays of different shapes (under certain conditions), making these functions extremely versatile for complex calculations.  Exploring these aspects will further enhance your ability to leverage the power of NumPy's trigonometric capabilities.
+

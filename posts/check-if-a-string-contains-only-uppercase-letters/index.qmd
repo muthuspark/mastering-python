@@ -1,0 +1,106 @@
+---
+title: "Check if a String Contains Only Uppercase Letters"
+date: "09/12/2023"
+categories: [ problem-solving ]
+---
+
+
+Python offers several elegant ways to determine whether a string comprises solely uppercase letters. This capability is frequently needed in data validation, text processing, and various other programming scenarios. This post will explore different methods, ranging from simple built-in functions to more nuanced approaches.  We'll cover the pros and cons of each, ensuring you choose the best technique for your specific needs.
+
+
+## Method 1: Using `isupper()`
+
+The most straightforward approach utilizes Python's built-in string method `isupper()`. This method directly checks if all characters in a string are uppercase.
+
+```python
+def is_all_uppercase(input_string):
+  """Checks if a string contains only uppercase letters using isupper().
+
+  Args:
+    input_string: The string to check.
+
+  Returns:
+    True if the string contains only uppercase letters, False otherwise.
+  """
+  return input_string.isupper()
+
+string1 = "HELLO"
+string2 = "Hello World"
+string3 = "123ABC"
+
+print(f"'{string1}' is all uppercase: {is_all_uppercase(string1)}") # Output: True
+print(f"'{string2}' is all uppercase: {is_all_uppercase(string2)}") # Output: False
+print(f"'{string3}' is all uppercase: {is_all_uppercase(string3)}") # Output: False
+```
+
+This method is concise and efficient, making it ideal for most situations.  However, it's important to note that `isupper()` returns `False` if the string is empty or contains any non-alphabetic characters.
+
+
+## Method 2: Using a Loop and `isupper()` on individual characters
+
+For a more granular control, you can iterate through each character and check it individually using `isupper()`. This allows for more complex logic if needed.
+
+```python
+def is_all_uppercase_loop(input_string):
+  """Checks if a string contains only uppercase letters using a loop and isupper().
+
+  Args:
+    input_string: The string to check.
+
+  Returns:
+    True if the string contains only uppercase letters, False otherwise.  Returns True for empty strings.
+  """
+  for char in input_string:
+    if not char.isupper():
+      return False
+  return True
+
+string1 = "HELLO"
+string2 = "Hello World"
+string3 = "123ABC"
+string4 = ""
+
+print(f"'{string1}' is all uppercase: {is_all_uppercase_loop(string1)}") # Output: True
+print(f"'{string2}' is all uppercase: {is_all_uppercase_loop(string2)}") # Output: False
+print(f"'{string3}' is all uppercase: {is_all_uppercase_loop(string3)}") # Output: False
+print(f"'{string4}' is all uppercase: {is_all_uppercase_loop(string4)}") # Output: True
+
+```
+
+This approach offers greater flexibility but is slightly less efficient than the direct `isupper()` method.  Note that this example handles empty strings differently than `isupper()`.
+
+
+## Method 3: Using Regular Expressions
+
+For more complex pattern matching beyond simple uppercase checks, regular expressions provide a powerful solution.
+
+```python
+import re
+
+def is_all_uppercase_regex(input_string):
+  """Checks if a string contains only uppercase letters using regular expressions.
+
+  Args:
+    input_string: The string to check.
+
+  Returns:
+    True if the string contains only uppercase letters, False otherwise. Returns True for empty strings.
+  """
+  return bool(re.fullmatch(r"[A-Z]*", input_string))
+
+string1 = "HELLO"
+string2 = "Hello World"
+string3 = "123ABC"
+string4 = ""
+
+print(f"'{string1}' is all uppercase: {is_all_uppercase_regex(string1)}") # Output: True
+print(f"'{string2}' is all uppercase: {is_all_uppercase_regex(string2)}") # Output: False
+print(f"'{string3}' is all uppercase: {is_all_uppercase_regex(string3)}") # Output: False
+print(f"'{string4}' is all uppercase: {is_all_uppercase_regex(string4)}") # Output: True
+```
+
+This method uses `re.fullmatch()` to ensure the entire string matches the pattern `[A-Z]*`, which represents zero or more uppercase letters.  This approach is more powerful but can be less readable for simple cases.  Again, note the handling of empty strings.
+
+
+Each method offers a different trade-off between readability, efficiency, and flexibility.  The best choice depends on your specific requirements and coding style.
+

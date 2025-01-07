@@ -1,0 +1,105 @@
+---
+title: "NumPy Array Broadcasting"
+date: "10/23/2024"
+categories: [ numpy ]
+---
+
+
+NumPy, the fundamental package for scientific computing in Python, offers a powerful feature called **broadcasting**.  Broadcasting allows you to perform arithmetic operations between arrays of different shapes, significantly simplifying your code and improving efficiency.  Understanding broadcasting is key to writing concise and performant NumPy code.
+
+## What is Broadcasting?
+
+Broadcasting is a set of rules that NumPy follows to perform operations on arrays of different shapes.  Instead of requiring arrays to have exactly the same dimensions, broadcasting stretches or replicates smaller arrays to match the shape of the larger array before performing the operation.  This avoids explicit looping and significantly speeds up calculations.
+
+## Broadcasting Rules
+
+The core idea behind broadcasting revolves around these rules:
+
+1. **Rule 1: Dimensions Compatibility:**  Arrays must be compatible in their dimensions.  This means that starting from the trailing dimension (rightmost), the dimensions must either be equal or one of them must be 1.
+
+2. **Rule 2: Dimension Expansion:**  If a dimension has size 1, it's expanded to match the size of the corresponding dimension in the other array.
+
+3. **Rule 3: Incompatible Dimensions:**  If dimensions are not compatible (neither equal nor one of them 1), an error is raised.
+
+
+##  Illustrative Examples
+
+Let's explore broadcasting with some examples:
+
+**Example 1: Scalar and Array**
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+scalar = 2
+
+result = arr + scalar  # Broadcasting: scalar is added to each element of the array
+
+print(result) # Output: [3 4 5 6 7]
+```
+
+Here, the scalar `2` is implicitly "broadcasted" to match the shape of the array `arr`.
+
+
+**Example 2: Array and 1D Array**
+
+```python
+arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+arr2 = np.array([10, 20, 30])
+
+result = arr1 + arr2 # Broadcasting: arr2 is added to each row of arr1
+
+print(result) # Output: [[11 22 33] [14 25 36]]
+```
+
+`arr2` (shape (3,)) is broadcasted to (2, 3) before the addition.
+
+
+**Example 3:  2D and 1D Arrays (More Complex)**
+
+```python
+arr3 = np.array([[1, 2], [3, 4]])
+arr4 = np.array([10, 20])
+
+result = arr3 + arr4
+
+print(result) # Output: [[11 22] [13 24]]
+```
+
+Here `arr4` is broadcasted to become `[[10, 20], [10, 20]]` before addition
+
+
+**Example 4: Broadcasting Failure**
+
+```python
+arr5 = np.array([[1, 2], [3, 4]])
+arr6 = np.array([10, 20, 30])
+
+try:
+    result = arr5 + arr6 # This will raise a ValueError
+    print(result)
+except ValueError as e:
+    print(f"Error: {e}") # Output: Error: operands could not be broadcast together with shapes (2,2) (3,) 
+```
+
+This demonstrates a broadcasting failure. The shapes (2, 2) and (3,) are not compatible.
+
+
+**Example 5: Using `reshape` to enable Broadcasting**
+
+
+Sometimes, you might need to reshape an array to make it broadcastable.
+
+```python
+arr7 = np.array([1,2,3])
+arr8 = np.array([[4],[5],[6]])
+
+result = arr7[:, np.newaxis] + arr8 #Adding a new axis to arr7 allows for broadcasting
+
+print(result) # Output: [[5 6 7] [6 7 8] [7 8 9]]
+```
+
+
+These examples highlight the power and flexibility of NumPy broadcasting.  Mastering broadcasting significantly enhances your ability to write elegant and efficient array computations in Python.
+

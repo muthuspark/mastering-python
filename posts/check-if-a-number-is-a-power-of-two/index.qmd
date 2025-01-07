@@ -1,0 +1,107 @@
+---
+title: "Check if a Number is a Power of Two"
+date: "10/12/2024"
+categories: [ problem-solving ]
+---
+
+
+Determining whether a given number is a power of two is a common programming task with applications in various domains like bit manipulation and algorithm optimization.  Python offers several elegant ways to solve this problem, ranging from simple bitwise operations to more mathematical approaches. This post will explore these techniques, providing code examples and explanations to help you choose the most efficient method for your needs.
+
+
+## Method 1: Bit Manipulation (Most Efficient)
+
+The most efficient method leverages the unique binary representation of powers of two.  A power of two has only one bit set to 1 in its binary representation (e.g., 8 is 1000 in binary).  We can exploit this property using the bitwise AND operator (`&`).
+
+A number `n` is a power of two if and only if `n & (n - 1)` is equal to 0.  Let's see this in action:
+
+
+```python
+def is_power_of_two_bitwise(n):
+  """Checks if n is a power of two using bit manipulation.
+
+  Args:
+    n: The number to check.
+
+  Returns:
+    True if n is a power of two, False otherwise.
+  """
+  if n <= 0:
+    return False
+  return (n & (n - 1)) == 0
+
+print(is_power_of_two_bitwise(16))  # True
+print(is_power_of_two_bitwise(10))  # False
+print(is_power_of_two_bitwise(0))   # False
+print(is_power_of_two_bitwise(-8))  # False
+
+```
+
+This method is highly efficient because bitwise operations are extremely fast.
+
+
+## Method 2: Logarithm Approach
+
+Another approach involves using logarithms. If `n` is a power of two, then `log₂(n)` will be an integer. We can use the `math.log2()` function in Python to check this:
+
+
+```python
+import math
+
+def is_power_of_two_log(n):
+  """Checks if n is a power of two using logarithms.
+
+  Args:
+    n: The number to check.
+
+  Returns:
+    True if n is a power of two, False otherwise.
+  """
+  if n <= 0:
+      return False
+  return math.log2(n).is_integer()
+
+print(is_power_of_two_log(16))  # True
+print(is_power_of_two_log(10))  # False
+print(is_power_of_two_log(0))   # False
+print(is_power_of_two_log(-8))  # ValueError
+
+```
+
+While this method is conceptually straightforward, it might be slightly less efficient than the bitwise approach due to the computational overhead of the logarithm function. Note that it will raise a `ValueError` for negative inputs.
+
+
+## Method 3: Repeated Division
+
+This method involves repeatedly dividing the number by 2 until it becomes 1. If at any point the remainder is not 0, the number is not a power of two.
+
+
+```python
+def is_power_of_two_division(n):
+  """Checks if n is a power of two using repeated division.
+
+  Args:
+    n: The number to check.
+
+  Returns:
+    True if n is a power of two, False otherwise.
+  """
+  if n <= 0:
+    return False
+  while n % 2 == 0:
+    n //= 2
+  return n == 1
+
+print(is_power_of_two_division(16))  # True
+print(is_power_of_two_division(10))  # False
+print(is_power_of_two_division(0))   # False
+print(is_power_of_two_division(-8))  # False
+```
+
+This method is less efficient than the bitwise approach but more intuitive for those unfamiliar with bit manipulation.
+
+
+
+## Choosing the Right Method
+
+For optimal performance, the **bitwise approach (`is_power_of_two_bitwise`) is recommended**.  It's concise, highly efficient, and avoids potential exceptions.  The logarithm and repeated division methods offer alternative approaches with varying degrees of efficiency and readability.  Choose the method that best suits your needs and coding style.
+

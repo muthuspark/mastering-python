@@ -1,0 +1,82 @@
+---
+title: "NumPy Array Set Operations"
+date: "02/25/2024"
+categories: [ numpy ]
+---
+
+
+NumPy, a cornerstone of Python's scientific computing ecosystem, provides efficient tools for array manipulation.  Beyond the standard arithmetic operations, NumPy offers a robust set of functions for performing set operations directly on arrays. This significantly speeds up tasks that would otherwise require iterative loops in standard Python.  This post dives into the key NumPy array set operations with clear code examples.
+
+## Unique Elements: `np.unique()`
+
+Often, you need to identify the unique elements within a NumPy array.  The `np.unique()` function simplifies this process considerably.  It returns a sorted array containing only the unique values.
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 2, 3, 4, 4, 5, 1])
+unique_elements = np.unique(arr)
+print(unique_elements)  # Output: [1 2 3 4 5]
+```
+
+`np.unique()` can also return the indices of the unique elements in the original array using the `return_index` argument. This is helpful when you need to know the original positions of the unique values.
+
+```python
+arr = np.array([1, 2, 2, 3, 4, 4, 5, 1])
+unique_elements, indices = np.unique(arr, return_index=True)
+print(unique_elements)       # Output: [1 2 3 4 5]
+print(indices)             # Output: [0 1 3 4 6]
+```
+
+You can also get the counts of each unique element using the `return_counts` argument.
+
+```python
+arr = np.array([1, 2, 2, 3, 4, 4, 5, 1])
+unique_elements, counts = np.unique(arr, return_counts=True)
+print(unique_elements)       # Output: [1 2 3 4 5]
+print(counts)              # Output: [2 2 1 2 1]
+```
+
+
+## Set Operations: `np.intersect1d()`, `np.union1d()`, `np.setdiff1d()`, `np.setxor1d()`
+
+NumPy provides functions mirroring standard set operations:
+
+* **`np.intersect1d(arr1, arr2)`:** Returns the common elements between two arrays.
+
+```python
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([3, 5, 6, 7, 8])
+intersection = np.intersect1d(arr1, arr2)
+print(intersection)  # Output: [3 5]
+```
+
+* **`np.union1d(arr1, arr2)`:** Returns the union of two arrays (all unique elements from both).
+
+```python
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([3, 5, 6, 7, 8])
+union = np.union1d(arr1, arr2)
+print(union)  # Output: [1 2 3 4 5 6 7 8]
+```
+
+* **`np.setdiff1d(arr1, arr2)`:** Returns the elements in `arr1` that are not in `arr2`.
+
+```python
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([3, 5, 6, 7, 8])
+difference = np.setdiff1d(arr1, arr2)
+print(difference)  # Output: [1 2 4]
+```
+
+* **`np.setxor1d(arr1, arr2)`:** Returns the elements that are in either `arr1` or `arr2`, but not both (symmetric difference).
+
+```python
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([3, 5, 6, 7, 8])
+symmetric_difference = np.setxor1d(arr1, arr2)
+print(symmetric_difference)  # Output: [1 2 4 6 7 8]
+```
+
+These functions offer a concise and efficient way to perform set operations on NumPy arrays, making your code cleaner and faster, especially when dealing with large datasets.  They are essential tools for data cleaning, analysis, and manipulation tasks.
+

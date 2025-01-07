@@ -1,0 +1,104 @@
+---
+title: "Sum of Digits of a Number"
+date: "04/12/2023"
+categories: [ problem-solving ]
+---
+
+
+Python offers elegant ways to solve various programming problems, and calculating the sum of a number's digits is a common one.  This post explores several approaches to achieve this, ranging from simple iterative methods to more concise techniques using string manipulation and mathematical operations.  We'll cover each method with clear explanations and code examples.
+
+
+## Method 1: Iterative Approach
+
+This is perhaps the most intuitive method. We repeatedly extract the last digit using the modulo operator (%) and add it to a running total. Then, we integer divide (//) the number by 10 to remove the last digit and repeat until the number becomes 0.
+
+```python
+def sum_digits_iterative(n):
+  """
+  Calculates the sum of digits of a non-negative integer iteratively.
+
+  Args:
+    n: The non-negative integer.
+
+  Returns:
+    The sum of the digits of n.  Returns 0 if n is negative.
+  """
+  if n < 0:
+    return 0
+  sum_of_digits = 0
+  while n > 0:
+    digit = n % 10
+    sum_of_digits += digit
+    n //= 10
+  return sum_of_digits
+
+#Example Usage
+number = 12345
+result = sum_digits_iterative(number)
+print(f"The sum of digits of {number} is: {result}") #Output: 15
+
+number = -123
+result = sum_digits_iterative(number)
+print(f"The sum of digits of {number} is: {result}") #Output: 0
+
+```
+
+## Method 2: String Conversion and `sum()`
+
+This approach leverages Python's built-in string manipulation capabilities. We convert the integer to a string, iterate through each character (digit), convert it back to an integer, and sum them using the `sum()` function.
+
+```python
+def sum_digits_string(n):
+  """
+  Calculates the sum of digits of a non-negative integer using string conversion.
+
+  Args:
+    n: The non-negative integer.
+
+  Returns:
+    The sum of the digits of n. Returns 0 if n is negative.
+  """
+  if n < 0:
+    return 0
+  return sum(int(digit) for digit in str(n))
+
+#Example Usage
+number = 9876
+result = sum_digits_string(number)
+print(f"The sum of digits of {number} is: {result}") # Output: 30
+```
+
+## Method 3: Recursive Approach
+
+For those who appreciate recursion, here's a recursive implementation. The base case is when the number is less than 10 (a single digit). Otherwise, the function recursively calls itself with the number integer divided by 10, adding the last digit.
+
+
+```python
+def sum_digits_recursive(n):
+  """
+  Calculates the sum of digits of a non-negative integer recursively.
+
+  Args:
+    n: The non-negative integer.
+
+  Returns:
+    The sum of the digits of n. Returns 0 if n is negative.
+  """
+  if n < 0:
+    return 0
+  if n < 10:
+    return n
+  else:
+    return (n % 10) + sum_digits_recursive(n // 10)
+
+#Example Usage
+number = 54321
+result = sum_digits_recursive(number)
+print(f"The sum of digits of {number} is: {result}") # Output: 15
+
+```
+
+## Choosing the Right Method
+
+The iterative approach is generally the most efficient in terms of execution speed and memory usage, especially for very large numbers. The string conversion method is concise and readable, while the recursive approach can be elegant but might be less efficient for extremely large numbers due to function call overhead.  The best choice depends on your priorities (readability, efficiency) and the context of your application.
+

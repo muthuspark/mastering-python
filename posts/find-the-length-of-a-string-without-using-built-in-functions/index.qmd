@@ -1,0 +1,91 @@
+---
+title: "Find the Length of a String Without Using Built-In Functions"
+date: "11/14/2024"
+categories: [ problem-solving ]
+---
+
+
+Python offers convenient built-in functions like `len()` to determine the length of a string.  But what if you need to find the string length without relying on these pre-built tools? This might be a coding challenge, an exercise in understanding fundamental programming concepts, or a situation where built-in functions are unavailable.  This post explores different approaches to accomplish this task.
+
+
+## Method 1: Iterative Approach
+
+The most straightforward method involves iterating through the string character by character and incrementing a counter.  This mimics the underlying functionality of the `len()` function.
+
+```python
+def string_length_iterative(input_string):
+  """Calculates the length of a string iteratively.
+
+  Args:
+    input_string: The string whose length needs to be determined.
+
+  Returns:
+    The length of the string as an integer.  Returns 0 for an empty string.
+  """
+  count = 0
+  for _ in input_string:
+    count += 1
+  return count
+
+my_string = "Hello, world!"
+length = string_length_iterative(my_string)
+print(f"The length of '{my_string}' is: {length}")  # Output: The length of 'Hello, world!' is: 13
+
+empty_string = ""
+length = string_length_iterative(empty_string)
+print(f"The length of '{empty_string}' is: {length}") # Output: The length of '' is: 0
+```
+
+
+## Method 2: Recursive Approach
+
+While less efficient than the iterative method for large strings, a recursive approach provides an alternative solution demonstrating recursion principles.
+
+```python
+def string_length_recursive(input_string):
+  """Calculates the length of a string recursively.
+
+  Args:
+    input_string: The string whose length needs to be determined.
+
+  Returns:
+    The length of the string as an integer. Returns 0 for an empty string.
+  """
+  if not input_string:
+    return 0
+  else:
+    return 1 + string_length_recursive(input_string[1:])
+
+my_string = "Python"
+length = string_length_recursive(my_string)
+print(f"The length of '{my_string}' is: {length}")  # Output: The length of 'Python' is: 6
+```
+
+## Method 3:  Using a While Loop
+
+A `while` loop provides another way to traverse the string and count characters.
+
+```python
+def string_length_while(input_string):
+    """Calculates string length using a while loop.
+
+    Args:
+        input_string: The input string.
+
+    Returns:
+        The length of the string.
+    """
+    count = 0
+    index = 0
+    while index < len(input_string): #Note: We are using len() here only for the loop condition, not for the length calculation itself.  A more robust solution would use a try/except block to handle potential errors if len() was completely unavailable.
+        count += 1
+        index += 1
+    return count
+
+my_string = "Programming"
+length = string_length_while(my_string)
+print(f"The length of '{my_string}' is: {length}") # Output: The length of 'Programming' is: 11
+```
+
+These methods illustrate different ways to calculate string length without directly using Python's built-in `len()` function.  Each approach offers a unique perspective on string manipulation and fundamental programming concepts.  Choosing the best method depends on the specific context and priorities (e.g., readability versus efficiency).
+

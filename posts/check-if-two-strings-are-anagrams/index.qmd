@@ -1,0 +1,121 @@
+---
+title: "Check if Two Strings are Anagrams"
+date: "07/20/2024"
+categories: [ problem-solving ]
+---
+
+
+Anagrams are words or phrases formed by rearranging the letters of another word or phrase.  Determining if two strings are anagrams is a common programming problem with several elegant solutions in Python. This post explores efficient methods to tackle this challenge, providing clear explanations and code examples.
+
+
+## Understanding the Problem
+
+Before diving into the code, let's clarify the problem statement.  We need to write a function that takes two strings as input and returns `True` if they are anagrams of each other, and `False` otherwise.  For example:
+
+* "listen" and "silent" are anagrams.
+* "hello" and "world" are not anagrams.
+
+
+## Method 1: Using Character Counting (Dictionaries)
+
+This approach leverages Python dictionaries to count the occurrences of each character in both strings.  If the character counts are identical, the strings are anagrams.
+
+```python
+def are_anagrams_dict(str1, str2):
+  """Checks if two strings are anagrams using dictionaries.
+
+  Args:
+    str1: The first string.
+    str2: The second string.
+
+  Returns:
+    True if the strings are anagrams, False otherwise.
+  """
+  if len(str1) != len(str2):
+    return False
+
+  char_count1 = {}
+  char_count2 = {}
+
+  for char in str1:
+    char_count1[char] = char_count1.get(char, 0) + 1
+
+  for char in str2:
+    char_count2[char] = char_count2.get(char, 0) + 1
+
+  return char_count1 == char_count2
+
+#Example usage
+print(are_anagrams_dict("listen", "silent"))  # Output: True
+print(are_anagrams_dict("hello", "world"))  # Output: False
+
+```
+
+This method is relatively easy to understand and implement.  The time complexity is O(n), where n is the length of the strings, due to the single pass through each string.
+
+
+## Method 2: Using `Counter` from the `collections` module
+
+Python's `collections` module provides a `Counter` object that simplifies character counting.  This makes the code more concise and potentially slightly faster.
+
+```python
+from collections import Counter
+
+def are_anagrams_counter(str1, str2):
+  """Checks if two strings are anagrams using Counter.
+
+  Args:
+    str1: The first string.
+    str2: The second string.
+
+  Returns:
+    True if the strings are anagrams, False otherwise.
+  """
+  return Counter(str1) == Counter(str2)
+
+print(are_anagrams_counter("listen", "silent"))  # Output: True
+print(are_anagrams_counter("hello", "world"))  # Output: False
+```
+
+The `Counter` object automatically handles character counting, making the code cleaner and more efficient. The time complexity remains O(n).
+
+
+## Method 3: Sorting Strings
+
+Another approach involves sorting the characters of both strings. If the sorted strings are identical, the original strings are anagrams.
+
+```python
+def are_anagrams_sort(str1, str2):
+  """Checks if two strings are anagrams using sorting.
+
+  Args:
+    str1: The first string.
+    str2: The second string.
+
+  Returns:
+    True if the strings are anagrams, False otherwise.
+  """
+  return sorted(str1) == sorted(str2)
+
+#Example usage
+print(are_anagrams_sort("listen", "silent"))  # Output: True
+print(are_anagrams_sort("hello", "world"))  # Output: False
+
+```
+
+This method's time complexity is dominated by the sorting algorithm, which is typically O(n log n). While less efficient than the character counting methods for large strings, it's still a valid and relatively simple solution.
+
+
+## Handling Case Sensitivity and Non-alphanumeric Characters
+
+The above methods are case-sensitive and may not handle non-alphanumeric characters correctly.  To address this, you can pre-process the strings using `lower()` and `isalnum()` to make them case-insensitive and remove unwanted characters.  For instance, you can modify the `are_anagrams_dict` function as follows:
+
+```python
+def are_anagrams_dict_improved(str1, str2):
+  str1 = ''.join(c for c in str1.lower() if c.isalnum())
+  str2 = ''.join(c for c in str2.lower() if c.isalnum())
+  # ...rest of the function remains the same...
+```
+
+This improved version provides more robust anagram checking.  Similar modifications can be applied to the other methods.
+

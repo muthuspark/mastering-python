@@ -1,0 +1,80 @@
+---
+title: "Negative Indexing in NumPy"
+date: "07/09/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of Python's scientific computing ecosystem, offers a powerful and efficient way to manipulate arrays.  One of its less-obvious but incredibly useful features is **negative indexing**. This allows you to access array elements from the end, counting backward from -1. This post will explore negative indexing in detail, showing you how to leverage it for more concise and efficient code.
+
+## Understanding Negative Indexing
+
+In standard Python lists, you access elements using their position starting from 0.  For example:
+
+```python
+my_list = [10, 20, 30, 40, 50]
+print(my_list[0])  # Output: 10
+print(my_list[3])  # Output: 40
+```
+
+NumPy arrays extend this by allowing negative indices.  A negative index `-i` refers to the `i`-th element from the *end* of the array.
+
+```python
+import numpy as np
+
+my_array = np.array([10, 20, 30, 40, 50])
+print(my_array[-1])  # Output: 50
+print(my_array[-3])  # Output: 30
+```
+
+As you can see, `my_array[-1]` accesses the last element (50), and `my_array[-3]` accesses the third element from the end (30).
+
+
+## Practical Applications of Negative Indexing
+
+Negative indexing is incredibly useful in many scenarios:
+
+**1. Accessing the last `n` elements:**
+
+Need the last three elements?  Negative indexing makes it trivial:
+
+```python
+last_three = my_array[-3:]
+print(last_three)  # Output: [30 40 50]
+```
+
+**2.  Slicing from the end:**
+
+You can combine negative indexing with slicing to extract portions of the array from the end:
+
+```python
+middle_section = my_array[-4:-1] # elements from -4 up to (but not including) -1
+print(middle_section) # Output: [20 30 40]
+```
+
+**3.  Efficiently manipulating the end of arrays:**
+
+Suppose you need to append or remove elements from the end of a large array. Negative indexing simplifies the process, avoiding the need to constantly recalculate indices.
+
+```python
+my_array = my_array[:-1]
+print(my_array) # Output: [10 20 30 40]
+
+
+my_array = np.append(my_array, 60)
+print(my_array) # Output: [10 20 30 40 60]
+```
+
+**4. Multi-dimensional arrays:**
+
+Negative indexing works seamlessly with multi-dimensional NumPy arrays.
+
+```python
+multi_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(multi_array[-1, -1])  # Output: 9 (last row, last column)
+print(multi_array[:, -1])  # Output: [3 6 9] (last column)
+
+```
+
+These examples demonstrate the power and flexibility of negative indexing in NumPy. By mastering this technique, you'll write more efficient and readable NumPy code.  It's a vital skill for any Python data scientist.
+

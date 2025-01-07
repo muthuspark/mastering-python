@@ -1,0 +1,76 @@
+---
+title: "Check if a Number is Prime"
+date: "03/01/2023"
+categories: [ problem-solving ]
+---
+
+
+Prime numbers, those divisible only by 1 and themselves, hold a special place in mathematics.  Frequently encountered in programming challenges and algorithms, knowing how to efficiently check for primality in Python is a valuable skill. This post will explore several methods to determine whether a given number is prime, ranging from basic approaches to more optimized techniques.
+
+## The Naive Approach: Brute Force
+
+The simplest way to check for primality is to iterate through all numbers from 2 up to the number itself (n), checking for divisibility at each step. If any number divides n evenly, it's not prime.
+
+```python
+def is_prime_naive(n):
+  """Checks if a number is prime using a naive approach.
+
+  Args:
+    n: The number to check.
+
+  Returns:
+    True if n is prime, False otherwise.
+  """
+  if n <= 1:
+    return False
+  for i in range(2, n):
+    if n % i == 0:
+      return False
+  return True
+
+print(is_prime_naive(7))  # Output: True
+print(is_prime_naive(15)) # Output: False
+```
+
+This approach works, but it's inefficient for larger numbers.  The time complexity is O(n), meaning the execution time grows linearly with the input number.
+
+
+## Optimization 1: Checking up to the Square Root
+
+A significant optimization comes from realizing that if a number `n` has a divisor greater than its square root, it must also have a divisor smaller than its square root.  Therefore, we only need to check divisibility up to the square root of `n`.
+
+```python
+import math
+
+def is_prime_optimized(n):
+  """Checks if a number is prime with optimization up to the square root.
+
+  Args:
+    n: The number to check.
+
+  Returns:
+    True if n is prime, False otherwise.
+  """
+  if n <= 1:
+    return False
+  if n == 2:
+    return True
+  if n % 2 == 0:
+    return False
+  for i in range(3, int(math.sqrt(n)) + 1, 2):
+    if n % i == 0:
+      return False
+  return True
+
+print(is_prime_optimized(97)) # Output: True
+print(is_prime_optimized(100))# Output: False
+
+```
+
+This improves the time complexity to O(√n), a substantial gain for larger numbers.  Note the added checks for `n <= 1` and even numbers to further speed things up.
+
+
+##  Further Optimizations (Beyond the Scope of this Basic Introduction)
+
+More advanced primality testing algorithms exist, such as the Miller-Rabin primality test, which offer probabilistic primality testing with significantly better performance for very large numbers.  These are beyond the scope of this introductory post but are worth exploring for more demanding applications.  These advanced algorithms often leverage concepts from number theory for improved efficiency.
+

@@ -1,0 +1,113 @@
+---
+title: "Find the Longest Palindromic Substring"
+date: "09/24/2023"
+categories: [ problem-solving ]
+---
+
+
+Finding the longest palindromic substring within a given string is a classic computer science problem with applications in various domains, from bioinformatics to natural language processing.  This post will explore different approaches to solving this problem in Python, focusing on efficiency and readability.
+
+## Understanding the Problem
+
+A palindrome is a sequence that reads the same backward as forward (e.g., "madam," "racecar," "level").  The goal is to identify the longest substring within a larger string that satisfies this palindromic property.  For instance, in the string "bananas," the longest palindromic substring is "anana."
+
+## Approach 1: Brute Force
+
+The most straightforward approach involves checking every possible substring for palindromic properties.  While simple to understand, this method is computationally expensive, with a time complexity of O(n³), where n is the length of the string.
+
+```python
+def longest_palindrome_brute_force(s):
+    n = len(s)
+    longest_palindrome = ""
+    for i in range(n):
+        for j in range(i, n):
+            substring = s[i:j+1]
+            if substring == substring[::-1] and len(substring) > len(longest_palindrome):
+                longest_palindrome = substring
+    return longest_palindrome
+
+string = "bananas"
+result = longest_palindrome_brute_force(string)
+print(f"The longest palindromic substring of '{string}' is: {result}") #Output: anana
+```
+
+This code iterates through all possible substrings and compares each to its reverse. While functional, it's inefficient for larger strings.
+
+## Approach 2: Dynamic Programming
+
+Dynamic programming offers a significant performance improvement.  It builds a table to store whether substrings are palindromes, avoiding redundant calculations.  This approach achieves a time complexity of O(n²).
+
+
+```python
+def longest_palindrome_dp(s):
+    n = len(s)
+    if n < 2:
+        return s
+    dp = [[False] * n for _ in range(n)]
+    start = 0
+    max_len = 1
+    for i in range(n):
+        dp[i][i] = True  # Single characters are palindromes
+    for i in range(n - 1):
+        if s[i] == s[i + 1]:
+            dp[i][i + 1] = True
+            start = i
+            max_len = 2
+    for k in range(3, n + 1):
+        for i in range(n - k + 1):
+            j = i + k - 1
+            if s[i] == s[j] and dp[i + 1][j - 1]:
+                dp[i][j] = True
+                if k > max_len:
+                    start = i
+                    max_len = k
+    return s[start:start + max_len]
+
+
+#Example Usage
+string = "babad"
+result = longest_palindrome_dp(string)
+print(f"The longest palindromic substring of '{string}' is: {result}") # Output: bab or aba (both are correct)
+
+```
+
+This dynamic programming solution is considerably more efficient than the brute-force approach, especially for longer input strings.
+
+
+## Approach 3: Expand Around Center
+
+This approach cleverly expands outwards from the center of potential palindromes. It considers both odd-length and even-length palindromes, further optimizing the search.  The time complexity remains O(n²), but it generally performs faster than the dynamic programming approach in practice due to reduced overhead.
+
+```python
+def longest_palindrome_expand_around_center(s):
+    n = len(s)
+    if n < 2:
+        return s
+    start = 0
+    max_len = 1
+    for i in range(n):
+        # Odd length palindromes
+        l, r = i, i
+        while l >= 0 and r < n and s[l] == s[r]:
+            if r - l + 1 > max_len:
+                max_len = r - l + 1
+                start = l
+            l -= 1
+            r += 1
+        # Even length palindromes
+        l, r = i, i + 1
+        while l >= 0 and r < n and s[l] == s[r]:
+            if r - l + 1 > max_len:
+                max_len = r - l + 1
+                start = l
+            l -= 1
+            r += 1
+    return s[start:start + max_len]
+
+string = "cbbd"
+result = longest_palindrome_expand_around_center(string)
+print(f"The longest palindromic substring of '{string}' is: {result}") # Output: bb
+```
+
+This method iterates through each character as a potential center, expanding outwards to find the longest palindrome centered at that point.  It elegantly handles both odd and even length palindromes.
+

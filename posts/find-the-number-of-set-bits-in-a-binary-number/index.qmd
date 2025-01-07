@@ -1,0 +1,88 @@
+---
+title: "Find the Number of Set Bits in a Binary Number"
+date: "12/24/2024"
+categories: [ problem-solving ]
+---
+
+
+Counting the number of set bits (1s) in the binary representation of a number is a common task in computer science.  This operation has applications in various areas, including cryptography, error correction, and bit manipulation. Python offers several efficient ways to achieve this.  Let's explore some methods, comparing their performance and readability.
+
+## Method 1: Using the `bin()` function and `count()` method
+
+The simplest approach involves converting the number to its binary string representation using the built-in `bin()` function and then counting the occurrences of '1' using the `count()` string method.
+
+```python
+def count_set_bits_method1(n):
+  """Counts set bits using bin() and count().
+
+  Args:
+    n: The input integer.
+
+  Returns:
+    The number of set bits in n.
+  """
+  binary = bin(n)[2:]  # [2:] removes the "0b" prefix
+  return binary.count('1')
+
+number = 10  # Binary: 1010
+set_bits = count_set_bits_method1(number)
+print(f"The number of set bits in {number} is: {set_bits}") # Output: 2
+```
+
+This method is easy to understand but might not be the most efficient for very large numbers.
+
+## Method 2:  Using bit manipulation (Brian Kernighan's Algorithm)
+
+A significantly more efficient approach uses bit manipulation. Brian Kernighan's algorithm cleverly exploits the property that subtracting 1 from a number flips the least significant set bit to 0 and sets all less significant bits to 1.  By repeatedly performing this operation and counting the iterations, we can determine the total number of set bits.
+
+```python
+def count_set_bits_method2(n):
+  """Counts set bits using Brian Kernighan's algorithm.
+
+  Args:
+    n: The input integer.
+
+  Returns:
+    The number of set bits in n.
+  """
+  count = 0
+  while n > 0:
+    n &= (n - 1)  # Clears the least significant set bit
+    count += 1
+  return count
+
+number = 10  # Binary: 1010
+set_bits = count_set_bits_method2(number)
+print(f"The number of set bits in {number} is: {set_bits}") # Output: 2
+```
+
+This algorithm is generally faster than the string-based method, especially for numbers with many set bits.
+
+## Method 3: Using the `bit_count()` method (Python 3.10+)
+
+Python 3.10 introduced the `bit_count()` method directly on integers, providing a concise and efficient solution.
+
+```python
+def count_set_bits_method3(n):
+  """Counts set bits using the bit_count() method (Python 3.10+).
+
+  Args:
+    n: The input integer.
+
+  Returns:
+    The number of set bits in n.
+  """
+  return n.bit_count()
+
+number = 10  # Binary: 1010
+set_bits = count_set_bits_method3(number)
+print(f"The number of set bits in {number} is: {set_bits}") # Output: 2
+```
+
+This is the most straightforward and often the fastest method if you are using Python 3.10 or later.
+
+
+## Choosing the Right Method
+
+For readability and simplicity, especially for smaller numbers or if you're using an older Python version, the `bin()` and `count()` method is a good choice.  For larger numbers and optimal performance, Brian Kernighan's algorithm is recommended if you're below Python 3.10.  If you are using Python 3.10 or newer, the built-in `bit_count()` method is the most efficient and elegant solution.
+

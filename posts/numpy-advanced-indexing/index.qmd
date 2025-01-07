@@ -1,0 +1,88 @@
+---
+title: "NumPy Advanced Indexing"
+date: "07/05/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of scientific computing in Python, offers powerful array manipulation capabilities. While basic indexing allows you to access single elements or slices, **advanced indexing** opens the door to more complex and efficient array selections. This post dives into the nuances of NumPy advanced indexing, showcasing its versatility with clear code examples.
+
+## Integer Array Indexing
+
+Integer array indexing allows you to select specific elements using arrays of indices.  This method differs significantly from slicing, as it creates a copy of the selected data rather than a view.
+
+```python
+import numpy as np
+
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+print(arr[[0, 1, 2], [0, 2, 1]])  # Output: [1 6 8]
+
+rows = np.array([0, 2])
+cols = np.array([1, 2])
+print(arr[rows, cols]) # Output: [2 9]
+
+print(arr[1:, [0,2]]) # Output: [[4 6] [7 9]]
+```
+
+This technique allows for flexible selection of non-contiguous elements, making it ideal for tasks like extracting specific patterns or features from data.
+
+
+## Boolean Array Indexing (Masking)
+
+Boolean array indexing, or masking, is a powerful technique for selecting elements based on a condition.  It creates a boolean array of the same shape as the input array, where `True` indicates selection and `False` indicates exclusion.
+
+```python
+arr = np.array([10, 20, 30, 40, 50])
+
+mask = arr > 25
+print(arr[mask])  # Output: [30 40 50]
+
+
+mask = (arr > 20) & (arr < 45)
+print(arr[mask]) # Output: [30 40]
+
+#Modifying array elements based on a boolean condition
+arr[arr>30] = 100
+print(arr) #Output: [ 10  20  30 100 100]
+```
+
+Boolean indexing provides a concise and efficient way to filter data based on arbitrary criteria, crucial for data cleaning, filtering and analysis.
+
+
+## Mixing Integer and Boolean Indexing
+
+NumPy allows you to combine integer and boolean indexing.  Integer indexing is applied first, followed by boolean indexing on the result.
+
+
+```python
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+row = arr[1]
+
+#Apply boolean indexing to filter elements greater than 4
+print(row[row > 4]) # Output: [5 6]
+
+
+#Combining it all together
+print(arr[ [0,2], arr[ [0,2] ] >2 ]) #Output: [3 9]
+```
+
+This combined approach offers fine-grained control over data selection, enabling sophisticated data manipulation within NumPy arrays.
+
+
+
+## Advanced Indexing with Multiple Dimensions
+
+Advanced indexing extends seamlessly to multi-dimensional arrays.  You can use integer or boolean arrays for each dimension to select specific subsets.
+
+```python
+arr = np.arange(27).reshape((3, 3, 3))
+
+#Selecting specific elements across multiple dimensions.
+print(arr[[0, 2], [0, 1], [1, 2]]) #Output: [ 1 26]
+```
+
+This allows for complex selections across multiple axes of your array making your data analysis easier.  Remember that when using advanced indexing you are getting a copy of the data and not a view.
+
+

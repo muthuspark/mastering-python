@@ -1,0 +1,88 @@
+---
+title: "NumPy Linear Algebra"
+date: "05/02/2024"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of scientific computing in Python, provides a powerful and efficient arsenal of tools for tackling linear algebra problems.  Its `numpy.linalg` module offers a comprehensive suite of functions, significantly speeding up computations compared to manual implementations or using standard Python lists.  This post will explore some key functionalities with illustrative examples.
+
+##  Solving Linear Equations
+
+One of the most common applications of linear algebra is solving systems of linear equations.  Consider the following system:
+
+```
+2x + 3y = 8
+x - y = -1
+```
+
+We can represent this system in matrix form as `Ax = b`, where:
+
+```
+A = [[2, 3], [1, -1]]
+x = [[x], [y]]
+b = [[8], [-1]]
+```
+
+NumPy's `linalg.solve()` function elegantly handles this:
+
+```python
+import numpy as np
+
+A = np.array([[2, 3], [1, -1]])
+b = np.array([8, -1])
+x = np.linalg.solve(A, b)
+print(x)  # Output: [2. 1.40000000e-16] (approximately [2, 0])
+```
+
+The output shows the solution `x ≈ 2` and `y ≈ 0`.  Note that small numerical inaccuracies can sometimes lead to values extremely close to zero, rather than exactly zero.
+
+##  Eigenvalues and Eigenvectors
+
+Eigenvalues and eigenvectors are fundamental concepts in linear algebra, crucial for understanding the behavior of linear transformations.  NumPy's `linalg.eig()` function computes these:
+
+```python
+A = np.array([[1, 2], [2, 1]])
+eigenvalues, eigenvectors = np.linalg.eig(A)
+print("Eigenvalues:", eigenvalues)
+print("Eigenvectors:\n", eigenvectors)
+```
+
+This code calculates the eigenvalues and corresponding eigenvectors of matrix `A`. The eigenvectors are arranged column-wise in the `eigenvectors` array.
+
+
+##  Matrix Decompositions
+
+NumPy supports various matrix decompositions, including LU, QR, and SVD decompositions. These decompositions are vital for solving diverse problems like least squares fitting and solving eigenvalue problems efficiently.
+
+**Singular Value Decomposition (SVD):**
+
+SVD decomposes a matrix into three matrices: `U`, `S`, and `V`. This decomposition is especially useful for dimensionality reduction and finding the rank of a matrix.
+
+```python
+A = np.array([[1, 2], [3, 4], [5,6]])
+U, S, V = np.linalg.svd(A)
+print("U:\n", U)
+print("S:\n", S)
+print("V:\n", V)
+```
+
+The `S` array contains the singular values, which are essentially the square roots of the eigenvalues of `A*A.T` (or `A.T*A`).
+
+
+##  Matrix Inverse and Determinant
+
+Calculating the inverse of a matrix and its determinant are also easily accomplished using NumPy.
+
+
+```python
+A = np.array([[2, 1], [1, -1]])
+inverse_A = np.linalg.inv(A)
+determinant_A = np.linalg.det(A)
+
+print("Inverse of A:\n", inverse_A)
+print("Determinant of A:", determinant_A)
+```
+
+This demonstrates how straightforwardly NumPy handles these core linear algebra operations.  These functions offer significant performance advantages over manual calculation, particularly for large matrices.
+

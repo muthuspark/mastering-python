@@ -1,0 +1,69 @@
+---
+title: "Convert a Hexadecimal Number to Decimal"
+date: "08/22/2024"
+categories: [ problem-solving ]
+---
+
+
+Hexadecimal, or base-16, is a number system commonly used in computer science to represent data compactly.  Often you'll encounter hexadecimal numbers (prefixed with `0x` or `#`) and need to convert them to their decimal (base-10) equivalents for calculations or display. Python offers straightforward ways to achieve this. This guide will walk you through several methods, from using built-in functions to implementing your own conversion logic.
+
+
+## Method 1: Using the `int()` function
+
+The simplest and most efficient method leverages Python's built-in `int()` function.  The `int()` function can accept a string representing a number in a specific base as a second argument.  For hexadecimal to decimal conversion, you specify base 16.
+
+```python
+hex_number = "0xFF"  # Example hexadecimal number
+
+decimal_number = int(hex_number, 16)
+
+print(f"The decimal equivalent of {hex_number} is: {decimal_number}") 
+```
+
+This code snippet directly converts the hexadecimal string "0xFF" to its decimal equivalent, 255, utilizing the power of Python's built-in functionality.
+
+
+## Method 2: Manual Conversion (for educational purposes)
+
+While the `int()` method is preferred for its efficiency, understanding the underlying conversion process is valuable.  Here's how you can manually convert a hexadecimal number to decimal:
+
+```python
+def hex_to_decimal(hex_str):
+  """Converts a hexadecimal string to its decimal equivalent."""
+  decimal_value = 0
+  power = 0
+  for digit in reversed(hex_str):
+    if '0' <= digit <= '9':
+      value = ord(digit) - ord('0')
+    elif 'A' <= digit <= 'F':
+      value = ord(digit) - ord('A') + 10
+    elif 'a' <= digit <= 'f':
+      value = ord(digit) - ord('a') + 10
+    else:
+      raise ValueError("Invalid hexadecimal character")
+    decimal_value += value * (16 ** power)
+    power += 1
+  return decimal_value
+
+hex_number = "1A"
+decimal_equivalent = hex_to_decimal(hex_number)
+print(f"The decimal equivalent of {hex_number} is: {decimal_equivalent}")
+
+```
+
+This function iterates through the hexadecimal string from right to left, converting each character to its decimal value and adding it to the total, weighted by the appropriate power of 16.  This approach demonstrates the core logic behind hexadecimal-to-decimal conversion.  Remember to handle potential errors, like non-hexadecimal characters in the input string.
+
+
+## Handling Different Hexadecimal Representations
+
+Note that hexadecimal numbers can be represented with or without the `0x` prefix.  The `int()` function handles both cases seamlessly.  If your input string might lack the prefix, you can easily add it before conversion.
+
+
+```python
+hex_number_without_prefix = "FF"
+decimal_number = int("0x" + hex_number_without_prefix, 16)
+print(f"The decimal equivalent of {hex_number_without_prefix} is: {decimal_number}")
+```
+
+This ensures robustness, regardless of the input format.  You can adapt the manual conversion method similarly to handle various input styles.
+

@@ -1,0 +1,103 @@
+---
+title: "Check if a String Contains Only Unique Characters"
+date: "02/27/2024"
+categories: [ problem-solving ]
+---
+
+
+Determining whether a string contains only unique characters is a common problem in programming interviews and practical coding tasks.  This blog post explores various efficient methods to solve this problem in Python.  We'll cover approaches using sets, dictionaries, and a more manual character-by-character comparison.
+
+## Method 1: Using Sets
+
+Sets, by their nature, only store unique elements. This makes them an ideal tool for this task.  We can convert the string into a set and compare its length to the original string's length. If the lengths are equal, all characters were unique.
+
+```python
+def unique_chars_set(input_string):
+  """
+  Checks if a string contains only unique characters using sets.
+
+  Args:
+    input_string: The string to check.
+
+  Returns:
+    True if the string contains only unique characters, False otherwise.
+  """
+  return len(set(input_string)) == len(input_string)
+
+string1 = "abcdefg"
+string2 = "abacdefg"
+
+print(f"'{string1}' has only unique characters: {unique_chars_set(string1)}")  # Output: True
+print(f"'{string2}' has only unique characters: {unique_chars_set(string2)}")  # Output: False
+```
+
+This method is concise and efficient, leveraging Python's built-in set functionality. Its time complexity is generally O(n), where n is the length of the string.
+
+
+## Method 2: Using Dictionaries
+
+Dictionaries provide another elegant approach.  We can iterate through the string, using each character as a key in a dictionary. If a character is already a key, it means it's not unique.
+
+```python
+def unique_chars_dict(input_string):
+  """
+  Checks if a string contains only unique characters using dictionaries.
+
+  Args:
+    input_string: The string to check.
+
+  Returns:
+    True if the string contains only unique characters, False otherwise.
+  """
+  char_counts = {}
+  for char in input_string:
+    if char in char_counts:
+      return False  # Duplicate character found
+    char_counts[char] = 1
+  return True
+
+string1 = "abcdefg"
+string2 = "abacdefg"
+
+print(f"'{string1}' has only unique characters: {unique_chars_dict(string1)}")  # Output: True
+print(f"'{string2}' has only unique characters: {unique_chars_dict(string2)}")  # Output: False
+```
+
+This method also has a time complexity of O(n) in the average case.
+
+
+## Method 3: Manual Character Comparison (Less Efficient)
+
+While less efficient than the previous methods, a more manual approach demonstrates the underlying logic clearly. We compare each character to all subsequent characters in the string.
+
+```python
+def unique_chars_manual(input_string):
+  """
+  Checks if a string contains only unique characters using manual comparison.  (Less efficient)
+
+  Args:
+    input_string: The string to check.
+
+  Returns:
+    True if the string contains only unique characters, False otherwise.
+  """
+  for i in range(len(input_string)):
+    for j in range(i + 1, len(input_string)):
+      if input_string[i] == input_string[j]:
+        return False  # Duplicate character found
+  return True
+
+string1 = "abcdefg"
+string2 = "abacdefg"
+
+print(f"'{string1}' has only unique characters: {unique_chars_manual(string1)}")  # Output: True
+print(f"'{string2}' has only unique characters: {unique_chars_manual(string2)}")  # Output: False
+```
+
+This method has a time complexity of O(n^2), making it significantly less efficient for larger strings compared to the set and dictionary approaches.  It's generally best to avoid this method for performance reasons.
+
+
+## Choosing the Right Method
+
+For optimal performance, especially with larger strings, the **set method (`unique_chars_set`)** is recommended due to its conciseness and efficient use of Python's built-in data structures.  The dictionary method is a viable alternative with similar performance characteristics.  The manual comparison should be avoided unless understanding the fundamental logic is the primary goal.
+

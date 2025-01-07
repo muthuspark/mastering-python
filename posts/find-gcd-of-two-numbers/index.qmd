@@ -1,0 +1,84 @@
+---
+title: "Find GCD of Two Numbers"
+date: "11/13/2023"
+categories: [ problem-solving ]
+---
+
+
+Finding the Greatest Common Divisor (GCD) of two numbers is a fundamental concept in number theory and has various applications in computer science and mathematics.  This post explores different methods to calculate the GCD of two numbers using Python, explaining each approach with clear code examples.
+
+## Understanding the Greatest Common Divisor (GCD)
+
+The GCD of two or more integers (which are not all zero), is the largest positive integer that divides each of the integers. For example, the GCD of 12 and 18 is 6 because 6 is the largest number that divides both 12 and 18 without leaving a remainder.
+
+## Method 1: Euclidean Algorithm
+
+The Euclidean algorithm is the most efficient and widely used method for finding the GCD. It's based on the principle that the GCD of two numbers does not change if the larger number is replaced by its difference with the smaller number. This process is repeated until the two numbers are equal, which represents the GCD.
+
+Here's the Python implementation:
+
+```python
+def gcd_euclidean(a, b):
+  """
+  Calculates the GCD of two numbers using the Euclidean algorithm.
+
+  Args:
+    a: The first number.
+    b: The second number.
+
+  Returns:
+    The GCD of a and b.
+  """
+  while(b):
+    a, b = b, a % b
+  return a
+
+num1 = 48
+num2 = 18
+result = gcd_euclidean(num1, num2)
+print(f"The GCD of {num1} and {num2} is: {result}")  # Output: 6
+```
+
+## Method 2:  Iterative Method
+
+This method iterates through numbers from the smaller number down to 1, checking for divisibility by both input numbers.  While functional, it's less efficient than the Euclidean algorithm, especially for larger numbers.
+
+```python
+def gcd_iterative(a, b):
+  """
+  Calculates the GCD of two numbers using an iterative approach.
+
+  Args:
+    a: The first number.
+    b: The second number.
+
+  Returns:
+    The GCD of a and b.
+  """
+  smaller = min(a, b)
+  for i in range(smaller, 0, -1):
+    if a % i == 0 and b % i == 0:
+      return i
+
+num1 = 48
+num2 = 18
+result = gcd_iterative(num1, num2)
+print(f"The GCD of {num1} and {num2} is: {result}")  # Output: 6
+
+```
+
+## Method 3:  Using `math.gcd()` (Python 3.5+)
+
+Python 3.5 and later versions include a built-in `gcd()` function within the `math` module. This provides a concise and efficient way to compute the GCD.
+
+```python
+import math
+
+num1 = 48
+num2 = 18
+result = math.gcd(num1, num2)
+print(f"The GCD of {num1} and {num2} is: {result}")  # Output: 6
+```
+
+This built-in function leverages optimized algorithms, making it the preferred method for most use cases.  The Euclidean algorithm provides a good understanding of the underlying mathematical principles, while the iterative method illustrates a more straightforward (though less efficient) approach.  Choosing the right method depends on the context and performance requirements.
+

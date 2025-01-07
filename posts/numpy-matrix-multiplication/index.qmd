@@ -1,0 +1,106 @@
+---
+title: "NumPy Matrix Multiplication"
+date: "03/13/2024"
+categories: [ numpy ]
+---
+
+
+NumPy, a fundamental Python library for numerical computing, provides powerful tools for efficient matrix operations. Among these, matrix multiplication stands out as a crucial component in various applications, from machine learning and data science to scientific computing. This post will delve into the intricacies of NumPy matrix multiplication, explaining different approaches and providing illustrative code examples.
+
+
+## Understanding Matrix Multiplication
+
+Before diving into NumPy's implementation, let's briefly revisit the mathematical principles.  Matrix multiplication involves multiplying corresponding elements of rows in the first matrix with columns in the second matrix, and summing the products.  This operation is only defined when the number of columns in the first matrix equals the number of rows in the second matrix.  The resulting matrix has dimensions equal to the number of rows in the first matrix and the number of columns in the second matrix.
+
+
+## NumPy's `@` Operator: The Easiest Way
+
+The most straightforward method for matrix multiplication in NumPy is using the `@` operator (introduced in Python 3.5).  This operator provides a clean and readable syntax, making your code more concise and easier to understand.
+
+```python
+import numpy as np
+
+matrix_a = np.array([[1, 2], [3, 4]])
+matrix_b = np.array([[5, 6], [7, 8]])
+
+result = matrix_a @ matrix_b
+
+print(result)  # Output: [[19 22] [43 50]]
+```
+
+
+## The `numpy.dot()` Function: A Versatile Alternative
+
+The `numpy.dot()` function offers another way to perform matrix multiplication.  While functionally equivalent to the `@` operator for 2D arrays, `numpy.dot()` exhibits more flexibility and can handle higher-dimensional arrays, as well as matrix-vector products.
+
+```python
+import numpy as np
+
+matrix_a = np.array([[1, 2], [3, 4]])
+matrix_b = np.array([[5, 6], [7, 8]])
+
+result = np.dot(matrix_a, matrix_b)
+
+print(result)  # Output: [[19 22] [43 50]]
+```
+
+## Handling Errors: Incompatible Dimensions
+
+Attempting to multiply matrices with incompatible dimensions will result in a `ValueError`.  NumPy will raise an exception to inform you about the issue.
+
+```python
+import numpy as np
+
+matrix_a = np.array([[1, 2], [3, 4]])
+matrix_b = np.array([[5, 6, 7], [8, 9, 10]])  # Incompatible dimensions
+
+try:
+    result = matrix_a @ matrix_b
+    print(result)
+except ValueError as e:
+    print(f"Error: {e}") #Output: Error: matmul: Input operand 1 has a mismatch in its inner dimension
+```
+
+##  Beyond Basic Multiplication:  Broadcasting
+
+NumPy's broadcasting rules allow for matrix multiplication with arrays of different shapes under certain conditions. This expands the possibilities beyond strict dimension matching.  For instance, multiplying a matrix by a vector is easily achievable through broadcasting.
+
+```python
+import numpy as np
+
+matrix_a = np.array([[1, 2], [3, 4]])
+vector_b = np.array([5, 6])
+
+result = matrix_a @ vector_b
+
+print(result)  # Output: [17 39]
+```
+
+## Efficiency Considerations
+
+For large matrices, NumPy's optimized functions significantly outperform naive Python implementations.  NumPy leverages highly optimized libraries written in C and Fortran, leading to substantial speed improvements. This makes it essential for performance-critical applications.
+
+
+## Example:  Simple Linear Transformation
+
+Matrix multiplication finds frequent use in linear algebra, representing linear transformations. Consider a simple 2D rotation:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+rotation_matrix = np.array([[np.cos(np.pi/4), -np.sin(np.pi/4)],
+                            [np.sin(np.pi/4), np.cos(np.pi/4)]])
+
+point = np.array([1, 0])
+
+rotated_point = rotation_matrix @ point
+
+#Plot the points
+plt.plot([0,point[0]],[0,point[1]],label="Original Point")
+plt.plot([0,rotated_point[0]],[0,rotated_point[1]],label="Rotated Point")
+plt.legend()
+plt.show()
+```
+This example demonstrates how matrix multiplication can efficiently transform points in a 2D space.  Extending this to higher dimensions is straightforward.
+

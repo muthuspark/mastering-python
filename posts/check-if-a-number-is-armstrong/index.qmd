@@ -1,0 +1,104 @@
+---
+title: "Check if a Number is Armstrong"
+date: "02/02/2024"
+categories: [ problem-solving ]
+---
+
+
+Armstrong numbers are numbers that are equal to the sum of their own digits raised to the power of the number of digits.  For example, 153 is an Armstrong number because 1³ + 5³ + 3³ = 1 + 125 + 27 = 153.  This blog post will explore how to efficiently check if a given number is an Armstrong number using Python.
+
+
+## Understanding the Logic
+
+The core logic involves these steps:
+
+1. **Finding the number of digits:** Determine the total number of digits in the input number.
+2. **Extracting digits:** Separate each digit of the number.
+3. **Raising to the power:** Raise each digit to the power of the total number of digits.
+4. **Summing the results:** Add up all the results from step 3.
+5. **Comparing with the original number:** Check if the sum obtained in step 4 is equal to the original number. If they are equal, the number is an Armstrong number.
+
+
+## Python Code Implementation
+
+Let's implement this logic in Python.  We'll start with a straightforward approach and then optimize it for larger numbers.
+
+
+**Method 1: Basic Approach**
+
+This method uses string manipulation to extract digits:
+
+```python
+def is_armstrong_number(num):
+  """Checks if a number is an Armstrong number (basic approach)."""
+  num_str = str(num)
+  num_digits = len(num_str)
+  sum_of_powers = 0
+  for digit in num_str:
+    sum_of_powers += int(digit) ** num_digits
+  return sum_of_powers == num
+
+number = 153
+if is_armstrong_number(number):
+  print(f"{number} is an Armstrong number.")
+else:
+  print(f"{number} is not an Armstrong number.")
+
+number = 123
+if is_armstrong_number(number):
+  print(f"{number} is an Armstrong number.")
+else:
+  print(f"{number} is not an Armstrong number.")
+
+```
+
+**Method 2:  More Efficient Approach (Without String Conversion)**
+
+This method avoids string conversion, making it potentially faster for very large numbers:
+
+```python
+def is_armstrong_number_efficient(num):
+    """Checks if a number is an Armstrong number (efficient approach)."""
+    original_num = num
+    num_digits = len(str(num)) #We still need to determine number of digits
+    sum_of_powers = 0
+    while num > 0:
+        digit = num % 10
+        sum_of_powers += digit ** num_digits
+        num //= 10
+    return sum_of_powers == original_num
+
+number = 370
+if is_armstrong_number_efficient(number):
+  print(f"{number} is an Armstrong number.")
+else:
+  print(f"{number} is not an Armstrong number.")
+
+number = 9474
+if is_armstrong_number_efficient(number):
+  print(f"{number} is an Armstrong number.")
+else:
+  print(f"{number} is not an Armstrong number.")
+
+```
+
+Both methods achieve the same result, but the second approach is generally preferred for its efficiency, especially when dealing with larger integers.  The difference in performance becomes more pronounced as the size of the input number increases.  Choose the method that best suits your needs and the expected range of input numbers.
+
+##  Finding Armstrong Numbers within a Range
+
+You can easily extend this to find all Armstrong numbers within a given range:
+
+```python
+def find_armstrong_numbers_in_range(start, end):
+    """Finds all Armstrong numbers within a specified range."""
+    armstrong_numbers = []
+    for num in range(start, end + 1):
+        if is_armstrong_number_efficient(num):  #Use efficient method
+            armstrong_numbers.append(num)
+    return armstrong_numbers
+
+print(find_armstrong_numbers_in_range(100, 1000))
+
+```
+This provides a flexible way to search for Armstrong numbers within any specified range of integers.
+

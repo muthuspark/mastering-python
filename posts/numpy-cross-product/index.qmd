@@ -1,0 +1,87 @@
+---
+title: "NumPy Cross Product"
+date: "05/16/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, offers a powerful function for calculating the cross product of vectors: `np.cross()`.  Understanding and effectively utilizing this function is crucial for various applications, from physics simulations to computer graphics. This post delves into the intricacies of NumPy's cross product, providing clear explanations and practical code examples.
+
+## What is the Cross Product?
+
+Before diving into the NumPy implementation, let's briefly revisit the mathematical concept. The cross product, also known as the vector product, is a binary operation on two vectors in three-dimensional space. The result is a vector that is orthogonal (perpendicular) to both input vectors.  The magnitude of the resulting vector is related to the magnitudes of the input vectors and the angle between them.  Specifically, the magnitude represents the area of the parallelogram formed by the two input vectors.
+
+The cross product is defined as follows:
+
+For vectors **a** = (a₁, a₂, a₃) and **b** = (b₁, b₂, b₃), the cross product **c** = **a** × **b** is:
+
+**c** = (a₂b₃ - a₃b₂, a₃b₁ - a₁b₃, a₁b₂ - a₂b₁)
+
+
+## NumPy's `np.cross()` Function
+
+NumPy's `np.cross()` function elegantly handles the cross product calculation. It efficiently computes the cross product of two arrays, regardless of whether they represent single vectors or multiple vectors stacked along an axis.
+
+**Basic Usage:**
+
+Let's start with the simplest case: finding the cross product of two single vectors:
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+c = np.cross(a, b)
+print(c)  # Output: [-3  6 -3]
+```
+
+This directly applies the formula outlined above.
+
+
+**Working with Multiple Vectors:**
+
+`np.cross()` shines when dealing with arrays containing multiple vectors.  Consider an array where each row represents a vector:
+
+
+```python
+vectors_a = np.array([[1, 2, 3],
+                     [4, 5, 6],
+                     [7, 8, 9]])
+
+vectors_b = np.array([[10, 11, 12],
+                     [13, 14, 15],
+                     [16, 17, 18]])
+
+cross_products = np.cross(vectors_a, vectors_b, axisa=0, axisb=0)
+print(cross_products)
+
+#Output will be an array where each row represents the cross product of the corresponding rows from vectors_a and vectors_b
+```
+
+Here `axisa` and `axisb` are crucial.  They specify which axis contains the vectors.  The default is `axisa= -1` and `axisb=-1` meaning that the last axis is treated as vectors.
+
+
+**Handling Higher Dimensional Arrays:**
+
+While the cross product is fundamentally a 3D operation,  `np.cross()` can handle higher-dimensional arrays.  The specified axes determine which dimensions are treated as vectors.  The documentation for `np.cross` thoroughly explains these functionalities.
+
+
+
+**Error Handling:**
+
+`np.cross()` raises a `ValueError` if the input arrays don't have compatible shapes for cross product computation, for example, if they are not of the same length.  Always check the dimensions of your input arrays to avoid such errors.
+
+
+##  Practical Applications
+
+The cross product is extensively used in various fields:
+
+* **Physics:** Calculating torque, angular momentum, and magnetic forces.
+* **Computer Graphics:** Determining surface normals, handling rotations, and calculating lighting effects.
+* **Robotics:**  Computing joint torques and analyzing robot kinematics.
+* **Machine Learning:** Feature engineering in applications dealing with spatial data.
+
+
+The examples above highlight the basic usage and capabilities of NumPy's `np.cross()`.  By understanding its functionality and leveraging its efficiency, you can significantly enhance your ability to perform vector calculations in Python for various scientific and engineering tasks.
+

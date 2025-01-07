@@ -1,0 +1,91 @@
+---
+title: "NumPy Datetime Arrays"
+date: "07/14/2023"
+categories: [ numpy ]
+---
+
+
+NumPy's datetime arrays are a powerful tool for efficiently working with dates and times in Python.  Unlike standard Python's `datetime` objects, NumPy's `datetime64` objects offer significant performance advantages when dealing with large datasets, making them essential for scientific computing, data analysis, and time series analysis.  This guide will walk you through the essentials, from creation to manipulation, with clear code examples.
+
+## Creating NumPy Datetime Arrays
+
+Creating `datetime64` arrays is straightforward. You can specify the desired unit, which determines the precision (e.g., 'Y' for year, 'M' for month, 'D' for day, 'h' for hour, 'm' for minute, 's' for second, 'ms' for millisecond, 'us' for microsecond, 'ns' for nanosecond).
+
+```python
+import numpy as np
+
+dates = np.array(['2024-03-15', '2024-03-16', '2024-03-17'], dtype='datetime64[D]')
+print(dates)
+
+times = np.array(['10:30:00', '12:45:00', '14:00:00'], dtype='datetime64[s]')
+print(times)
+
+datetimes = np.array(['2024-03-15 10:30:00', '2024-03-16 12:45:00', '2024-03-17 14:00:00'], dtype='datetime64[ms]')
+print(datetimes)
+
+start_date = np.datetime64('2024-01-01')
+end_date = np.datetime64('2024-01-10')
+daily_dates = np.arange(start_date, end_date, dtype='datetime64[D]')
+print(daily_dates)
+```
+
+##  Arithmetic Operations with Datetime Arrays
+
+NumPy's datetime arrays support various arithmetic operations. You can easily add or subtract time units to your dates.
+
+```python
+future_dates = dates + np.timedelta64(5, 'D')
+print(future_dates)
+
+time_diff = dates[1] - dates[0]
+print(time_diff) # Output: 1 days
+
+later_times = times + np.timedelta64(2, 'h')
+print(later_times)
+```
+
+##  Date and Time Components Extraction
+
+
+You can access individual components (year, month, day, etc.) of your datetime arrays.
+
+```python
+years = dates.astype('datetime64[Y]')
+months = dates.astype('datetime64[M]')
+days = dates.astype('datetime64[D]')
+print(years)
+print(months)
+print(days)
+
+
+#Extracting year,month,day individually using .astype
+years = dates.astype('datetime64[Y]').astype(int) + 1970 #Adding 1970 to get actual year
+months = dates.astype('datetime64[M]').astype(int) % 12 +1 #Getting month number
+days = dates.astype('datetime64[D]').astype(int) %365 +1 #Getting Day number
+
+
+print(years)
+print(months)
+print(days)
+
+```
+
+
+##  Working with Timedeltas
+
+`timedelta64` objects represent durations.  They are crucial for calculations involving differences between dates and times.
+
+```python
+time_delta = np.timedelta64(10, 'h')
+print(time_delta)
+
+#Adding a timedelta to a datetime array
+new_datetimes = datetimes + time_delta
+print(new_datetimes)
+```
+
+##  Advanced Operations and Applications
+
+
+NumPy's datetime arrays integrate seamlessly with other NumPy functionalities, allowing for powerful data manipulation and analysis.  For instance, you can easily filter data based on date ranges, perform aggregations (e.g., mean, sum) over time periods, and much more.  These features are particularly valuable for time series analysis, where you might need to analyze trends, calculate moving averages, or detect anomalies within your data.  Further exploration into these advanced techniques will solidify your understanding and unleash the full potential of NumPy's datetime arrays.
+

@@ -1,0 +1,79 @@
+---
+title: "NumPy Array Indexing"
+date: "05/24/2024"
+categories: [ numpy ]
+---
+
+
+NumPy arrays are the cornerstone of numerical computing in Python.  Their efficiency stems, in part, from their ability to be accessed and manipulated using powerful indexing techniques. This blog post delves into the various ways you can index NumPy arrays, providing clear explanations and illustrative code examples.  Understanding array indexing is crucial for writing efficient and readable NumPy code.
+
+
+## Basic Indexing: Accessing Individual Elements
+
+The simplest form of indexing is accessing individual elements using their row and column indices (for 2D arrays) or their index (for 1D arrays).  Indices in NumPy start at 0.
+
+```python
+import numpy as np
+
+arr_1d = np.array([10, 20, 30, 40, 50])
+print(arr_1d[0])  # Output: 10
+print(arr_1d[2])  # Output: 30
+
+
+arr_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr_2d[0, 0])  # Output: 1 (first row, first column)
+print(arr_2d[1, 2])  # Output: 6 (second row, third column)
+```
+
+## Slicing: Extracting Subarrays
+
+Slicing allows you to extract portions of an array. It follows the `[start:stop:step]` notation, where `start` is inclusive, `stop` is exclusive, and `step` determines the increment.  Omitting any part uses the default values (0 for `start`, the array's size for `stop`, and 1 for `step`).
+
+
+```python
+print(arr_1d[1:4])  # Output: [20 30 40]
+print(arr_1d[:3])   # Output: [10 20 30]
+print(arr_1d[::2])  # Output: [10 30 50] (every other element)
+
+print(arr_2d[0:2, 1:3]) # Output: [[2 3] [5 6]] (rows 0 and 1, columns 1 and 2)
+print(arr_2d[:, 0])     # Output: [1 4 7] (all rows, first column)
+```
+
+
+## Boolean Indexing: Selecting Elements Based on Conditions
+
+Boolean indexing allows you to select elements based on a boolean condition. This is incredibly useful for filtering data.
+
+```python
+bool_idx = arr_1d > 20
+print(arr_1d[bool_idx])  # Output: [30 40 50]
+
+bool_idx_2d = arr_2d % 2 == 0
+print(arr_2d[bool_idx_2d]) # Output: [2 4 6 8] (Note: it flattens the array)
+```
+
+## Fancy Indexing: Selecting Elements Using Integer Arrays
+
+Fancy indexing uses integer arrays to specify the indices you want to select.  This is more flexible than slicing for selecting arbitrary elements.
+
+```python
+print(arr_1d[[0, 2, 4]])  # Output: [10 30 50]
+
+rows = np.array([0, 1, 2])
+cols = np.array([0, 1, 2])
+print(arr_2d[rows, cols]) # Output: [1 5 9] (diagonal elements)
+```
+
+
+## Multi-dimensional Fancy Indexing
+
+Fancy indexing extends to multiple dimensions, allowing for complex element selection patterns.
+
+```python
+rows = np.array([[0, 1], [2, 0]])
+cols = np.array([[0, 2], [1, 0]])
+print(arr_2d[rows, cols]) # Output: [[1 3] [8 4]]
+```
+
+These examples demonstrate the flexibility and power of NumPy array indexing.  By mastering these techniques, you can significantly enhance the efficiency and readability of your numerical Python code.  Further exploration into advanced indexing techniques will unlock even greater capabilities within the NumPy library.
+

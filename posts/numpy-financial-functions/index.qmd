@@ -1,0 +1,137 @@
+---
+title: "NumPy Financial Functions"
+date: "07/25/2024"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of Python's scientific computing ecosystem, offers a surprisingly robust set of financial functions within its `numpy_financial` module. While not as comprehensive as dedicated financial libraries like `pandas` or specialized packages, NumPy's functions provide a solid foundation for various financial calculations, particularly when dealing with arrays and efficient vectorized operations. This post explores some key functions with practical code examples.
+
+
+## Getting Started
+
+Before diving in, ensure you have NumPy installed. If not, use pip:
+
+```bash
+pip install numpy
+```
+
+Import the necessary module:
+
+```python
+import numpy_financial as npf
+```
+
+
+## Core Financial Functions
+
+Let's examine some fundamental functions:
+
+### 1. `fv(rate, nper, pmt, pv, when='end')` : Future Value
+
+Calculates the future value of an investment.
+
+* `rate`: The periodic interest rate.
+* `nper`: The total number of payment periods.
+* `pmt`: The payment made each period.  Can be negative (investment) or positive (loan).
+* `pv`: The present value (initial investment).
+* `when`: Specifies whether payments are made at the beginning ('begin') or end ('end') of each period (default is 'end').
+
+
+```python
+rate = 0.05
+nper = 10
+pmt = 0  # No additional payments
+pv = -1000 # Initial investment (negative because it's an outflow)
+fv = npf.fv(rate, nper, pmt, pv)
+print(f"Future Value: {fv:.2f}")
+```
+
+
+### 2. `pv(rate, nper, pmt, fv, when='end')`: Present Value
+
+Calculates the present value of a future amount.
+
+```python
+rate = 0.07
+nper = 5
+pmt = 0
+fv = 2000
+pv = npf.pv(rate, nper, pmt, fv)
+print(f"Present Value: {pv:.2f}")
+```
+
+
+### 3. `npv(rate, values)`: Net Present Value
+
+Calculates the net present value of a series of cash flows.
+
+```python
+rate = 0.1
+values = [-1000, 200, 300, 400, 500]
+npv = npf.npv(rate, values)
+print(f"Net Present Value: {npv:.2f}")
+```
+
+
+### 4. `irr(values)`: Internal Rate of Return
+
+Calculates the internal rate of return of a series of cash flows.
+
+```python
+irr = npf.irr(values)
+print(f"Internal Rate of Return: {irr:.2f}")
+```
+
+
+### 5. `mirr(values, finance_rate, reinvest_rate)`: Modified Internal Rate of Return
+
+Calculates the modified internal rate of return, considering different financing and reinvestment rates.
+
+```python
+finance_rate = 0.05
+reinvest_rate = 0.08
+mirr = npf.mirr(values, finance_rate, reinvest_rate)
+print(f"Modified Internal Rate of Return: {mirr:.2f}")
+```
+
+
+### 6. `pmt(rate, nper, pv, fv=0, when='end')`: Payment
+
+Calculates the periodic payment for a loan or investment.
+
+
+```python
+rate = 0.06 / 12 # Monthly interest rate
+nper = 5 * 12     # Total number of payments
+pv = 20000        # Loan amount
+pmt = npf.pmt(rate, nper, pv)
+print(f"Monthly Payment: {pmt:.2f}")
+
+```
+
+### 7. `ppmt(rate, per, nper, pv, fv=0, when='end')`: Principal Payment
+
+Calculates the principal payment portion of a loan payment at a specific period.
+
+
+```python
+per = 1
+principal_payment = npf.ppmt(rate, per, nper, pv)
+print(f"Principal Payment in the First Month: {principal_payment:.2f}")
+```
+
+### 8. `ipmt(rate, per, nper, pv, fv=0, when='end')`: Interest Payment
+
+Calculates the interest payment portion of a loan payment at a specific period.
+
+
+```python
+interest_payment = npf.ipmt(rate, per, nper, pv)
+print(f"Interest Payment in the First Month: {interest_payment:.2f}")
+```
+
+
+
+These examples demonstrate the basic usage of NumPy's financial functions.  Remember to adjust the inputs according to your specific financial scenario.  For more complex financial modeling, consider using more specialized libraries.
+

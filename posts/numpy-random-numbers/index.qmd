@@ -1,0 +1,144 @@
+---
+title: "NumPy Random Numbers"
+date: "02/12/2024"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, provides a powerful and versatile suite of tools for generating random numbers.  Whether you're simulating complex systems, conducting statistical analysis, or building machine learning models, understanding NumPy's random number capabilities is crucial. This guide delves into the core functionalities, offering practical examples to help you harness the full potential of NumPy's random number generation.
+
+
+##  Getting Started with `numpy.random`
+
+Before diving into specific functions, let's import the necessary module:
+
+```python
+import numpy as np
+```
+
+The `numpy.random` module (now a submodule of `numpy.random`) offers a wide array of functions for generating various types of random numbers.  Note that  `numpy.random` was redesigned in version 1.17.  Older code using `np.random` directly might need adjustment.
+
+
+## Generating Random Numbers from Different Distributions
+
+NumPy provides functions to sample from many common probability distributions. Here are a few examples:
+
+
+### Uniform Distribution
+
+The `rand()` function generates random numbers from a uniform distribution over the interval [0, 1):
+
+```python
+random_numbers = np.random.rand(5)
+print(random_numbers)
+
+random_array = np.random.rand(3, 3)
+print(random_array)
+```
+
+To generate random numbers from a uniform distribution within a specific range (a, b), use `uniform()`:
+
+```python
+random_numbers_range = np.random.uniform(2, 10, 10)
+print(random_numbers_range)
+```
+
+
+### Normal (Gaussian) Distribution
+
+The `randn()` function generates random numbers from a standard normal distribution (mean=0, standard deviation=1):
+
+```python
+standard_normal = np.random.randn(5)
+print(standard_normal)
+
+#Generate a 2x4 array of numbers from a normal distribution with mean 5 and standard deviation 2
+normal_array = np.random.normal(loc=5, scale=2, size=(2,4))
+print(normal_array)
+
+```
+
+### Other Distributions
+
+NumPy offers functions for numerous other distributions, including:
+
+* `randint()`: Generates random integers from a specified range.
+* `poisson()`: Generates random numbers from a Poisson distribution.
+* `binomial()`: Generates random numbers from a binomial distribution.
+* `exponential()`: Generates random numbers from an exponential distribution.
+And many more! Consult the NumPy documentation for a complete list.
+
+
+## Seeding the Random Number Generator
+
+Reproducibility is key in scientific computing.  You can set a seed using `seed()` to ensure that the sequence of random numbers generated is the same every time you run your code:
+
+
+```python
+np.random.seed(42) #Sets the seed to 42
+random_numbers = np.random.rand(5)
+print(random_numbers)
+
+np.random.seed(42) #Same seed, same output
+random_numbers_again = np.random.rand(5)
+print(random_numbers_again)
+```
+
+Changing the seed will produce a different sequence.
+
+
+##  Generating Random Integers
+
+
+The `randint()` function is very useful for generating random integers:
+
+```python
+#Generate 5 random integers between 1 and 10 (inclusive)
+random_integers = np.random.randint(1, 11, 5)
+print(random_integers)
+```
+
+##  Choosing Random Elements from Arrays
+
+NumPy also provides functions for selecting random elements from existing arrays.  `choice()` is particularly useful:
+
+```python
+my_array = np.array([1, 2, 3, 4, 5])
+#Choose one random element from my_array
+random_element = np.random.choice(my_array)
+print(random_element)
+
+#Choose 3 random elements with replacement
+random_elements_replacement = np.random.choice(my_array, size=3, replace=True)
+print(random_elements_replacement)
+
+#Choose 3 random elements without replacement
+random_elements_no_replacement = np.random.choice(my_array, size=3, replace=False)
+print(random_elements_no_replacement)
+
+```
+
+
+##  Shuffling Arrays
+
+
+The `shuffle()` function randomly permutes the elements of an array *in place*:
+
+```python
+my_array = np.array([1, 2, 3, 4, 5])
+np.random.shuffle(my_array)
+print(my_array) #The original array is modified
+```
+
+Remember that `shuffle` modifies the array directly; it doesn't return a new shuffled array.  To obtain a shuffled copy without modifying the original, you can use `permutation()`.
+
+```python
+my_array = np.array([1, 2, 3, 4, 5])
+shuffled_array = np.random.permutation(my_array)
+print(shuffled_array)
+print(my_array) #Original array is unchanged
+```
+
+
+These examples provide a solid foundation for working with NumPy's random number generation capabilities.  Experiment with these functions and explore the extensive documentation to unlock the full potential of NumPy's random number tools for your data science projects.
+

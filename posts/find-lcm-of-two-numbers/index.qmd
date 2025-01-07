@@ -1,0 +1,98 @@
+---
+title: "Find LCM of Two Numbers"
+date: "02/28/2023"
+categories: [ problem-solving ]
+---
+
+
+Finding the Least Common Multiple (LCM) of two numbers is a fundamental concept in mathematics and programming.  The LCM is the smallest positive integer that is divisible by both numbers.  This blog post will explore various methods to efficiently calculate the LCM of two numbers in Python, providing clear explanations and code examples for each approach.
+
+
+## Method 1: Using the GCD (Greatest Common Divisor)
+
+The most efficient way to calculate the LCM is by leveraging the relationship between the LCM and the Greatest Common Divisor (GCD) of two numbers.  The relationship is defined as:
+
+`LCM(a, b) = (a * b) / GCD(a, b)`
+
+First, we need a function to calculate the GCD.  We'll use the Euclidean algorithm, known for its efficiency:
+
+```python
+def gcd(a, b):
+  """
+  Calculates the Greatest Common Divisor (GCD) of two numbers using the Euclidean algorithm.
+  """
+  while(b):
+    a, b = b, a % b
+  return a
+
+def lcm(a, b):
+  """
+  Calculates the Least Common Multiple (LCM) of two numbers using the GCD.
+  """
+  return (a * b) // gcd(a, b)
+
+#Example usage
+num1 = 12
+num2 = 18
+print(f"The LCM of {num1} and {num2} is: {lcm(num1, num2)}")
+```
+
+This code first defines a `gcd` function using the Euclidean algorithm. Then, the `lcm` function utilizes the `gcd` function to compute the LCM based on the formula.  The `//` operator ensures integer division, preventing floating-point results.
+
+
+## Method 2:  Iterative Approach
+
+While less efficient than the GCD method, an iterative approach can be easier to understand for beginners. This method iterates through multiples of the larger number until it finds a multiple that is also divisible by the smaller number:
+
+
+```python
+def lcm_iterative(a, b):
+  """
+  Calculates the LCM of two numbers using an iterative approach.
+  """
+  if a > b:
+    greater = a
+  else:
+    greater = b
+
+  while(True):
+    if((greater % a == 0) and (greater % b == 0)):
+      lcm = greater
+      break
+    greater += 1
+  return lcm
+
+#Example Usage
+num1 = 15
+num2 = 20
+print(f"The LCM of {num1} and {num2} using iterative method is: {lcm_iterative(num1, num2)}")
+
+```
+
+This code finds the larger number and iteratively checks its multiples until it finds a common multiple for both input numbers.
+
+
+## Method 3: Using the `math` module (for positive integers only)
+
+Python's `math` module provides a `gcd` function. We can use this to calculate the LCM as shown below:
+
+```python
+import math
+
+def lcm_math(a, b):
+    """Calculates the LCM using the math module's gcd function."""
+    return (a * b) // math.gcd(a, b)
+
+#Example Usage
+num1 = 24
+num2 = 36
+print(f"The LCM of {num1} and {num2} using math module is: {lcm_math(num1, num2)}")
+```
+
+This method offers a concise solution leveraging the built-in functionality of the `math` module, but is limited to positive integers.
+
+
+## Handling Negative Numbers and Zero
+
+The above methods primarily focus on positive integers.  For a more robust solution, you would need to add error handling for negative numbers and zero.  Consider adding checks at the beginning of your LCM function to handle these edge cases appropriately.  For example, you could return an error message or handle them based on your specific application's requirements.
+

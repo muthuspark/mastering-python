@@ -1,0 +1,106 @@
+---
+title: "NumPy QR Decomposition"
+date: "02/23/2023"
+categories: [ numpy ]
+---
+
+
+NumPy's `qr` function provides a powerful tool for linear algebra tasks, offering a stable and efficient way to compute the QR decomposition of a matrix.  Understanding and utilizing QR decomposition can significantly improve the performance and robustness of your Python numerical computations. This post will delve into the details of NumPy's QR decomposition, providing clear explanations and practical code examples.
+
+## What is QR Decomposition?
+
+QR decomposition, also known as QR factorization, is a matrix decomposition method that factors a matrix into an orthogonal matrix (Q) and an upper triangular matrix (R).  Formally, for a given m x n matrix A, the decomposition is represented as:
+
+`A = QR`
+
+where:
+
+* **Q** is an m x m orthogonal matrix (Q<sup>T</sup>Q = I, where Q<sup>T</sup> is the transpose of Q and I is the identity matrix).  Orthogonal matrices have the property that their columns are orthonormal (mutually orthogonal and of unit length).
+
+* **R** is an m x n upper triangular matrix (all entries below the main diagonal are zero).
+
+## Why Use QR Decomposition?
+
+QR decomposition offers several advantages:
+
+* **Solving Linear Least Squares Problems:** QR decomposition provides a numerically stable solution to the linear least squares problem, which aims to find the best-fitting solution to an overdetermined system of linear equations (more equations than unknowns).  This is significantly more stable than using methods like the normal equations, especially when dealing with ill-conditioned matrices.
+
+* **Eigenvalue Problems:** QR decomposition is a key component in iterative algorithms for computing eigenvalues and eigenvectors.
+
+* **Gram-Schmidt Orthogonalization:**  The QR decomposition is closely related to the Gram-Schmidt process, providing a method for orthogonalizing a set of vectors.
+
+## NumPy's `qr` Function
+
+NumPy's `linalg.qr` function efficiently computes the QR decomposition.  It offers flexibility in the way the matrices Q and R are returned.
+
+### Example 1: Basic QR Decomposition
+
+Let's start with a simple example:
+
+```python
+import numpy as np
+
+A = np.array([[1, 2], [3, 4], [5, 6]])
+
+Q, R = np.linalg.qr(A)
+
+print("Original Matrix A:\n", A)
+print("\nOrthogonal Matrix Q:\n", Q)
+print("\nUpper Triangular Matrix R:\n", R)
+print("\nReconstructed Matrix A (Q*R):\n", np.dot(Q, R))
+```
+
+This code decomposes a 3x2 matrix `A` into `Q` and `R`.  Notice how the reconstructed matrix `Q*R` closely approximates the original `A` (minor differences are due to floating-point limitations).
+
+
+### Example 2:  Solving Least Squares Problems
+
+Consider a least squares problem: find x that minimizes ||Ax - b|| where:
+
+```python
+A = np.array([[1, 1], [1, 2], [1, 3]])
+b = np.array([1, 3, 2])
+
+Q, R = np.linalg.qr(A)
+
+x = np.linalg.solve(R, np.dot(Q.T, b))
+
+print("Solution x:", x)
+```
+
+This leverages the QR decomposition for a stable solution to the least squares problem. The `solve` function efficiently solves the upper triangular system.
+
+
+### Example 3:  Controlling the Output of `qr`
+
+The `mode` parameter in `np.linalg.qr` allows for control over the dimensions of Q:
+
+```python
+A = np.array([[1, 2], [3, 4], [5, 6]])
+
+Q, R = np.linalg.qr(A, mode='reduced') # Reduced Q (m x n)
+
+print("Reduced Q:\n", Q)
+print("\nR:\n", R)
+```
+
+Using `mode='reduced'` returns a smaller Q matrix (m x n) instead of a full m x m matrix, saving memory and computation when appropriate.  The default mode is 'full'.
+
+
+###  Example 4:  Handling Complex Matrices
+
+
+NumPy's `linalg.qr` seamlessly handles complex matrices:
+
+```python
+A = np.array([[1+1j, 2-1j], [3j, 4]])
+
+Q, R = np.linalg.qr(A)
+
+print("Q:\n", Q)
+print("\nR:\n", R)
+
+```
+
+This example demonstrates the flexibility of the function in handling various matrix types.
+

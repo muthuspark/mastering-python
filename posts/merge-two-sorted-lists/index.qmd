@@ -1,0 +1,114 @@
+---
+title: "Merge Two Sorted Lists"
+date: "12/29/2023"
+categories: [ problem-solving ]
+---
+
+
+Merging two sorted lists into a single sorted list is a classic problem in computer science, frequently encountered in interviews and real-world applications.  Python offers elegant ways to solve this, ranging from simple iterative approaches to more sophisticated techniques using libraries.  This post will explore several methods, providing clear explanations and code examples for each.
+
+
+## Method 1: Iterative Approach
+
+This is a straightforward method that iterates through both input lists, comparing elements and adding the smaller one to the result list.
+
+```python
+def merge_sorted_lists_iterative(list1, list2):
+    """Merges two sorted lists iteratively.
+
+    Args:
+        list1: The first sorted list.
+        list2: The second sorted list.
+
+    Returns:
+        A new sorted list containing all elements from list1 and list2.
+    """
+    merged_list = []
+    i = j = 0
+    while i < len(list1) and j < len(list2):
+        if list1[i] < list2[j]:
+            merged_list.append(list1[i])
+            i += 1
+        else:
+            merged_list.append(list2[j])
+            j += 1
+    merged_list.extend(list1[i:])  # Add remaining elements from list1
+    merged_list.extend(list2[j:])  # Add remaining elements from list2
+    return merged_list
+
+list1 = [2, 5, 8, 12]
+list2 = [1, 3, 6, 9, 11]
+merged_list = merge_sorted_lists_iterative(list1, list2)
+print(f"Merged list (iterative): {merged_list}") #Output: Merged list (iterative): [1, 2, 3, 5, 6, 8, 9, 11, 12]
+
+```
+
+This approach has a time complexity of O(m+n), where 'm' and 'n' are the lengths of the input lists, and a space complexity of O(m+n) due to the creation of the new merged list.
+
+
+## Method 2: Recursive Approach
+
+A recursive solution offers a more concise, albeit potentially less efficient for very large lists, approach.
+
+
+```python
+def merge_sorted_lists_recursive(list1, list2):
+    """Merges two sorted lists recursively.
+
+    Args:
+        list1: The first sorted list.
+        list2: The second sorted list.
+
+    Returns:
+        A new sorted list containing all elements from list1 and list2.
+    """
+    if not list1:
+        return list2
+    if not list2:
+        return list1
+    if list1[0] < list2[0]:
+        return [list1[0]] + merge_sorted_lists_recursive(list1[1:], list2)
+    else:
+        return [list2[0]] + merge_sorted_lists_recursive(list1, list2[1:])
+
+#Example usage
+list1 = [2, 5, 8, 12]
+list2 = [1, 3, 6, 9, 11]
+merged_list = merge_sorted_lists_recursive(list1, list2)
+print(f"Merged list (recursive): {merged_list}") # Output: Merged list (recursive): [1, 2, 3, 5, 6, 8, 9, 11, 12]
+```
+
+The recursive solution also has a time complexity of O(m+n), but potentially higher space complexity due to recursive function calls.
+
+
+## Method 3: Using `heapq.merge` (Python's built-in solution)
+
+Python's `heapq` module provides the `merge` function, which efficiently merges multiple sorted iterables. This is often the most efficient and readable approach.
+
+
+```python
+import heapq
+
+def merge_sorted_lists_heapq(list1, list2):
+    """Merges two sorted lists using heapq.merge.
+
+    Args:
+        list1: The first sorted list.
+        list2: The second sorted list.
+
+    Returns:
+        A new sorted list containing all elements from list1 and list2.
+
+    """
+    return list(heapq.merge(list1, list2))
+
+
+list1 = [2, 5, 8, 12]
+list2 = [1, 3, 6, 9, 11]
+merged_list = merge_sorted_lists_heapq(list1, list2)
+print(f"Merged list (heapq): {merged_list}") # Output: Merged list (heapq): [1, 2, 3, 5, 6, 8, 9, 11, 12]
+```
+
+`heapq.merge` offers a time complexity of O(m+n) and a space complexity that depends on the implementation but is generally efficient.  It's often the preferred method for its readability and performance.
+
+

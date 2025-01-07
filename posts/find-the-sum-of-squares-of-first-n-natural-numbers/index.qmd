@@ -1,0 +1,100 @@
+---
+title: "Find the Sum of Squares of First N Natural Numbers"
+date: "12/20/2024"
+categories: [ problem-solving ]
+---
+
+
+Finding the sum of squares of the first N natural numbers is a common problem in mathematics and programming.  This blog post will explore different ways to solve this problem in Python, from straightforward iterative approaches to more efficient mathematical solutions.
+
+## The Problem
+
+The problem is simple to state: given a positive integer N, find the sum of the squares of the numbers from 1 to N.  That is, calculate:
+
+1² + 2² + 3² + ... + N²
+
+## Method 1: Iterative Approach
+
+The most straightforward method is to use a loop to iterate through the numbers from 1 to N, square each number, and accumulate the sum.
+
+```python
+def sum_of_squares_iterative(n):
+  """
+  Calculates the sum of squares of the first n natural numbers iteratively.
+
+  Args:
+    n: A positive integer.
+
+  Returns:
+    The sum of squares.  Returns 0 if n is not a positive integer.
+  """
+  if not isinstance(n, int) or n <= 0:
+    return 0
+  total = 0
+  for i in range(1, n + 1):
+    total += i**2
+  return total
+
+n = 5
+result = sum_of_squares_iterative(n)
+print(f"The sum of squares of the first {n} natural numbers is: {result}") # Output: 55
+```
+
+This approach is easy to understand but can be less efficient for very large values of N.
+
+
+## Method 2: Mathematical Formula
+
+A much more efficient approach leverages a known mathematical formula for the sum of squares:
+
+∑_{i=1}^{N} i² = N(N+1)(2N+1) / 6
+
+This formula allows us to calculate the sum directly without iteration.
+
+```python
+def sum_of_squares_formula(n):
+  """
+  Calculates the sum of squares of the first n natural numbers using a formula.
+
+  Args:
+    n: A positive integer.
+
+  Returns:
+    The sum of squares. Returns 0 if n is not a positive integer.
+  """
+  if not isinstance(n, int) or n <= 0:
+    return 0
+  return n * (n + 1) * (2 * n + 1) // 6
+
+n = 5
+result = sum_of_squares_formula(n)
+print(f"The sum of squares of the first {n} natural numbers is: {result}") # Output: 55
+```
+
+This method is significantly faster than the iterative approach, especially for large values of N, because it avoids the loop entirely.  Note the use of `//` for integer division to ensure an integer result.
+
+
+## Method 3: Using `sum()` and a generator expression
+
+Python's built-in `sum()` function combined with a generator expression provides a concise and relatively efficient way to calculate the sum:
+
+```python
+def sum_of_squares_sum_generator(n):
+    """Calculates the sum of squares using sum() and a generator expression."""
+    if not isinstance(n, int) or n <= 0:
+        return 0
+    return sum(i**2 for i in range(1, n+1))
+
+#Example Usage
+n = 5
+result = sum_of_squares_sum_generator(n)
+print(f"The sum of squares of the first {n} natural numbers is: {result}") # Output: 55
+```
+
+This approach is more readable than the iterative approach while still being less efficient than the mathematical formula for very large N.
+
+
+## Choosing the Right Method
+
+For most practical purposes, the mathematical formula (Method 2) is the most efficient and recommended approach. The iterative method (Method 1) is useful for understanding the underlying concept, and the generator expression (Method 3) offers a compact alternative.  The best choice depends on the specific needs of your application, balancing readability and performance.
+

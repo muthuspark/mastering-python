@@ -1,0 +1,79 @@
+---
+title: "Convert a Binary Number to Decimal"
+date: "09/29/2023"
+categories: [ problem-solving ]
+---
+
+
+Binary numbers, the foundation of digital computing, represent data using only two digits: 0 and 1.  Understanding how to convert these binary representations into their decimal (base-10) equivalents is crucial for anyone working with computer science or programming.  This post will guide you through several effective methods for converting binary numbers to decimal in Python, complete with code examples and explanations.
+
+
+## Method 1: Using the `int()` function
+
+Python's built-in `int()` function provides a straightforward way to perform this conversion.  The `int()` function accepts a second argument specifying the base of the number you're converting.  For binary to decimal conversion, you'll use base 2.
+
+```python
+binary_number = "101101"  # Example binary number
+
+decimal_number = int(binary_number, 2)
+
+print(f"The decimal equivalent of {binary_number} is: {decimal_number}") 
+```
+
+This code snippet takes the binary string "101101", passes it to `int()` with base 2, and directly outputs the decimal equivalent.  This is the most concise and efficient approach.
+
+
+## Method 2: Manual Conversion using a Loop
+
+For a deeper understanding of the underlying process, let's implement the conversion manually using a loop.  This method iterates through the binary digits, multiplying each digit by the corresponding power of 2 and summing the results.
+
+```python
+binary_number = "101101"
+decimal_number = 0
+power = 0
+
+for digit in reversed(binary_number):
+    if digit == '1':
+        decimal_number += 2**power
+    power += 1
+
+print(f"The decimal equivalent of {binary_number} is: {decimal_number}")
+```
+
+This code first reverses the binary string to easily work with powers of 2 from right to left. It then iterates, adding 2 raised to the power of the digit's position if the digit is '1'.
+
+
+## Method 3:  Using the `bin()` function (Reverse Conversion)
+
+While not directly converting binary to decimal, the `bin()` function offers a useful demonstration. It converts an integer into its binary representation. You can use this to verify your conversion results.
+
+```python
+decimal_number = 45
+
+binary_number = bin(decimal_number)
+
+print(f"The binary representation of {decimal_number} is: {binary_number[2:]}") # [2:] removes the "0b" prefix
+```
+
+This code converts the decimal number 45 to its binary equivalent. Note that the `[2:]` slicing removes the "0b" prefix that `bin()` adds to indicate a binary number.  You can combine this with methods 1 or 2 to create a self-checking function.
+
+
+## Handling Errors: Invalid Binary Input
+
+It's crucial to handle potential errors, such as non-binary characters in the input string.  You can achieve this using a `try-except` block:
+
+
+```python
+def binaryToDecimal(binary):
+    try:
+        return int(binary, 2)
+    except ValueError:
+        return "Invalid binary string"
+
+print(binaryToDecimal("101101")) # Output: 45
+print(binaryToDecimal("101121")) # Output: Invalid binary string
+
+```
+
+This function gracefully handles invalid input, returning an appropriate message instead of crashing.  Robust error handling is essential for writing reliable code.
+

@@ -1,0 +1,78 @@
+---
+title: "NumPy Singular Value Decomposition (SVD)"
+date: "04/10/2024"
+categories: [ numpy ]
+---
+
+
+Singular Value Decomposition (SVD) is a powerful matrix factorization technique with wide-ranging applications in data science, machine learning, and beyond.  This post will explore how to leverage NumPy's efficient implementation of SVD in Python, providing practical examples and explanations along the way.
+
+## What is Singular Value Decomposition?
+
+At its core, SVD decomposes a matrix **A** (of size m x n) into three matrices: **U**, **Σ**, and **V<sup>T</sup>**.  Mathematically, this is represented as:
+
+**A = UΣV<sup>T</sup>**
+
+* **U:** An m x m orthogonal matrix whose columns are the left-singular vectors of **A**.
+* **Σ:** An m x n diagonal matrix containing the singular values of **A** (always non-negative and typically sorted in descending order).  These singular values represent the "strength" of the corresponding singular vectors.
+* **V<sup>T</sup>:** The transpose of an n x n orthogonal matrix whose rows are the right-singular vectors of **A**.
+
+
+## NumPy's `linalg.svd()` Function
+
+NumPy's `linalg` module provides the `svd()` function for performing SVD. This function is highly optimized and efficient, making it ideal for large matrices.
+
+Let's illustrate with an example:
+
+```python
+import numpy as np
+
+A = np.array([[1, 2],
+              [3, 4],
+              [5, 6]])
+
+U, s, Vh = np.linalg.svd(A)
+
+print("U:\n", U)
+print("\nsingular values:\n", s)
+print("\nVh:\n", Vh)
+```
+
+This code snippet first defines a sample matrix `A`. Then, `np.linalg.svd(A)` performs the SVD, returning three matrices: `U`, `s` (the singular values), and `Vh` (the transpose of V).  Note that `s` is a 1D array, not a diagonal matrix as described in the mathematical definition.  We can reconstruct the Σ matrix as follows:
+
+```python
+Sigma = np.zeros((A.shape[0], A.shape[1]))
+Sigma[:A.shape[1], :A.shape[1]] = np.diag(s)
+
+print("\nSigma:\n", Sigma)
+```
+
+This creates a diagonal matrix `Sigma` from the singular values `s`.
+
+## Reconstructing the Original Matrix
+
+A key aspect of SVD is the ability to reconstruct the original matrix from its decomposed components:
+
+```python
+A_reconstructed = np.dot(U, np.dot(Sigma, Vh))
+print("\nReconstructed A:\n", A_reconstructed)
+```
+
+This code verifies the reconstruction by multiplying the three matrices together. The result should be very close (within numerical precision) to the original matrix `A`.
+
+
+## Applications of SVD
+
+SVD finds applications in numerous areas, including:
+
+* **Dimensionality Reduction:**  By keeping only the top k singular values and corresponding singular vectors, one can approximate the original matrix with a lower-rank representation, effectively reducing dimensionality while retaining most of the important information. This is crucial in techniques like Principal Component Analysis (PCA).
+
+* **Recommendation Systems:** SVD can be used to decompose user-item interaction matrices, enabling prediction of user preferences for items they haven't interacted with.
+
+* **Noise Reduction:** SVD can be used to filter out noise from data by discarding small singular values.
+
+
+##  Beyond the Basics:  Further Exploration
+
+This post provided a fundamental understanding of SVD using NumPy.  More advanced topics include using SVD for image compression, exploring different SVD algorithms, and understanding the relationship between SVD and PCA.  Experiment with different matrices and explore the impact of changing the number of singular values kept on the reconstruction accuracy.  This hands-on exploration will solidify your understanding of this powerful technique.
+

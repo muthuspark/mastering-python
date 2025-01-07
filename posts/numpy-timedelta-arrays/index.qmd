@@ -1,0 +1,96 @@
+---
+title: "NumPy Timedelta Arrays"
+date: "03/06/2023"
+categories: [ numpy ]
+---
+
+
+NumPy's `timedelta64` dtype offers a powerful way to handle time differences within your Python code, especially when working with large datasets.  Unlike standard Python's `datetime.timedelta` objects, `timedelta64` arrays offer the speed and efficiency of NumPy's vectorized operations, making them ideal for time series analysis and manipulation.  This post dives deep into working with NumPy Timedelta arrays, demonstrating their capabilities with clear examples.
+
+## Creating Timedelta Arrays
+
+Creating `timedelta64` arrays is straightforward. You can specify the unit (e.g., 'D' for days, 'h' for hours, 'm' for minutes, 's' for seconds, 'ms' for milliseconds, 'us' for microseconds, 'ns' for nanoseconds) directly within the array creation:
+
+
+```python
+import numpy as np
+
+timedeltas = np.array([1, 2, 3], dtype='timedelta64[D]')  #Days
+print(timedeltas)
+
+timedeltas_hours = np.array([1, 2, 3], dtype='timedelta64[h]') #Hours
+print(timedeltas_hours)
+
+
+#Creating from a list of strings
+timedeltas_strings = np.array(['1D', '2D', '3D'], dtype='timedelta64')
+print(timedeltas_strings)
+
+#From a list of existing timedelta64 objects
+
+import datetime
+td_list = [datetime.timedelta(days=1), datetime.timedelta(days=2), datetime.timedelta(days=3)]
+timedeltas_from_list = np.array(td_list)
+print(timedeltas_from_list)
+```
+
+## Performing Arithmetic Operations
+
+The real power of `timedelta64` shines through its ability to perform arithmetic operations efficiently on entire arrays:
+
+```python
+result_add = timedeltas + np.array([4, 5, 6], dtype='timedelta64[D]')
+print(result_add)
+
+result_sub = timedeltas - np.array([1, 1, 1], dtype='timedelta64[D]')
+print(result_sub)
+
+
+result_mul = timedeltas * 2
+print(result_mul)
+
+result_div = timedeltas / 2 #this will result in a float
+print(result_div)
+
+```
+
+## Converting Units
+
+You can easily convert between different time units using NumPy's casting abilities:
+
+```python
+days_to_hours = timedeltas.astype('timedelta64[h]')
+print(days_to_hours)
+
+hours_to_seconds = days_to_hours.astype('timedelta64[s]')
+print(hours_to_seconds)
+```
+
+## Combining with datetime64
+
+`timedelta64` arrays work seamlessly with `datetime64` arrays, enabling powerful date and time calculations:
+
+
+```python
+dates = np.array(['2024-03-10', '2024-03-11', '2024-03-12'], dtype='datetime64')
+future_dates = dates + timedeltas
+print(future_dates)
+```
+
+
+## Handling Missing Values
+
+NumPy's `timedelta64` also gracefully handles missing values represented by `NaT` (Not a Time):
+
+```python
+timedeltas_with_nan = np.array([1, 2, np.nan], dtype='timedelta64[D]')
+print(timedeltas_with_nan)
+
+result_nan = timedeltas_with_nan + np.array([4, 5, 6], dtype='timedelta64[D]')
+print(result_nan)
+```
+
+##  Beyond the Basics:  Advanced Usage
+
+NumPy's `timedelta64` arrays integrate well with other NumPy functions and features,  allowing for complex time series analysis, including aggregations, filtering, and more.  Explore NumPy's documentation for a complete understanding of its capabilities.  This only scratches the surface of what you can achieve with  `timedelta64` for efficient time-based computations.
+

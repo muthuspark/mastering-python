@@ -1,0 +1,110 @@
+---
+title: "Find the Longest Decreasing Subsequence in a List"
+date: "02/22/2024"
+categories: [ problem-solving ]
+---
+
+
+Finding the longest decreasing subsequence within a list is a classic computer science problem with applications in various fields, from data analysis to bioinformatics.  This post will explore efficient ways to solve this problem in Python, providing clear explanations and code examples.
+
+
+## Understanding the Problem
+
+A decreasing subsequence is a sequence of numbers within a larger list where each number is strictly less than the preceding number.  The goal is to find the *longest* such subsequence.  For example, in the list `[10, 9, 8, 7, 6, 5, 11, 12]`, the longest decreasing subsequence is `[10, 9, 8, 7, 6, 5]`.
+
+
+## Approach 1: Dynamic Programming
+
+Dynamic programming offers an efficient solution with a time complexity of O(n^2), where n is the length of the input list.  This approach builds a table to store the lengths of decreasing subsequences ending at each position.
+
+```python
+def longest_decreasing_subsequence_dp(nums):
+    """
+    Finds the longest decreasing subsequence using dynamic programming.
+
+    Args:
+        nums: A list of numbers.
+
+    Returns:
+        The length of the longest decreasing subsequence.
+    """
+    n = len(nums)
+    if n == 0:
+        return 0
+
+    dp = [1] * n  # Initialize dp array with 1 (each element is a subsequence of length 1)
+
+    for i in range(1, n):
+        for j in range(i):
+            if nums[i] < nums[j]:
+                dp[i] = max(dp[i], dp[j] + 1)
+
+    return max(dp)
+
+
+#Example
+nums = [10, 9, 2, 5, 3, 7, 101, 18]
+length = longest_decreasing_subsequence_dp(nums)
+print(f"Length of the longest decreasing subsequence: {length}") #Output: 4
+
+```
+
+This code iterates through the list, comparing each element to its predecessors. If an element is smaller than a previous element, it extends the subsequence length accordingly.  The `dp` array keeps track of the longest decreasing subsequence ending at each index.
+
+
+## Approach 2:  Using `dp` array for subsequence reconstruction (more complex but provides the actual subsequence)
+
+
+The previous approach only gives the *length* of the longest decreasing subsequence. To actually reconstruct the subsequence, we need a slightly modified approach:
+
+```python
+def longest_decreasing_subsequence_with_reconstruction(nums):
+    """
+    Finds the longest decreasing subsequence and reconstructs the subsequence itself using dynamic programming.
+
+    Args:
+        nums: A list of numbers.
+
+    Returns:
+        A tuple containing (length, subsequence) of the longest decreasing subsequence.
+
+    """
+    n = len(nums)
+    if n == 0:
+        return 0, []
+
+    dp = [1] * n
+    predecessors = [-1] * n #to track predecessors in the subsequence
+
+    for i in range(1, n):
+        for j in range(i):
+            if nums[i] < nums[j] and dp[i] < dp[j] + 1:
+                dp[i] = dp[j] + 1
+                predecessors[i] = j
+
+    max_length = max(dp)
+    max_index = dp.index(max_length)
+
+    subsequence = []
+    while max_index != -1:
+        subsequence.insert(0, nums[max_index])
+        max_index = predecessors[max_index]
+
+    return max_length, subsequence
+
+#Example
+nums = [10, 9, 2, 5, 3, 7, 101, 18]
+length, subsequence = longest_decreasing_subsequence_with_reconstruction(nums)
+print(f"Length of the longest decreasing subsequence: {length}") #Output: 4
+print(f"Longest decreasing subsequence: {subsequence}") #Output: [10, 9, 5, 3]
+
+```
+
+Here, `predecessors` array keeps track of the index of the preceding element in the longest decreasing subsequence ending at each index, allowing for reconstruction by backtracking from the index with the maximum `dp` value.
+
+
+
+##  Choosing the Right Approach
+
+The dynamic programming approach is generally preferred due to its efficiency for moderately sized lists. For extremely large datasets, more advanced algorithms might be necessary, but for most practical purposes, dynamic programming provides a robust and understandable solution.
+

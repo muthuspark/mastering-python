@@ -1,0 +1,98 @@
+---
+title: "Find the Longest Common Prefix in a List of Strings"
+date: "11/23/2024"
+categories: [ problem-solving ]
+---
+
+
+Finding the longest common prefix (LCP) among a list of strings is a common problem in computer science with applications in various domains, from bioinformatics to data processing.  This blog post will explore efficient ways to solve this problem in Python, providing clear explanations and code examples.
+
+## Understanding the Problem
+
+The goal is to find the longest string that is a prefix of all strings in a given list.  For example, given the list `["flower", "flow", "flight"]`, the longest common prefix is "fl".  If the list contains strings with no common prefix, the LCP is an empty string "".
+
+##  Method 1: Character-by-Character Comparison
+
+This approach iterates through the strings character by character, comparing corresponding characters at each position.  It stops when a mismatch is found or the end of the shortest string is reached.
+
+```python
+def longestCommonPrefix_charByChar(strs):
+    """
+    Finds the longest common prefix using character-by-character comparison.
+
+    Args:
+        strs: A list of strings.
+
+    Returns:
+        The longest common prefix string.
+    """
+    if not strs:
+        return ""
+
+    prefix = ""
+    shortest_str = min(strs, key=len)  # Find the shortest string for efficiency
+
+    for i in range(len(shortest_str)):
+        char = shortest_str[i]
+        match = all(s[i] == char for s in strs) #Check if all strings match at index i
+
+        if match:
+            prefix += char
+        else:
+            break
+
+    return prefix
+
+
+strings1 = ["flower","flow","flight"]
+print(f"Longest common prefix of {strings1}: {longestCommonPrefix_charByChar(strings1)}") # Output: fl
+
+strings2 = ["dog","racecar","car"]
+print(f"Longest common prefix of {strings2}: {longestCommonPrefix_charByChar(strings2)}") # Output: ""
+
+strings3 = ["apple", "app", "appetizer"]
+print(f"Longest common prefix of {strings3}: {longestCommonPrefix_charByChar(strings3)}") # Output: ap
+
+strings4 = []
+print(f"Longest common prefix of {strings4}: {longestCommonPrefix_charByChar(strings4)}") # Output: ""
+```
+
+## Method 2: Using `os.path.commonprefix`
+
+Python's `os` module provides a handy function, `os.path.commonprefix`, designed for this purpose.  This method is generally more concise and potentially faster for larger lists.
+
+```python
+import os
+
+def longestCommonPrefix_os(strs):
+    """
+    Finds the longest common prefix using os.path.commonprefix.
+
+    Args:
+        strs: A list of strings.
+
+    Returns:
+        The longest common prefix string.
+    """
+    if not strs:
+        return ""
+    return os.path.commonprefix(strs)
+
+
+strings1 = ["flower","flow","flight"]
+print(f"Longest common prefix of {strings1}: {longestCommonPrefix_os(strings1)}") # Output: fl
+
+strings2 = ["dog","racecar","car"]
+print(f"Longest common prefix of {strings2}: {longestCommonPrefix_os(strings2)}") # Output: ""
+
+strings3 = ["apple", "app", "appetizer"]
+print(f"Longest common prefix of {strings3}: {longestCommonPrefix_os(strings3)}") # Output: ap
+
+strings4 = []
+print(f"Longest common prefix of {strings4}: {longestCommonPrefix_os(strings4)}") # Output: ""
+```
+
+##  Choosing the Right Method
+
+The `os.path.commonprefix` method is often preferred for its simplicity and efficiency, especially when dealing with larger datasets. The character-by-character approach provides a deeper understanding of the underlying algorithm and can be useful for learning purposes or situations where more control is needed.  Both methods effectively solve the problem of finding the longest common prefix.
+

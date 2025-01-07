@@ -1,0 +1,102 @@
+---
+title: "Find the Union of Two Strings"
+date: "06/06/2024"
+categories: [ problem-solving ]
+---
+
+
+Finding the union of two strings in Python involves identifying the unique characters present in both strings.  This operation is fundamentally different from string concatenation, which simply joins the strings together.  Instead, we're interested in creating a new string containing only the unique characters, and ideally, maintaining the original order of appearance.
+
+There are several ways to achieve this in Python, each with its own advantages and disadvantages. Let's explore some of the most common approaches.
+
+
+## Method 1: Using Sets
+
+Python's built-in `set` data structure provides an elegant solution. Sets inherently store only unique elements, making them ideal for finding unions.  Here's how you can use sets to find the union of two strings:
+
+```python
+def string_union_sets(str1, str2):
+  """Finds the union of two strings using sets.
+
+  Args:
+    str1: The first string.
+    str2: The second string.
+
+  Returns:
+    A string containing the unique characters from both input strings, 
+    preserving the original order as much as possible.  Returns an empty
+    string if both inputs are empty.
+  """
+  combined_set = set(str1) | set(str2) #Union operation on sets
+  union_string = "".join(sorted(combined_set, key=lambda x: str1.find(x) if x in str1 else str2.find(x)))
+  return union_string
+
+
+string1 = "hello"
+string2 = "world"
+result = string_union_sets(string1, string2)
+print(f"The union of '{string1}' and '{string2}' is: {result}") # Output will vary slightly depending on Python implementation
+
+
+string3 = ""
+string4 = "test"
+result = string_union_sets(string3, string4)
+print(f"The union of '{string3}' and '{string4}' is: {result}") # Output: test
+
+string5 = "apple"
+string6 = "banana"
+result = string_union_sets(string5, string6)
+print(f"The union of '{string5}' and '{string6}' is: {result}") # Output will vary slightly depending on Python implementation
+
+```
+
+This method is efficient for larger strings because set operations have a time complexity of O(n), where n is the length of the string. The sorting step adds some overhead but still maintains reasonable performance.
+
+
+## Method 2:  Iterative Approach
+
+A more manual approach involves iterating through the strings and building the union string character by character. This method allows for greater control over the order of characters in the output, but it's less efficient than using sets for large strings:
+
+
+```python
+def string_union_iterative(str1, str2):
+    """Finds the union of two strings iteratively.
+
+    Args:
+      str1: The first string.
+      str2: The second string.
+
+    Returns:
+      A string containing the unique characters from both input strings, in order of first appearance.
+    """
+    union_string = ""
+    seen_chars = set()
+
+    for char in str1:
+        if char not in seen_chars:
+            union_string += char
+            seen_chars.add(char)
+
+    for char in str2:
+        if char not in seen_chars:
+            union_string += char
+            seen_chars.add(char)
+
+    return union_string
+
+string1 = "hello"
+string2 = "world"
+result = string_union_iterative(string1, string2)
+print(f"The union of '{string1}' and '{string2}' is: {result}") # Output: helloworld
+
+
+```
+
+This iterative approach prioritizes the order of characters from the first string, then adds unique characters from the second string.
+
+
+
+## Choosing the Right Method
+
+The set-based approach (`string_union_sets`) generally offers better performance, especially for larger strings. The iterative approach (`string_union_iterative`) provides more control over the order of characters in the resulting string, which might be crucial in specific scenarios.  Choose the method that best suits your needs and the size of your input data.
+

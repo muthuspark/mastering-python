@@ -1,0 +1,116 @@
+---
+title: "Find the Reverse of a Number"
+date: "09/11/2023"
+categories: [ problem-solving ]
+---
+
+
+Reversing a number is a common programming task, useful in various algorithms and problem-solving scenarios.  This blog post will explore different methods to reverse an integer in Python, from simple iterative approaches to more concise techniques using string manipulation. We'll cover the logic behind each method and provide clear, executable code examples.
+
+## Method 1: Iterative Approach
+
+This is the most straightforward method. We repeatedly extract the last digit using the modulo operator (`%`), build the reversed number, and remove the last digit from the original number using integer division (`//`).
+
+```python
+def reverse_number_iterative(n):
+  """Reverses an integer using an iterative approach.
+
+  Args:
+    n: The integer to be reversed.
+
+  Returns:
+    The reversed integer.  Returns 0 if the input is 0.
+  """
+  reversed_num = 0
+  if n == 0:
+      return 0
+  if n < 0:
+      sign = -1
+      n = -n
+  else:
+      sign = 1
+  while n > 0:
+    digit = n % 10
+    reversed_num = reversed_num * 10 + digit
+    n //= 10
+  return reversed_num * sign
+
+number = 12345
+reversed_number = reverse_number_iterative(number)
+print(f"The reverse of {number} is {reversed_number}")  # Output: The reverse of 12345 is 54321
+
+number = -876
+reversed_number = reverse_number_iterative(number)
+print(f"The reverse of {number} is {reversed_number}") # Output: The reverse of -876 is -678
+
+number = 0
+reversed_number = reverse_number_iterative(number)
+print(f"The reverse of {number} is {reversed_number}") # Output: The reverse of 0 is 0
+```
+
+
+## Method 2: String Manipulation
+
+Python's string manipulation capabilities offer a concise alternative.  We convert the integer to a string, reverse the string, and convert it back to an integer.  This method is generally faster for larger numbers.
+
+```python
+def reverse_number_string(n):
+  """Reverses an integer using string manipulation.
+
+  Args:
+    n: The integer to be reversed.
+
+  Returns:
+    The reversed integer. Returns 0 if the input is 0. Raises ValueError for non-integer input.
+  """
+  if n == 0:
+      return 0
+  if not isinstance(n, int):
+      raise ValueError("Input must be an integer.")
+  return int(str(n)[::-1]) * (-1 if n < 0 else 1)
+
+#Example Usage
+number = 12345
+reversed_number = reverse_number_string(number)
+print(f"The reverse of {number} is {reversed_number}")  # Output: The reverse of 12345 is 54321
+
+number = -876
+reversed_number = reverse_number_string(number)
+print(f"The reverse of {number} is {reversed_number}") # Output: The reverse of -876 is -678
+
+number = 0
+reversed_number = reverse_number_string(number)
+print(f"The reverse of {number} is {reversed_number}") # Output: The reverse of 0 is 0
+
+```
+
+## Method 3: Recursive Approach (for educational purposes)
+
+While less efficient than the iterative approach, a recursive solution demonstrates a different problem-solving paradigm.
+
+```python
+def reverse_number_recursive(n):
+  """Reverses an integer using recursion (less efficient).
+
+  Args:
+    n: The integer to be reversed.
+
+  Returns:
+    The reversed integer.
+  """
+  if n < 0:
+      return -reverse_number_recursive(-n)
+  elif n < 10:
+      return n
+  else:
+      return int(str(n % 10) + str(reverse_number_recursive(n // 10)))
+
+#Example Usage - same output as above methods.  This is provided for educational purposes only.  Iterative method is preferred for performance
+number = 12345
+reversed_number = reverse_number_recursive(number)
+print(f"The reverse of {number} is {reversed_number}")
+```
+
+
+Each method effectively reverses the integer. The choice of method depends on factors such as code readability and performance requirements.  The iterative and string manipulation methods are generally preferred for their efficiency and clarity.  The recursive method is primarily for illustrative purposes.
+

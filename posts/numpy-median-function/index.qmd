@@ -1,0 +1,82 @@
+---
+title: "NumPy Median Function"
+date: "02/16/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, provides a powerful and efficient function for calculating the median: `numpy.median()`.  Understanding how to use this function effectively is crucial for data analysis and manipulation. This post will explore the `numpy.median()` function in detail, providing clear explanations and practical examples.
+
+
+## Understanding the Median
+
+Before diving into the NumPy implementation, let's refresh our understanding of the median. The median is the middle value in a dataset when it's sorted.  For an odd number of data points, it's the central value. For an even number, it's the average of the two central values.  The median is a robust measure of central tendency, less sensitive to outliers than the mean.
+
+
+## NumPy's `numpy.median()` Function
+
+The `numpy.median()` function offers a straightforward way to compute the median of a NumPy array.  Its syntax is simple:
+
+```python
+numpy.median(a, axis=None, out=None, overwrite_input=False, keepdims=False)
+```
+
+Let's break down the parameters:
+
+* **`a`:** This is the input NumPy array for which you want to calculate the median.  It can be one-dimensional or multi-dimensional.
+
+* **`axis`:** This optional parameter specifies the axis along which the median is computed.  If `None` (the default), the median is computed over the flattened array.  If an integer, the median is computed along that axis.
+
+* **`out`:** This optional parameter allows you to specify an output array where the result will be stored.
+
+* **`overwrite_input`:**  If set to `True`, the input array can be modified in place. Use this with caution!
+
+* **`keepdims`:** If set to `True`, the axes which are reduced are left in the result as dimensions with size one.
+
+## Code Examples
+
+Let's illustrate `numpy.median()` with several examples:
+
+**Example 1:  Median of a 1D array**
+
+```python
+import numpy as np
+
+data = np.array([1, 3, 5, 2, 4])
+median_value = np.median(data)
+print(f"The median is: {median_value}")  # Output: The median is: 3
+```
+
+**Example 2: Median of a 2D array**
+
+```python
+data_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+row_medians = np.median(data_2d, axis=1) # Median of each row
+column_medians = np.median(data_2d, axis=0) # Median of each column
+print(f"Row medians: {row_medians}")  # Output: Row medians: [2. 5. 8.]
+print(f"Column medians: {column_medians}") # Output: Column medians: [4. 5. 6.]
+
+```
+
+**Example 3: Handling NaN values**
+
+`numpy.median()` automatically ignores `NaN` (Not a Number) values.
+
+```python
+data_nan = np.array([1, 2, np.nan, 4, 5])
+median_with_nan = np.median(data_nan)
+print(f"Median with NaN: {median_with_nan}") # Output: Median with NaN: 3.0
+```
+
+**Example 4: Using the `out` parameter**
+
+```python
+data = np.array([1, 3, 5, 2, 4])
+out_array = np.zeros(1) # Pre-allocate the output array
+np.median(data, out=out_array)
+print(f"Median using out parameter: {out_array}") # Output: Median using out parameter: [3.]
+
+```
+
+These examples showcase the versatility and ease of use of NumPy's `median()` function.  Remember to consider the `axis` parameter when working with multi-dimensional arrays to control the direction of the median calculation.  The ability to handle `NaN` values gracefully makes it a robust tool for real-world data analysis.
+

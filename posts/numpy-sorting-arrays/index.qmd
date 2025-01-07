@@ -1,0 +1,117 @@
+---
+title: "NumPy Sorting Arrays"
+date: "09/12/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, offers powerful tools for array manipulation.  Sorting arrays efficiently is a crucial aspect of many data processing tasks, and NumPy provides several methods to achieve this. This guide dives into the different ways you can sort NumPy arrays, explaining their nuances and providing illustrative code examples.
+
+
+## Sorting Arrays with `np.sort()`
+
+The `np.sort()` function returns a *sorted copy* of the input array, leaving the original array unchanged. This is a key difference from in-place sorting methods.  It's ideal when you need to preserve the original array.
+
+```python
+import numpy as np
+
+arr = np.array([3, 1, 4, 1, 5, 9, 2, 6])
+sorted_arr = np.sort(arr)
+
+print("Original array:", arr)
+print("Sorted array:", sorted_arr)
+```
+
+This will output:
+
+```
+Original array: [3 1 4 1 5 9 2 6]
+Sorted array: [1 1 2 3 4 5 6 9]
+```
+
+You can sort along specific axes in multi-dimensional arrays using the `axis` argument.  For example:
+
+
+```python
+arr_2d = np.array([[3, 1, 4], [1, 5, 9], [2, 6, 5]])
+sorted_arr_2d = np.sort(arr_2d, axis=0)  #Sort along columns
+
+print("Original 2D array:\n", arr_2d)
+print("\nSorted 2D array along axis 0:\n", sorted_arr_2d)
+
+sorted_arr_2d = np.sort(arr_2d, axis=1) # Sort along rows
+print("\nSorted 2D array along axis 1:\n", sorted_arr_2d)
+```
+
+
+## In-place Sorting with `np.sort()` (using `kind` parameter)
+
+While `np.sort()` primarily creates a sorted copy, you can achieve in-place sorting using the `sort()` method of NumPy arrays and specifying a sorting algorithm with the `kind` parameter.
+
+
+```python
+arr = np.array([3, 1, 4, 1, 5, 9, 2, 6])
+arr.sort(kind='quicksort') # 'quicksort', 'mergesort', 'heapsort' are common options
+
+print("In-place sorted array:", arr)
+
+```
+
+The `kind` parameter allows you to choose different sorting algorithms (`'quicksort'`, `'mergesort'`, `'heapsort'`), each with its own performance characteristics.  `'quicksort'` is generally the fastest, but can be less stable. `'mergesort'` is stable but might be slower for large arrays. `'heapsort'` is stable and provides guaranteed O(n log n) performance.
+
+
+## Sorting with Arguments: `order` and `kind`
+
+When dealing with structured arrays (arrays with named fields), the `order` argument allows you to specify which fields to sort by.
+
+
+```python
+data = np.array([('Alice', 10), ('Bob', 5), ('Charlie', 15)], dtype=[('name', 'U10'), ('age', int)])
+sorted_data = np.sort(data, order='age') # Sort by age
+
+print("Sorted data by age:\n", sorted_data)
+
+
+sorted_data = np.sort(data, order=['age', 'name']) # Sort by age then name
+
+print("\nSorted data by age then name:\n", sorted_data)
+
+```
+
+The `kind` parameter, as discussed earlier, can be used to select the sorting algorithm.
+
+
+##  Lexicographical Sorting
+
+NumPy's sorting capabilities extend to lexicographical sorting of strings or sequences.  This means sorting based on the alphabetical order of strings, or element by element comparison of sequences.
+
+
+```python
+names = np.array(['apple', 'banana', 'apricot', 'avocado'])
+sorted_names = np.sort(names)
+
+print("Lexicographically sorted names:\n", sorted_names)
+
+```
+
+This example demonstrates the natural lexicographical ordering of strings.  Similar principles apply to sorting arrays of other sequences.
+
+
+##  Partitioned Sorting with `np.argpartition()`
+
+
+Sometimes, you don't need a fully sorted array; you just need to find the indices that would sort the array.  `np.argpartition()` is designed for this. It returns the indices that would partition the array such that the k-th element would be in its sorted position.
+
+```python
+arr = np.array([7, 2, 5, 1, 9, 4])
+indices = np.argpartition(arr, 3) # partition around the 3rd smallest element
+
+print("Array:", arr)
+print("Partitioned indices:", indices)
+print("Partitioned array (using indices):", arr[indices])
+
+
+```
+
+This function is particularly useful in situations where you only need to find the top k elements without sorting the entire array, significantly improving efficiency.
+

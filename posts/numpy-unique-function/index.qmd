@@ -1,0 +1,91 @@
+---
+title: "NumPy Unique Function"
+date: "12/21/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, offers a powerful array of functions for efficient data manipulation. Among these, the `unique` function stands out as a crucial tool for identifying and extracting unique elements from arrays. This post delves into the functionality of NumPy's `unique` function, exploring its various applications and providing practical code examples to solidify your understanding.
+
+
+## Understanding NumPy's `unique` Function
+
+The `numpy.unique` function serves a straightforward yet indispensable purpose: it returns a sorted array of unique elements from an input array.  This is incredibly useful for data cleaning, analysis, and preprocessing tasks where identifying distinct values is essential.  Beyond simply returning the unique elements, `unique` also provides optional outputs that reveal the index of the first occurrence of each unique element in the input array and the counts of each unique element.
+
+
+## Basic Usage: Extracting Unique Elements
+
+The most basic application of `numpy.unique` involves obtaining a sorted list of unique values.  Consider the following example:
+
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 2, 3, 4, 4, 4, 5, 1])
+unique_elements = np.unique(arr)
+print(unique_elements)  # Output: [1 2 3 4 5]
+```
+
+This code snippet demonstrates how easily we can extract the unique elements from a NumPy array. The output is a sorted array containing only the distinct values from the input array, eliminating duplicates.
+
+
+## Advanced Usage: Indices and Counts
+
+`numpy.unique` offers more than just unique elements; it also provides information about their indices and counts.  The function can return three outputs:
+
+
+* `unique_elements`:  The sorted array of unique values.
+* `indices`: The indices of the first occurrence of each unique element in the input array.
+* `counts`: The number of times each unique element appears in the input array.
+
+Let's see this in action:
+
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 2, 3, 4, 4, 4, 5, 1])
+unique_elements, indices, counts = np.unique(arr, return_index=True, return_counts=True)
+
+print("Unique elements:", unique_elements)  # Output: [1 2 3 4 5]
+print("Indices:", indices)  # Output: [0 1 3 4 7]
+print("Counts:", counts)  # Output: [2 2 1 3 1]
+```
+
+
+Here, `return_index=True` and `return_counts=True` enable the function to return the indices and counts, respectively. This allows for more detailed analysis of the unique values within the array.
+
+## Handling Multi-dimensional Arrays
+
+`numpy.unique` seamlessly handles multi-dimensional arrays as well. However, by default, it flattens the array before finding unique elements. If you need to find unique rows or columns, you need to specify the `axis` parameter:
+
+```python
+import numpy as np
+
+arr_2d = np.array([[1, 2], [1, 2], [3, 4]])
+unique_rows = np.unique(arr_2d, axis=0)
+print(unique_rows) # Output: [[1 2] [3 4]]
+
+```
+
+This example shows how to find unique rows in a 2D array.  Specify `axis=1` to find unique columns.
+
+
+##  Working with Different Data Types
+
+
+The `unique` function works effectively with various data types, including strings and other custom data types supported by NumPy.
+
+
+```python
+import numpy as np
+
+arr_str = np.array(['apple', 'banana', 'apple', 'orange'])
+unique_strings = np.unique(arr_str)
+print(unique_strings) # Output: ['apple' 'banana' 'orange']
+
+```
+
+
+This showcases the versatility of `numpy.unique` across different data types.  Remember that for custom objects, appropriate comparison methods must be defined for accurate results.
+

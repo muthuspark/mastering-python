@@ -1,0 +1,91 @@
+---
+title: "NumPy Fourier Transform"
+date: "02/01/2024"
+categories: [ numpy ]
+---
+
+
+The Fast Fourier Transform (FFT) is a fundamental algorithm in signal processing and data analysis, allowing us to efficiently decompose a signal into its constituent frequencies.  Python, with its powerful NumPy library, provides a readily accessible and efficient implementation of the FFT, making it a go-to tool for numerous applications. This post explores the core functionality of NumPy's FFT, providing practical examples and explanations to help you harness its power.
+
+
+## Understanding the Fourier Transform
+
+Before diving into the code, let's briefly revisit the concept. The Fourier Transform essentially converts a signal from the time domain (where the signal's amplitude is plotted against time) to the frequency domain (where the signal's amplitude is plotted against frequency). This transformation reveals the frequencies present in the signal and their respective magnitudes.  A complex signal might appear chaotic in the time domain, but its frequency components often tell a clearer story.
+
+## NumPy's `fft` function: Your FFT Workhorse
+
+NumPy's `fft` function (located within the `numpy.fft` module) is the core tool for performing the FFT in Python.  It's surprisingly straightforward to use.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.linspace(0, 1, 1000, False)  # 1 second
+sig = np.sin(2*np.pi*10*t) # 10 Hz signal
+
+#Compute the FFT
+yf = np.fft.fft(sig)
+xf = np.fft.fftfreq(sig.size, d=t[1]-t[0])
+
+#Plot the results.  Note that the FFT produces complex numbers. We take the absolute value to get the magnitude.
+plt.plot(xf, np.abs(yf))
+plt.show()
+```
+
+This code snippet first generates a simple sine wave. Then, `np.fft.fft()` computes the FFT. `np.fft.fftfreq()` calculates the corresponding frequencies.  The plot shows the magnitude of each frequency component; you'll see a peak at 10 Hz, confirming the frequency of our original sine wave.
+
+
+## Handling Real-World Data:  Beyond Sine Waves
+
+Real-world signals are rarely as clean as a simple sine wave. Let's consider a more complex example:
+
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.linspace(0, 1, 1000, False)
+sig = np.sin(2*np.pi*10*t) + np.sin(2*np.pi*20*t) + np.random.randn(1000)*0.5
+
+#Compute the FFT
+yf = np.fft.fft(sig)
+xf = np.fft.fftfreq(sig.size, d=t[1]-t[0])
+
+#Plot Results
+plt.plot(xf, np.abs(yf))
+plt.show()
+
+```
+
+This example adds a 20 Hz sine wave and some random noise to our signal. The resulting FFT plot will show peaks at both 10 Hz and 20 Hz, demonstrating the FFT's ability to decompose complex signals.  Note the effect of the random noise; it spreads across the frequency spectrum.
+
+
+## Inverse FFT (`ifft`)
+
+NumPy also provides the `ifft` function (`np.fft.ifft`) to reconstruct the original time-domain signal from its frequency components.  This is crucial for signal manipulation and filtering.
+
+
+```python
+import numpy as np
+
+
+#Inverse FFT
+sig_recovered = np.fft.ifft(yf)
+
+#Note:  The recovered signal will be complex.  Take the real part to get the original signal.
+plt.plot(t, sig_recovered.real)
+plt.show()
+```
+
+
+This demonstrates the round-trip from the time domain to the frequency domain and back, highlighting the reversibility of the Fourier Transform.
+
+
+##  Beyond the Basics: Exploring `rfft` and `irfft`
+
+
+For real-valued input signals, which are common in many applications, NumPy offers `rfft` and `irfft` for even more efficient computation. These functions exploit the symmetry inherent in the FFT of real-valued data, resulting in faster processing times and reduced memory usage.  They are conceptually similar to `fft` and `ifft`, but operate specifically on real input and produce a complex output with certain symmetry properties.
+
+
+Further exploration of windowing techniques, filtering methods, and advanced applications of the FFT in areas like image processing and data compression will reveal the vast potential of NumPy's Fourier Transform capabilities.
+

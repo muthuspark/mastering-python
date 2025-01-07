@@ -1,0 +1,92 @@
+---
+title: "NumPy Mathematical Functions"
+date: "03/19/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of scientific computing in Python, boasts a rich library of mathematical functions. These functions operate efficiently on NumPy arrays, significantly speeding up numerical computations compared to using standard Python loops. This post dives into some of the most useful NumPy mathematical functions, providing clear explanations and practical code examples.
+
+## Arithmetic Operations
+
+NumPy provides element-wise arithmetic operations directly on arrays.  This means that operations are applied to each element individually, resulting in a new array of the same shape.
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+c = a + b  # Output: array([5, 7, 9])
+
+d = a - b  # Output: array([-3, -3, -3])
+
+e = a * b  # Output: array([ 4, 10, 18])
+
+f = a / b  # Output: array([0.25, 0.4 , 0.5 ])
+
+g = a ** 2 # Output: array([1, 4, 9])
+```
+
+## Trigonometric Functions
+
+NumPy offers a comprehensive suite of trigonometric functions, including sine, cosine, tangent, and their inverses (arcsin, arccos, arctan). These functions work seamlessly with arrays.
+
+```python
+import numpy as np
+
+x = np.array([0, np.pi/2, np.pi])
+
+sin_x = np.sin(x) # Output: array([0.        , 1.        , 0.        ])
+
+cos_x = np.cos(x) # Output: array([ 1.00000000e+00,  6.12323400e-17, -1.00000000e+00])
+
+tan_x = np.tan(x) # Output: array([ 0.        ,  1.63312394e+16,  0.        ])
+```
+
+Note the slight numerical imprecision in the cosine example; this is typical of floating-point arithmetic.
+
+
+## Exponential and Logarithmic Functions
+
+NumPy provides functions for exponential and logarithmic calculations, crucial for many scientific and engineering applications.
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+
+exp_a = np.exp(a)  # Output: array([ 2.71828183,  7.3890561 , 20.08553692])
+
+log_a = np.log(a)  # Output: array([0.        , 0.69314718, 1.09861229])
+
+log10_a = np.log10(a) # Output: array([0.        , 0.30103   , 0.47712125])
+```
+
+## Rounding Functions
+
+NumPy offers various functions for rounding numbers to the nearest integer or to a specified number of decimal places.
+
+```python
+import numpy as np
+
+a = np.array([1.2, 2.5, 3.8])
+
+rounded_a = np.round(a)  # Output: array([1., 2., 4.])
+
+floor_a = np.floor(a)  # Output: array([1., 2., 3.])
+
+ceil_a = np.ceil(a)  # Output: array([2., 3., 4.])
+```
+
+## Other Useful Functions
+
+NumPy includes many more mathematical functions, including those for:
+
+* **Statistical calculations:** `np.mean()`, `np.std()`, `np.median()`, `np.sum()`, `np.max()`, `np.min()` etc.
+* **Linear algebra:** `np.dot()`, `np.linalg.inv()` (matrix inverse), etc.
+* **Special functions:**  Bessel functions, Gamma function, etc. (found in `scipy.special`)
+
+
+These functions offer a powerful and efficient way to perform complex mathematical operations on arrays, making NumPy an indispensable tool for numerical computation in Python.  Refer to the official NumPy documentation for a complete list of available functions and their detailed descriptions.
+

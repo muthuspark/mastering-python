@@ -1,0 +1,67 @@
+---
+title: "NumPy Record Arrays"
+date: "12/31/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, offers a versatile array structure beyond its standard `ndarray`.  This post dives into NumPy's **record arrays**, a powerful tool for handling structured data efficiently.  Unlike standard NumPy arrays which hold homogeneous data types, record arrays allow you to store different data types within a single array, mimicking the functionality of tables or databases.
+
+## Understanding NumPy Record Arrays
+
+A NumPy record array is essentially a structured array where each element contains multiple fields, each with its own data type.  This organization facilitates working with data containing diverse attributes, such as sensor readings with timestamps,  scientific measurements with units, or even customer data with names, IDs, and purchase amounts.  Think of it as a NumPy array of "rows" where each "row" is a structured data point.
+
+## Creating Record Arrays
+
+Let's illustrate how to create and manipulate record arrays. We'll start by defining a structured data type using `numpy.dtype`.
+
+```python
+import numpy as np
+
+data_type = np.dtype([('name', 'U10'), ('age', 'i4'), ('height', 'f4')])
+
+records = np.array([('Alice', 30, 1.75), ('Bob', 25, 1.80), ('Charlie', 35, 1.70)], dtype=data_type)
+
+print(records)
+```
+
+This code creates a record array named `records`.  The `dtype` argument specifies the fields: 'name' (unicode string of length 10), 'age' (4-byte integer), and 'height' (4-byte float). The array then populates with sample data.
+
+
+## Accessing Data in Record Arrays
+
+Accessing data within a record array is straightforward. You can access individual fields using attribute-like notation or indexing.
+
+```python
+print(records['name'])  # Accesses the 'name' field
+print(records['age'])   # Accesses the 'age' field
+
+print(records[0])       # Accesses the first record
+print(records[0]['name']) # Accesses the 'name' field of the first record
+
+tall_people = records[records['height'] > 1.75]
+print(tall_people)
+```
+
+The example shows how easily you can select and filter data based on specific fields, highlighting the power of combining record array structure with NumPy's powerful indexing capabilities.
+
+
+##  Creating Record Arrays from Existing Data
+
+You can also create record arrays from existing dictionaries or lists of dictionaries.
+
+```python
+data = [{'name': 'David', 'age': 28, 'height': 1.85},
+        {'name': 'Eve', 'age': 32, 'height': 1.68}]
+
+records2 = np.array(data, dtype=data_type)
+print(records2)
+```
+
+This demonstrates creating a record array by directly converting a list of dictionaries.  NumPy efficiently handles the type conversion and data structuring.
+
+
+##  Beyond the Basics:  More Advanced Usage
+
+Record arrays offer significant flexibility.  You can perform vectorized operations on specific fields, similar to operations on standard NumPy arrays.  For example, you could easily calculate the average age or the standard deviation of heights within the record array.  The possibilities are vast, making record arrays indispensable for a wide range of data manipulation tasks involving structured data within the NumPy ecosystem.
+

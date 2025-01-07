@@ -1,0 +1,97 @@
+---
+title: "NumPy Array Attributes"
+date: "10/13/2024"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of scientific computing in Python, provides powerful N-dimensional array objects. Understanding NumPy array attributes is crucial for effectively manipulating and analyzing data. These attributes offer insights into the array's shape, data type, size, and more, empowering you to write efficient and accurate code. Let's explore some key attributes with practical examples.
+
+
+## Essential NumPy Array Attributes
+
+We'll use the following array throughout our examples:
+
+```python
+import numpy as np
+
+arr = np.array([[1, 2, 3], [4, 5, 6]]) 
+```
+
+**1. `ndim` (Number of Dimensions):**
+
+This attribute returns the number of dimensions (axes) in the array.
+
+```python
+print(arr.ndim)  # Output: 2 (a 2D array)
+```
+
+**2. `shape` (Array Dimensions):**
+
+`shape` returns a tuple indicating the size of the array along each dimension.
+
+```python
+print(arr.shape)  # Output: (2, 3) (2 rows, 3 columns)
+```
+
+**3. `size` (Total Number of Elements):**
+
+This attribute gives the total number of elements in the array.
+
+```python
+print(arr.size)  # Output: 6
+```
+
+**4. `dtype` (Data Type):**
+
+`dtype` reveals the data type of the elements in the array.
+
+```python
+print(arr.dtype)  # Output: int64 (or similar, depending on your system)
+
+arr_float = np.array([[1.1, 2.2, 3.3], [4.4, 5.5, 6.6]])
+print(arr_float.dtype) # Output: float64
+```
+
+**5. `itemsize` (Size of Each Element):**
+
+This attribute provides the size (in bytes) of each element in the array.
+
+```python
+print(arr.itemsize)  # Output: 8 (for int64, typically 4 for int32)
+print(arr_float.itemsize) # Output: 8 (for float64, typically 4 for float32)
+```
+
+**6. `nbytes` (Total Bytes Consumed):**
+
+`nbytes` calculates the total number of bytes occupied by the array in memory. It's simply `itemsize * size`.
+
+```python
+print(arr.nbytes)  # Output: 48 (8 bytes/element * 6 elements)
+print(arr_float.nbytes) # Output: 48 (8 bytes/element * 6 elements)
+
+```
+
+**7. `T` (Transpose):**
+
+The `T` attribute returns the transpose of the array (swaps rows and columns).  This is particularly useful for matrix operations.
+
+```python
+print(arr.T)  # Output: [[1 4] [2 5] [3 6]]
+```
+
+**8. `real` and `imag` (Real and Imaginary Parts):**
+
+For complex number arrays, `real` and `imag` return the real and imaginary components, respectively.  For arrays of other datatypes, they return the array itself (for `real`) or an array of zeros (for `imag`).
+
+```python
+complex_arr = np.array([[1+2j, 3+4j], [5+6j, 7+8j]])
+print(complex_arr.real) #Output: [[1. 3.] [5. 7.]]
+print(complex_arr.imag) #Output: [[2. 4.] [6. 8.]]
+
+print(arr.real) #Output: [[1 2 3] [4 5 6]]
+print(arr.imag) #Output: [[0 0 0] [0 0 0]]
+```
+
+These attributes are fundamental tools for understanding and manipulating NumPy arrays.  Mastering them is crucial for writing efficient and robust data processing code.  Further exploration into NumPy's functionalities will reveal even more powerful features built upon this foundation.
+

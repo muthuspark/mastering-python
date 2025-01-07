@@ -1,0 +1,82 @@
+---
+title: "Find the Largest Prime Factor of a Number"
+date: "01/12/2023"
+categories: [ problem-solving ]
+---
+
+
+Finding the largest prime factor of a number is a classic programming problem that tests your understanding of prime numbers and efficient algorithms.  This post will explore different Python approaches to solve this problem, starting with a basic method and progressing to a more optimized solution.
+
+
+## Understanding Prime Factors
+
+Before diving into the code, let's quickly recap what prime factors are.  A prime factor is a prime number that divides another number without leaving a remainder. For example, the prime factors of 12 are 2, 2, and 3 (because 2 * 2 * 3 = 12, and 2 and 3 are prime numbers).  The largest prime factor of 12 is 3.
+
+
+## Method 1: Basic Approach
+
+This method iterates through possible divisors, checking for primality at each step. While simple to understand, it's not very efficient for larger numbers.
+
+```python
+def largest_prime_factor_basic(n):
+    i = 2
+    largest_prime = 1
+    while i * i <= n:
+        while n % i == 0:
+            largest_prime = i
+            n //= i
+        i += 1
+    if n > 1:
+        largest_prime = n
+    return largest_prime
+
+number = 13195
+largest_factor = largest_prime_factor_basic(number)
+print(f"The largest prime factor of {number} is: {largest_factor}")
+
+number = 600851475143
+largest_factor = largest_prime_factor_basic(number)
+print(f"The largest prime factor of {number} is: {largest_factor}")
+```
+
+This code first handles the case where `n` itself is prime.  The `while i * i <= n` condition optimizes the search, as any factor larger than the square root of `n` must have a corresponding factor smaller than the square root.
+
+
+## Method 2: Optimized Approach with a Helper Function for Primality Test
+
+
+We can improve efficiency by creating a separate function to check for primality. This enhances readability and allows for potential future optimization of the primality test itself (e.g., using the Miller-Rabin primality test for very large numbers).
+
+
+```python
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def largest_prime_factor_optimized(n):
+    largest_prime = 1
+    for i in range(2, n + 1):
+        if n % i == 0 and is_prime(i):
+            largest_prime = i
+    return largest_prime
+
+number = 13195
+largest_factor = largest_prime_factor_optimized(number)
+print(f"The largest prime factor of {number} is: {largest_factor}")
+
+number = 600851475143
+largest_factor = largest_prime_factor_optimized(number) #This will be slow
+print(f"The largest prime factor of {number} is: {largest_factor}")
+```
+
+While more readable, this version is still not ideal for extremely large numbers due to the nested loop inherent in the primality test.  Further optimization techniques might involve using sieves or probabilistic primality tests for better performance with very large inputs.
+
+
+## Method 3:  Further Optimization (for very large numbers)
+
+For significantly larger numbers, more sophisticated algorithms like trial division with pre-calculated primes or the Pollard rho algorithm would be necessary for reasonable execution times. These are beyond the scope of this introductory blog post but are worth researching if you need to handle extremely large numbers.
+

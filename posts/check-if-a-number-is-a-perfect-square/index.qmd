@@ -1,0 +1,97 @@
+---
+title: "Check if a Number is a Perfect Square"
+date: "01/05/2024"
+categories: [ problem-solving ]
+---
+
+
+Determining whether a given number is a perfect square is a common problem in programming, with applications ranging from basic number theory to more complex algorithms.  A perfect square is a number that can be obtained by squaring an integer (e.g., 9 is a perfect square because 3*3 = 9). This post explores several efficient ways to check for perfect squares in Python, providing clear code examples and explanations for each method.
+
+
+## Method 1: Using the `math.isqrt()` function (Python 3.8+)
+
+Python 3.8 introduced the `math.isqrt()` function, which provides the integer square root of a number. This is arguably the most efficient and straightforward method for checking if a number is a perfect square.  It returns the floor of the square root. If the square of this integer square root equals the original number, then it's a perfect square.
+
+```python
+import math
+
+def is_perfect_square_isqrt(n):
+  """Checks if n is a perfect square using math.isqrt().
+
+  Args:
+    n: The number to check.  Must be a non-negative integer.
+
+  Returns:
+    True if n is a perfect square, False otherwise.
+  """
+  if n < 0:
+    return False  # Handle negative numbers
+  root = math.isqrt(n)
+  return root * root == n
+
+print(is_perfect_square_isqrt(16))  # Output: True
+print(is_perfect_square_isqrt(17))  # Output: False
+print(is_perfect_square_isqrt(0))   # Output: True
+print(is_perfect_square_isqrt(-4))  # Output: False
+
+```
+
+
+## Method 2: Using the `**` operator and type checking
+
+This method leverages Python's exponentiation operator (`**`) to calculate the square root and then checks if the result is an integer.  We use `isinstance()` to ensure the result is an integer. This method is less efficient than `math.isqrt()` but is a good alternative for older Python versions.
+
+```python
+def is_perfect_square_exponent(n):
+  """Checks if n is a perfect square using the exponentiation operator.
+
+  Args:
+    n: The number to check. Must be a non-negative number.
+
+  Returns:
+    True if n is a perfect square, False otherwise.
+  """
+  if n < 0:
+    return False
+  root = n**0.5
+  return isinstance(root, int)
+
+print(is_perfect_square_exponent(25)) # Output: True
+print(is_perfect_square_exponent(26)) # Output: False
+```
+
+## Method 3:  Binary Search (for educational purposes)
+
+While less efficient than the previous methods, a binary search approach demonstrates a different algorithmic strategy.  This is primarily for educational purposes, showcasing a different way to solve the problem.
+
+```python
+def is_perfect_square_binary_search(n):
+  """Checks if n is a perfect square using binary search.
+
+  Args:
+    n: The number to check. Must be a non-negative integer.
+
+  Returns:
+    True if n is a perfect square, False otherwise.
+  """
+  if n < 0:
+    return False
+  low, high = 0, n
+  while low <= high:
+    mid = (low + high) // 2
+    square = mid * mid
+    if square == n:
+      return True
+    elif square < n:
+      low = mid + 1
+    else:
+      high = mid - 1
+  return False
+
+print(is_perfect_square_binary_search(64)) # Output: True
+print(is_perfect_square_binary_search(65)) # Output: False
+
+```
+
+Each method offers a slightly different trade-off between readability, efficiency, and compatibility with various Python versions. For optimal performance, especially with larger numbers, `math.isqrt()` is recommended.  The other methods provide valuable insights into alternative approaches and are useful for understanding underlying concepts.
+

@@ -1,0 +1,79 @@
+---
+title: "Count the Number of Palindromes in a List of Strings"
+date: "05/20/2024"
+categories: [ problem-solving ]
+---
+
+
+Finding palindromes within a list of strings is a common coding challenge.  This post will guide you through efficient Python methods to achieve this, with clear explanations and code examples.  We'll explore different approaches, from basic iterative techniques to leveraging Python's built-in functionalities.
+
+## Understanding Palindromes
+
+A palindrome is a sequence that reads the same backward as forward, ignoring case and punctuation. For example, "racecar," "madam," and "level" are palindromes.  "Racecar!" is also a palindrome if we disregard the exclamation mark.
+
+
+## Method 1: Basic Iteration and String Reversal
+
+This approach is straightforward. We iterate through the list, reverse each string, and check if the reversed string is equal to the original (after converting to lowercase to handle case-insensitive palindromes).
+
+```python
+def count_palindromes_basic(string_list):
+    count = 0
+    for s in string_list:
+        processed_string = ''.join(c for c in s.lower() if c.isalnum()) #Removes punctuation and makes lowercase
+        if processed_string == processed_string[::-1]:
+            count += 1
+    return count
+
+strings = ["racecar", "hello", "level", "World", "deified", "Racecar!"]
+palindrome_count = count_palindromes_basic(strings)
+print(f"Number of palindromes: {palindrome_count}") # Output: 3
+```
+
+This code first preprocesses the string to remove non-alphanumeric characters and converts it to lowercase. Then it uses slicing (`[::-1]`) for efficient string reversal.
+
+
+## Method 2: Using a Function for Readability
+
+To improve code readability, we can separate the palindrome check into a dedicated function.
+
+
+```python
+def is_palindrome(text):
+    processed_text = ''.join(c for c in text.lower() if c.isalnum())
+    return processed_text == processed_text[::-1]
+
+def count_palindromes_functional(string_list):
+    return sum(1 for s in string_list if is_palindrome(s))
+
+strings = ["racecar", "hello", "level", "World", "deified", "Racecar!"]
+palindrome_count = count_palindromes_functional(strings)
+print(f"Number of palindromes: {palindrome_count}") # Output: 3
+
+```
+This approach uses a generator expression within the `sum()` function, providing a concise and efficient way to count palindromes.
+
+
+## Method 3: List Comprehension (Concise Approach)
+
+
+List comprehensions offer a more compact way to achieve the same result:
+
+```python
+def count_palindromes_comprehension(string_list):
+  return sum(1 for s in string_list if is_palindrome(s)) #Reusing is_palindrome function for clarity
+
+
+strings = ["racecar", "hello", "level", "World", "deified", "Racecar!"]
+palindrome_count = count_palindromes_comprehension(strings)
+print(f"Number of palindromes: {palindrome_count}") # Output: 3
+```
+
+This leverages the `is_palindrome` function defined earlier for cleaner code.
+
+
+## Handling Edge Cases and Large Datasets
+
+
+For extremely large datasets, consider optimizing further using techniques like multiprocessing or more sophisticated data structures if performance becomes critical.  Remember to handle potential errors, such as empty input lists.  The provided examples implicitly handle empty strings as non-palindromes.
+

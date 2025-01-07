@@ -1,0 +1,97 @@
+---
+title: "NumPy Array Stacking"
+date: "01/09/2024"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, provides powerful tools for array manipulation. Among these, array stacking stands out as a crucial technique for combining multiple arrays into a single, larger array.  This process is essential for various data science and machine learning tasks, allowing for efficient processing and analysis of large datasets. This blog post will delve into the different methods of NumPy array stacking, illustrating each with clear code examples.
+
+
+## Understanding NumPy Array Stacking
+
+Stacking in NumPy refers to joining arrays along a specified axis.  The `axis` parameter determines the dimension along which the arrays are concatenated.  If `axis=0` (default), stacking occurs vertically, adding arrays one on top of the other.  If `axis=1`, stacking occurs horizontally, placing arrays side-by-side.  For higher-dimensional arrays, `axis` determines the corresponding dimension for stacking.
+
+
+## Key NumPy Functions for Stacking
+
+NumPy offers several functions specifically designed for array stacking:
+
+* **`np.vstack()` (Vertical Stack):** This function stacks arrays vertically, meaning it adds arrays one on top of the other. The arrays must have the same number of columns.
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+stacked_array = np.vstack((a, b))
+print(stacked_array)
+
+c = np.array([[1,2],[3,4]])
+d = np.array([[5,6],[7,8]])
+stacked_array_2d = np.vstack((c,d))
+print(stacked_array_2d)
+
+```
+
+* **`np.hstack()` (Horizontal Stack):** This function stacks arrays horizontally, placing them side-by-side. The arrays must have the same number of rows.
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+stacked_array = np.hstack((a, b))
+print(stacked_array)
+
+c = np.array([[1,2],[3,4]])
+d = np.array([[5,6],[7,8]])
+stacked_array_2d = np.hstack((c,d))
+print(stacked_array_2d)
+```
+
+* **`np.concatenate()` (General Stacking):**  This is a more general function that allows stacking along any specified axis.  It's highly flexible and can handle a wider range of scenarios.
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+stacked_array_vertical = np.concatenate((a,b), axis=0)
+print(stacked_array_vertical)
+#Output: [1 2 3 4 5 6]
+
+stacked_array_horizontal = np.concatenate((a, b), axis=0)
+print(stacked_array_horizontal)
+#Output: [1 2 3 4 5 6]
+
+c = np.array([[1,2],[3,4]])
+d = np.array([[5,6],[7,8]])
+stacked_array_2d_vertical = np.concatenate((c,d), axis=0)
+print(stacked_array_2d_vertical)
+#Output:
+
+stacked_array_2d_horizontal = np.concatenate((c,d), axis=1)
+print(stacked_array_2d_horizontal)
+```
+
+* **`np.stack()` (Stacking along a New Axis):** This function stacks arrays along a new axis, creating a higher-dimensional array.
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+stacked_array = np.stack((a, b))
+print(stacked_array)
+
+stacked_array_axis1 = np.stack((a,b), axis=1)
+print(stacked_array_axis1)
+```
+
+These examples showcase the versatility of NumPy's stacking capabilities.  Choosing the right function depends on the desired arrangement and the dimensions of the input arrays.  Understanding these functions is essential for efficient data manipulation within the NumPy ecosystem.
+

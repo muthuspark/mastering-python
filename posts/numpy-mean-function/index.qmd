@@ -1,0 +1,87 @@
+---
+title: "NumPy Mean Function"
+date: "02/12/2023"
+categories: [ numpy ]
+---
+
+
+NumPy, the cornerstone of numerical computing in Python, provides a powerful and efficient arsenal of functions. Among these, the `mean()` function stands out as a fundamental tool for calculating averages.  This post will delve into the intricacies of NumPy's `mean()` function, exploring its capabilities and showcasing its usage with practical examples.
+
+## Understanding NumPy's `mean()` Function
+
+The `mean()` function, part of the NumPy library, computes the arithmetic mean (average) of a given array or data set.  It offers flexibility by allowing you to calculate means across different axes or dimensions of multi-dimensional arrays.  This makes it incredibly versatile for various data analysis tasks.
+
+
+## Basic Usage: Calculating the Mean of a 1D Array
+
+Let's start with the simplest scenario: calculating the mean of a one-dimensional array.
+
+```python
+import numpy as np
+
+data = np.array([1, 2, 3, 4, 5])
+mean_value = np.mean(data)
+print(f"The mean is: {mean_value}")  # Output: The mean is: 3.0
+```
+
+This code snippet demonstrates the basic application of `np.mean()`. The function takes the array `data` as input and returns its mean.
+
+
+## Handling Multi-Dimensional Arrays: Specifying the Axis
+
+The true power of `np.mean()` shines when dealing with multi-dimensional arrays.  The `axis` parameter allows you to specify along which axis (dimension) to calculate the mean.
+
+```python
+import numpy as np
+
+data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+row_mean = np.mean(data, axis=0)
+print(f"Row-wise mean: {row_mean}")  # Output: Row-wise mean: [4. 5. 6.]
+
+column_mean = np.mean(data, axis=1)
+print(f"Column-wise mean: {column_mean}") # Output: Column-wise mean: [2. 5. 8.]
+
+overall_mean = np.mean(data)
+print(f"Overall mean: {overall_mean}") # Output: Overall mean: 5.0
+```
+
+This example showcases how `axis=0` computes the mean along each column (resulting in a row vector), `axis=1` computes the mean along each row (resulting in a column vector), and omitting `axis` computes the mean of the entire array.
+
+
+## Handling Missing Data (NaN values)
+
+NumPy's `mean()` function intelligently handles `NaN` (Not a Number) values, which often represent missing data in real-world datasets. By default, `np.mean()` will return `NaN` if any `NaN` values are present.  However, you can use the `nanmean()` function to ignore these `NaN` values:
+
+
+```python
+import numpy as np
+
+data = np.array([1, 2, np.nan, 4, 5])
+
+mean_with_nan = np.mean(data)
+print(f"Mean with NaN: {mean_with_nan}") # Output: Mean with NaN: nan
+
+mean_without_nan = np.nanmean(data)
+print(f"Mean without NaN: {mean_without_nan}") # Output: Mean without NaN: 3.0
+```
+
+
+##  Weighted Means
+
+While `np.mean()` calculates the arithmetic mean, you can easily calculate weighted means using NumPy's array operations.  This involves creating a weight array and using element-wise multiplication before applying `np.sum()` and then dividing by the total weight.
+
+
+```python
+import numpy as np
+
+data = np.array([1, 2, 3, 4, 5])
+weights = np.array([0.1, 0.2, 0.3, 0.2, 0.2]) #Example weights
+
+weighted_mean = np.sum(data * weights) / np.sum(weights)
+print(f"Weighted mean: {weighted_mean}") #Output will vary slightly depending on your weights
+
+```
+
+This shows how to calculate a weighted mean, a powerful extension of the basic mean calculation.  Remember to adjust the weights according to your specific needs.
+

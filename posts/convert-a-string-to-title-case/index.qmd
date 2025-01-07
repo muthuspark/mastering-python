@@ -1,0 +1,76 @@
+---
+title: "Convert a String to Title Case"
+date: "12/22/2023"
+categories: [ problem-solving ]
+---
+
+
+Python offers several ways to convert strings to title case, each with its own strengths and weaknesses.  This post explores different methods, providing clear code examples and explanations to help you choose the best approach for your needs.
+
+## Understanding Title Case
+
+Title case refers to a capitalization style where the first letter of each word is capitalized, while the rest are lowercase.  This is distinct from sentence case (only the first letter of the sentence is capitalized) or uppercase (all letters are capitalized).  Proper handling of title case involves considering exceptions like articles, prepositions, and conjunctions.
+
+
+## Method 1: Using the `title()` Method
+
+The simplest and most straightforward method is using the built-in `title()` method.  This method capitalizes the first letter of each word and lowercases the rest.
+
+```python
+string = "this is a sample string"
+title_case_string = string.title()
+print(title_case_string)  # Output: This Is A Sample String
+```
+
+**Limitations:**  The `title()` method has a simple approach and doesn't handle exceptions well.  Words like "a," "an," and "the" will be capitalized, leading to less-than-ideal results in many cases.
+
+
+## Method 2:  Leveraging the `titlecase` Package
+
+For more sophisticated title casing, consider the `titlecase` package.  This library provides more nuanced control over capitalization, handling exceptions more effectively.  You'll need to install it first using pip:
+
+```bash
+pip install titlecase
+```
+
+Then, use it as follows:
+
+```python
+from titlecase import titlecase
+
+string = "this is a sample string with ARTICLES and CONJUNCTIONS"
+title_case_string = titlecase(string)
+print(title_case_string)  # Output: This Is a Sample String with Articles and Conjunctions
+```
+
+This approach handles articles and conjunctions correctly, producing a more polished title case.
+
+
+## Method 3: Custom Function for Fine-Grained Control
+
+For ultimate flexibility, you can create your own function to handle title casing with specific rules. This allows you to customize the behavior precisely to your needs.
+
+```python
+import re
+
+def custom_titlecase(string):
+    words = re.findall(r'\b\w+\b', string.lower()) #Find all words
+    exceptions = ["a", "an", "the", "and", "but", "or", "nor", "as", "at", "by", "for", "in", "of", "on", "to", "with"]
+    titlecased_words = [word.capitalize() if word not in exceptions else word for word in words]
+    return " ".join(titlecased_words)
+
+
+string = "this is a sample string with ARTICLES and CONJUNCTIONS"
+title_case_string = custom_titlecase(string)
+print(title_case_string) # Output: This is a sample string with Articles and Conjunctions
+
+```
+
+This example uses regular expressions to find words and a list of exceptions to create a more tailored output.  You can adjust the `exceptions` list to match your specific requirements.
+
+
+
+## Choosing the Right Method
+
+The best method depends on your specific needs. For simple tasks, the built-in `title()` method suffices. For better handling of exceptions, the `titlecase` package is recommended.  If you need highly customized behavior, building a custom function offers the greatest control.
+

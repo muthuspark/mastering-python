@@ -1,0 +1,95 @@
+---
+title: "Rotate a List Left by K Positions"
+date: "07/29/2023"
+categories: [ problem-solving ]
+---
+
+
+Rotating a list (or array) to the left by *k* positions means moving the first *k* elements to the end of the list. This is a common problem in computer science and programming interviews.  Python offers several approaches to solve this, each with varying levels of efficiency.  Let's explore a few.
+
+
+## Method 1: Slicing (Most Pythonic)
+
+Python's slicing capabilities provide an elegant and concise way to achieve list rotation.  This method is often the most readable and preferred approach for its simplicity.
+
+```python
+def rotate_left_slice(lst, k):
+  """Rotates a list to the left by k positions using slicing.
+
+  Args:
+    lst: The list to be rotated.
+    k: The number of positions to rotate.
+
+  Returns:
+    The rotated list.
+  """
+  k %= len(lst)  # Handle k larger than list length
+  return lst[k:] + lst[:k]
+
+my_list = [1, 2, 3, 4, 5]
+rotated_list = rotate_left_slice(my_list, 2)
+print(f"Original list: {my_list}")
+print(f"Rotated list: {rotated_list}") 
+```
+
+This code first handles the case where `k` is larger than the list length using the modulo operator (`%`). Then, it cleverly uses slicing to create two sublists: `lst[k:]` (elements from index `k` to the end) and `lst[:k]` (elements from the beginning to index `k`). Concatenating these sublists produces the rotated list.
+
+
+## Method 2: Using `deque` from `collections` (Efficient for large lists and frequent rotations)
+
+
+For larger lists and scenarios where you might perform multiple rotations, using the `deque` object from the `collections` module can be more efficient.  `deque` is designed for fast appends and pops from both ends.
+
+```python
+from collections import deque
+
+def rotate_left_deque(lst, k):
+  """Rotates a list to the left by k positions using deque.
+
+  Args:
+    lst: The list to be rotated.
+    k: The number of positions to rotate.
+
+  Returns:
+    The rotated list.
+  """
+  d = deque(lst)
+  d.rotate(-k) # Negative k rotates left
+  return list(d)
+
+my_list = [1, 2, 3, 4, 5]
+rotated_list = rotate_left_deque(my_list, 2)
+print(f"Original list: {my_list}")
+print(f"Rotated list: {rotated_list}")
+```
+
+`deque.rotate(-k)` performs the rotation in-place, making it potentially faster for repeated rotations on large datasets.
+
+
+## Method 3:  In-place Rotation (Modifying the original list)
+
+While slicing and `deque` create new lists, you can also rotate a list in-place, modifying the original list directly. This avoids creating extra copies, which can be beneficial for memory efficiency with very large lists.  However, this method is generally less readable.
+
+
+```python
+def rotate_left_inplace(lst, k):
+  """Rotates a list to the left by k positions in-place.
+
+  Args:
+    lst: The list to be rotated.
+    k: The number of positions to rotate.
+  """
+  k %= len(lst)
+  lst[:] = lst[k:] + lst[:k] #In place modification using slicing
+
+my_list = [1, 2, 3, 4, 5]
+rotate_left_inplace(my_list, 2)
+print(f"Rotated list (in-place): {my_list}")
+
+```
+
+This method achieves in-place rotation by reassigning the entire list (`lst[:]`) with the concatenated sliced portions.  Note that this modifies the original list.
+
+
+Choosing the best method depends on your specific needs. For readability and simplicity with smaller lists, slicing is excellent. For performance with larger lists and frequent rotations, `deque` shines. In-place rotation offers memory efficiency when modifying the original list is acceptable.
+

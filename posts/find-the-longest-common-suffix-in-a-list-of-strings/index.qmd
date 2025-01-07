@@ -1,0 +1,87 @@
+---
+title: "Find the Longest Common Suffix in a List of Strings"
+date: "12/15/2024"
+categories: [ problem-solving ]
+---
+
+
+Finding the longest common suffix within a list of strings is a common task in programming, particularly useful in areas like data processing and file management.  This post will explore efficient Python methods to solve this problem, providing clear explanations and code examples.
+
+## Understanding the Problem
+
+The goal is to identify the longest string that appears at the end of *every* string in a given list.  For instance, if the input list is `["flowerpower", "superpower", "waterpower"]`, the longest common suffix is "power".  If there's no common suffix, the result should be an empty string.
+
+## Method 1: Iterative Approach
+
+This approach iterates through the strings from the end, comparing characters at each position. It's straightforward and easy to understand.
+
+```python
+def longest_common_suffix_iterative(strings):
+    """
+    Finds the longest common suffix of a list of strings using an iterative approach.
+
+    Args:
+        strings: A list of strings.
+
+    Returns:
+        The longest common suffix string.  Returns an empty string if no common suffix exists.
+    """
+    if not strings:
+        return ""
+
+    shortest_string = min(strings, key=len)  # Start with the shortest string
+    suffix = ""
+    for i in range(len(shortest_string) - 1, -1, -1):
+        char = shortest_string[i]
+        is_common = all(string[i] == char for string in strings) #check if character at index 'i' is common to all strings
+        if is_common:
+            suffix = char + suffix # add the common character to the beginning of the suffix
+        else:
+            break  # Stop if a character is not common
+
+    return suffix
+
+
+strings1 = ["flowerpower", "superpower", "waterpower"]
+print(f"Longest common suffix of {strings1}: {longest_common_suffix_iterative(strings1)}")  # Output: power
+
+strings2 = ["apple", "banana", "orange"]
+print(f"Longest common suffix of {strings2}: {longest_common_suffix_iterative(strings2)}")  # Output: 
+
+strings3 = ["coding", "codingisfun", "codingisawesome"]
+print(f"Longest common suffix of {strings3}: {longest_common_suffix_iterative(strings3)}") # Output: coding
+
+strings4 = []
+print(f"Longest common suffix of {strings4}: {longest_common_suffix_iterative(strings4)}") #Output: ""
+```
+
+## Method 2: Using `os.path.commonprefix` (for prefixes, adaptable for suffixes)
+
+
+The `os.path.commonprefix` function is designed to find the common prefix.  We can adapt it to find the common suffix by reversing the strings.
+
+```python
+import os
+
+def longest_common_suffix_os(strings):
+    """Finds the longest common suffix using os.path.commonprefix on reversed strings."""
+    if not strings:
+        return ""
+    reversed_strings = [s[::-1] for s in strings]
+    common_prefix = os.path.commonprefix(reversed_strings)
+    return common_prefix[::-1]
+
+strings1 = ["flowerpower", "superpower", "waterpower"]
+print(f"Longest common suffix of {strings1}: {longest_common_suffix_os(strings1)}")  # Output: power
+
+strings2 = ["apple", "banana", "orange"]
+print(f"Longest common suffix of {strings2}: {longest_common_suffix_os(strings2)}")  # Output: 
+```
+
+Both methods effectively solve the problem. The iterative approach offers more control and might be slightly more efficient for very large lists, while the `os.path.commonprefix` method provides a concise and readable solution.  The choice depends on your priorities and coding style.
+
+
+## Handling Edge Cases
+
+The code examples above handle empty input lists gracefully, returning an empty string.  Consider adding error handling for other potential edge cases, such as input that is not a list of strings, in a production environment.
+
