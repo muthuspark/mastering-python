@@ -1,6 +1,6 @@
-# JavaScript Articles Blog
+# Python Articles Blog
 
-Welcome to the JavaScript Articles Blog! This project contains over 100 articles covering everything from the basics to advanced concepts, design patterns, and data structures in JavaScript. The blog is created using the [Quarto](https://quarto.org) tool and hosted on GitHub.
+Welcome to the Python Articles Blog! This project contains over 100 articles covering everything from the basics to advanced concepts, design patterns, and data structures in Python. The blog is created using the [Quarto](https://quarto.org) tool and hosted on GitHub.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ Welcome to the JavaScript Articles Blog! This project contains over 100 articles
 To get started with this project, clone the repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/muthuspark/js-interview-questions.git
+git clone https://github.com/muthuspark/mastering-python.git
 ```
 
 ## Run Quarto Preview
@@ -22,7 +22,7 @@ git clone https://github.com/muthuspark/js-interview-questions.git
 Once you have cloned the repository, navigate into the project directory:
 
 ```bash
-cd js-interview-questions
+cd mastering-python
 ```
 
 To preview the site locally, you'll need to have Quarto installed. If you don't have it yet, you can install Quarto by following the instructions on the [official Quarto website](https://quarto.org/docs/get-started/).
@@ -53,4 +53,4 @@ Please ensure your code adheres to the style guides and that all content is well
 
 ---
 
-Thanks for checking out the JavaScript Articles Blog! Happy learning and coding!
+Thanks for checking out the Python Articles Blog! Happy learning and coding!
