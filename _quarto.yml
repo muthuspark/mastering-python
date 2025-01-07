@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Mastering Python"
+  reader-mode: false
+  open-graph: true
+  site-url: 'https://python.muthu.co'
+  site-path: '/'
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/muthuspark
+      - icon: twitter
+        href: https://twitter.com/krimuthu
+format:
+  html:
+    theme: litera
+    css: styles.css
+    lang: en
+    toc: true
+    image: false
+    mermaid:
+      theme: neutral
+
+
+
