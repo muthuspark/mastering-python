@@ -1,0 +1,136 @@
+---
+title: "Pandas Sum"
+date: "02/09/2024"
+categories: [ pandas ]
+---
+
+
+Pandas is a crucial library in Python for data manipulation and analysis.  One of its most frequently used functions is `.sum()`, which offers powerful ways to calculate sums across various dimensions of your DataFrame or Series. This post will explore the diverse applications of `pandas.sum()` with clear examples.
+
+
+## Summing a Pandas Series
+
+Let's start with the simplest case: summing the values in a Pandas Series.
+
+```python
+import pandas as pd
+
+data = {'values': [10, 20, 30, 40, 50]}
+series = pd.Series(data['values'])
+total = series.sum()
+print(f"The sum of the series is: {total}")
+```
+
+This code snippet creates a Series and then uses `.sum()` to calculate the total of all its elements.  The output will be:
+
+```
+The sum of the series is: 150
+```
+
+
+## Summing Columns in a Pandas DataFrame
+
+The real power of `.sum()` shines when working with DataFrames.  You can easily sum the values within a specific column:
+
+```python
+import pandas as pd
+
+data = {'A': [1, 2, 3, 4, 5], 'B': [6, 7, 8, 9, 10], 'C': [11, 12, 13, 14, 15]}
+df = pd.DataFrame(data)
+sum_column_A = df['A'].sum()
+print(f"The sum of column 'A' is: {sum_column_A}")
+```
+
+This will output:
+
+```
+The sum of column 'A' is: 15
+```
+
+You can sum multiple columns simultaneously by specifying a list of column names:
+
+
+```python
+sum_columns_A_and_B = df[['A', 'B']].sum()
+print(f"The sum of columns 'A' and 'B' is: \n{sum_columns_A_and_B}")
+```
+
+This produces a Series containing the sum of each specified column:
+
+```
+The sum of columns 'A' and 'B' is: 
+A    15
+B    40
+dtype: int64
+```
+
+
+## Summing Rows in a Pandas DataFrame
+
+Summing rows requires a slightly different approach. We utilize the  `axis` parameter within the `.sum()` function.  `axis=0` sums columns (default behavior), while `axis=1` sums rows:
+
+
+```python
+sum_rows = df.sum(axis=1)
+print(f"The sum of each row is: \n{sum_rows}")
+
+```
+
+This will output a Series representing the sum of each row:
+
+```
+The sum of each row is: 
+0    17
+1    19
+2    21
+3    23
+4    25
+dtype: int64
+```
+
+
+## Handling Missing Data
+
+Pandas handles `NaN` (Not a Number) values gracefully during summation. By default, `NaN` values are ignored.  However, you can control this behavior using the `skipna` parameter:
+
+
+```python
+df_with_nan = pd.DataFrame({'A': [1, 2, None, 4, 5]})
+sum_with_nan = df_with_nan['A'].sum()
+sum_without_nan = df_with_nan['A'].sum(skipna=False)
+
+print(f"Sum with NaN ignored: {sum_with_nan}")
+print(f"Sum with NaN included: {sum_without_nan}")
+```
+
+The output demonstrates the difference:
+
+```
+Sum with NaN ignored: 12.0
+Sum with NaN included: NaN
+```
+
+
+##  Level-Based Summation with MultiIndex
+
+
+For DataFrames with MultiIndex, you can specify the level at which to perform the sum:
+
+
+```python
+arrays = [['bar', 'bar', 'baz', 'baz', 'foo', 'foo', 'qux', 'qux'],
+          ['one', 'two', 'one', 'two', 'one', 'two', 'one', 'two']]
+tuples = list(zip(*arrays))
+index = pd.MultiIndex.from_tuples(tuples, names=['first', 'second'])
+df = pd.DataFrame({'A': [1, 2, 3, 4, 5, 6, 7, 8]}, index=index)
+sum_level_first = df.sum(level='first')
+print(f"Sum by 'first' level: \n{sum_level_first}")
+
+```
+
+This will output a DataFrame where summation is performed based on the 'first' level of the MultiIndex.
+
+
+
+
+

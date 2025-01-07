@@ -1,0 +1,72 @@
+---
+title: "Pandas Data Structures"
+date: "10/07/2023"
+categories: [ pandas ]
+---
+
+
+Pandas is a cornerstone library in the Python data science ecosystem, renowned for its powerful data manipulation capabilities.  At the heart of Pandas lie two fundamental data structures: the `Series` and the `DataFrame`. Understanding these is crucial for effectively leveraging Pandas' potential.  This post will delve into each, providing clear explanations and practical code examples.
+
+
+## Pandas Series: One-Dimensional Data
+
+A Pandas `Series` is essentially a one-dimensional labeled array capable of holding data of any type (integer, string, float, Python objects, etc.).  The labels are collectively called the *index*.  Think of it as a highly enhanced and efficient version of a Python list or dictionary.
+
+```python
+import pandas as pd
+
+data = [10, 20, 30, 40, 50]
+series_from_list = pd.Series(data)
+print("Series from list:\n", series_from_list)
+
+data = {'a': 100, 'b': 200, 'c': 300}
+series_from_dict = pd.Series(data)
+print("\nSeries from dictionary:\n", series_from_dict)
+
+print("\nAccessing element with label 'b':", series_from_dict['b'])
+
+print("\nAccessing element at index 1 (list based):", series_from_list[1])
+```
+
+
+## Pandas DataFrame: Two-Dimensional Data
+
+The `DataFrame` is the workhorse of Pandas. It's a two-dimensional labeled data structure with columns of potentially different types. You can think of it as a table, similar to a spreadsheet or SQL table.  Each column is essentially a `Series`.
+
+```python
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 28],
+        'City': ['New York', 'London', 'Paris']}
+df = pd.DataFrame(data)
+print("DataFrame:\n", df)
+
+print("\nAge column:\n", df['Age'])
+
+print("\nRow for Alice:\n", df.loc[df['Name'] == 'Alice'])
+
+print("\nFirst row:\n", df.iloc[0])
+
+#Adding a new column
+df['Country'] = ['USA', 'UK', 'France']
+print("\nDataFrame with added column:\n", df)
+```
+
+##  Working with DataFrame Indexes
+
+Pandas allows for flexible index manipulation.  You can set a specific column as the index, reset the index, or even create a multi-index for more complex data structures.
+
+```python
+#Setting index
+df = df.set_index('Name')
+print("\nDataFrame with Name as index:\n", df)
+
+#Resetting index
+df = df.reset_index()
+print("\nDataFrame with default numerical index:\n",df)
+
+```
+
+This provides a foundation for working with Pandas.  Further exploration involves data cleaning, manipulation, analysis, and visualization – all built upon these core data structures.
+

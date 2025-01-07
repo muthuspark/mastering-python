@@ -1,0 +1,98 @@
+---
+title: "Rolling Window Calculations"
+date: "10/12/2024"
+categories: [ pandas ]
+---
+
+
+Rolling window calculations, also known as moving window calculations, are a fundamental part of time series analysis and signal processing.  They involve applying a function (like mean, sum, standard deviation, etc.) to a sliding window of data points. This allows you to identify trends and patterns that might be obscured by looking at the raw data alone.  This post will demonstrate how to perform these calculations efficiently in Python using the `pandas` library.
+
+
+## Understanding Rolling Windows
+
+Imagine you have a series of daily stock prices. A 7-day rolling average would calculate the average price for each 7-day period, moving one day forward with each calculation. This provides a smoothed version of the price data, highlighting the underlying trend while reducing the impact of daily fluctuations.
+
+The key parameters in a rolling window calculation are:
+
+* **Window size:** The number of data points included in each window.
+* **Function:** The operation to be performed on each window (e.g., `mean`, `std`, `sum`, `min`, `max`).
+* **Centering (optional):** Whether to center the window over the current data point.  If not centered, the window typically looks "forward" in time.
+
+## Implementing Rolling Windows with Pandas
+
+Pandas provides a powerful and efficient `rolling()` method for performing rolling window calculations on `Series` and `DataFrame` objects.
+
+Let's start with a simple example:
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {'value': np.random.rand(10)}
+df = pd.DataFrame(data)
+
+df['rolling_mean_3'] = df['value'].rolling(window=3).mean()
+
+df['rolling_std_5'] = df['value'].rolling(window=5).std()
+
+print(df)
+```
+
+This code first creates a DataFrame with random data. Then, it calculates the 3-day rolling mean and the 5-day rolling standard deviation using the `rolling()` method, followed by the desired aggregation function (`.mean()` and `.std()` respectively).  Notice how the first few rows have `NaN` values; this is because a full window of 3 or 5 data points isn't available for those initial calculations.
+
+## Handling Missing Data
+
+Real-world datasets often contain missing values. Pandas' `rolling()` method handles this gracefully using the `min_periods` parameter.
+
+```python
+data = {'value': [1, 2, np.nan, 4, 5, np.nan, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+df['rolling_mean_3_min1'] = df['value'].rolling(window=3, min_periods=1).mean()
+print(df)
+```
+
+By setting `min_periods=1`, the rolling mean is calculated even if some values within the window are missing.  The calculation will use whatever data is present.
+
+
+## Expanding Windows
+
+Instead of a fixed window size, you can use an expanding window, which grows with each data point.
+
+```python
+df['expanding_mean'] = df['value'].expanding().mean()
+print(df)
+```
+
+The `expanding()` method calculates the cumulative mean up to each point.
+
+
+##  Rolling Window on Multiple Columns
+
+Rolling calculations can easily be extended to multiple columns:
+
+```python
+data = {'value1': np.random.rand(10), 'value2': np.random.rand(10)}
+df = pd.DataFrame(data)
+
+df[['rolling_mean_3_value1', 'rolling_mean_3_value2']] = df[['value1', 'value2']].rolling(window=3).mean()
+print(df)
+```
+
+This example shows how to apply the rolling mean to multiple columns simultaneously.
+
+
+##  Custom Functions
+
+You can apply any custom function to the rolling window using the `apply()` method:
+
+```python
+def mad(series):
+    return np.median(np.abs(series - np.median(series)))
+
+df['rolling_mad_3'] = df['value'].rolling(window=3).apply(mad)
+print(df)
+```
+
+This demonstrates the flexibility of pandas' `rolling()` method by allowing the use of user-defined functions for more sophisticated analysis.
+

@@ -1,0 +1,84 @@
+---
+title: "Drop Missing Values"
+date: "10/05/2024"
+categories: [ pandas ]
+---
+
+
+Missing data is a common problem in data science.  Dealing with it effectively is crucial for building accurate and reliable models. One of the simplest approaches is to drop rows or columns containing missing values.  This method, while straightforward, can lead to data loss, so it's important to understand when it's appropriate and how to implement it effectively in Python using Pandas.
+
+## Understanding Missing Data in Pandas
+
+Pandas, a powerful Python library for data manipulation and analysis, represents missing data using `NaN` (Not a Number).  Before dropping missing values, it's essential to identify them.  You can do this using methods like `.isnull()` and `.isna()` which both produce boolean masks indicating the location of missing values.
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {'A': [1, 2, np.nan, 4],
+        'B': [5, np.nan, 7, 8],
+        'C': [9, 10, 11, 12]}
+df = pd.DataFrame(data)
+
+print(df.isnull())
+print(df.isna()) 
+```
+
+## Dropping Rows with Missing Values
+
+The `dropna()` method offers several ways to drop rows with missing data. The most common option is `how='any'`, which removes rows containing at least one missing value.
+
+```python
+df_dropped_rows = df.dropna(how='any')
+print(df_dropped_rows)
+```
+
+Alternatively, `how='all'` will only drop rows where *all* values are missing.  This is useful if you have partially complete rows you want to retain.
+
+```python
+df_dropped_rows_all = df.dropna(how='all')
+print(df_dropped_rows_all)
+```
+
+You can also specify which columns to consider when dropping rows using the `subset` parameter. This allows for more fine-grained control over the missing data removal process.
+
+```python
+df_dropped_subset = df.dropna(subset=['A'])
+print(df_dropped_subset)
+```
+
+## Dropping Columns with Missing Values
+
+Similarly, you can drop columns containing missing values using the `dropna()` method with the `axis` parameter set to 1 (or 'columns').  `how='any'` and `how='all'` function the same way as when dropping rows.
+
+
+```python
+df_dropped_cols = df.dropna(axis=1, how='any')
+print(df_dropped_cols)
+
+df_dropped_cols_all = df.dropna(axis=1, how='all')
+print(df_dropped_cols_all)
+
+```
+
+##  Threshold for Dropping
+
+
+The `thresh` parameter allows you to specify a minimum number of non-missing values required to keep a row or column. For example, to keep only rows with at least 3 non-missing values:
+
+```python
+df_thresh = df.dropna(thresh=3)
+print(df_thresh)
+```
+
+##  Inplace Modification
+
+To modify the DataFrame directly instead of creating a copy, use the `inplace=True` parameter.
+
+```python
+df.dropna(subset=['A'], inplace=True)
+print(df)
+```
+
+Remember that dropping missing values can significantly alter your dataset.  Consider the implications of data loss before using this approach.  Other techniques, such as imputation (filling in missing values), are often preferable to avoid losing valuable information.
+

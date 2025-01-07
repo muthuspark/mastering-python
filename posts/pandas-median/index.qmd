@@ -1,0 +1,119 @@
+---
+title: "Pandas Median"
+date: "07/11/2024"
+categories: [ pandas ]
+---
+
+
+Pandas, the powerful Python data analysis library, offers a wide array of functions for data manipulation and analysis.  One particularly useful function is `.median()`, which calculates the median of a Pandas Series or DataFrame.  This post will delve into how to effectively use the Pandas median function, exploring various scenarios and providing clear code examples.
+
+## Understanding the Median
+
+Before diving into the Pandas implementation, let's quickly recap what the median is. The median is the middle value in a dataset that is ordered from least to greatest. If the dataset has an even number of values, the median is the average of the two middle values.  It's a robust measure of central tendency, less sensitive to outliers than the mean.
+
+
+## Calculating the Median of a Pandas Series
+
+Let's start with a simple example using a Pandas Series:
+
+```python
+import pandas as pd
+
+data = {'values': [1, 3, 5, 7, 9, 11]}
+series = pd.Series(data['values'])
+
+median_value = series.median()
+print(f"The median is: {median_value}")
+```
+
+This code snippet first creates a Pandas Series from a dictionary. Then, the `.median()` function is called directly on the Series to calculate the median. The output will be 6, which is the average of 5 and 7 (the two middle values).
+
+
+## Handling Missing Data (NaN)
+
+Real-world datasets often contain missing values (NaN). Pandas `.median()` handles these gracefully by ignoring them:
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {'values': [1, 3, np.nan, 7, 9, 11]}
+series = pd.Series(data['values'])
+
+median_value = series.median()
+print(f"The median is: {median_value}")
+```
+
+Even with a NaN value, the median is calculated correctly from the remaining data.
+
+
+## Calculating the Median of a Pandas DataFrame
+
+The `.median()` function can also be applied to entire DataFrames. By default, it calculates the median for each column:
+
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 3, 5, 7], 'col2': [2, 4, 6, 8]}
+df = pd.DataFrame(data)
+
+median_values = df.median()
+print(f"The median values for each column are:\n{median_values}")
+```
+
+This example calculates the median for both 'col1' and 'col2' separately.
+
+
+## Calculating the Median Across Rows
+
+To calculate the median across rows (rather than columns), you can use the `axis` parameter:
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 3, 5, 7], 'col2': [2, 4, 6, 8]}
+df = pd.DataFrame(data)
+
+median_values = df.median(axis=1)
+print(f"The median values for each row are:\n{median_values}")
+```
+
+Setting `axis=1` specifies that the median should be computed row-wise.
+
+
+##  Median for Specific Columns
+
+You can easily calculate the median for specific columns by selecting those columns before applying the `.median()` function:
+
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 3, 5, 7], 'col2': [2, 4, 6, 8], 'col3': [10,20,30,40]}
+df = pd.DataFrame(data)
+
+median_values = df[['col1', 'col2']].median()
+print(f"The median values for col1 and col2 are:\n{median_values}")
+```
+
+This allows for targeted median calculations on subsets of your DataFrame.
+
+
+## Using `groupby()` with Median
+
+Combining `.median()` with the `groupby()` method enables calculating medians for groups within your data:
+
+```python
+import pandas as pd
+
+data = {'group': ['A', 'A', 'B', 'B'], 'values': [1, 3, 5, 7]}
+df = pd.DataFrame(data)
+
+grouped_medians = df.groupby('group')['values'].median()
+print(f"The median values for each group are:\n{grouped_medians}")
+
+```
+
+This demonstrates a powerful combination for analyzing data grouped by a specific categorical variable.
+

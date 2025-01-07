@@ -1,0 +1,88 @@
+---
+title: "DataFrame from SQL Databases"
+date: "11/23/2023"
+categories: [ pandas ]
+---
+
+
+Python has become a go-to language for data science, and a crucial part of that involves interacting with SQL databases.  Often, the core of your data analysis workflow will center around manipulating data extracted from a SQL database as a DataFrame. This post will explore how to efficiently work with DataFrames derived from SQL queries within the Python ecosystem, primarily using the popular `pandas` library.
+
+
+## Connecting to your SQL Database
+
+Before we can extract data, we need to establish a connection to our database.  We'll use the `sqlite3` library for this example, as it's built into Python and requires no external dependencies.  For other database systems (like PostgreSQL, MySQL, or others), you'll need the appropriate database connector library (e.g., `psycopg2` for PostgreSQL).
+
+
+```python
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect('your_database.db')
+
+cursor = conn.cursor()
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS employees (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        department TEXT,
+        salary REAL
+    )
+''')
+conn.commit()
+
+cursor.execute("INSERT INTO employees (name, department, salary) VALUES (?, ?, ?)", ("Alice", "Sales", 60000))
+cursor.execute("INSERT INTO employees (name, department, salary) VALUES (?, ?, ?)", ("Bob", "Engineering", 75000))
+cursor.execute("INSERT INTO employees (name, department, salary) VALUES (?, ?, ?)", ("Charlie", "Sales", 65000))
+conn.commit()
+```
+
+## Reading SQL Queries into Pandas DataFrames
+
+The power of `pandas` lies in its ability to seamlessly integrate with SQL.  The `read_sql_query()` function allows you to execute a SQL query and directly load the results into a DataFrame.
+
+```python
+query = "SELECT * FROM employees"
+df = pd.read_sql_query(query, conn)
+
+print(df)
+```
+
+This will output a neatly formatted DataFrame containing all the data from your `employees` table.
+
+
+##  Working with DataFrames:  Filtering and Aggregation
+
+Once you have your data in a DataFrame, `pandas` provides a rich set of tools for data manipulation. Let's look at some basic examples:
+
+
+```python
+sales_employees = df[df["department"] == "Sales"]
+print("\nSales Employees:\n", sales_employees)
+
+average_salary = df["salary"].mean()
+print("\nAverage Salary:", average_salary)
+
+average_salary_by_department = df.groupby("department")["salary"].mean()
+print("\nAverage Salary by Department:\n", average_salary_by_department)
+
+```
+
+These examples demonstrate the ease with which you can filter, aggregate, and analyze data extracted from your SQL database using the power of pandas.
+
+
+##  Handling Larger Datasets Efficiently
+
+For very large datasets, reading the entire result set into memory at once might not be feasible.  Consider using techniques like chunking or iterating through the results to improve performance.  These advanced techniques will be explored in a future post.  
+
+
+## Closing the Connection
+
+It's crucial to close the database connection when you're finished to release resources.
+
+```python
+conn.close()
+```
+
+
+This ensures proper database management and prevents potential issues.
+

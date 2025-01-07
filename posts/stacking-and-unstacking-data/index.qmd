@@ -1,0 +1,96 @@
+---
+title: "Stacking and Unstacking Data"
+date: "10/15/2023"
+categories: [ pandas ]
+---
+
+
+Data manipulation is a crucial aspect of data analysis, and Python's pandas library provides powerful tools for reshaping data.  Two particularly useful functions are `stack()` and `unstack()`, which allow you to efficiently transform your data between "stacked" and "unstacked" formats. This blog post will walk you through the concepts of stacking and unstacking, providing clear explanations and practical code examples.
+
+
+## Understanding Stacking and Unstacking
+
+Before diving into the code, let's understand the core difference between stacked and unstacked data.  Imagine a table with multiple levels of indices (think of it like a multi-index DataFrame in pandas).
+
+* **Unstacked Data:**  In an unstacked format, your data is arranged in a "wide" format.  Each level of your index becomes a separate column. This is often how data initially appears in a spreadsheet or CSV file.
+
+* **Stacked Data:**  In a stacked format, your data is arranged in a "long" format. One level of your index is "stacked" into a column, making your data more concise and often easier to work with for certain analyses, like plotting or applying functions row-wise.
+
+
+## Stacking Data with `stack()`
+
+The `stack()` method pivots a level of the column labels into the rows.  Let's illustrate with an example:
+
+```python
+import pandas as pd
+
+data = {'Category': ['A', 'A', 'B', 'B'],
+        'Subcategory': ['X', 'Y', 'X', 'Y'],
+        'Value': [10, 15, 20, 25]}
+df = pd.DataFrame(data)
+
+print("Original DataFrame:\n", df)
+
+stacked_df = df.set_index(['Category', 'Subcategory']).stack()
+print("\nStacked DataFrame:\n", stacked_df)
+
+stacked_df = df.set_index(['Category', 'Subcategory']).stack().rename('Value_stacked')
+print("\nStacked DataFrame with renamed column:\n", stacked_df)
+
+
+```
+
+This code first creates a DataFrame. Then, it sets 'Category' and 'Subcategory' as the index. Finally, `stack()` pivots the 'Subcategory' level into the index, resulting in a stacked DataFrame.
+
+
+## Unstacking Data with `unstack()`
+
+The `unstack()` method does the opposite of `stack()`. It takes a level from the index and transforms it into columns.
+
+
+```python
+import pandas as pd
+
+#stacked_df =  df.set_index(['Category', 'Subcategory']).stack()
+unstacked_df = stacked_df.unstack()
+
+print("\nUnstacked DataFrame:\n", unstacked_df)
+
+#Unstacking a specific level
+unstacked_level0_df = stacked_df.unstack(level=0) #unstacking the Category level
+print("\nUnstacked DataFrame(level 0):\n", unstacked_level0_df)
+
+
+```
+
+This code takes the `stacked_df` from the previous example and uses `unstack()` to revert to the original unstacked format. Note that you can specify which level to unstack using the `level` argument.
+
+
+
+## Handling Missing Values
+
+When using `stack()` and `unstack()`, be mindful of potential missing values. If your data has gaps, you'll see `NaN` (Not a Number) values in your reshaped DataFrame.  You can handle these using methods like `fillna()` to replace them with a specific value or to drop them with `dropna()`.  Consider this during your data cleaning process.
+
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {'A': [1, 2, np.nan], 'B': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+stacked = df.stack()
+print("\nStacked DataFrame with NaN:\n", stacked)
+
+filled_stacked = stacked.fillna(0)
+print("\nStacked DataFrame with NaN filled:\n", filled_stacked)
+
+#Dropping NaN values
+dropped_stacked = stacked.dropna()
+print("\nStacked DataFrame with NaN dropped:\n", dropped_stacked)
+
+
+```
+
+This example demonstrates how missing values are handled during stacking, and provides methods to address those values.
+

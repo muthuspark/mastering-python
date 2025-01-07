@@ -1,0 +1,92 @@
+---
+title: "Long to Wide Format"
+date: "10/19/2023"
+categories: [ pandas ]
+---
+
+
+Data often arrives in a format that isn't ideal for analysis.  One common scenario involves data in a "long" format, where multiple observations for the same entity are spread across multiple rows.  Transforming this into a "wide" format, where each row represents a single entity and each column represents a different observation, is crucial for many data manipulation and analysis tasks.  This post demonstrates how to efficiently perform this transformation using Python's powerful Pandas library.
+
+## Understanding Long and Wide Formats
+
+Let's illustrate with a simple example. Imagine we have data on student test scores:
+
+**Long Format:**
+
+| StudentID | Subject | Score |
+|---|---|---|
+| 1 | Math | 85 |
+| 1 | Science | 92 |
+| 2 | Math | 78 |
+| 2 | Science | 88 |
+
+
+**Wide Format:**
+
+| StudentID | Math | Science |
+|---|---|---|
+| 1 | 85 | 92 |
+| 2 | 78 | 88 |
+
+Notice how the long format has repeated StudentIDs, while the wide format has each student on a single row, with separate columns for each subject.  The wide format is often more convenient for analysis, particularly when working with statistical models or visualization tools.
+
+
+##  Python's Pandas to the Rescue: `pivot()` and `pivot_table()`
+
+Pandas offers two primary functions for this transformation: `pivot()` and `pivot_table()`.  Let's explore both:
+
+### Using `pivot()`
+
+`pivot()` is a straightforward method, but it requires that your "long" data have unique combinations of your index and columns.  If you have duplicates, you'll encounter errors.
+
+```python
+import pandas as pd
+
+data = {'StudentID': [1, 1, 2, 2],
+        'Subject': ['Math', 'Science', 'Math', 'Science'],
+        'Score': [85, 92, 78, 88]}
+
+df_long = pd.DataFrame(data)
+
+df_wide = df_long.pivot(index='StudentID', columns='Subject', values='Score')
+
+print(df_wide)
+```
+
+This code snippet will output the desired wide format DataFrame.
+
+
+### Using `pivot_table()`
+
+`pivot_table()` is more robust. It handles duplicate entries by applying an aggregation function (like mean, sum, or count) to the values. This makes it far more versatile for real-world datasets that might contain multiple scores for the same student and subject.
+
+
+```python
+import pandas as pd
+import numpy as np
+
+data_duplicate = {'StudentID': [1, 1, 2, 2, 1, 2],
+                  'Subject': ['Math', 'Science', 'Math', 'Science', 'Math', 'Science'],
+                  'Score': [85, 92, 78, 88, 87, 90]}
+
+df_long_duplicate = pd.DataFrame(data_duplicate)
+
+#Using mean to handle duplicate entries
+df_wide_duplicate = df_long_duplicate.pivot_table(index='StudentID', columns='Subject', values='Score', aggfunc='mean')
+
+print(df_wide_duplicate)
+
+#Using sum to handle duplicate entries
+df_wide_duplicate_sum = df_long_duplicate.pivot_table(index='StudentID', columns='Subject', values='Score', aggfunc='sum')
+
+print(df_wide_duplicate_sum)
+
+```
+
+This example showcases how `pivot_table()` can aggregate duplicate entries using different aggregation functions (`mean` and `sum` in this case).  You can adapt the `aggfunc` argument to suit your specific needs.  Other common options include `max`, `min`, `first`, `last`, and custom functions.
+
+
+## Handling More Complex Scenarios
+
+The examples above illustrate basic transformations.  For more complex scenarios,  you might need to combine `pivot_table()` with other Pandas functions like `reset_index()` to adjust the index or `fillna()` to manage missing values.  Experimentation and understanding your specific data structure are key to successful data reshaping.
+

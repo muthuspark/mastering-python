@@ -1,0 +1,83 @@
+---
+title: "Pandas Pivot Table with Margins"
+date: "10/17/2023"
+categories: [ pandas ]
+---
+
+
+Pandas pivot tables are powerful tools for data analysis, allowing you to summarize and reorganize data efficiently.  Adding margins to your pivot tables takes this functionality a step further, providing valuable aggregate information alongside your summarized data.  This post will walk you through creating and understanding pivot tables with margins in Python using Pandas.
+
+## Understanding the Basics
+
+Before diving into margins, let's refresh our understanding of basic pivot tables.  A pivot table summarizes data from a table based on specified columns.  It involves grouping data based on one or more columns (index) and aggregating values from another column (values) using a chosen aggregation function (e.g., sum, mean, count).
+
+Here's a simple example:
+
+```python
+import pandas as pd
+
+data = {'Category': ['A', 'A', 'B', 'B', 'A', 'B'],
+        'Subcategory': ['X', 'Y', 'X', 'Y', 'X', 'Y'],
+        'Sales': [10, 15, 20, 25, 12, 30]}
+
+df = pd.DataFrame(data)
+pivot_table = pd.pivot_table(df, values='Sales', index='Category', columns='Subcategory', aggfunc='sum')
+print(pivot_table)
+```
+
+This code creates a pivot table showing the sum of sales for each Category and Subcategory.
+
+## Introducing Margins
+
+Margins add row and/or column totals to your pivot table, providing a quick overview of the overall aggregates.  This is achieved using the `margins` parameter in the `pivot_table()` function.  Setting `margins=True` adds both row and column totals.
+
+```python
+pivot_table_with_margins = pd.pivot_table(df, values='Sales', index='Category', columns='Subcategory', aggfunc='sum', margins=True)
+print(pivot_table_with_margins)
+```
+
+Observe the added "All" row and column representing the totals.
+
+## Fine-tuning Margins
+
+You can customize the margin labels using the `margins_name` parameter.
+
+```python
+pivot_table_custom_margins = pd.pivot_table(df, values='Sales', index='Category', columns='Subcategory', aggfunc='sum', margins=True, margins_name="Total")
+print(pivot_table_custom_margins)
+```
+
+This changes the "All" label to "Total" in both the row and column margins.
+
+##  Multiple Aggregation Functions
+
+You can apply multiple aggregation functions simultaneously using a dictionary:
+
+```python
+pivot_table_multiple_agg = pd.pivot_table(df, values='Sales', index='Category', aggfunc={'Sales': ['sum', 'mean']}, margins=True)
+print(pivot_table_multiple_agg)
+```
+
+This example shows both the sum and mean of sales for each category, including the totals in the margin.
+
+
+##  Handling Missing Data
+
+If your data contains missing values, the aggregation functions will handle them according to their default behavior (e.g., `sum` ignores `NaN` values, `mean` excludes them). You might need to consider imputation or other data cleaning strategies beforehand depending on your analysis goals.
+
+```python
+df_with_nan = pd.DataFrame({'Category': ['A', 'A', 'B', 'B', 'A', 'B'],
+                            'Subcategory': ['X', 'Y', 'X', 'Y', 'X', 'Y'],
+                            'Sales': [10, 15, 20, 25, float('nan'), 30]})
+
+pivot_table_nan = pd.pivot_table(df_with_nan, values='Sales', index='Category', columns='Subcategory', aggfunc='sum', margins=True)
+print(pivot_table_nan)
+```
+
+This demonstrates how `NaN` values are handled within the `sum` aggregation, impacting the margin totals.
+
+
+##  Beyond Basic Aggregation
+
+Remember that the `aggfunc` parameter offers flexibility beyond simple functions.  You can use custom functions or even apply different functions to different columns within the same pivot table.  Experiment with different aggregation functions and parameters to adapt the pivot table to your specific needs.
+

@@ -1,0 +1,94 @@
+---
+title: "Regular Expressions with Pandas"
+date: "10/28/2023"
+categories: [ pandas ]
+---
+
+
+Pandas is a cornerstone of data manipulation in Python, offering powerful tools for data cleaning, transformation, and analysis.  But what happens when your data contains messy strings, inconsistent formats, or unwanted characters? This is where regular expressions (regex or regexp) come in, providing a flexible and efficient way to search, match, and manipulate text patterns within your Pandas DataFrames.  This post will explore how to effectively combine the power of Pandas with the precision of regular expressions.
+
+
+##  The Basics:  Regex and Pandas Integration
+
+Regular expressions are sequences of characters defining a search pattern.  Pandas integrates seamlessly with regex through various string methods within its Series and DataFrame objects. The most common method is `.str.contains()`, which allows you to check if a string contains a particular pattern.
+
+
+```python
+import pandas as pd
+
+data = {'text': ['apple pie', 'banana bread', 'cherry pie', 'apple crumble']}
+df = pd.DataFrame(data)
+
+df['contains_pie'] = df['text'].str.contains('pie')
+print(df)
+
+#Case insensitive search
+df['contains_pie_ignorecase'] = df['text'].str.contains('PIE', case=False)
+print(df)
+
+```
+
+This code creates a DataFrame, then uses `.str.contains()` to add a new boolean column indicating whether each string contains "pie".  The `case=False` argument in the second example makes the search case-insensitive.
+
+
+##  Extracting Information with `.str.extract()`
+
+Beyond simple boolean checks, you can extract specific information from strings using `.str.extract()`.  This method takes a regex pattern as input, and returns a DataFrame containing the matched groups.
+
+
+```python
+import pandas as pd
+
+data = {'product': ['Apple iPhone 13 Pro Max 256GB', 'Samsung Galaxy S23 512GB', 'Google Pixel 7 128GB']}
+df = pd.DataFrame(data)
+
+pattern = r"(\w+\s\w+)\s(\w+)\s(\d+GB)"
+df[['model', 'brand', 'storage']] = df['product'].str.extract(pattern)
+print(df)
+
+```
+
+Here, the regular expression `(\w+\s\w+)\s(\w+)\s(\d+GB)` captures three groups: phone model, brand, and storage. `.str.extract()` neatly organizes this extracted information into new columns.
+
+
+##  Replacing Patterns with `.str.replace()`
+
+Regular expressions are also invaluable for cleaning data by replacing unwanted patterns. Pandas' `.str.replace()` method facilitates this with regex support.
+
+
+```python
+import pandas as pd
+
+data = {'description': ['Product price: $19.99', 'Item cost: $29.95', 'Price: $49.99']}
+df = pd.DataFrame(data)
+
+df['price'] = pd.to_numeric(df['description'].str.replace(r'\$', '', regex=True).str.extract(r'(\d+\.\d+)'))
+print(df)
+
+
+```
+
+This example uses `.str.replace()` to remove the dollar sign and then extracts the numeric price. Note the use of `regex=True` to enable regular expression matching.
+
+
+##  Advanced Techniques:  Multiple Patterns and Lookarounds
+
+For more complex scenarios, you can leverage more advanced regex features within Pandas.  For instance, you can use lookarounds to match patterns based on context without including them in the match itself.
+
+
+```python
+import pandas as pd
+data = {'text': ['Start 123 End', 'Start 456 End', 'Ignore 789']}
+df = pd.DataFrame(data)
+
+#Extract numbers only if they are between 'Start' and 'End'
+pattern = r'Start\s(\d+)\sEnd'
+df['extracted_number'] = df['text'].str.extract(pattern, expand=False)
+print(df)
+```
+
+This demonstrates extracting numbers only if preceded by "Start" and followed by "End".
+
+
+By mastering these techniques, you can significantly enhance your data cleaning and manipulation workflow in Pandas, handling complex text data with grace and efficiency.  Remember to consult online regex resources for detailed pattern construction and to test your patterns before applying them to your data.
+

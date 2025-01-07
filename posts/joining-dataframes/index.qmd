@@ -1,0 +1,119 @@
+---
+title: "Joining DataFrames"
+date: "10/07/2023"
+categories: [ pandas ]
+---
+
+
+Data manipulation is a cornerstone of data science, and a crucial aspect of this involves combining data from multiple sources.  In Python, using the powerful Pandas library, we achieve this through DataFrame joins. This guide will walk you through the different types of DataFrame joins, providing clear explanations and practical code examples.
+
+## Understanding DataFrame Joins
+
+Pandas offers flexible methods for joining DataFrames based on shared columns (keys).  The primary join types mirror those found in relational databases:
+
+* **`merge()`:** The most versatile function, offering control over join type and key columns.
+* **`join()`:** A convenient method for joining on indices.
+
+
+## The `merge()` Function: Your Workhorse for DataFrame Joins
+
+The `merge()` function is the most comprehensive way to join DataFrames.  It allows you to specify the join type, the keys used for joining, and how to handle overlapping columns.
+
+Let's consider two DataFrames:
+
+```python
+import pandas as pd
+
+df1 = pd.DataFrame({
+    'CustomerID': [1, 2, 3],
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'City': ['New York', 'London', 'Paris']
+})
+
+df2 = pd.DataFrame({
+    'CustomerID': [1, 2, 4],
+    'OrderID': [101, 102, 104],
+    'OrderDate': ['2024-03-08', '2024-03-10', '2024-03-15']
+})
+
+print("DataFrame 1:\n", df1)
+print("\nDataFrame 2:\n", df2)
+```
+
+**Inner Join:**  Returns only the rows where the join key exists in both DataFrames.
+
+```python
+inner_join = pd.merge(df1, df2, on='CustomerID', how='inner')
+print("\nInner Join:\n", inner_join)
+```
+
+**Left Join:** Returns all rows from the left DataFrame (`df1`), and matching rows from the right DataFrame (`df2`).  If there's no match in `df2`, it fills with `NaN` values.
+
+```python
+left_join = pd.merge(df1, df2, on='CustomerID', how='left')
+print("\nLeft Join:\n", left_join)
+```
+
+**Right Join:**  Similar to a left join, but returns all rows from the right DataFrame and matching rows from the left.
+
+```python
+right_join = pd.merge(df1, df2, on='CustomerID', how='right')
+print("\nRight Join:\n", right_join)
+```
+
+**Outer Join:** Returns all rows from both DataFrames.  Missing values are filled with `NaN`.
+
+```python
+outer_join = pd.merge(df1, df2, on='CustomerID', how='outer')
+print("\nOuter Join:\n", outer_join)
+```
+
+## Joining on Multiple Keys
+
+You can join DataFrames based on multiple columns.
+
+```python
+df3 = pd.DataFrame({
+    'CustomerID': [1, 2, 3],
+    'ProductID': [10, 20, 30],
+    'Quantity': [2,1,3]
+})
+
+df4 = pd.DataFrame({
+    'CustomerID': [1, 1, 2],
+    'ProductID': [10, 20, 20],
+    'Price': [100,200, 150]
+})
+
+multi_key_join = pd.merge(df3, df4, on=['CustomerID', 'ProductID'], how='left')
+print("\nMulti-key Join:\n", multi_key_join)
+```
+
+
+## The `join()` Function: Joining on Indices
+
+The `join()` function is a shortcut for joining DataFrames based on their indices.
+
+```python
+df1 = df1.set_index('CustomerID')
+df2 = df2.set_index('CustomerID')
+
+index_join = df1.join(df2, how='inner')
+print("\nIndex Join:\n", index_join)
+```
+
+This provides a concise way to join when your key columns are already set as indices.  Remember to reset the index if you need it as a column afterward using `reset_index()`.
+
+## Handling Suffixes for Overlapping Columns
+
+When both DataFrames have columns with the same name (excluding the join key), `merge()` automatically adds suffixes (e.g., `_x` and `_y`) to disambiguate.  You can customize these suffixes if needed.
+
+
+```python
+df5 = pd.DataFrame({'CustomerID': [1,2], 'Name': ['Alice Updated', 'Bob Updated']})
+custom_suffix_join = pd.merge(df1, df5, on='CustomerID', how='left', suffixes=('_original', '_updated'))
+print("\nCustom Suffix Join:\n", custom_suffix_join)
+```
+
+These examples showcase the flexibility and power of Pandas' DataFrame joining capabilities.  By understanding the different join types and their nuances, you can effectively combine data from various sources for comprehensive data analysis.
+

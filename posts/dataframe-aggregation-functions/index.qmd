@@ -1,0 +1,147 @@
+---
+title: "DataFrame Aggregation Functions"
+date: "08/06/2024"
+categories: [ pandas ]
+---
+
+
+Pandas DataFrames are a cornerstone of data manipulation in Python.  One of their most powerful features lies in their aggregation functions, allowing you to summarize and analyze data efficiently. This post will explore various aggregation functions, providing clear explanations and practical code examples.
+
+## What are Aggregation Functions?
+
+Aggregation functions perform calculations on a DataFrame, reducing multiple values into a single summarized value. This is invaluable for tasks like calculating sums, means, medians, and more across rows or columns.  They help you gain insights quickly from large datasets without needing to manually iterate through each row or column.
+
+
+## Common Aggregation Functions
+
+Pandas offers a wide array of built-in aggregation functions. Let's explore some of the most commonly used:
+
+### 1. `sum()`: Calculating the Sum
+
+The `sum()` function calculates the sum of values across a specified axis (rows or columns).
+
+```python
+import pandas as pd
+
+data = {'A': [1, 2, 3, 4, 5],
+        'B': [6, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+column_sum_A = df['A'].sum() 
+print(f"Sum of column A: {column_sum_A}")
+
+row_sum = df.sum(axis=1)
+print(f"Sum of each row:\n{row_sum}")
+```
+
+### 2. `mean()`: Calculating the Average
+
+The `mean()` function computes the average of values.
+
+```python
+import pandas as pd
+
+data = {'A': [1, 2, 3, 4, 5],
+        'B': [6, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+column_mean_B = df['B'].mean()
+print(f"Mean of column B: {column_mean_B}")
+
+row_mean = df.mean(axis=1)
+print(f"Mean of each row:\n{row_mean}")
+
+```
+
+### 3. `count()`: Counting Non-Missing Values
+
+The `count()` function counts the number of non-missing (non-NaN) values.
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {'A': [1, 2, np.nan, 4, 5],
+        'B': [6, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+column_count_A = df['A'].count()
+print(f"Count of non-missing values in column A: {column_count_A}")
+
+row_count = df.count(axis=1)
+print(f"Count of non-missing values in each row:\n{row_count}")
+```
+
+### 4. `median()`: Finding the Median
+
+The `median()` function calculates the median (middle value) of a series or DataFrame.
+
+```python
+import pandas as pd
+
+data = {'A': [1, 2, 3, 4, 5],
+        'B': [6, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+column_median_A = df['A'].median()
+print(f"Median of column A: {column_median_A}")
+
+row_median = df.median(axis=1)
+print(f"Median of each row:\n{row_median}")
+```
+
+### 5. `min()` and `max()`: Finding Minimum and Maximum Values
+
+The `min()` and `max()` functions find the minimum and maximum values, respectively.
+
+```python
+import pandas as pd
+
+data = {'A': [1, 2, 3, 4, 5],
+        'B': [6, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+column_min_B = df['B'].min()
+print(f"Minimum of column B: {column_min_B}")
+
+row_max = df.max(axis=1)
+print(f"Maximum of each row:\n{row_max}")
+```
+
+### 6. `std()` and `var()`: Calculating Standard Deviation and Variance
+
+The `std()` and `var()` functions calculate the standard deviation and variance, respectively, which measure the spread or dispersion of data.
+
+
+```python
+import pandas as pd
+
+data = {'A': [1, 2, 3, 4, 5],
+        'B': [6, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+column_std_A = df['A'].std()
+print(f"Standard Deviation of column A: {column_std_A}")
+
+row_var = df.var(axis=1)
+print(f"Variance of each row:\n{row_var}")
+```
+
+##  Aggregation with `agg()`
+
+The `agg()` function allows for applying multiple aggregation functions simultaneously.
+
+```python
+import pandas as pd
+
+data = {'A': [1, 2, 3, 4, 5],
+        'B': [6, 7, 8, 9, 10]}
+df = pd.DataFrame(data)
+
+column_agg_A = df['A'].agg(['sum', 'mean', 'median'])
+print(f"Multiple aggregations on column A:\n{column_agg_A}")
+
+```
+
+This is just a selection of the aggregation functions available in Pandas.  Exploring the Pandas documentation will reveal further functionalities for more complex data analysis.  Remember that  `axis=0` (default) aggregates columns, while `axis=1` aggregates rows. Understanding this is crucial for obtaining the desired results.
+

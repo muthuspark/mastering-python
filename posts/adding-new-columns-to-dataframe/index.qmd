@@ -1,0 +1,105 @@
+---
+title: "Adding New Columns to DataFrame"
+date: "11/11/2024"
+categories: [ pandas ]
+---
+
+
+Pandas DataFrames are the workhorse of data manipulation in Python.  One of the most common tasks is adding new columns to an existing DataFrame.  This guide will walk you through several methods, providing clear examples for each.
+
+
+## Method 1: Direct Assignment
+
+The simplest way to add a new column is by assigning a list, array, or Series to a new column name. The length of the assigned data must match the number of rows in your DataFrame.
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]}
+df = pd.DataFrame(data)
+print("Original DataFrame:\n", df)
+
+df['col3'] = [7, 8, 9] 
+print("\nDataFrame after adding 'col3':\n", df)
+
+#Adding a column from a list of the same size
+df['col4'] = [10,11,12]
+print("\nDataFrame after adding 'col4':\n", df)
+
+#Adding a new column with a scalar value (same value for all rows)
+df['col5'] = 100
+print("\nDataFrame after adding 'col5':\n", df)
+```
+
+This method is efficient and straightforward for adding simple columns.
+
+
+## Method 2: Using `insert()`
+
+The `insert()` method allows you to add a column at a specific position within the DataFrame.  This is useful when you need to control the order of columns.  The method takes three arguments: the location (index), the column name, and the data.
+
+```python
+df.insert(1, 'col6', [13, 14, 15])
+print("\nDataFrame after inserting 'col6':\n", df)
+```
+
+Note that the index starts from 0.
+
+
+
+## Method 3:  Creating a New Column Based on Existing Columns
+
+Often, you'll need to create a new column based on calculations or transformations of existing columns.
+
+```python
+df['col7'] = df['col1'] + df['col2']
+print("\nDataFrame after adding 'col7':\n", df)
+
+#Creating 'col8' based on a conditional statement
+df['col8'] = ['High' if x > 10 else 'Low' for x in df['col7']]
+print("\nDataFrame after adding 'col8':\n", df)
+```
+
+This method leverages Pandas' vectorized operations for efficiency.
+
+
+## Method 4: Applying a Function with `apply()`
+
+For more complex calculations, you can use the `apply()` method with a custom function.
+
+```python
+def square(x):
+    return x**2
+
+df['col9'] = df['col1'].apply(square)
+print("\nDataFrame after adding 'col9':\n", df)
+```
+
+This allows for flexibility in how you generate the values for the new column.
+
+
+## Method 5: Using `assign()`
+
+The `assign()` method is particularly useful for adding multiple columns at once. It returns a *new* DataFrame with the added columns, leaving the original DataFrame unchanged.
+
+```python
+#Adding multiple columns at once using assign
+new_df = df.assign(col10 = df['col1'] * 2, col11 = df['col2'] / 2)
+print("\nNew DataFrame after using assign:\n",new_df)
+print("\nOriginal DataFrame remains unchanged:\n", df)
+```
+
+This method promotes cleaner and more readable code when adding several columns simultaneously.
+
+
+## Handling Different Data Types
+
+Remember to ensure the data type of the new column is consistent with the values you're adding. Pandas will often infer the data type automatically, but you can explicitly specify it if needed using `.astype()`.  For example, to create a column of strings:
+
+```python
+df['col12'] = df['col1'].astype(str)
+```
+
+
+This comprehensive guide provides various approaches to adding new columns to your Pandas DataFrames, empowering you to efficiently manage and manipulate your data.
+

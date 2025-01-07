@@ -1,0 +1,95 @@
+---
+title: "Pandas Count"
+date: "09/22/2024"
+categories: [ pandas ]
+---
+
+
+Pandas is a cornerstone library for data manipulation and analysis in Python.  One of its most frequently used functions is `count()`, a powerful tool for understanding the composition of your datasets. This post will explore the versatility of Pandas `count()` with clear examples.
+
+
+## Understanding the Basics of Pandas `count()`
+
+The `count()` method in Pandas provides a quick way to determine the number of non-missing values in a Series or DataFrame. Unlike other aggregation functions that might ignore `NaN` values (Not a Number, representing missing data), `count()` specifically focuses on the number of elements that *are not* `NaN`.  This distinction is crucial for accurate data analysis.
+
+**Example 1: Counting in a Series**
+
+Let's start with a simple Series:
+
+
+```python
+import pandas as pd
+import numpy as np
+
+data = pd.Series([1, 2, np.nan, 4, 5, np.nan])
+print(data.count())
+```
+
+This code will output `4`, as there are four non-missing values in the Series.
+
+
+**Example 2: Counting across Columns in a DataFrame**
+
+`count()` shines when working with DataFrames.  It can count non-missing values in each column individually.
+
+```python
+data = {'A': [1, 2, np.nan, 4, 5], 
+        'B': [6, np.nan, 8, 9, 10], 
+        'C': [11, 12, 13, 14, 15]}
+df = pd.DataFrame(data)
+print(df.count())
+```
+
+This will return a Series showing the count of non-missing values in each column ('A', 'B', 'C').
+
+
+**Example 3: Counting along rows (axis=1)**
+
+By default, `count()` operates along the columns (axis=0).  To count non-missing values *across* rows, specify `axis=1`:
+
+```python
+data = {'A': [1, 2, np.nan, 4, 5], 
+        'B': [6, np.nan, 8, 9, 10], 
+        'C': [11, 12, 13, 14, 15]}
+df = pd.DataFrame(data)
+print(df.count(axis=1))
+```
+
+This will give you a Series showing the number of non-missing values for each row.
+
+
+**Example 4:  Handling specific columns**
+
+You can apply `count()` to a subset of columns:
+
+```python
+data = {'A': [1, 2, np.nan, 4, 5], 
+        'B': [6, np.nan, 8, 9, 10], 
+        'C': [11, 12, 13, 14, 15]}
+df = pd.DataFrame(data)
+print(df[['A', 'B']].count())
+```
+
+This limits the count to columns 'A' and 'B'.
+
+
+**Example 5:  Level-wise Counting (MultiIndex)**
+
+
+For DataFrames with MultiIndex,  `count()` can be applied at different levels. This is helpful for hierarchical data.
+
+```python
+arrays = [['bar', 'bar', 'baz', 'baz', 'foo', 'foo', 'qux', 'qux'],
+          ['one', 'two', 'one', 'two', 'one', 'two', 'one', 'two']]
+tuples = list(zip(*arrays))
+index = pd.MultiIndex.from_tuples(tuples, names=['first', 'second'])
+df = pd.DataFrame(np.random.randn(8, 2), index=index)
+df.loc[('bar', 'two')] = np.nan  #Introducing NaN values
+print(df.count(level='first'))
+```
+
+This code demonstrates level-wise counting in a MultiIndex DataFrame.
+
+
+These examples showcase the diverse applications of the Pandas `count()` method.  Its simplicity and power make it an essential tool in any data analyst's arsenal.  Remember to consider the `axis` parameter to control the direction of your count.
+

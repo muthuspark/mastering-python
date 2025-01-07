@@ -1,0 +1,103 @@
+---
+title: "Pandas Mean"
+date: "01/01/2024"
+categories: [ pandas ]
+---
+
+
+Pandas, the powerful Python data manipulation library, provides a straightforward way to calculate the mean (average) of your data.  Whether you're working with a single column, multiple columns, or dealing with missing values, Pandas offers flexible functions to get the mean you need. This guide will walk you through various scenarios with clear code examples.
+
+
+## Calculating the Mean of a Single Column
+
+Let's start with the simplest case: calculating the mean of a single column in your Pandas DataFrame.  Assume you have a DataFrame named `df` with a column called 'Sales'.
+
+```python
+import pandas as pd
+
+data = {'Sales': [10, 20, 15, 25, 30, None, 40]}
+df = pd.DataFrame(data)
+
+mean_sales = df['Sales'].mean()
+print(f"The mean of Sales is: {mean_sales}")
+```
+
+This code snippet first imports the Pandas library and creates a sample DataFrame.  The `.mean()` method is then applied directly to the 'Sales' column, producing the average sales value. Notice that the `None` value (representing a missing data point) is automatically handled by `.mean()`.
+
+
+## Handling Missing Values
+
+Missing data is a common issue in real-world datasets. Pandas' `.mean()` function intelligently handles `NaN` (Not a Number) values by default, excluding them from the calculation.  However, you can control this behavior using the `skipna` parameter.
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {'Sales': [10, 20, 15, 25, 30, np.nan, 40]}
+df = pd.DataFrame(data)
+
+mean_sales_skipna = df['Sales'].mean(skipna=True) #default is True
+print(f"Mean with NaN skipped: {mean_sales_skipna}")
+
+mean_sales_no_skipna = df['Sales'].mean(skipna=False)
+print(f"Mean with NaN included (result is NaN): {mean_sales_no_skipna}")
+```
+
+The example above showcases both scenarios – default behavior (skipping `NaN`) and explicitly including them (resulting in a `NaN` mean).
+
+
+## Calculating the Mean of Multiple Columns
+
+Need the mean across multiple columns?  Pandas makes this easy too.
+
+```python
+import pandas as pd
+
+data = {'Sales': [10, 20, 15, 25, 30], 'Expenses': [5, 10, 8, 12, 15]}
+df = pd.DataFrame(data)
+
+mean_multiple_cols = df[['Sales', 'Expenses']].mean()
+print(f"Mean of multiple columns:\n{mean_multiple_cols}")
+
+```
+
+By selecting multiple columns within double square brackets `[['Sales', 'Expenses']]` and applying `.mean()`, we get the mean for each specified column.
+
+
+##  Calculating the Mean of Entire DataFrame
+
+To get the mean of all numeric columns in your DataFrame, simply call `.mean()` on the DataFrame itself.
+
+```python
+import pandas as pd
+
+data = {'Sales': [10, 20, 15, 25, 30], 'Expenses': [5, 10, 8, 12, 15], 'Profit':[5,10,7,13,15]}
+df = pd.DataFrame(data)
+
+mean_dataframe = df.mean()
+print(f"Mean of entire DataFrame:\n{mean_dataframe}")
+```
+
+This provides a concise summary of the average values for all numerical columns.
+
+
+##  Weighted Mean Calculation
+
+While Pandas doesn't directly offer a weighted mean function, you can easily compute it using `np.average`.
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {'Sales': [10, 20, 15], 'Weights': [0.2, 0.5, 0.3]}
+df = pd.DataFrame(data)
+
+weighted_mean = np.average(df['Sales'], weights=df['Weights'])
+print(f"Weighted mean: {weighted_mean}")
+```
+
+This shows how to calculate a weighted average using NumPy's `average` function, leveraging the 'Weights' column to specify the weights for each sales value.
+
+
+These examples cover the fundamental uses of Pandas' mean calculation capabilities.  With these techniques, you can efficiently analyze and summarize your data.
+

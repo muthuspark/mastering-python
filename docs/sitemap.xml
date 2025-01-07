@@ -9,40 +9,60 @@
     <lastmod>2025-01-07T05:52:47.607Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/opening-files/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.604Z</lastmod>
+    <loc>https://python.muthu.co/posts/filtering-data-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.197Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-performance-optimization/index.html</loc>
-    <lastmod>2025-01-07T05:37:14.858Z</lastmod>
+    <loc>https://python.muthu.co/posts/continue-statement/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/if-statement/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+    <loc>https://python.muthu.co/posts/rest-api-development-in-python/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/shifting-time-series-data/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.197Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/efficient-data-selection/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.197Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-queue-module/index.html</loc>
     <lastmod>2025-01-07T05:52:47.607Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-logging/index.html</loc>
-    <lastmod>2025-01-07T05:37:14.858Z</lastmod>
+    <loc>https://python.muthu.co/posts/asyncio-module/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.314Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-generators-advanced/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.314Z</lastmod>
+    <loc>https://python.muthu.co/posts/default-arguments/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.580Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/sorting-data-in-dataframe/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-regular-expressions/index.html</loc>
     <lastmod>2025-01-07T05:36:36.604Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-and-big-data-pyspark/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.730Z</lastmod>
+    <loc>https://python.muthu.co/posts/wide-to-long-format/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/elif-statement/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-serialization-with-pickle/index.html</loc>
+    <lastmod>2025-01-07T05:52:47.607Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-from-sql-databases/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-shape/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/generator-expressions/index.html</loc>
@@ -57,88 +77,152 @@
     <lastmod>2025-01-07T05:59:19.729Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/vectorization-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-transform-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/assignment-operators/index.html</loc>
     <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/regular-expressions-with-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/booleans-in-python/index.html</loc>
     <lastmod>2025-01-07T05:22:16.739Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-encapsulation/index.html</loc>
+    <loc>https://python.muthu.co/posts/python-math-functions/index.html</loc>
     <lastmod>2025-01-07T05:36:36.603Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-and-cython/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.729Z</lastmod>
+    <loc>https://python.muthu.co/posts/handling-missing-data/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-data-analysis-pandas/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.729Z</lastmod>
+    <loc>https://python.muthu.co/posts/dataframe-groupby-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/finally-block/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.578Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-pivot-table-with-margins/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-metaclasses/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.310Z</lastmod>
+    <loc>https://python.muthu.co/posts/string-methods-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-global-and-local-variables/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.577Z</lastmod>
+    <loc>https://python.muthu.co/posts/series-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/rolling-window-calculations/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-from-excel-files/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/multithreading-in-python/index.html</loc>
+    <lastmod>2025-01-07T05:52:47.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/installing-third-party-libraries/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-drop-duplicates/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-pip/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.603Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/creating-objects/index.html</loc>
     <lastmod>2025-01-07T05:36:36.603Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-profiling-tools/index.html</loc>
+    <loc>https://python.muthu.co/posts/python-and-sqlite/index.html</loc>
     <lastmod>2025-01-07T05:59:19.728Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/web-scraping-with-scrapy/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.728Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-multiprocessing-module/index.html</loc>
+    <lastmod>2025-01-07T05:52:47.606Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-scipy-for-scientific-computing/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.728Z</lastmod>
+    <loc>https://python.muthu.co/posts/viewing-dataframes/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.611Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/splitting-and-joining-strings/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.611Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-namespace-and-scope/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.310Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/arbitrary-arguments/index.html</loc>
     <lastmod>2025-01-07T05:31:41.577Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-security-best-practices/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.728Z</lastmod>
+    <loc>https://python.muthu.co/posts/pivot-tables-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.610Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-memory-management/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.309Z</lastmod>
+    <loc>https://python.muthu.co/posts/dataframe-from-csv-files/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.610Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/tuple-operations/index.html</loc>
-    <lastmod>2025-01-07T05:28:32.133Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-get-dummies/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.610Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/writing-python-plugins/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.728Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-file-handling/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/numbers-in-python/index.html</loc>
+    <lastmod>2025-01-07T05:22:16.739Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-head-and-tail/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.610Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/nested-if-else/index.html</loc>
     <lastmod>2025-01-07T05:25:21.237Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-exceptions/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.575Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-replace-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.610Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-generators/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.602Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-min/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.610Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-context-managers/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.602Z</lastmod>
+    <loc>https://python.muthu.co/posts/logical-operators/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-data-model/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.308Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/time-complexity-in-python-code/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-qcut-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/arithmetic-operators/index.html</loc>
@@ -153,8 +237,20 @@
     <lastmod>2025-01-07T05:36:36.602Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-conditional-statements/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-data-structures/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/drop-missing-values/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-xml-parsing/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-from-lists/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/working-with-os-module/index.html</loc>
@@ -165,6 +261,10 @@
     <lastmod>2025-01-07T05:25:52.603Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/raising-exceptions/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.573Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/operator-overloading/index.html</loc>
     <lastmod>2025-01-07T05:49:54.306Z</lastmod>
   </url>
@@ -173,8 +273,12 @@
     <lastmod>2025-01-07T05:59:19.726Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-debugging/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.602Z</lastmod>
+    <loc>https://python.muthu.co/posts/reading-data-with-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.608Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/custom-aggregation-functions/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.608Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/multiple-inheritance-in-python/index.html</loc>
@@ -185,12 +289,24 @@
     <lastmod>2025-01-07T05:25:21.235Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/pandas-applymap-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.608Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/python-best-practices/index.html</loc>
     <lastmod>2025-01-07T05:37:14.856Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-unit-testing/index.html</loc>
-    <lastmod>2025-01-07T05:37:14.856Z</lastmod>
+    <loc>https://python.muthu.co/posts/setting-index-in-dataframe/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.608Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-closures/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.601Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-indexing/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.607Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-memory-mapped-files/index.html</loc>
@@ -201,68 +317,104 @@
     <lastmod>2025-01-07T05:31:41.572Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-inputoutput/index.html</loc>
-    <lastmod>2025-01-07T05:22:16.740Z</lastmod>
+    <loc>https://python.muthu.co/posts/merging-dataframes/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.607Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-threading-module/index.html</loc>
-    <lastmod>2025-01-07T05:52:47.604Z</lastmod>
-  </url>
-  <url>
-    <loc>https://python.muthu.co/posts/python-object-oriented-programming/index.html</loc>
+    <loc>https://python.muthu.co/posts/python-iterators/index.html</loc>
     <lastmod>2025-01-07T05:36:36.601Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/membership-operators/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-dictionaries/index.html</loc>
+    <lastmod>2025-01-07T05:28:32.132Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/keyword-arguments/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.571Z</lastmod>
+    <loc>https://python.muthu.co/posts/decorators-with-arguments/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.303Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-secure-authentication/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.725Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-standard-deviation/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.607Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/event-loops/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.301Z</lastmod>
+    <loc>https://python.muthu.co/posts/resetting-index-in-dataframe/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.607Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-indentation/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.235Z</lastmod>
+    <loc>https://python.muthu.co/posts/asyncawait-keywords/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.303Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-lists/index.html</loc>
+    <lastmod>2025-01-07T05:28:32.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/working-with-large-datasets/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.607Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/hierarchical-indexing/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/cross-tabulation-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/if-else-statement/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/creating-dataframes/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.606Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/data-types-in-python/index.html</loc>
     <lastmod>2025-01-07T05:18:14.671Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/class-variables/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.600Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-performance-tuning/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.725Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-modules/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.569Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/tuple-methods/index.html</loc>
     <lastmod>2025-01-07T05:28:32.131Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-recursion/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.568Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-date-and-time/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.600Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-internals/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.299Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-pipe-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/groupby-multiple-columns/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.605Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-directories/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.600Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/identity-operators/index.html</loc>
     <lastmod>2025-01-07T05:25:21.236Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-coroutines/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.298Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-and-postgresql/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.725Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-random-module/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.600Z</lastmod>
+    <loc>https://python.muthu.co/posts/while-loop/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-from-dictionaries/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.605Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/decorators-and-advanced-usage/index.html</loc>
@@ -273,8 +425,12 @@
     <lastmod>2025-01-07T05:28:32.131Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/global-interpreter-lock-gil/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.294Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-descriptors/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.295Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/for-loop/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/advanced-python-io/index.html</loc>
@@ -285,60 +441,96 @@
     <lastmod>2025-01-07T05:59:19.724Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/dataframe-loc/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.604Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/function-arguments/index.html</loc>
     <lastmod>2025-01-07T05:31:41.566Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/advanced-pandas-usage/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.724Z</lastmod>
+    <loc>https://python.muthu.co/posts/set-operations/index.html</loc>
+    <lastmod>2025-01-07T05:28:32.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-explode-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.604Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-packages/index.html</loc>
     <lastmod>2025-01-07T05:31:41.566Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/standard-python-modules/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.565Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-virtual-environments/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.600Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/method-resolution-order-mro/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.292Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-network-programming/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.723Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/importing-modules/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.565Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-virtual-machine-pvm/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.291Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/converting-data-types/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.604Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-cut-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.604Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/writing-to-files/index.html</loc>
     <lastmod>2025-01-07T05:36:36.600Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/graphql-in-python/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.723Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-sum/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.604Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/bitwise-operators/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-loops/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-numpy-for-numerical-computing/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.723Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-decorators/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.599Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/selecting-columns-in-dataframe/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/list-slicing/index.html</loc>
     <lastmod>2025-01-07T05:28:32.131Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/context-managers-and-the-with-statement/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.289Z</lastmod>
+    <loc>https://python.muthu.co/posts/pivoting-dataframes/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/polymorphism-in-python/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.599Z</lastmod>
+    <loc>https://python.muthu.co/posts/selecting-rows-in-dataframe/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-and-databases/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.722Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-code-optimization-techniques/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.723Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/concatenating-dataframes/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/datetime-indexing/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/handling-categorical-data/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/asynchronous-programming-in-python/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.287Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/jit-compilation-with-numba/index.html</loc>
@@ -349,8 +541,12 @@
     <lastmod>2025-01-07T05:49:54.287Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-properties/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.286Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-tuples/index.html</loc>
+    <lastmod>2025-01-07T05:28:32.130Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/memory-profiling-in-python/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.722Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/index.html</loc>
@@ -361,28 +557,48 @@
     <lastmod>2025-01-07T05:13:34.235Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/memory-profiling-in-python/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.722Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-mean/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.602Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-tuples/index.html</loc>
-    <lastmod>2025-01-07T05:28:32.130Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-properties/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-info/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.602Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-sockets/index.html</loc>
     <lastmod>2025-01-07T05:59:19.722Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/asynchronous-programming-in-python/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.287Z</lastmod>
+    <loc>https://python.muthu.co/posts/chunking-large-datasets/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-and-databases/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.722Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-bytecode/index.html</loc>
     <lastmod>2025-01-07T05:49:54.288Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-code-optimization-techniques/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.723Z</lastmod>
+    <loc>https://python.muthu.co/posts/polymorphism-in-python/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.599Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/deleting-columns-from-dataframe/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/context-managers-and-the-with-statement/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-map-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.603Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/garbage-collection-in-python/index.html</loc>
@@ -393,12 +609,16 @@
     <lastmod>2025-01-07T05:36:36.599Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-decorators/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.599Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-numpy-for-numerical-computing/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.723Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-loops/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
+    <loc>https://python.muthu.co/posts/bitwise-operators/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/graphql-in-python/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.723Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/thread-synchronization/index.html</loc>
@@ -409,40 +629,60 @@
     <lastmod>2025-01-07T05:52:47.603Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-virtual-machine-pvm/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.291Z</lastmod>
+    <loc>https://python.muthu.co/posts/importing-modules/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.565Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-network-programming/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.723Z</lastmod>
+    <loc>https://python.muthu.co/posts/dataframe-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.604Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-virtual-environments/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.600Z</lastmod>
+    <loc>https://python.muthu.co/posts/method-resolution-order-mro/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/standard-python-modules/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.565Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-mode/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.604Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-package-distribution-pypi/index.html</loc>
     <lastmod>2025-01-07T05:59:19.724Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/set-operations/index.html</loc>
-    <lastmod>2025-01-07T05:28:32.131Z</lastmod>
+    <loc>https://python.muthu.co/posts/advanced-pandas-usage/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.724Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/fill-missing-values/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.604Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-functions/index.html</loc>
     <lastmod>2025-01-07T05:31:41.567Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/replacing-substrings-in-data/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.605Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/function-decorators/index.html</loc>
     <lastmod>2025-01-07T05:49:54.294Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/for-loop/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
+    <loc>https://python.muthu.co/posts/resampling-time-series/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.605Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-descriptors/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.295Z</lastmod>
+    <loc>https://python.muthu.co/posts/global-interpreter-lock-gil/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.294Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/sorting-by-index/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.605Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/web-scraping-with-beautifulsoup/index.html</loc>
@@ -453,64 +693,100 @@
     <lastmod>2025-01-07T05:49:54.296Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/while-loop/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
-  </url>
-  <url>
-    <loc>https://python.muthu.co/posts/python-and-postgresql/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.725Z</lastmod>
-  </url>
-  <url>
-    <loc>https://python.muthu.co/posts/python-directories/index.html</loc>
+    <loc>https://python.muthu.co/posts/python-random-module/index.html</loc>
     <lastmod>2025-01-07T05:36:36.600Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-coroutines/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.298Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/memory-optimization-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.605Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/working-with-multiindex-data/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.605Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-internals/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.299Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/interfacing-python-with-cc/index.html</loc>
     <lastmod>2025-01-07T05:59:19.725Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-date-and-time/index.html</loc>
+    <loc>https://python.muthu.co/posts/python-recursion/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.568Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/groupby-with-transform/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/boolean-indexing-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/class-variables/index.html</loc>
     <lastmod>2025-01-07T05:36:36.600Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-modules/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.569Z</lastmod>
-  </url>
-  <url>
-    <loc>https://python.muthu.co/posts/python-performance-tuning/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.725Z</lastmod>
+    <loc>https://python.muthu.co/posts/working-with-time-series/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.606Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/generator-pipelines/index.html</loc>
     <lastmod>2025-01-07T05:49:54.300Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/if-else-statement/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-indentation/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/event-loops/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.301Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-query-method/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.606Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/list-operations/index.html</loc>
     <lastmod>2025-01-07T05:28:32.132Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-lists/index.html</loc>
-    <lastmod>2025-01-07T05:28:32.132Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-secure-authentication/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.725Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/asyncawait-keywords/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.303Z</lastmod>
+    <loc>https://python.muthu.co/posts/keyword-arguments/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.571Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/decorators-with-arguments/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.303Z</lastmod>
+    <loc>https://python.muthu.co/posts/modifying-dataframe-columns/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.607Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-dictionaries/index.html</loc>
-    <lastmod>2025-01-07T05:28:32.132Z</lastmod>
+    <loc>https://python.muthu.co/posts/membership-operators/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-iterators/index.html</loc>
+    <loc>https://python.muthu.co/posts/pandas-median/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.607Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-object-oriented-programming/index.html</loc>
     <lastmod>2025-01-07T05:36:36.601Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-threading-module/index.html</loc>
+    <lastmod>2025-01-07T05:52:47.604Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-inputoutput/index.html</loc>
+    <lastmod>2025-01-07T05:22:16.740Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/reading-files/index.html</loc>
@@ -525,12 +801,24 @@
     <lastmod>2025-01-07T05:36:36.601Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-closures/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.601Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-unit-testing/index.html</loc>
+    <lastmod>2025-01-07T05:37:14.856Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/appending-dataframes/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.607Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-aggregation-functions/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.608Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/list-methods/index.html</loc>
     <lastmod>2025-01-07T05:28:32.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-iloc/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.608Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-and-mongodb/index.html</loc>
@@ -541,6 +829,10 @@
     <lastmod>2025-01-07T05:17:46.938Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/python-debugging/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.602Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/python-comments/index.html</loc>
     <lastmod>2025-01-07T05:25:21.235Z</lastmod>
   </url>
@@ -549,8 +841,12 @@
     <lastmod>2025-01-07T05:28:32.132Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/raising-exceptions/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.573Z</lastmod>
+    <loc>https://python.muthu.co/posts/renaming-columns-in-dataframe/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.608Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-max/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.608Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/closing-files/index.html</loc>
@@ -561,8 +857,20 @@
     <lastmod>2025-01-07T05:28:32.133Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-xml-parsing/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.727Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-conditional-statements/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/sorting-by-column/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/melting-dataframes/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/joining-dataframes/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/yaml-in-python/index.html</loc>
@@ -573,84 +881,140 @@
     <lastmod>2025-01-07T05:31:41.575Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/time-complexity-in-python-code/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.727Z</lastmod>
+    <loc>https://python.muthu.co/posts/stacking-and-unstacking-data/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-data-model/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.308Z</lastmod>
+    <loc>https://python.muthu.co/posts/selecting-subsets-of-data/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.609Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/logical-operators/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-context-managers/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.602Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-generators/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.602Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-exceptions/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.575Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-abstraction/index.html</loc>
     <lastmod>2025-01-07T05:36:36.602Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/working-with-text-data/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.610Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/type-conversion/index.html</loc>
     <lastmod>2025-01-07T05:22:16.740Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/numbers-in-python/index.html</loc>
-    <lastmod>2025-01-07T05:22:16.739Z</lastmod>
+    <loc>https://python.muthu.co/posts/writing-python-plugins/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.728Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-file-handling/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.603Z</lastmod>
+    <loc>https://python.muthu.co/posts/tuple-operations/index.html</loc>
+    <lastmod>2025-01-07T05:28:32.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-memory-management/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.309Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-futures-and-executors/index.html</loc>
     <lastmod>2025-01-07T05:52:47.606Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/python-security-best-practices/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.728Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/python-mixins/index.html</loc>
     <lastmod>2025-01-07T05:49:54.309Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-namespace-and-scope/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.310Z</lastmod>
+    <loc>https://python.muthu.co/posts/groupby-with-aggregation/index.html</loc>
+    <lastmod>2025-01-07T15:38:03.610Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-scipy-for-scientific-computing/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.728Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/custom-serialization/index.html</loc>
     <lastmod>2025-01-07T05:52:47.606Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-multiprocessing-module/index.html</loc>
-    <lastmod>2025-01-07T05:52:47.606Z</lastmod>
-  </url>
-  <url>
-    <loc>https://python.muthu.co/posts/python-and-sqlite/index.html</loc>
+    <loc>https://python.muthu.co/posts/web-scraping-with-scrapy/index.html</loc>
     <lastmod>2025-01-07T05:59:19.728Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-pip/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.603Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-profiling-tools/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.728Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/installing-third-party-libraries/index.html</loc>
-    <lastmod>2025-01-07T05:36:36.603Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-count/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.194Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/multithreading-in-python/index.html</loc>
-    <lastmod>2025-01-07T05:52:47.606Z</lastmod>
+    <loc>https://python.muthu.co/posts/pandas-variance/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-global-and-local-variables/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.577Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/categoricals-in-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-metaclasses/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.310Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/finally-block/index.html</loc>
+    <lastmod>2025-01-07T05:31:41.578Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/break-statement/index.html</loc>
     <lastmod>2025-01-07T05:25:21.237Z</lastmod>
   </url>
   <url>
+    <loc>https://python.muthu.co/posts/python-data-analysis-pandas/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.729Z</lastmod>
+  </url>
+  <url>
     <loc>https://python.muthu.co/posts/list-comprehensions/index.html</loc>
     <lastmod>2025-01-07T05:28:32.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-and-cython/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.729Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-slots/index.html</loc>
     <lastmod>2025-01-07T05:49:54.311Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-math-functions/index.html</loc>
+    <loc>https://python.muthu.co/posts/long-to-wide-format/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-encapsulation/index.html</loc>
     <lastmod>2025-01-07T05:36:36.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/dataframe-slicing/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/expanding-window-calculations/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.195Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/concurrency-vs-parallelism/index.html</loc>
@@ -659,6 +1023,14 @@
   <url>
     <loc>https://python.muthu.co/posts/http-with-python-requests/index.html</loc>
     <lastmod>2025-01-07T05:59:19.729Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/pandas-apply-function/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/adding-new-columns-to-dataframe/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/set-methods/index.html</loc>
@@ -673,8 +1045,16 @@
     <lastmod>2025-01-07T05:49:54.313Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/python-serialization-with-pickle/index.html</loc>
-    <lastmod>2025-01-07T05:52:47.607Z</lastmod>
+    <loc>https://python.muthu.co/posts/exporting-data-from-pandas-csv-excel-etc/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.196Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/elif-statement/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-and-big-data-pyspark/index.html</loc>
+    <lastmod>2025-01-07T05:59:19.730Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/python-dunder-methods/index.html</loc>
@@ -685,24 +1065,36 @@
     <lastmod>2025-01-07T05:25:21.235Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/default-arguments/index.html</loc>
-    <lastmod>2025-01-07T05:31:41.580Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-generators-advanced/index.html</loc>
+    <lastmod>2025-01-07T05:49:54.314Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/asyncio-module/index.html</loc>
-    <lastmod>2025-01-07T05:49:54.314Z</lastmod>
+    <loc>https://python.muthu.co/posts/python-logging/index.html</loc>
+    <lastmod>2025-01-07T05:37:14.858Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/writing-data-with-pandas/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.197Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/try-except-block/index.html</loc>
     <lastmod>2025-01-07T05:31:41.580Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/rest-api-development-in-python/index.html</loc>
-    <lastmod>2025-01-07T05:59:19.730Z</lastmod>
+    <loc>https://python.muthu.co/posts/if-statement/index.html</loc>
+    <lastmod>2025-01-07T05:25:21.236Z</lastmod>
   </url>
   <url>
-    <loc>https://python.muthu.co/posts/continue-statement/index.html</loc>
-    <lastmod>2025-01-07T05:25:21.237Z</lastmod>
+    <loc>https://python.muthu.co/posts/creating-multiindex/index.html</loc>
+    <lastmod>2025-01-07T15:38:55.197Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/python-performance-optimization/index.html</loc>
+    <lastmod>2025-01-07T05:37:14.858Z</lastmod>
+  </url>
+  <url>
+    <loc>https://python.muthu.co/posts/opening-files/index.html</loc>
+    <lastmod>2025-01-07T05:36:36.604Z</lastmod>
   </url>
   <url>
     <loc>https://python.muthu.co/posts/class-methods/index.html</loc>

@@ -1,0 +1,92 @@
+---
+title: "Deleting Columns from DataFrame"
+date: "01/23/2024"
+categories: [ pandas ]
+---
+
+
+Pandas is a powerful Python library for data manipulation and analysis.  DataFrames, its core data structure, often require cleaning and restructuring.  A common task is removing unnecessary columns. This post explores various methods for deleting columns from a Pandas DataFrame, providing clear explanations and code examples.
+
+
+## Understanding DataFrames and Column Deletion
+
+Before diving into the methods, let's briefly revisit DataFrames. A DataFrame is a two-dimensional labeled data structure with columns of potentially different types.  Deleting a column permanently alters the DataFrame.  Therefore, it's often advisable to create a copy before performing any column deletion to avoid unintended changes to your original data.
+
+We'll use the following DataFrame for our examples:
+
+```python
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 22, 28],
+        'City': ['New York', 'London', 'Paris', 'Tokyo'],
+        'Salary': [60000, 75000, 55000, 80000]}
+
+df = pd.DataFrame(data)
+print(df)
+```
+
+This will output:
+
+```
+      Name  Age      City  Salary
+0    Alice   25  New York   60000
+1      Bob   30    London   75000
+2  Charlie   22     Paris   55000
+3    David   28     Tokyo   80000
+```
+
+
+## Method 1: Using `del` keyword
+
+The `del` keyword provides a straightforward way to delete a column.  However, it modifies the DataFrame in place.
+
+```python
+df_copy = df.copy()
+
+del df_copy['City']
+print(df_copy)
+```
+
+This removes the 'City' column.
+
+
+## Method 2: Using `pop()` method
+
+The `pop()` method removes a column and returns it as a Series.  This is useful if you need to retain the deleted column for later use.  Like `del`, it modifies the DataFrame in place.
+
+```python
+df_copy = df.copy()
+
+city_column = df_copy.pop('Salary')
+print(df_copy)
+print(city_column)
+```
+
+This removes 'Salary' and prints the remaining DataFrame and the 'Salary' Series.
+
+
+
+## Method 3: Using `drop()` method
+
+The `drop()` method offers more flexibility. It can remove rows or columns, and it allows you to specify an axis (0 for rows, 1 for columns).  Crucially, it doesn't modify the DataFrame in place unless you specify `inplace=True`.
+
+```python
+df_copy = df.copy()
+
+df_copy = df_copy.drop('Age', axis=1)
+print(df_copy)
+
+#Remove multiple columns
+df_copy = df.copy()
+df_copy = df_copy.drop(['Age', 'City'], axis=1)
+print(df_copy)
+
+#Inplace Modification
+df_copy = df.copy()
+df_copy.drop('Name', axis=1, inplace=True)
+print(df_copy)
+```
+
+The `drop()` method is generally preferred for its flexibility and the option to avoid in-place modification.  Remember to always consider whether you need to preserve the original DataFrame.  Using `.copy()`  before performing any column deletion operation is a best practice to ensure data integrity.
+

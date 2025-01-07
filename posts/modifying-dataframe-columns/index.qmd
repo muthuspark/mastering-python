@@ -1,0 +1,146 @@
+---
+title: "Modifying DataFrame Columns"
+date: "07/01/2024"
+categories: [ pandas ]
+---
+
+
+Pandas DataFrames are the workhorses of data manipulation in Python.  Understanding how to efficiently modify DataFrame columns is crucial for any data scientist or analyst. This guide provides a practical walkthrough of various techniques, complete with code examples, to help you become proficient in this essential skill.
+
+##  Renaming Columns
+
+Renaming columns is a fundamental operation.  You can rename individual columns or multiple columns simultaneously.
+
+**Renaming a single column:**
+
+```python
+import pandas as pd
+
+data = {'old_name': [1, 2, 3], 'col2': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+df = df.rename(columns={'old_name': 'new_name'})
+print(df)
+```
+
+**Renaming multiple columns:**
+
+```python
+import pandas as pd
+
+data = {'old_name1': [1, 2, 3], 'old_name2': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+df = df.rename(columns={'old_name1': 'new_name1', 'old_name2': 'new_name2'})
+print(df)
+```
+
+You can also use the `.columns` attribute directly for in-place renaming:
+
+```python
+df.columns = ['name1', 'name2']
+print(df)
+```
+
+
+##  Adding New Columns
+
+Adding new columns is straightforward, whether you're creating them from scratch or deriving them from existing columns.
+
+**Creating a new column with a constant value:**
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+df['new_col'] = 10  #Adds a column filled with 10s
+print(df)
+```
+
+
+**Creating a new column based on existing columns:**
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+df['sum_col'] = df['col1'] + df['col2']
+print(df)
+```
+
+You can apply any function to create new columns:
+
+```python
+df['squared_col1'] = df['col1'].apply(lambda x: x**2)
+print(df)
+```
+
+
+## Modifying Existing Columns
+
+Modifying existing columns involves changing the values within those columns.  This can be done using various methods.
+
+**Modifying using vectorized operations:**
+
+This is the most efficient way to modify large DataFrames.
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+df['col1'] = df['col1'] * 2 #Double the values in 'col1'
+print(df)
+```
+
+**Modifying using `.apply()`:**
+
+The `.apply()` method is useful for applying more complex functions.
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+df['col1'] = df['col1'].apply(lambda x: x * 2 if x > 1 else x) #Conditional modification
+print(df)
+```
+
+**Modifying using `loc`:**
+
+`loc` allows for modifying specific rows and columns based on conditions:
+
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 2, 3], 'col2': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+df.loc[df['col1'] > 1, 'col2'] = 100 #Change col2 where col1 > 1
+print(df)
+```
+
+## Deleting Columns
+
+Removing unnecessary columns keeps your DataFrame clean and efficient.
+
+```python
+import pandas as pd
+
+data = {'col1': [1, 2, 3], 'col2': [4, 5, 6], 'col3':[7,8,9]}
+df = pd.DataFrame(data)
+
+df = df.drop(columns=['col3']) #Drop 'col3' column
+print(df)
+
+```
+
+Using the `inplace=True` argument modifies the DataFrame directly, without creating a copy.  However, this is generally discouraged as it alters your data directly.  Use the above method to produce a new modified DataFrame, this keeps your workflow safer and easier to debug.
+
