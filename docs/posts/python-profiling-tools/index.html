@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-10-19">
 
-<title>About – Mastering Python</title>
+<title>Python Profiling Tools – Mastering Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6ea9c6420bca81aafdcd2eff8704c72b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6ea9c6420bca81aafdcd2eff8704c72b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,23 +103,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="About – Mastering Python">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Python Profiling Tools – Mastering Python">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://python.muthu.co/profile.png">
 <meta property="og:site_name" content="Mastering Python">
-<meta property="og:image:height" content="491">
-<meta property="og:image:width" content="465">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Mastering Python</span>
     </a>
   </div>
@@ -94,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -115,46 +148,127 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Python Profiling Tools</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">advanced</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 19, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#understanding-the-need-for-profiling" id="toc-understanding-the-need-for-profiling" class="nav-link active" data-scroll-target="#understanding-the-need-for-profiling">Understanding the Need for Profiling</a></li>
+  <li><a href="#cprofile-the-built-in-champion" id="toc-cprofile-the-built-in-champion" class="nav-link" data-scroll-target="#cprofile-the-built-in-champion">cProfile: The Built-in Champion</a></li>
+  <li><a href="#line_profiler-line-by-line-accuracy" id="toc-line_profiler-line-by-line-accuracy" class="nav-link" data-scroll-target="#line_profiler-line-by-line-accuracy">line_profiler: Line-by-Line Accuracy</a></li>
+  <li><a href="#memory_profiler-tracking-memory-usage" id="toc-memory_profiler-tracking-memory-usage" class="nav-link" data-scroll-target="#memory_profiler-tracking-memory-usage">memory_profiler: Tracking Memory Usage</a></li>
+  <li><a href="#scalene-cpu-gpu-and-memory-profiling-combined" id="toc-scalene-cpu-gpu-and-memory-profiling-combined" class="nav-link" data-scroll-target="#scalene-cpu-gpu-and-memory-profiling-combined">Scalene: CPU, GPU, and Memory Profiling Combined</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.png" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>I’m Muthukrishnan, currently working as an Engineering Manager as Sanas AI Inc.&nbsp;I have over 16 years of experience in building scalable SaaS applications from the ground up. Throughout my career, I’ve had the privilege of working in dynamic environments, from startups to established enterprises, contributing to the growth and success of each. As a hands-on leader, I’ve built and scaled applications that have grown from hundreds of users to millions, and I have filed about five patents. These patents cover a range of technologies, from optical character recognition (OCR) to systems for cross-application walkthroughs and UI element retrieval.</p>
-<p>In my previous role at Whatfix, I’m proud to have architected and launched the Desktop business, which now generates over $2 million in revenue. I built the team from scratch, guiding them to deliver innovative solutions that address real-world challenges. In addition to my leadership role, I remain an individual contributor, often running proof of concepts for potential revenue-generating features.</p>
-<p>My expertise extends across system design, software architecture, and various programming languages like Java, JavaScript, and Python. I’m deeply committed to process optimization and fostering an agile culture that drives efficiency and quality.</p>
-<p>Having been a startup founder myself, I understand the nuances of growing a business, and I’ve played a key role in helping two startups scale from early-stage development to Series A and beyond. This blend of technical know-how and entrepreneurial experience fuels my drive to build products that not only solve problems but also create value for businesses and users alike.</p>
-<p>When I’m not working, I enjoy sharing my insights with the world through writing on my blog. You can always reach out to me via LinkedIn, my blog, or GitHub for a conversation about technology, engineering management, or the future of SaaS.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com/krimuthu" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://linkedin.com/in/krimuthu" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/muthuspark" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+
+
+<p>Python’s elegance and readability often come at the cost of performance if not carefully managed. Understanding where your code spends its time is crucial for optimization. That’s where Python profiling tools step in, providing invaluable insights into your application’s bottlenecks. This post will explore some of the most popular and effective profiling methods available in Python.</p>
+<section id="understanding-the-need-for-profiling" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-need-for-profiling">Understanding the Need for Profiling</h2>
+<p>Before diving into the tools, let’s understand why profiling is essential. Imagine you’ve written a program, and it’s running slower than expected. Manually searching for performance issues is inefficient and prone to errors. Profiling offers a systematic approach: it pinpoints the functions or code sections consuming the most execution time, allowing you to focus your optimization efforts where they’ll have the greatest impact.</p>
+</section>
+<section id="cprofile-the-built-in-champion" class="level2">
+<h2 class="anchored" data-anchor-id="cprofile-the-built-in-champion">cProfile: The Built-in Champion</h2>
+<p>Python’s standard library includes <code>cProfile</code>, a powerful and versatile profiler. It’s readily available, requiring no external dependencies. <code>cProfile</code> provides detailed statistics, including the number of calls, total time spent, and time per call for each function.</p>
+<p>Let’s look at a simple example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cProfile</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(n):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  time.sleep(<span class="fl">0.1</span>)  <span class="co"># Simulate some work</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  result <span class="op">=</span> <span class="bu">sum</span>(i <span class="op">*</span> i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> result</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cProfile.run(<span class="st">'my_function(1000000)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Running this code generates a report showing the time spent in <code>my_function</code> and its internal components. The output can be quite verbose, but it provides a detailed breakdown. For larger projects, redirecting the output to a file is recommended:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cProfile</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pstats</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>cProfile.run(<span class="st">'my_function(1000000)'</span>, <span class="st">'profile_results'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pstats.Stats(<span class="st">'profile_results'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>p.sort_stats(<span class="st">'cumulative'</span>).print_stats(<span class="dv">20</span>) <span class="co"># Shows top 20 functions by cumulative time.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="line_profiler-line-by-line-accuracy" class="level2">
+<h2 class="anchored" data-anchor-id="line_profiler-line-by-line-accuracy">line_profiler: Line-by-Line Accuracy</h2>
+<p>While <code>cProfile</code> provides function-level detail, <code>line_profiler</code> goes further. It profiles your code line by line, revealing precisely where within functions the most time is spent. This level of granularity is invaluable for fine-tuning performance.</p>
+<p>First, install <code>line_profiler</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install line_profiler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, decorate the function you want to profile with <code>@profile</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@profile</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(n):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  result <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    result <span class="op">+=</span> i <span class="op">*</span> i</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> result</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>my_function(<span class="dv">1000000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run the script using <code>kernprof</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kernprof</span> <span class="at">-l</span> <span class="at">-v</span> your_script.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will generate a detailed line-by-line profile report.</p>
+</section>
+<section id="memory_profiler-tracking-memory-usage" class="level2">
+<h2 class="anchored" data-anchor-id="memory_profiler-tracking-memory-usage">memory_profiler: Tracking Memory Usage</h2>
+<p>Besides execution time, memory usage is another critical performance factor. The <code>memory_profiler</code> package helps you identify functions consuming excessive memory. Installation is similar to <code>line_profiler</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install memory_profiler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Usage involves the <code>@profile</code> decorator (similar to <code>line_profiler</code>) but requires a slightly different invocation:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@profile</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> memory_intensive_function(n):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> [i <span class="op">*</span> i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)] <span class="co"># Create large list</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>memory_intensive_function(<span class="dv">1000000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run this using:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> memory_profiler your_script.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This generates a report detailing memory consumption line by line.</p>
+</section>
+<section id="scalene-cpu-gpu-and-memory-profiling-combined" class="level2">
+<h2 class="anchored" data-anchor-id="scalene-cpu-gpu-and-memory-profiling-combined">Scalene: CPU, GPU, and Memory Profiling Combined</h2>
+<p>Scalene offers a unique advantage, combining CPU, GPU, and memory profiling into a single tool. It provides insights into CPU usage, memory allocations, and even GPU utilization (if applicable). It’s a powerful option for more complex applications and is especially helpful when dealing with libraries that utilize GPUs.</p>
+<p>Install it with:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scalene</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then simply run your script with Scalene:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">scalene</span> your_script.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Scalene outputs detailed reports across all monitored aspects.</p>
+<p>This post covered several Python profiling tools catering to different needs. By incorporating these tools into your workflow, you can significantly enhance your Python code’s performance and maintainability.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -175,6 +289,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

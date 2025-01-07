@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-03-31">
 
-<title>About – Mastering Python</title>
+<title>Python and Cython – Mastering Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6ea9c6420bca81aafdcd2eff8704c72b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6ea9c6420bca81aafdcd2eff8704c72b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,23 +103,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="About – Mastering Python">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Python and Cython – Mastering Python">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://python.muthu.co/profile.png">
 <meta property="og:site_name" content="Mastering Python">
-<meta property="og:image:height" content="491">
-<meta property="og:image:width" content="465">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Mastering Python</span>
     </a>
   </div>
@@ -94,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -115,46 +148,140 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Python and Cython</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">advanced</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 31, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-cython" id="toc-what-is-cython" class="nav-link active" data-scroll-target="#what-is-cython">What is Cython?</a></li>
+  <li><a href="#why-use-cython" id="toc-why-use-cython" class="nav-link" data-scroll-target="#why-use-cython">Why Use Cython?</a></li>
+  <li><a href="#a-simple-cython-example" id="toc-a-simple-cython-example" class="nav-link" data-scroll-target="#a-simple-cython-example">A Simple Cython Example</a></li>
+  <li><a href="#working-with-numpy-arrays" id="toc-working-with-numpy-arrays" class="nav-link" data-scroll-target="#working-with-numpy-arrays">Working with NumPy Arrays</a></li>
+  <li><a href="#beyond-the-basics" id="toc-beyond-the-basics" class="nav-link" data-scroll-target="#beyond-the-basics">Beyond the Basics</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.png" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>I’m Muthukrishnan, currently working as an Engineering Manager as Sanas AI Inc.&nbsp;I have over 16 years of experience in building scalable SaaS applications from the ground up. Throughout my career, I’ve had the privilege of working in dynamic environments, from startups to established enterprises, contributing to the growth and success of each. As a hands-on leader, I’ve built and scaled applications that have grown from hundreds of users to millions, and I have filed about five patents. These patents cover a range of technologies, from optical character recognition (OCR) to systems for cross-application walkthroughs and UI element retrieval.</p>
-<p>In my previous role at Whatfix, I’m proud to have architected and launched the Desktop business, which now generates over $2 million in revenue. I built the team from scratch, guiding them to deliver innovative solutions that address real-world challenges. In addition to my leadership role, I remain an individual contributor, often running proof of concepts for potential revenue-generating features.</p>
-<p>My expertise extends across system design, software architecture, and various programming languages like Java, JavaScript, and Python. I’m deeply committed to process optimization and fostering an agile culture that drives efficiency and quality.</p>
-<p>Having been a startup founder myself, I understand the nuances of growing a business, and I’ve played a key role in helping two startups scale from early-stage development to Series A and beyond. This blend of technical know-how and entrepreneurial experience fuels my drive to build products that not only solve problems but also create value for businesses and users alike.</p>
-<p>When I’m not working, I enjoy sharing my insights with the world through writing on my blog. You can always reach out to me via LinkedIn, my blog, or GitHub for a conversation about technology, engineering management, or the future of SaaS.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com/krimuthu" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://linkedin.com/in/krimuthu" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/muthuspark" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+
+
+<p>Python’s ease of use and readability make it a favorite for many programmers. However, when performance becomes critical, Python’s interpreted nature can be a bottleneck. This is where Cython steps in, offering a powerful solution to bridge the gap between Python’s ease of development and the speed of compiled languages like C.</p>
+<section id="what-is-cython" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-cython">What is Cython?</h2>
+<p>Cython is a superset of Python that allows you to write C extensions for Python. It compiles your code (which looks largely like Python) into C, leveraging the speed of compiled languages while retaining much of Python’s syntax and ease of development. This means you can write performance-critical sections of your code in a language that’s almost Python, gaining significant speed improvements without completely rewriting everything in C or C++.</p>
+</section>
+<section id="why-use-cython" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-cython">Why Use Cython?</h2>
+<p>Python’s Global Interpreter Lock (GIL) limits true parallelism in multithreaded applications. While multiprocessing can overcome this, it adds complexity. Cython allows you to bypass the GIL in certain scenarios, enabling more efficient multithreading for CPU-bound tasks.</p>
+<p>Another key benefit is the ability to interact directly with C libraries. If you need to use existing C or C++ code, Cython provides a seamless way to integrate it into your Python project without sacrificing speed.</p>
+</section>
+<section id="a-simple-cython-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-cython-example">A Simple Cython Example</h2>
+<p>Let’s compare a pure Python function with its Cython equivalent:</p>
+<p><strong>Python (pure Python):</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> py_sum_squares(n):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> i<span class="op">*</span>i</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(py_sum_squares(<span class="dv">1000000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Cython (.pyx file):</strong></p>
+<pre class="cython"><code>def cy_sum_squares(int n):
+    cdef int i
+    cdef long long total = 0  # Specify data types for optimization
+    for i in range(n):
+        total += i*i
+    return total</code></pre>
+<p>To compile the Cython code:</p>
+<ol type="1">
+<li>Save the Cython code as <code>sum_squares.pyx</code>.</li>
+<li>Create a <code>setup.py</code> file:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> setuptools <span class="im">import</span> setup</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Cython.Build <span class="im">import</span> cythonize</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>setup(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    ext_modules <span class="op">=</span> cythonize(<span class="st">"sum_squares.pyx"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Run <code>python setup.py build_ext --inplace</code> in your terminal. This will generate a <code>.so</code> (or <code>.pyd</code> on Windows) file containing the compiled Cython code.</li>
+</ol>
+<p>Now you can import and use the Cython function in your Python code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sum_squares</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sum_squares.cy_sum_squares(<span class="dv">1000000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’ll likely observe a substantial speed improvement with the Cython version, especially for larger values of <code>n</code>. The key here is specifying data types (<code>cdef int i</code>, <code>cdef long long total</code>) in the Cython code, which allows Cython to generate much more efficient C code.</p>
+</section>
+<section id="working-with-numpy-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-numpy-arrays">Working with NumPy Arrays</h2>
+<p>Cython shines when working with NumPy arrays. Direct access to array elements without the overhead of Python’s indexing mechanisms yields dramatic speed boosts.</p>
+<p><strong>Python (using NumPy):</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> py_numpy_sum(arr):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(arr)):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> arr[i]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">1000000</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(py_numpy_sum(arr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Cython (using NumPy):</strong></p>
+<pre class="cython"><code>import numpy as np
+cimport numpy as np
+
+def cy_numpy_sum(np.ndarray[np.int64_t] arr): # Specify NumPy array type
+    cdef long long total = 0
+    cdef int i
+    cdef int n = arr.shape[0]
+    for i in range(n):
+        total += arr[i]
+    return total
+
+arr = np.arange(1000000, dtype=np.int64)
+print(cy_numpy_sum(arr))</code></pre>
+<p>Again, compile this using the same <code>setup.py</code> method as before. The Cython version will significantly outperform the pure Python version when dealing with large NumPy arrays. The type declaration <code>np.ndarray[np.int64_t] arr</code> is crucial for optimization.</p>
+</section>
+<section id="beyond-the-basics" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-the-basics">Beyond the Basics</h2>
+<p>This post covers the fundamentals. Cython’s capabilities extend far beyond these simple examples, including memory management techniques, working with C++ code, and more advanced optimization strategies. Exploring its documentation will unlock its full potential for accelerating your Python projects.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -175,6 +302,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

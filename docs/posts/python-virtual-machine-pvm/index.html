@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-08-11">
 
-<title>About – Mastering Python</title>
+<title>Python Virtual Machine (PVM) – Mastering Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6ea9c6420bca81aafdcd2eff8704c72b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6ea9c6420bca81aafdcd2eff8704c72b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,23 +103,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="About – Mastering Python">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Python Virtual Machine (PVM) – Mastering Python">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://python.muthu.co/profile.png">
 <meta property="og:site_name" content="Mastering Python">
-<meta property="og:image:height" content="491">
-<meta property="og:image:width" content="465">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Mastering Python</span>
     </a>
   </div>
@@ -94,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -115,46 +148,117 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Python Virtual Machine (PVM)</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">advanced</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 11, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-the-python-virtual-machine" id="toc-what-is-the-python-virtual-machine" class="nav-link active" data-scroll-target="#what-is-the-python-virtual-machine">What is the Python Virtual Machine?</a></li>
+  <li><a href="#bytecode-the-pvms-fuel" id="toc-bytecode-the-pvms-fuel" class="nav-link" data-scroll-target="#bytecode-the-pvms-fuel">Bytecode: The PVM’s Fuel</a></li>
+  <li><a href="#the-pvms-architecture-a-simplified-view" id="toc-the-pvms-architecture-a-simplified-view" class="nav-link" data-scroll-target="#the-pvms-architecture-a-simplified-view">The PVM’s Architecture: A Simplified View</a></li>
+  <li><a href="#understanding-the-stack-with-examples" id="toc-understanding-the-stack-with-examples" class="nav-link" data-scroll-target="#understanding-the-stack-with-examples">Understanding the Stack with Examples</a></li>
+  <li><a href="#optimizations-within-the-pvm" id="toc-optimizations-within-the-pvm" class="nav-link" data-scroll-target="#optimizations-within-the-pvm">Optimizations within the PVM</a></li>
+  <li><a href="#exploring-the-pvm-further" id="toc-exploring-the-pvm-further" class="nav-link" data-scroll-target="#exploring-the-pvm-further">Exploring the PVM Further</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.png" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>I’m Muthukrishnan, currently working as an Engineering Manager as Sanas AI Inc.&nbsp;I have over 16 years of experience in building scalable SaaS applications from the ground up. Throughout my career, I’ve had the privilege of working in dynamic environments, from startups to established enterprises, contributing to the growth and success of each. As a hands-on leader, I’ve built and scaled applications that have grown from hundreds of users to millions, and I have filed about five patents. These patents cover a range of technologies, from optical character recognition (OCR) to systems for cross-application walkthroughs and UI element retrieval.</p>
-<p>In my previous role at Whatfix, I’m proud to have architected and launched the Desktop business, which now generates over $2 million in revenue. I built the team from scratch, guiding them to deliver innovative solutions that address real-world challenges. In addition to my leadership role, I remain an individual contributor, often running proof of concepts for potential revenue-generating features.</p>
-<p>My expertise extends across system design, software architecture, and various programming languages like Java, JavaScript, and Python. I’m deeply committed to process optimization and fostering an agile culture that drives efficiency and quality.</p>
-<p>Having been a startup founder myself, I understand the nuances of growing a business, and I’ve played a key role in helping two startups scale from early-stage development to Series A and beyond. This blend of technical know-how and entrepreneurial experience fuels my drive to build products that not only solve problems but also create value for businesses and users alike.</p>
-<p>When I’m not working, I enjoy sharing my insights with the world through writing on my blog. You can always reach out to me via LinkedIn, my blog, or GitHub for a conversation about technology, engineering management, or the future of SaaS.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com/krimuthu" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://linkedin.com/in/krimuthu" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/muthuspark" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+
+
+<p>Python’s elegance and readability are often lauded, but behind the scenes lies a powerful engine: the Python Virtual Machine (PVM). Understanding the PVM is crucial for writing efficient and optimized Python code. This post will delve into the PVM’s architecture and functionality, using code examples to illustrate key concepts.</p>
+<section id="what-is-the-python-virtual-machine" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-python-virtual-machine">What is the Python Virtual Machine?</h2>
+<p>The PVM is an interpreter that executes Python bytecode. When you write Python code and run it, the source code is first compiled into bytecode – a lower-level set of instructions understood by the PVM. This bytecode is then executed by the PVM, translating the instructions into machine-level code that your computer’s processor can understand and execute. This approach provides platform independence: the same Python bytecode can run on various operating systems without modification.</p>
+</section>
+<section id="bytecode-the-pvms-fuel" class="level2">
+<h2 class="anchored" data-anchor-id="bytecode-the-pvms-fuel">Bytecode: The PVM’s Fuel</h2>
+<p>Let’s look at a simple Python function and its corresponding bytecode:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(a, b):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dis</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dis.dis(my_function)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Running this code will output the bytecode instructions. You’ll see instructions like <code>LOAD_FAST</code>, <code>BINARY_ADD</code>, and <code>RETURN_VALUE</code>. These are low-level operations the PVM understands and executes sequentially. The <code>dis</code> module is invaluable for inspecting bytecode.</p>
+<pre><code>  2           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 BINARY_ADD
+              6 RETURN_VALUE</code></pre>
+</section>
+<section id="the-pvms-architecture-a-simplified-view" class="level2">
+<h2 class="anchored" data-anchor-id="the-pvms-architecture-a-simplified-view">The PVM’s Architecture: A Simplified View</h2>
+<p>The PVM isn’t a single monolithic entity; it’s a complex system with several interacting components. A simplified view includes:</p>
+<ul>
+<li><strong>Bytecode Interpreter:</strong> The core component responsible for fetching, decoding, and executing bytecode instructions.</li>
+<li><strong>Stack:</strong> A Last-In, First-Out (LIFO) data structure used to manage operands and results during execution.</li>
+<li><strong>Heap:</strong> The memory area where objects are stored.</li>
+<li><strong>Garbage Collector:</strong> Automatically reclaims memory occupied by objects that are no longer in use, preventing memory leaks.</li>
+</ul>
+</section>
+<section id="understanding-the-stack-with-examples" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-stack-with-examples">Understanding the Stack with Examples</h2>
+<p>Let’s illustrate how the stack operates during execution:</p>
+<p>Consider the following code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x <span class="op">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When the PVM executes <code>x + y</code>, the following happens (simplified):</p>
+<ol type="1">
+<li><code>LOAD_FAST</code> pushes <code>x</code> (value 10) onto the stack.</li>
+<li><code>LOAD_FAST</code> pushes <code>y</code> (value 5) onto the stack.</li>
+<li><code>BINARY_ADD</code> pops <code>x</code> and <code>y</code> from the stack, adds them, and pushes the result (15) onto the stack.</li>
+<li><code>STORE_FAST</code> pops the result (15) from the stack and assigns it to <code>z</code>.</li>
+</ol>
+<p>This simple example showcases the stack’s crucial role in managing data flow within the PVM.</p>
+</section>
+<section id="optimizations-within-the-pvm" class="level2">
+<h2 class="anchored" data-anchor-id="optimizations-within-the-pvm">Optimizations within the PVM</h2>
+<p>Modern Python implementations employ various optimization techniques to enhance performance. These include:</p>
+<ul>
+<li><strong>Just-In-Time (JIT) compilation:</strong> Compiling frequently executed bytecode into native machine code for speed improvements (e.g., PyPy).</li>
+<li><strong>Bytecode caching:</strong> Storing compiled bytecode to avoid recompilation on subsequent runs (<code>.pyc</code> files).</li>
+<li><strong>Specialized instructions:</strong> Optimized instructions for common operations.</li>
+</ul>
+</section>
+<section id="exploring-the-pvm-further" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-the-pvm-further">Exploring the PVM Further</h2>
+<p>This post only scratches the surface of the PVM’s complexities. Further exploration can involve studying the CPython source code (the most common Python implementation), using profiling tools to analyze code execution, and experimenting with different Python implementations like PyPy. Understanding the PVM empowers developers to write more efficient and performant Python code, leveraging the underlying mechanisms for optimal results.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -175,6 +279,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
