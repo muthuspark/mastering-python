@@ -4,10 +4,6 @@ date: "10/28/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone of data manipulation in Python, offering powerful tools for data cleaning, transformation, and analysis.  But what happens when your data contains messy strings, inconsistent formats, or unwanted characters? This is where regular expressions (regex or regexp) come in, providing a flexible and efficient way to search, match, and manipulate text patterns within your Pandas DataFrames.  This post will explore how to effectively combine the power of Pandas with the precision of regular expressions.
-
-
 ##  The Basics:  Regex and Pandas Integration
 
 Regular expressions are sequences of characters defining a search pattern.  Pandas integrates seamlessly with regex through various string methods within its Series and DataFrame objects. The most common method is `.str.contains()`, which allows you to check if a string contains a particular pattern.
@@ -73,7 +69,7 @@ This example uses `.str.replace()` to remove the dollar sign and then extracts t
 
 ##  Advanced Techniques:  Multiple Patterns and Lookarounds
 
-For more complex scenarios, you can leverage more advanced regex features within Pandas.  For instance, you can use lookarounds to match patterns based on context without including them in the match itself.
+For more complex scenarios, you can use more advanced regex features within Pandas.  For instance, you can use lookarounds to match patterns based on context without including them in the match itself.
 
 
 ```python

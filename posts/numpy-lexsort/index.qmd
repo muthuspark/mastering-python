@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy's `lexsort` function offers a powerful way to sort arrays based on multiple sorting keys. Unlike the standard `sort` function which only sorts along a single axis, `lexsort` allows for sophisticated multi-level sorting, mirroring the behavior of lexicographical sorting used in dictionaries or text processing.  This post will delve into the intricacies of `lexsort`, providing clear explanations and practical examples.
+NumPy's `lexsort` function offers a powerful way to sort arrays based on multiple sorting keys. Unlike the standard `sort` function which only sorts along a single axis, `lexsort` allows for sophisticated multi-level sorting, mirroring the behavior of lexicographical sorting used in dictionaries or text processing.  This post will look into the intricacies of `lexsort`, providing clear explanations and practical examples.
 
 
 ## Understanding Lexicographical Sorting

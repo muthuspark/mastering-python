@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, known for its readability and versatility, offers powerful tools for managing the structure and integrity of your code.  One of the key principles of object-oriented programming (OOP) that significantly improves code organization and maintainability is **encapsulation**.  This post will delve into the concept of encapsulation in Python and demonstrate its practical application with clear examples.
+Python, known for its readability and versatility, offers powerful tools for managing the structure and integrity of your code.  One of the key principles of object-oriented programming (OOP) that significantly improves code organization and maintainability is **encapsulation**.  This post will look into the concept of encapsulation in Python and demonstrate its practical application with clear examples.
 
 
 ## What is Encapsulation?

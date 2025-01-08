@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python's conditional statements are fundamental building blocks for creating dynamic and responsive programs. They allow your code to make decisions based on different conditions, executing specific blocks of code only when certain criteria are met. This post will delve into the core conditional statements: `if`, `elif` (else if), and `else`, providing clear explanations and practical examples.
+Python's conditional statements are fundamental building blocks for creating dynamic and responsive programs. They allow your code to make decisions based on different conditions, executing specific blocks of code only when certain criteria are met. This post will look into the core conditional statements: `if`, `elif` (else if), and `else`, providing clear explanations and practical examples.
 
 
 ## The `if` Statement: The Foundation of Decision-Making

@@ -191,8 +191,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#understanding-dataframes" id="toc-understanding-dataframes" class="nav-link active" data-scroll-target="#understanding-dataframes">Understanding DataFrames</a></li>
-  <li><a href="#accessing-data-the-basics" id="toc-accessing-data-the-basics" class="nav-link" data-scroll-target="#accessing-data-the-basics">Accessing Data: The Basics</a>
+  <li><a href="#accessing-data-the-basics" id="toc-accessing-data-the-basics" class="nav-link active" data-scroll-target="#accessing-data-the-basics">Accessing Data: The Basics</a>
   <ul class="collapse">
   <li><a href="#using-.loc-for-label-based-indexing" id="toc-using-.loc-for-label-based-indexing" class="nav-link" data-scroll-target="#using-.loc-for-label-based-indexing">1. Using <code>.loc</code> for label-based indexing:</a></li>
   <li><a href="#using-.iloc-for-integer-based-indexing" id="toc-using-.iloc-for-integer-based-indexing" class="nav-link" data-scroll-target="#using-.iloc-for-integer-based-indexing">2. Using <code>.iloc</code> for integer-based indexing:</a></li>
@@ -210,11 +209,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>DataFrame indexing is a fundamental skill for anyone working with data in Python using the powerful Pandas library. Understanding how to access and manipulate data within a DataFrame efficiently is crucial for data analysis, cleaning, and manipulation. This post will delve into the various methods of DataFrame indexing, providing clear explanations and practical code examples.</p>
-<section id="understanding-dataframes" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-dataframes">Understanding DataFrames</h2>
-<p>Before diving into indexing, let’s briefly revisit what a Pandas DataFrame is. A DataFrame is a two-dimensional labeled data structure with columns of potentially different types. Think of it as a table, similar to what you’d find in a spreadsheet or SQL database. Each column represents a variable, and each row represents an observation.</p>
-</section>
 <section id="accessing-data-the-basics" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-data-the-basics">Accessing Data: The Basics</h2>
 <p>Pandas offers several ways to access data within a DataFrame. The most common methods are using labels (column names and row indices) and integer-based location.</p>
@@ -291,7 +285,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.at[<span class="st">'B'</span>, <span class="st">'col2'</span>])  <span class="co"># Output: 5</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.iat[<span class="dv">1</span>, <span class="dv">1</span>])       <span class="co"># Output: 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>These examples demonstrate the core methods for DataFrame indexing. Choosing the right method depends on your specific needs and how you want to interact with your data. Remember, clarity and readability are paramount; choose the method that best expresses your intent.</p>
 
 
 </section>

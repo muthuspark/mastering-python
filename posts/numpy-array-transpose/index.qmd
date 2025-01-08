@@ -5,9 +5,6 @@ categories: [ numpy ]
 ---
 
 
-NumPy, the cornerstone of numerical computing in Python, provides powerful tools for array manipulation.  Among these, the array transpose stands out as a fundamental operation with wide-ranging applications in data science, machine learning, and linear algebra.  This post dives deep into understanding and utilizing NumPy's array transpose functionality, offering clear explanations and practical code examples.
-
-
 ## What is Array Transpose?
 
 In simple terms, transposing an array swaps its rows and columns.  If you have a matrix (a 2-dimensional array), the transpose flips it along its main diagonal.  The element at row `i` and column `j` in the original array will be at row `j` and column `i` in the transposed array.

@@ -22,7 +22,7 @@ Several Python libraries facilitate database interaction.  The most prominent in
 
 * **`sqlite3`:**  A built-in library for working with SQLite, a lightweight embedded database.  Perfect for smaller applications or prototyping.
 * **`psycopg2`:**  A popular PostgreSQL adapter offering robust features and performance.
-* **`mysql.connector`:**  Connects to MySQL databases, providing a comprehensive interface for various operations.
+* **`mysql.connector`:**  Connects to MySQL databases, providing a  interface for various operations.
 
 Let's explore `sqlite3` with some examples:
 

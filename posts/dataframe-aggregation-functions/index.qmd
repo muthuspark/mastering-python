@@ -4,9 +4,6 @@ date: "08/06/2024"
 categories: [ pandas ]
 ---
 
-
-Pandas DataFrames are a cornerstone of data manipulation in Python.  One of their most powerful features lies in their aggregation functions, allowing you to summarize and analyze data efficiently. This post will explore various aggregation functions, providing clear explanations and practical code examples.
-
 ## What are Aggregation Functions?
 
 Aggregation functions perform calculations on a DataFrame, reducing multiple values into a single summarized value. This is invaluable for tasks like calculating sums, means, medians, and more across rows or columns.  They help you gain insights quickly from large datasets without needing to manually iterate through each row or column.

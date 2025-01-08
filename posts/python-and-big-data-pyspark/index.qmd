@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's versatility extends far beyond scripting and web development.  It's become a powerhouse in the realm of Big Data, largely thanks to **PySpark**. This blog post will explore the synergy between Python and PySpark, showcasing how you can leverage this powerful combination to tackle massive datasets efficiently.
+Python's versatility extends far beyond scripting and web development.  It's become a powerhouse in the realm of Big Data, largely thanks to **PySpark**. This blog post will explore the synergy between Python and PySpark, showcasing how you can use this powerful combination to tackle massive datasets efficiently.
 
 ## Why Python and PySpark?
 

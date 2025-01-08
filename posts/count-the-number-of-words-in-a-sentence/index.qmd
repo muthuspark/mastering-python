@@ -40,7 +40,7 @@ This code utilizes `re.findall()` to find all sequences of one or more alphanume
 
 ## Method 3:  Using the `nltk` library (for advanced NLP tasks)
 
-For more advanced NLP tasks, the `nltk` library provides comprehensive tools, including tokenization.  `nltk` requires installation (`pip install nltk`).  You might also need to download the necessary resources.
+For more advanced NLP tasks, the `nltk` library provides tools, including tokenization.  `nltk` requires installation (`pip install nltk`).  You might also need to download the necessary resources.
 
 ```python
 import nltk

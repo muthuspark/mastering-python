@@ -4,10 +4,6 @@ date: "11/25/2024"
 categories: [ advanced ]
 ---
 
-
-Python function decorators are a powerful and expressive feature that allows you to modify or enhance functions in a clean and readable way.  They provide a concise syntax for wrapping additional functionality around an existing function without modifying its core behavior.  This guide will walk you through the fundamentals of decorators, illustrating their usage with practical examples.
-
-
 ## Understanding the Basics
 
 At its core, a decorator is a function that takes another function as input and returns a modified version of that function.  This modification can involve adding functionality before, after, or even around the original function's execution.
@@ -110,10 +106,3 @@ add(5, 3)
 ```
 
 Note the use of `functools.wraps`. This is crucial for preserving the original function's metadata (like name and docstring) after decoration.  Without it, the decorated function would lose its original identity.
-
-
-##  Beyond the Basics: Class Decorators
-
-
-Python also supports class decorators, allowing you to apply decorators to classes.  This opens up even more possibilities for modifying class behavior.  We'll delve into that in a future post.
-

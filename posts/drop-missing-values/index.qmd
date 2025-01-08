@@ -5,8 +5,6 @@ categories: [ pandas ]
 ---
 
 
-Missing data is a common problem in data science.  Dealing with it effectively is crucial for building accurate and reliable models. One of the simplest approaches is to drop rows or columns containing missing values.  This method, while straightforward, can lead to data loss, so it's important to understand when it's appropriate and how to implement it effectively in Python using Pandas.
-
 ## Understanding Missing Data in Pandas
 
 Pandas, a powerful Python library for data manipulation and analysis, represents missing data using `NaN` (Not a Number).  Before dropping missing values, it's essential to identify them.  You can do this using methods like `.isnull()` and `.isna()` which both produce boolean masks indicating the location of missing values.

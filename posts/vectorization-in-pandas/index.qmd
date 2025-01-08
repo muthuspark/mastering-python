@@ -4,12 +4,9 @@ date: "11/11/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone of any Python data scientist's toolkit.  Its ability to handle large datasets efficiently is largely thanks to **vectorization**.  Understanding and leveraging vectorization is crucial for writing clean, readable, and *fast* Pandas code.  This post will explore what vectorization is, why it's important, and how to effectively use it within your Pandas workflows.
-
 ## What is Vectorization?
 
-In simple terms, vectorization is the process of applying operations to entire arrays (like Pandas Series or DataFrames) at once, rather than iterating through individual elements.  This allows Pandas to leverage optimized libraries written in languages like C, resulting in significant speed improvements, especially when dealing with large datasets.
+In simple terms, vectorization is the process of applying operations to entire arrays (like Pandas Series or DataFrames) at once, rather than iterating through individual elements.  This allows Pandas to use optimized libraries written in languages like C, resulting in significant speed improvements, especially when dealing with large datasets.
 
 Let's contrast vectorized operations with traditional loops:
 

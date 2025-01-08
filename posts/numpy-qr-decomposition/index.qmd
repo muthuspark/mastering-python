@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy's `qr` function provides a powerful tool for linear algebra tasks, offering a stable and efficient way to compute the QR decomposition of a matrix.  Understanding and utilizing QR decomposition can significantly improve the performance and robustness of your Python numerical computations. This post will delve into the details of NumPy's QR decomposition, providing clear explanations and practical code examples.
+NumPy's `qr` function provides a powerful tool for linear algebra tasks, offering a stable and efficient way to compute the QR decomposition of a matrix.  Understanding and utilizing QR decomposition can significantly improve the performance and robustness of your Python numerical computations. This post will look into the details of NumPy's QR decomposition, providing clear explanations and practical code examples.
 
 ## What is QR Decomposition?
 

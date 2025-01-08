@@ -4,9 +4,6 @@ date: "05/20/2024"
 categories: [ basic ]
 ---
 
-
-Polymorphism, a cornerstone of object-oriented programming (OOP), allows you to treat objects of different classes in a uniform way.  In simpler terms, it's the ability of an object to take on many forms. Python, being a dynamically typed language, supports polymorphism implicitly and explicitly, making it a powerful tool for writing flexible and reusable code.
-
 ## Polymorphism in Action: Duck Typing
 
 Python employs a style of polymorphism known as "duck typing."  This means that the type or class of an object is less important than whether it *behaves* in the expected way. If it walks like a duck and quacks like a duck, then it must be a duck!

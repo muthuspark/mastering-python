@@ -64,7 +64,7 @@ Here, the `mapping` dictionary replaces each category with its corresponding des
 
 ## map() with a Series
 
-You can also use another Series as a mapping, provided it has a suitable index.  This offers a powerful way to leverage existing data structures for transformations.
+You can also use another Series as a mapping, provided it has a suitable index.  This offers a powerful way to use existing data structures for transformations.
 
 ```python
 data1 = {'codes': ['X1', 'Y2', 'Z3']}

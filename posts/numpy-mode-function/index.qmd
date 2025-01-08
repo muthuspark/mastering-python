@@ -4,16 +4,13 @@ date: "06/26/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a rich array of functions to manipulate and analyze data. Among these, the `mode()` function stands out as a valuable tool for identifying the most frequent value(s) within a dataset – a crucial step in descriptive statistics and data exploration.  This post dives deep into NumPy's `mode()` function, explaining its functionality, usage, and providing illustrative examples to solidify your understanding.
-
 ## What is the Mode?
 
 In statistics, the mode represents the value that appears most frequently in a dataset.  Unlike the mean (average) and median (middle value), the mode can be applied to both numerical and categorical data. A dataset can have one mode (unimodal), two modes (bimodal), or more (multimodal). If all values appear with the same frequency, the dataset is considered to have no mode.
 
 ## NumPy's `mode()` Function: A Deep Dive
 
-NumPy doesn't directly provide a built-in `mode()` function in its core library. This is because finding the mode efficiently can be computationally complex, particularly with large datasets and non-unique values. However, we can easily achieve the functionality using the `scipy.stats.mode()` function.  This function is part of the `scipy.stats` module, which provides a comprehensive suite of statistical functions. Remember to install `scipy` if you haven't already:  `pip install scipy`
+NumPy doesn't directly provide a built-in `mode()` function in its core library. This is because finding the mode efficiently can be computationally complex, particularly with large datasets and non-unique values. However, we can easily achieve the functionality using the `scipy.stats.mode()` function.  This function is part of the `scipy.stats` module, which provides a  suite of statistical functions. Remember to install `scipy` if you haven't already:  `pip install scipy`
 
 ### Basic Usage
 

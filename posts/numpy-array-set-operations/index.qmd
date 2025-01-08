@@ -4,9 +4,6 @@ date: "02/25/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, a cornerstone of Python's scientific computing ecosystem, provides efficient tools for array manipulation.  Beyond the standard arithmetic operations, NumPy offers a robust set of functions for performing set operations directly on arrays. This significantly speeds up tasks that would otherwise require iterative loops in standard Python.  This post dives into the key NumPy array set operations with clear code examples.
-
 ## Unique Elements: `np.unique()`
 
 Often, you need to identify the unique elements within a NumPy array.  The `np.unique()` function simplifies this process considerably.  It returns a sorted array containing only the unique values.

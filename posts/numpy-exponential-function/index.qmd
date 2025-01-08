@@ -4,9 +4,6 @@ date: "07/10/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a powerful and efficient suite of mathematical functions.  Among these, the exponential function, `np.exp()`, stands out for its versatility and importance across various scientific and engineering domains. This post delves into the functionalities of `np.exp()`, providing clear explanations and practical code examples to solidify your understanding.
-
 ## Understanding the NumPy Exponential Function
 
 The `np.exp()` function computes the exponential of all elements in an array or a single number. In simpler terms, it calculates *e* raised to the power of each element, where *e* is the base of the natural logarithm (approximately 2.71828).  This differs from functions like `math.exp()` which only operate on single numbers, not NumPy arrays.  This vectorized operation is a significant advantage of using NumPy, offering significant speed improvements compared to manual looping.

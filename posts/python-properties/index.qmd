@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python properties offer a powerful and elegant way to manage access to an object's attributes.  They allow you to control how attributes are accessed, modified, and deleted, promoting cleaner, more maintainable code and enforcing data integrity.  This post will delve into the intricacies of Python properties, demonstrating their usage with clear examples.
+Python properties offer a powerful and elegant way to manage access to an object's attributes.  They allow you to control how attributes are accessed, modified, and deleted, promoting cleaner, more maintainable code and enforcing data integrity.  This post will look into the intricacies of Python properties, demonstrating their usage with clear examples.
 
 
 ## Understanding the Need for Properties

@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's elegance and readability are often lauded, but behind the scenes lies a powerful engine: the Python Virtual Machine (PVM).  Understanding the PVM is crucial for writing efficient and optimized Python code. This post will delve into the PVM's architecture and functionality, using code examples to illustrate key concepts.
+Python's elegance and readability are often lauded, but behind the scenes lies a powerful engine: the Python Virtual Machine (PVM).  Understanding the PVM is crucial for writing efficient and optimized Python code. This post will look into the PVM's architecture and functionality, using code examples to illustrate key concepts.
 
 ## What is the Python Virtual Machine?
 

@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python lists are arguably the most versatile and frequently used data structure in the language.  Their flexibility makes them indispensable for a wide range of programming tasks, from storing simple collections of items to building complex data structures. This post will delve into the core functionalities of Python lists, providing clear explanations and illustrative code examples.
+Python lists are arguably the most versatile and frequently used data structure in the language.  Their flexibility makes them indispensable for a wide range of programming tasks, from storing simple collections of items to building complex data structures. This post will look into the core functionalities of Python lists, providing clear explanations and illustrative code examples.
 
 ## What are Python Lists?
 

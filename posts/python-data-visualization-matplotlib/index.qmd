@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python has become a go-to language for data science, and a crucial part of any data scientist's toolkit is the ability to effectively visualize data.  Matplotlib, a comprehensive plotting library, is your key to unlocking insightful and compelling data visualizations.  This post will guide you through the basics of Matplotlib, providing code examples to get you started.
+Python has become a go-to language for data science, and a crucial part of any data scientist's toolkit is the ability to effectively visualize data.  Matplotlib, a  plotting library, is your key to unlocking insightful and compelling data visualizations.  This post will guide you through the basics of Matplotlib, providing code examples to get you started.
 
 ## Getting Started with Matplotlib
 

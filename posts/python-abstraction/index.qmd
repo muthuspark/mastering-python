@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, known for its readability and ease of use, leverages the power of abstraction to manage complexity effectively.  Abstraction, a fundamental principle of object-oriented programming (OOP), allows you to hide complex implementation details while exposing only essential information to the user. This simplifies interaction and makes code more maintainable and scalable.  Let's delve into how abstraction works in Python.
+Python, known for its readability and ease of use, leverages the power of abstraction to manage complexity effectively.  Abstraction, a fundamental principle of object-oriented programming (OOP), allows you to hide complex implementation details while exposing only essential information to the user. This simplifies interaction and makes code more maintainable and scalable.  Let's look into how abstraction works in Python.
 
 
 ## Abstraction through Abstract Base Classes (ABCs)

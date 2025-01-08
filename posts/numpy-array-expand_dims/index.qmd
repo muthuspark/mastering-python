@@ -4,9 +4,6 @@ date: "11/16/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, provides a powerful function called `expand_dims` that allows you to effortlessly add new axes (dimensions) to your arrays. This seemingly simple operation is crucial for various tasks, especially when working with machine learning models and deep learning frameworks that often require specific input shapes.  This post will demystify `expand_dims`, illustrating its usage with clear code examples.
-
 ## Understanding the Need for `expand_dims`
 
 Imagine you have a NumPy array representing a single data point, such as a grayscale image pixel value:

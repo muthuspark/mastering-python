@@ -89,9 +89,3 @@ instance1 = MySingleton()
 instance2 = MySingleton()
 print(instance1 is instance2) # Output: True
 ```
-
-This demonstrates a powerful application – enforcing the singleton pattern through a decorator.  This can improve code organization and maintainability.
-
-
-Further exploration into metaclasses, which provide even more control over class creation, builds upon the concepts of class decorators.  Understanding class decorators is a significant step towards mastering these advanced Python features.
-

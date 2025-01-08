@@ -4,9 +4,6 @@ date: "11/08/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone library for data manipulation in Python, and within its arsenal lies a powerful function: `transform()`.  Often overshadowed by its more famous cousin, `apply()`, `transform()` offers a unique and efficient way to modify your DataFrame columns based on various operations. This post will delve into the intricacies of `transform()`, providing clear explanations and practical code examples to illuminate its capabilities.
-
 ## Understanding the `transform()` Method
 
 The core functionality of `transform()` lies in its ability to apply a function to each row or column of a Pandas DataFrame *while preserving the original DataFrame shape*. This is its key differentiator from `apply()`, which can return a Series or DataFrame of a different shape.  `transform()` ensures the output aligns perfectly with the input, making it ideal for tasks like:

@@ -110,7 +110,3 @@ print(a == b) # Output: False
 print(a != b) # Output: True
 print(a > b)  # Output: True (True is considered "greater" than False)
 ```
-
-
-This detailed look at Python's comparison operators provides a strong foundation for more advanced programming tasks.  Remember to carefully consider the type of comparison needed (value vs. identity) when writing your code.
-

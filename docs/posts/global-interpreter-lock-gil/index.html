@@ -206,7 +206,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python, renowned for its readability and versatility, relies on a crucial internal mechanism known as the Global Interpreter Lock (GIL). This seemingly simple concept significantly impacts Python’s performance, especially in multi-threaded applications. Let’s unravel the mysteries of the GIL and explore its implications.</p>
 <section id="what-is-the-gil" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-the-gil">What is the GIL?</h2>
 <p>The GIL is a mutex (mutual exclusion) that allows only one native thread to hold control of the Python interpreter at any one time. Essentially, it serializes the execution of Python bytecodes, even on multi-core processors. This means that while your program might appear to be running multiple threads concurrently, only one thread is actively executing Python code at any given moment. The others are waiting their turn to acquire the GIL.</p>

@@ -118,7 +118,3 @@ print(f"The number of vowels in '{string}' is: {vowel_count}")
 ```
 
 This method uses `re.findall()` to find all occurrences of vowels and then returns the length of the resulting list.  This approach is powerful but might be overkill for simple vowel counting tasks.
-
-
-These examples illustrate different approaches to counting vowels in Python, each with its own advantages and disadvantages.  The best method depends on the specific needs of your application and your programming experience.  Choose the method that offers the best balance of readability, efficiency, and suitability for your project.
-

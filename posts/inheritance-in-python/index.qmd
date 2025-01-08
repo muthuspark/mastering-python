@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Inheritance is a powerful mechanism in object-oriented programming (OOP) that allows you to create new classes (child classes or subclasses) based on existing classes (parent classes or superclasses).  This promotes code reusability, reduces redundancy, and enhances the organization of your code.  This post will delve into inheritance in Python, providing clear explanations and practical examples.
+Inheritance is a powerful mechanism in object-oriented programming (OOP) that allows you to create new classes (child classes or subclasses) based on existing classes (parent classes or superclasses).  This promotes code reusability, reduces redundancy, and enhances the organization of your code.  This post will look into inheritance in Python, providing clear explanations and practical examples.
 
 ## Understanding the Core Concepts
 

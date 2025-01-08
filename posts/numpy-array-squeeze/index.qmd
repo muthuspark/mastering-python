@@ -4,10 +4,9 @@ date: "09/27/2024"
 categories: [ numpy ]
 ---
 
+`np.squeeze()` function in `numpy` efficiently removes single-dimensional entries from an array's shape.  Understanding and utilizing `squeeze()` can significantly improve your code's readability and efficiency, especially when dealing with arrays resulting from operations that might inadvertently introduce unnecessary dimensions.
 
-NumPy, the cornerstone of numerical computing in Python, offers a rich set of functions for manipulating arrays.  One particularly handy function is `np.squeeze()`, which efficiently removes single-dimensional entries from an array's shape.  Understanding and utilizing `squeeze()` can significantly improve your code's readability and efficiency, especially when dealing with arrays resulting from operations that might inadvertently introduce unnecessary dimensions.
-
-This post will delve into the functionality of `np.squeeze()`, providing clear explanations and practical examples to solidify your understanding.
+This post will look into the functionality of `np.squeeze()`, providing clear explanations and practical examples to solidify your understanding.
 
 
 ## Understanding Singleton Dimensions

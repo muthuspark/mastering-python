@@ -103,7 +103,7 @@ For computationally intensive sections, Cython can compile Python code to C, res
 
 ## 6. Multiprocessing and Concurrency
 
-Leverage Python's `multiprocessing` module to run tasks in parallel, effectively utilizing multiple CPU cores. This is especially useful for I/O-bound tasks or independent computations.
+use Python's `multiprocessing` module to run tasks in parallel, effectively utilizing multiple CPU cores. This is especially useful for I/O-bound tasks or independent computations.
 
 ```python
 import multiprocessing

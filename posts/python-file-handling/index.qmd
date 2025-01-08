@@ -4,13 +4,9 @@ date: "09/12/2024"
 categories: [ basic ]
 ---
 
-
-Python offers robust capabilities for handling files, allowing you to read, write, and manipulate data stored in various formats. This guide provides a comprehensive overview of Python file handling, covering essential techniques and best practices with clear code examples.
-
-
 ## Opening and Closing Files
 
-The cornerstone of file handling is the `open()` function.  It takes the file path as the first argument and a mode as the second.  Common modes include:
+The method used file handling is the `open()` function.  It takes the file path as the first argument and a mode as the second.  Common modes include:
 
 * `"r"`: Read (default)
 * `"w"`: Write (overwrites existing file)

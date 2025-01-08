@@ -5,8 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's generator expressions are a concise and efficient way to create iterators.  They offer a powerful alternative to list comprehensions when dealing with large datasets or situations where memory efficiency is paramount.  This post will delve into the mechanics of generator expressions, showcasing their capabilities with clear examples.
-
+Python's generator expressions are a concise and efficient way to create iterators.  They offer a powerful alternative to list comprehensions when dealing with large datasets or situations where memory efficiency is paramount.  This post will look into the mechanics of generator expressions, showcasing their capabilities with clear examples.
 
 ## Understanding the Basics
 

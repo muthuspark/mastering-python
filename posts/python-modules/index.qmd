@@ -99,5 +99,5 @@ if response.status_code == 200:
 ```
 
 
-These are just a few examples of the many powerful modules available in Python. Exploring and utilizing these modules significantly enhances your programming capabilities, allowing you to build more efficient and sophisticated applications.  Remember to consult the official Python documentation for a comprehensive understanding of each module's functionalities.
+These are just a few examples of the many powerful modules available in Python. Exploring and utilizing these modules significantly enhances your programming capabilities, allowing you to build more efficient and sophisticated applications.  Remember to consult the official Python documentation for a  understanding of each module's functionalities.
 

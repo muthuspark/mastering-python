@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-The `break` statement in Python is a powerful tool for controlling the flow of your loops.  It offers a way to exit a loop prematurely, before its natural completion condition is met. This is particularly useful when you need to stop iterating based on a specific condition encountered within the loop.  Let's delve into how it works and see it in action with clear examples.
+The `break` statement in Python is a powerful tool for controlling the flow of your loops.  It offers a way to exit a loop prematurely, before its natural completion condition is met. This is particularly useful when you need to stop iterating based on a specific condition encountered within the loop.  Let's look into how it works and see it in action with clear examples.
 
 
 ## How `break` Works

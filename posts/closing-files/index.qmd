@@ -89,7 +89,3 @@ This example demonstrates a custom context manager for files, showcasing flexibi
 * **Always use the `with` statement whenever possible.** It simplifies your code and eliminates the risk of forgetting to close the file.
 * **Handle exceptions appropriately.** Use `try...except` blocks to catch errors and ensure the file is closed even if something goes wrong.
 * **Consider custom context managers for advanced scenarios.** They offer fine-grained control over resource management.
-
-
-By following these guidelines, you'll ensure your Python programs handle files safely and efficiently.
-

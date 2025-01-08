@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy, the cornerstone of scientific computing in Python, offers a powerful tool for handling missing or invalid data: **masked arrays**.  Unlike simply using `NaN` (Not a Number) values, masked arrays explicitly identify elements that should be ignored in calculations, providing a more robust and efficient way to manage incomplete datasets. This post delves into the intricacies of NumPy masked arrays, showcasing their capabilities with practical code examples.
+NumPy offers a powerful tool for handling missing or invalid data: **masked arrays**.  Unlike simply using `NaN` (Not a Number) values, masked arrays explicitly identify elements that should be ignored in calculations, providing a more robust and efficient way to manage incomplete datasets. This post looks into the intricacies of NumPy masked arrays, showcasing their capabilities with practical code examples.
 
 ## Understanding Masked Arrays
 

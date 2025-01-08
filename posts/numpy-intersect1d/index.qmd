@@ -5,9 +5,6 @@ categories: [ numpy ]
 ---
 
 
-NumPy, the cornerstone of numerical computing in Python, offers a rich collection of functions for array manipulation. Among these, `intersect1d` stands out as a powerful tool for identifying common elements between arrays.  This post will delve into the functionality of `intersect1d`, exploring its usage with various examples and demonstrating its efficiency compared to alternative approaches.
-
-
 ## Understanding NumPy intersect1d
 
 The `intersect1d` function, as its name suggests, computes the intersection of two arrays.  It returns a new array containing only the elements that are present in *both* input arrays. Importantly, the output array is sorted and contains only unique elements. This ensures efficiency and avoids redundancy.

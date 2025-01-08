@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-The `if` statement is a fundamental building block in any programming language, and Python is no exception. It allows your program to make decisions based on certain conditions, enabling dynamic and responsive behavior. This post will delve into the intricacies of Python's `if` statement, providing clear explanations and practical examples to solidify your understanding.
+The `if` statement is a fundamental building block in any programming language, and Python is no exception. It allows your program to make decisions based on certain conditions, enabling dynamic and responsive behavior. This post will look into the intricacies of Python's `if` statement, providing clear explanations and practical examples to solidify your understanding.
 
 
 ## The Basic `if` Statement

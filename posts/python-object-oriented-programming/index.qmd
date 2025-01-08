@@ -10,7 +10,7 @@ Object-Oriented Programming (OOP) is a powerful programming paradigm that allows
 
 ## Core OOP Concepts in Python
 
-Let's delve into the key concepts:
+Let's look into the key concepts:
 
 **1. Classes and Objects:**
 
@@ -98,7 +98,3 @@ print(my_circle.area()) # Output: 78.53975
 ```
 
 The `Shape` class is abstract; you can't create instances of it.  `Circle` must implement the `area()` method. This enforces a consistent interface for all shapes.
-
-
-This comprehensive guide lays the groundwork for understanding and applying OOP principles in your Python projects.  By mastering these concepts, you’ll be able to write cleaner, more maintainable, and efficient code.
-

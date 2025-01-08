@@ -86,7 +86,7 @@ print(f"The sum is: {result}")  # Output: The sum is: 8
 
 The example above demonstrates the basic principles.  More complex extensions can incorporate:
 
-* **NumPy Integration:**  Leverage NumPy arrays for efficient numerical computations.
+* **NumPy Integration:**  use NumPy arrays for efficient numerical computations.
 * **Object-Oriented Programming:**  Create C classes that interact seamlessly with Python classes.
 * **Memory Management:**  Careful handling of memory allocation and deallocation to avoid leaks.
 

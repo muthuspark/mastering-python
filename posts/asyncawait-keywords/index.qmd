@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's asynchronous programming capabilities have significantly improved with the introduction of `async` and `await` keywords. These keywords provide a more readable and manageable way to write concurrent code, especially when dealing with I/O-bound operations like network requests or file access.  This post will delve into the intricacies of `async` and `await`, providing clear explanations and practical examples.
+Python's asynchronous programming capabilities have significantly improved with the introduction of `async` and `await` keywords. These keywords provide a more readable and manageable way to write concurrent code, especially when dealing with I/O-bound operations like network requests or file access.  This post will look into the intricacies of `async` and `await`, providing clear explanations and practical examples.
 
 ## Understanding Asynchronous Programming
 

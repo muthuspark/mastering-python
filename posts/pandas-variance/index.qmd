@@ -5,7 +5,7 @@ categories: [ pandas ]
 ---
 
 
-Pandas is a powerful Python library for data analysis, offering efficient tools for manipulating and analyzing data. One crucial statistical measure readily available in Pandas is variance.  This post will delve into understanding variance and demonstrate how to calculate it using Pandas, covering different scenarios and approaches.
+Pandas is a powerful Python library for data analysis, offering efficient tools for manipulating and analyzing data. One crucial statistical measure readily available in Pandas is variance.  This post will look into understanding variance and demonstrate how to calculate it using Pandas, covering different scenarios and approaches.
 
 ## What is Variance?
 

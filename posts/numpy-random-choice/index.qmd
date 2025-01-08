@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy's `random.choice` function is a powerful tool for generating random samples from arrays, lists, or even just a range of numbers.  Understanding its capabilities is crucial for anyone working with data analysis, simulations, or any field requiring random sampling in Python. This post delves into the nuances of `random.choice`, providing clear explanations and practical examples to solidify your understanding.
+NumPy's `random.choice` function is a powerful tool for generating random samples from arrays, lists, or even just a range of numbers.  Understanding its capabilities is crucial for anyone working with data analysis, simulations, or any field requiring random sampling in Python. This post looks into the nuances of `random.choice`, providing clear explanations and practical examples to solidify your understanding.
 
 
 ## Basic Usage: Picking Single Elements

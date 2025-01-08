@@ -195,7 +195,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
   <li><a href="#decorators-with-arguments" id="toc-decorators-with-arguments" class="nav-link" data-scroll-target="#decorators-with-arguments">Decorators with Arguments</a></li>
   <li><a href="#decorators-with-return-values" id="toc-decorators-with-return-values" class="nav-link" data-scroll-target="#decorators-with-return-values">Decorators with Return Values</a></li>
   <li><a href="#practical-applications" id="toc-practical-applications" class="nav-link" data-scroll-target="#practical-applications">Practical Applications</a></li>
-  <li><a href="#beyond-the-basics-class-decorators" id="toc-beyond-the-basics-class-decorators" class="nav-link" data-scroll-target="#beyond-the-basics-class-decorators">Beyond the Basics: Class Decorators</a></li>
   </ul>
 </nav>
     </div>
@@ -206,7 +205,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python function decorators are a powerful and expressive feature that allows you to modify or enhance functions in a clean and readable way. They provide a concise syntax for wrapping additional functionality around an existing function without modifying its core behavior. This guide will walk you through the fundamentals of decorators, illustrating their usage with practical examples.</p>
 <section id="understanding-the-basics" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-basics">Understanding the Basics</h2>
 <p>At its core, a decorator is a function that takes another function as input and returns a modified version of that function. This modification can involve adding functionality before, after, or even around the original function’s execution.</p>
@@ -288,10 +286,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>add(<span class="dv">5</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note the use of <code>functools.wraps</code>. This is crucial for preserving the original function’s metadata (like name and docstring) after decoration. Without it, the decorated function would lose its original identity.</p>
-</section>
-<section id="beyond-the-basics-class-decorators" class="level2">
-<h2 class="anchored" data-anchor-id="beyond-the-basics-class-decorators">Beyond the Basics: Class Decorators</h2>
-<p>Python also supports class decorators, allowing you to apply decorators to classes. This opens up even more possibilities for modifying class behavior. We’ll delve into that in a future post.</p>
 
 
 </section>

@@ -83,5 +83,5 @@ df.fillna(0).to_csv('data_filled.csv',index=False)
 ```
 
 
-This demonstrates several common ways to write data using Pandas.  Remember to choose the most appropriate format based on your needs and the intended use of the data.  Each method offers further customization options; refer to the Pandas documentation for a comprehensive overview.
+This demonstrates several common ways to write data using Pandas.  Remember to choose the most appropriate format based on your needs and the intended use of the data.  Each method offers further customization options; refer to the Pandas documentation for a  overview.
 

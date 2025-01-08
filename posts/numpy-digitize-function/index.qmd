@@ -4,9 +4,6 @@ date: "09/17/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a powerful function called `digitize` that simplifies the process of binning data.  This is crucial for tasks like creating histograms, analyzing data distributions, and generally organizing numerical information into discrete categories.  This post will delve into the functionality of `digitize`, providing clear explanations and practical code examples to help you master this essential tool.
-
 ## Understanding the `digitize` Function
 
 The `numpy.digitize` function assigns each value in an input array to a bin based on a provided sequence of bin edges.  Think of it as placing data points into pre-defined intervals or categories.  The function returns an array of indices, where each index corresponds to the bin that each value belongs to.

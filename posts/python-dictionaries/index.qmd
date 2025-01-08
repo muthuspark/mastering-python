@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python dictionaries are one of the most versatile and frequently used data structures.  Understanding how to effectively use them is crucial for any Python programmer. This post provides a comprehensive overview of dictionaries, covering their creation, manipulation, and common use cases, with plenty of code examples to illustrate each concept.
+Python dictionaries are one of the most versatile and frequently used data structures.  Understanding how to effectively use them is crucial for any Python programmer. This post provides a  overview of dictionaries, covering their creation, manipulation, and common use cases, with plenty of code examples to illustrate each concept.
 
 
 ## What are Python Dictionaries?

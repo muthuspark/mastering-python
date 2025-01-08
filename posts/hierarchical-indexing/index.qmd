@@ -4,9 +4,6 @@ date: "06/18/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas, the powerful Python data manipulation library, offers a versatile feature called Hierarchical Indexing (also known as MultiIndex). This allows you to create indexes with multiple levels, significantly enhancing data organization and querying capabilities, especially when dealing with high-dimensional data.  This post will delve into the intricacies of hierarchical indexing, providing practical examples to solidify your understanding.
-
 ## Understanding Hierarchical Indexing
 
 Imagine you have sales data across different regions and product categories.  A simple index might only use a single column (e.g., product ID), making it cumbersome to filter by region and category simultaneously. Hierarchical indexing solves this by creating an index with multiple levels.  For instance, you could have a hierarchical index with "Region" as the first level and "Category" as the second. This allows you to easily access data based on specific region-category combinations.

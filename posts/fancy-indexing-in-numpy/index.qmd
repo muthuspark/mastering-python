@@ -4,9 +4,6 @@ date: "03/11/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a wealth of functionalities. Among them, fancy indexing stands out as a particularly powerful technique for accessing and manipulating array elements.  Unlike standard indexing which uses integers or slices, fancy indexing allows you to select elements using arrays of indices. This opens up a world of possibilities for data manipulation and analysis.
-
 ## Understanding Fancy Indexing
 
 Fancy indexing uses arrays of indices to select elements from a NumPy array. This means you can select multiple, non-contiguous elements simultaneously. This contrasts with basic indexing which uses a single integer or a slice to access a contiguous sequence of elements.
@@ -87,7 +84,6 @@ indices = np.array([0, 2, 4])
 arr[indices] = 100
 print(arr) #Output: [100   2 100   4 100]
 ```
-
 
 This example demonstrates how easily you can modify specific elements using fancy indexing.  The flexibility and power of fancy indexing make it an indispensable tool for any serious NumPy user.
 

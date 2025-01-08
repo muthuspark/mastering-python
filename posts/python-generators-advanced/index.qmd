@@ -118,5 +118,5 @@ for num in pipeline:
 
 ```
 
-These advanced techniques empower you to leverage the full potential of Python generators for building efficient, robust, and elegant code.  They are essential for handling large datasets and constructing sophisticated data processing workflows.
+These advanced techniques empower you to use the full potential of Python generators for building efficient, robust, and elegant code.  They are essential for handling large datasets and constructing sophisticated data processing workflows.
 

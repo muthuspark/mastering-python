@@ -207,7 +207,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Pandas DataFrames are the workhorse of data manipulation in Python. One of the most common tasks is adding new columns to an existing DataFrame. This guide will walk you through several methods, providing clear examples for each.</p>
 <section id="method-1-direct-assignment" class="level2">
 <h2 class="anchored" data-anchor-id="method-1-direct-assignment">Method 1: Direct Assignment</h2>
 <p>The simplest way to add a new column is by assigning a list, array, or Series to a new column name. The length of the assigned data must match the number of rows in your DataFrame.</p>
@@ -270,7 +269,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="handling-different-data-types">Handling Different Data Types</h2>
 <p>Remember to ensure the data type of the new column is consistent with the values you’re adding. Pandas will often infer the data type automatically, but you can explicitly specify it if needed using <code>.astype()</code>. For example, to create a column of strings:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'col12'</span>] <span class="op">=</span> df[<span class="st">'col1'</span>].astype(<span class="bu">str</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This comprehensive guide provides various approaches to adding new columns to your Pandas DataFrames, empowering you to efficiently manage and manipulate your data.</p>
 
 
 </section>

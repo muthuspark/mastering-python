@@ -4,10 +4,6 @@ date: "03/05/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, provides a powerful array processing capability.  Within its vast toolkit lie two invaluable functions for handling floating-point numbers: `floor()` and `ceil()`. These functions are essential for rounding numbers down or up to the nearest integer, respectively, and are incredibly useful in various applications, from data preprocessing to image processing and scientific computing. Let's delve into how to effectively utilize `floor()` and `ceil()` within your NumPy workflows.
-
-
 ## Understanding NumPy's `floor()` Function
 
 The `floor()` function, as its name suggests, rounds each element in a NumPy array *down* to the nearest integer.  If the element is already an integer, it remains unchanged.  Let's illustrate this with examples:

@@ -209,14 +209,13 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>NumPy, the cornerstone of numerical computing in Python, offers a rich array of functions to manipulate and analyze data. Among these, the <code>mode()</code> function stands out as a valuable tool for identifying the most frequent value(s) within a dataset – a crucial step in descriptive statistics and data exploration. This post dives deep into NumPy’s <code>mode()</code> function, explaining its functionality, usage, and providing illustrative examples to solidify your understanding.</p>
 <section id="what-is-the-mode" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-the-mode">What is the Mode?</h2>
 <p>In statistics, the mode represents the value that appears most frequently in a dataset. Unlike the mean (average) and median (middle value), the mode can be applied to both numerical and categorical data. A dataset can have one mode (unimodal), two modes (bimodal), or more (multimodal). If all values appear with the same frequency, the dataset is considered to have no mode.</p>
 </section>
 <section id="numpys-mode-function-a-deep-dive" class="level2">
 <h2 class="anchored" data-anchor-id="numpys-mode-function-a-deep-dive">NumPy’s <code>mode()</code> Function: A Deep Dive</h2>
-<p>NumPy doesn’t directly provide a built-in <code>mode()</code> function in its core library. This is because finding the mode efficiently can be computationally complex, particularly with large datasets and non-unique values. However, we can easily achieve the functionality using the <code>scipy.stats.mode()</code> function. This function is part of the <code>scipy.stats</code> module, which provides a comprehensive suite of statistical functions. Remember to install <code>scipy</code> if you haven’t already: <code>pip install scipy</code></p>
+<p>NumPy doesn’t directly provide a built-in <code>mode()</code> function in its core library. This is because finding the mode efficiently can be computationally complex, particularly with large datasets and non-unique values. However, we can easily achieve the functionality using the <code>scipy.stats.mode()</code> function. This function is part of the <code>scipy.stats</code> module, which provides a suite of statistical functions. Remember to install <code>scipy</code> if you haven’t already: <code>pip install scipy</code></p>
 <section id="basic-usage" class="level3">
 <h3 class="anchored" data-anchor-id="basic-usage">Basic Usage</h3>
 <p>Here’s how to use <code>scipy.stats.mode()</code> to find the mode of a NumPy array:</p>

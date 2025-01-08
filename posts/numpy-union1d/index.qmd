@@ -4,10 +4,6 @@ date: "05/05/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, provides a rich set of functions for array manipulation. Among these, `union1d` stands out as a powerful tool for efficiently finding the unique elements present in two or more arrays.  This post delves into the intricacies of `numpy.union1d`, showcasing its capabilities through practical examples and code demonstrations.
-
-
 ## Understanding `numpy.union1d`
 
 The `numpy.union1d` function computes the union of two arrays, returning a new array containing all unique elements from both input arrays.  The order of elements in the output array is not guaranteed to be the same as the order in the input arrays.  It's crucial to remember that this function works effectively with one-dimensional arrays only. Attempting to use it with multi-dimensional arrays will result in an error.

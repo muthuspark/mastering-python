@@ -4,10 +4,6 @@ date: "03/15/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone of data manipulation in Python, offering a wealth of tools for wrangling data.  One particularly useful, yet often overlooked, function is `explode()`. This method is invaluable when dealing with lists or arrays within your DataFrame cells, allowing you to efficiently transform them into individual rows.  This post will explore the `explode()` method with clear examples to help you master this powerful technique.
-
-
 ## Understanding the Problem: Lists within DataFrames
 
 Imagine you have a DataFrame where a column contains lists of values.  For example, let's say you're tracking purchases, and each row represents a customer with a list of items they bought:

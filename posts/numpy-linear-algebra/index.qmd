@@ -4,9 +4,6 @@ date: "05/02/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of scientific computing in Python, provides a powerful and efficient arsenal of tools for tackling linear algebra problems.  Its `numpy.linalg` module offers a comprehensive suite of functions, significantly speeding up computations compared to manual implementations or using standard Python lists.  This post will explore some key functionalities with illustrative examples.
-
 ##  Solving Linear Equations
 
 One of the most common applications of linear algebra is solving systems of linear equations.  Consider the following system:

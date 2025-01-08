@@ -4,9 +4,6 @@ date: "10/19/2024"
 categories: [ advanced ]
 ---
 
-
-Python, renowned for its ease of use, handles memory management automatically through a process called garbage collection (GC). Unlike languages like C or C++, where developers manually allocate and deallocate memory, Python's GC reclaims unused memory, preventing memory leaks and simplifying development.  This post will explore how Python's GC works, its different mechanisms, and how to potentially influence its behavior.
-
 ## How Python's Garbage Collection Works
 
 Python primarily employs a **reference counting** garbage collection mechanism.  Every object in Python maintains a count of how many references point to it. When this count drops to zero, meaning no part of the program is using the object anymore, the object is immediately deallocated, and its memory is freed.
@@ -95,9 +92,7 @@ del obj #Object deleted.
 
 print(weak_ref()) # Output: None (object garbage collected)
 
-
 ```
-
 
 These mechanisms, combined with Python's automatic memory management, ensure efficient and relatively transparent memory usage within your programs. Understanding these concepts can help developers write more efficient and robust applications.
 

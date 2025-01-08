@@ -143,5 +143,5 @@ print(response.status_code)
 ```
 
 
-These examples illustrate the fundamental capabilities of Python's `requests` library. With its intuitive API and comprehensive features, `requests` simplifies the process of interacting with web services and APIs, making it an essential tool for any Python developer working with HTTP.
+These examples illustrate the fundamental capabilities of Python's `requests` library. With its intuitive API and features, `requests` simplifies the process of interacting with web services and APIs, making it an essential tool for any Python developer working with HTTP.
 

@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python's built-in `set` data structure offers a powerful way to work with collections of unique elements.  Understanding set operations is crucial for efficiently managing and manipulating data. This post will delve into the fundamental set operations, providing clear explanations and practical code examples to solidify your understanding.
+Python's built-in `set` data structure offers a powerful way to work with collections of unique elements.  Understanding set operations is crucial for efficiently managing and manipulating data. This post will look into the fundamental set operations, providing clear explanations and practical code examples to solidify your understanding.
 
 
 ## What are Sets in Python?

@@ -4,10 +4,6 @@ date: "06/17/2024"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone of any data scientist's Python toolkit, offering powerful data manipulation capabilities.  While boolean indexing provides a robust way to filter data, the `.query()` method offers a more readable and often more efficient alternative for complex filtering tasks. This post explores the Pandas `.query()` method, showcasing its advantages and practical applications with clear code examples.
-
-
 ##  Why Use `.query()`?
 
 The primary benefit of `.query()` is its enhanced readability.  Instead of constructing complex boolean expressions directly within bracket notation, `.query()` allows you to express your filtering criteria as a string.  This leads to code that's easier to understand, write, and maintain, particularly when dealing with intricate selection logic.  Furthermore, for larger datasets, `.query()` can offer performance improvements compared to direct boolean indexing, especially when the query involves multiple conditions.
@@ -93,5 +89,5 @@ print(df)
 
 ##  Beyond Basic Filtering
 
-The `.query()` method isn't limited to simple comparisons.  You can leverage more complex operations within your query strings, including string methods and regular expressions (using the `str` accessor), providing substantial flexibility for advanced data filtering.  Experimentation is key to unlocking its full potential.
+The `.query()` method isn't limited to simple comparisons.  You can use more complex operations within your query strings, including string methods and regular expressions (using the `str` accessor), providing substantial flexibility for advanced data filtering.  Experimentation is key to unlocking its full potential.
 

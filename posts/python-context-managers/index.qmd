@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python context managers offer a clean and efficient way to manage resources that need to be set up and torn down, such as files, network connections, or database transactions.  This blog post will delve into the mechanics of context managers, showcasing their power and versatility with clear code examples.
+Python context managers offer a clean and efficient way to manage resources that need to be set up and torn down, such as files, network connections, or database transactions.  This blog post will look into the mechanics of context managers, showcasing their power and versatility with clear code examples.
 
 
 ## What are Context Managers?

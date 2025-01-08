@@ -127,7 +127,3 @@ print(my_string.isalnum()) # Output: True
 print(my_string.isalpha()) # Output: False
 
 ```
-
-
-This exploration provides a solid foundation for understanding and effectively utilizing Booleans in your Python programs.  Remember that mastering Booleans is paramount to writing robust and logical code.
-

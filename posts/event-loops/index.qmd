@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's asynchronous programming capabilities have become increasingly crucial for building high-performance, scalable applications. At the core of this power lies the **event loop**, a fundamental mechanism that allows your program to handle multiple tasks concurrently without using multiple threads.  This post delves into the intricacies of Python's event loop, explaining its role and demonstrating its usage with practical code examples.
+Python's asynchronous programming capabilities have become increasingly crucial for building high-performance, scalable applications. At the core of this power lies the **event loop**, a fundamental mechanism that allows your program to handle multiple tasks concurrently without using multiple threads.  This post looks into the intricacies of Python's event loop, explaining its role and demonstrating its usage with practical code examples.
 
 
 ## What is an Event Loop?
@@ -74,5 +74,5 @@ The `asyncio` library also provides advanced functionalities for controlling the
 
 ##  Different Event Loop Implementations
 
-While `asyncio` is the standard library choice, other libraries like `uvloop` offer alternative event loop implementations that can provide performance improvements in specific scenarios.  These implementations often leverage optimized underlying technologies for increased speed and efficiency.
+While `asyncio` is the standard library choice, other libraries like `uvloop` offer alternative event loop implementations that can provide performance improvements in specific scenarios.  These implementations often use optimized underlying technologies for increased speed and efficiency.
 

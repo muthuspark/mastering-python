@@ -7,7 +7,7 @@ categories: [ advanced ]
 
 Python's dunder methods (double underscore methods, or magic methods) are special methods that allow your classes to interact with the Python interpreter in powerful and unexpected ways.  They're the secret sauce behind much of Python's flexibility and elegance. While you might not use them every day, understanding them is crucial for writing robust, Pythonic code, especially when working with advanced features or integrating with existing libraries.
 
-This post delves into several key dunder methods, providing clear explanations and illustrative code examples.
+This post looks into several key dunder methods, providing clear explanations and illustrative code examples.
 
 ## The Essential Dunder Methods:
 

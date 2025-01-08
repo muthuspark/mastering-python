@@ -4,9 +4,6 @@ date: "07/09/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of Python's scientific computing ecosystem, offers a powerful and efficient way to manipulate arrays.  One of its less-obvious but incredibly useful features is **negative indexing**. This allows you to access array elements from the end, counting backward from -1. This post will explore negative indexing in detail, showing you how to leverage it for more concise and efficient code.
-
 ## Understanding Negative Indexing
 
 In standard Python lists, you access elements using their position starting from 0.  For example:

@@ -4,10 +4,6 @@ date: "05/20/2024"
 categories: [ advanced ]
 ---
 
-
-Asynchronous programming is a powerful technique that allows your Python code to handle multiple tasks concurrently without the need for multiple threads. This is particularly beneficial when dealing with I/O-bound operations like network requests or file access, where a single thread might spend a lot of time waiting.  This guide will walk you through the fundamentals of asynchronous programming in Python using `async` and `await`.
-
-
 ## Understanding the Async/Await Model
 
 Traditional synchronous programming executes code line by line.  If a line involves a time-consuming operation, the entire program blocks until that operation completes. Asynchronous programming, however, allows other tasks to proceed while waiting for an I/O operation to finish.  This is achieved using `async` and `await` keywords.

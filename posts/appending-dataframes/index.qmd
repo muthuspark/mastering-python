@@ -4,10 +4,6 @@ date: "08/05/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone of data manipulation in Python, and a common task is combining DataFrames.  Appending one DataFrame to another is a frequent operation, but doing it inefficiently can severely impact performance, especially with large datasets. This post explores various methods for appending DataFrames in Python, highlighting best practices for speed and efficiency.
-
-
 ## Understanding the Problem: Why `append` is Slow
 
 The `append` method, while seemingly straightforward, suffers from performance issues.  Each call to `append` creates a new DataFrame, copying the existing data. This becomes computationally expensive with repeated appends, especially when dealing with substantial datasets.
@@ -95,4 +91,3 @@ This method shows how to build a DataFrame iteratively, although it's less effic
 ##  Choosing the Right Method
 
 For optimal performance, always prioritize `pd.concat` when appending multiple DataFrames. The iterative approach is useful in scenarios requiring more dynamic control over the appending process.  Avoid using `append` in loops for large datasets due to its significant performance drawbacks.  Remember to use `ignore_index=True` to maintain a continuous index after concatenation.
-

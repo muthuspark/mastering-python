@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy, the cornerstone of numerical computing in Python, provides highly efficient functions for a wide range of mathematical operations.  Among these, the trigonometric functions `sin()` and `cos()` are frequently used in scientific computing, data analysis, and signal processing.  This post will delve into the practical application of these functions, showcasing their versatility and power with clear code examples.
+The trigonometric functions `sin()` and `cos()` are frequently used in scientific computing, data analysis, and signal processing.  This post will look into the practical application of these functions, showcasing their versatility and power with clear code examples.
 
 
 ## NumPy's `sin()` Function: Calculating Sine Values

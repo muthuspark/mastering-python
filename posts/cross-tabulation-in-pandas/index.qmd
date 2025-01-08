@@ -4,9 +4,6 @@ date: "06/15/2024"
 categories: [ pandas ]
 ---
 
-
-Pandas, the powerful Python data manipulation library, offers a versatile function for creating cross tabulations: `pd.crosstab()`.  Cross tabulation, also known as contingency table analysis, is a crucial technique for exploring the relationship between categorical variables. This post will guide you through using `pd.crosstab()` with practical examples.
-
 ## Understanding Cross Tabulation
 
 A cross tabulation summarizes the frequency distribution of two or more categorical variables. It shows how many observations fall into each combination of categories.  For instance, you might use it to analyze the relationship between gender and purchase preference, or between age group and voting behavior.

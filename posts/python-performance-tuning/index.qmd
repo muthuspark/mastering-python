@@ -98,7 +98,7 @@ squares_gen = (i**2 for i in range(1000))
 Generator expressions are particularly beneficial when dealing with large datasets, as they generate values on demand, conserving memory.
 
 
-## 5. NumPy for Numerical Computations: Leverage Vectorization
+## 5. NumPy for Numerical Computations: use Vectorization
 
 For numerical computations, NumPy is a game-changer.  Its vectorized operations significantly outperform equivalent Python loops.
 

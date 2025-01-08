@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, being a versatile language, offers robust functionalities for interacting with your computer's file system.  A crucial part of this interaction involves understanding and manipulating directories (also known as folders). This post will delve into the intricacies of working with directories in Python, providing clear explanations and practical code examples.
+Python, being a versatile language, offers robust functionalities for interacting with your computer's file system.  A crucial part of this interaction involves understanding and manipulating directories (also known as folders). This post will look into the intricacies of working with directories in Python, providing clear explanations and practical code examples.
 
 ## Navigating the File System with `os` and `os.path`
 

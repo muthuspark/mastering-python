@@ -31,7 +31,7 @@ print(total)
 ```
 
 
-## 2. Leverage Docstrings for Clear Documentation
+## 2. use Docstrings for Clear Documentation
 
 Docstrings (triple-quoted strings within functions and classes) are crucial for explaining what your code does.  They're automatically accessible through tools like `help()` and IDEs.
 

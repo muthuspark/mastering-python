@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's ease of use and extensive libraries make it a favorite for rapid prototyping and scripting.  However, when performance becomes critical, the speed of C++ can be indispensable.  PyBind11 provides a seamless way to bridge this gap, allowing you to integrate your high-performance C++ code directly into your Python projects.  This post will explore how to leverage PyBind11 to enhance your Python applications with the power of C++.
+Python's ease of use and extensive libraries make it a favorite for rapid prototyping and scripting.  However, when performance becomes critical, the speed of C++ can be indispensable.  PyBind11 provides a seamless way to bridge this gap, allowing you to integrate your high-performance C++ code directly into your Python projects.  This post will explore how to use PyBind11 to enhance your Python applications with the power of C++.
 
 ## Why Use PyBind11?
 
@@ -110,5 +110,5 @@ Remember to adjust your `CMakeLists.txt` to reflect the new module name (`advanc
 
 ##  Classes and Object-Oriented Programming
 
-PyBind11 also supports creating and using C++ classes within your Python code, enabling seamless interaction between object-oriented code in both languages.  This extends the capabilities further, allowing you to leverage advanced features from both environments. We will cover classes and object-oriented programming in a future blog post.
+PyBind11 also supports creating and using C++ classes within your Python code, enabling seamless interaction between object-oriented code in both languages.  This extends the capabilities further, allowing you to use advanced features from both environments. We will cover classes and object-oriented programming in a future blog post.
 

@@ -204,7 +204,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>NumPy, the cornerstone of numerical computing in Python, provides efficient functions for a wide range of mathematical operations. Among these are trigonometric functions, specifically <code>tan()</code> and <code>arctan()</code>, which are crucial for various applications in science, engineering, and data analysis. This post delves into the usage of these functions, showcasing their capabilities with clear code examples.</p>
 <section id="numpys-tan-function-calculating-tangents" class="level2">
 <h2 class="anchored" data-anchor-id="numpys-tan-function-calculating-tangents">NumPy’s <code>tan()</code> Function: Calculating Tangents</h2>
 <p>The <code>tan()</code> function in NumPy computes the tangent of an angle (in radians). It’s a vectorized function, meaning it can operate on single values, arrays, or even matrices with remarkable efficiency.</p>
@@ -246,11 +245,11 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>y_values <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>angles_rad <span class="op">=</span> np.arctan2(y_values, x_values)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Arctangents using arctan2: </span><span class="sc">{</span>angles_rad<span class="sc">}</span><span class="ss"> radians"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The code showcases the basic usage of <code>arctan()</code>. Note that <code>arctan()</code> returns values in the range (-π/2, π/2). For a more comprehensive solution that accounts for all four quadrants, consider using <code>arctan2(y, x)</code>, which takes both the y and x coordinates as input, providing a more accurate angle.</p>
+<p>The code showcases the basic usage of <code>arctan()</code>. Note that <code>arctan()</code> returns values in the range (-π/2, π/2). For a more solution that accounts for all four quadrants, consider using <code>arctan2(y, x)</code>, which takes both the y and x coordinates as input, providing a more accurate angle.</p>
 </section>
 <section id="beyond-the-basics-degrees-and-broadcasting" class="level2">
 <h2 class="anchored" data-anchor-id="beyond-the-basics-degrees-and-broadcasting">Beyond the Basics: Degrees and Broadcasting</h2>
-<p>While <code>tan()</code> and <code>arctan()</code> operate on radians, you can easily convert between radians and degrees using NumPy’s <code>degrees()</code> and <code>radians()</code> functions. NumPy’s broadcasting rules allow for seamless operations between arrays of different shapes (under certain conditions), making these functions extremely versatile for complex calculations. Exploring these aspects will further enhance your ability to leverage the power of NumPy’s trigonometric capabilities.</p>
+<p>While <code>tan()</code> and <code>arctan()</code> operate on radians, you can easily convert between radians and degrees using NumPy’s <code>degrees()</code> and <code>radians()</code> functions. NumPy’s broadcasting rules allow for seamless operations between arrays of different shapes (under certain conditions), making these functions extremely versatile for complex calculations. Exploring these aspects will further enhance your ability to use the power of NumPy’s trigonometric capabilities.</p>
 
 
 </section>

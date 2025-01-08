@@ -139,6 +139,5 @@ print(isinstance(instance, Shape)) # True, even though MyShape doesn't explicitl
 
 ```
 
-
-This demonstrates how to leverage the power of ABCs for designing robust and maintainable Python code.  Using ABCs effectively can significantly improve your software's architecture and reduce the likelihood of runtime errors.
+This demonstrates how to use the power of ABCs for designing robust and maintainable Python code.  Using ABCs effectively can significantly improve your software's architecture and reduce the likelihood of runtime errors.
 

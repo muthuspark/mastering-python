@@ -206,7 +206,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Pandas is a cornerstone library in Python for data manipulation and analysis, and the <code>DataFrame</code> object is its central component. Efficiently selecting data within a DataFrame is crucial, and the <code>.loc</code> accessor is a powerful tool for this purpose. This post will guide you through using <code>.loc</code> with various examples, helping you confidently navigate your data.</p>
 <section id="understanding-.loc" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-.loc">Understanding <code>.loc</code></h2>
 <p>The <code>.loc</code> accessor in Pandas allows you to select data from a DataFrame using labels (index and column names). This differs from <code>.iloc</code>, which uses integer-based indexing. <code>.loc</code> offers flexibility and readability, especially when working with named indices and columns.</p>
@@ -280,7 +279,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Select rows and columns</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_multi.loc[(<span class="st">'bar'</span>,<span class="st">'one'</span>),<span class="dv">0</span>:<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This demonstrates its adaptability to more complex data structures. Remember that the <code>tuple</code> representing the multi-index level should be used for selection within <code>.loc</code>.</p>
 
 
 </section>

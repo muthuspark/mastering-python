@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy, the cornerstone of numerical computing in Python, provides a highly efficient way to calculate square roots.  Unlike Python's built-in `math.sqrt()` function, NumPy's `sqrt()` function operates on entire arrays, making it significantly faster and more convenient for large datasets. This post will delve into the nuances of using NumPy's `sqrt()` function, offering practical examples to solidify your understanding.
+Unlike Python's built-in `math.sqrt()` function, NumPy's `sqrt()` function operates on entire arrays, making it significantly faster and more convenient for large datasets. This post will look into the nuances of using NumPy's `sqrt()` function, offering practical examples to solidify your understanding.
 
 
 ##  Why NumPy's `sqrt()`?

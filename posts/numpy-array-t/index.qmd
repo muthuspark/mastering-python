@@ -4,10 +4,6 @@ date: "01/11/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, provides a wealth of tools for efficient array manipulation.  Among these, the `.T` attribute offers a remarkably concise and powerful way to transpose arrays.  Understanding and effectively utilizing `.T` can significantly streamline your code and improve performance.
-
-
 ## What is Array Transposition?
 
 Array transposition is the process of swapping rows and columns.  In simpler terms, it flips the array over its main diagonal. For a 2D array, the element at `[i, j]` becomes `[j, i]` after transposition.

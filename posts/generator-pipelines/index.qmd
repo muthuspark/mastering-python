@@ -7,7 +7,6 @@ categories: [ advanced ]
 
 Python's generators are a powerful tool for creating iterators efficiently.  But their true potential shines when combined into *pipelines*, allowing you to chain multiple generator functions together for elegant and performant data processing.  This post will explore the art of crafting effective generator pipelines in Python.
 
-
 ## Understanding Generators
 
 Before diving into pipelines, let's briefly review generators.  Generators are functions that use the `yield` keyword. Instead of returning a single value and terminating, they yield a value and pause their execution, resuming from where they left off on the next iteration. This makes them memory-efficient for processing large datasets, as they don't store the entire dataset in memory at once.

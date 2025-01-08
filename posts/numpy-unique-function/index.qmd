@@ -4,10 +4,6 @@ date: "12/21/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a powerful array of functions for efficient data manipulation. Among these, the `unique` function stands out as a crucial tool for identifying and extracting unique elements from arrays. This post delves into the functionality of NumPy's `unique` function, exploring its various applications and providing practical code examples to solidify your understanding.
-
-
 ## Understanding NumPy's `unique` Function
 
 The `numpy.unique` function serves a straightforward yet indispensable purpose: it returns a sorted array of unique elements from an input array.  This is incredibly useful for data cleaning, analysis, and preprocessing tasks where identifying distinct values is essential.  Beyond simply returning the unique elements, `unique` also provides optional outputs that reveal the index of the first occurrence of each unique element in the input array and the counts of each unique element.

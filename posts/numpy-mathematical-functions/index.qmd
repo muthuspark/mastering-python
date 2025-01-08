@@ -4,9 +4,6 @@ date: "03/19/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of scientific computing in Python, boasts a rich library of mathematical functions. These functions operate efficiently on NumPy arrays, significantly speeding up numerical computations compared to using standard Python loops. This post dives into some of the most useful NumPy mathematical functions, providing clear explanations and practical code examples.
-
 ## Arithmetic Operations
 
 NumPy provides element-wise arithmetic operations directly on arrays.  This means that operations are applied to each element individually, resulting in a new array of the same shape.
@@ -30,7 +27,7 @@ g = a ** 2 # Output: array([1, 4, 9])
 
 ## Trigonometric Functions
 
-NumPy offers a comprehensive suite of trigonometric functions, including sine, cosine, tangent, and their inverses (arcsin, arccos, arctan). These functions work seamlessly with arrays.
+NumPy offers a  suite of trigonometric functions, including sine, cosine, tangent, and their inverses (arcsin, arccos, arctan). These functions work seamlessly with arrays.
 
 ```python
 import numpy as np

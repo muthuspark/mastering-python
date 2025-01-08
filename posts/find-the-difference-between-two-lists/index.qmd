@@ -10,7 +10,7 @@ Finding the differences between two lists is a common task in programming, parti
 
 ## Method 1: Using Set Operations
 
-Sets in Python provide a highly efficient way to find the difference between two lists.  The `set` data structure only stores unique elements, making it ideal for this task.  We can leverage set difference operations (`-` or `symmetric_difference`) to quickly identify elements present in one list but not the other.
+Sets in Python provide a highly efficient way to find the difference between two lists.  The `set` data structure only stores unique elements, making it ideal for this task.  We can use set difference operations (`-` or `symmetric_difference`) to quickly identify elements present in one list but not the other.
 
 **Finding elements unique to the first list:**
 

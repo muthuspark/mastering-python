@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-The Python `os` module is your Swiss Army knife for interacting with the operating system.  It provides a way to perform various file system operations, manage processes, and interact with environment variables.  This comprehensive guide will walk you through essential `os` module functions with clear code examples.
+The Python `os` module is your Swiss Army knife for interacting with the operating system.  It provides a way to perform various file system operations, manage processes, and interact with environment variables.  This guide will walk you through essential `os` module functions with clear code examples.
 
 
 ## Navigating Your File System

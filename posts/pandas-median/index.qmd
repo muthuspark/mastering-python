@@ -5,7 +5,7 @@ categories: [ pandas ]
 ---
 
 
-Pandas, the powerful Python data analysis library, offers a wide array of functions for data manipulation and analysis.  One particularly useful function is `.median()`, which calculates the median of a Pandas Series or DataFrame.  This post will delve into how to effectively use the Pandas median function, exploring various scenarios and providing clear code examples.
+Pandas, the powerful Python data analysis library, offers a wide array of functions for data manipulation and analysis.  One particularly useful function is `.median()`, which calculates the median of a Pandas Series or DataFrame.  This post will look into how to effectively use the Pandas median function, exploring various scenarios and providing clear code examples.
 
 ## Understanding the Median
 

@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy, a fundamental Python library for numerical computing, provides powerful tools for efficient matrix operations. Among these, matrix multiplication stands out as a crucial component in various applications, from machine learning and data science to scientific computing. This post will delve into the intricacies of NumPy matrix multiplication, explaining different approaches and providing illustrative code examples.
+NumPy, a fundamental Python library for numerical computing, provides powerful tools for efficient matrix operations. Among these, matrix multiplication stands out as a crucial component in various applications, from machine learning and data science to scientific computing. This post will look into the intricacies of NumPy matrix multiplication, explaining different approaches and providing illustrative code examples.
 
 
 ## Understanding Matrix Multiplication

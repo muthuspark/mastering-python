@@ -4,9 +4,6 @@ date: "05/16/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a powerful function for calculating the cross product of vectors: `np.cross()`.  Understanding and effectively utilizing this function is crucial for various applications, from physics simulations to computer graphics. This post delves into the intricacies of NumPy's cross product, providing clear explanations and practical code examples.
-
 ## What is the Cross Product?
 
 Before diving into the NumPy implementation, let's briefly revisit the mathematical concept. The cross product, also known as the vector product, is a binary operation on two vectors in three-dimensional space. The result is a vector that is orthogonal (perpendicular) to both input vectors.  The magnitude of the resulting vector is related to the magnitudes of the input vectors and the angle between them.  Specifically, the magnitude represents the area of the parallelogram formed by the two input vectors.

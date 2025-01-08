@@ -4,9 +4,6 @@ date: "01/05/2025"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone library in Python for data manipulation and analysis.  When working with DataFrames, understanding your data's structure and characteristics is crucial before diving into analysis.  The `.info()` method provides a concise summary, offering a quick snapshot of your DataFrame's contents.  This post will walk you through its usage and demonstrate its power with practical examples.
-
 ## What does `.info()` tell you?
 
 The `.info()` method delivers a summary containing:

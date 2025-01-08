@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python coroutines, often misunderstood, are a powerful tool for writing concurrent and asynchronous code.  Unlike threads, which rely on operating system scheduling, coroutines are cooperative multitasking mechanisms managed within a single thread. This makes them significantly lighter and more efficient for I/O-bound tasks.  Let's delve into what makes them tick and how to leverage their capabilities.
+Python coroutines, often misunderstood, are a powerful tool for writing concurrent and asynchronous code.  Unlike threads, which rely on operating system scheduling, coroutines are cooperative multitasking mechanisms managed within a single thread. This makes them significantly lighter and more efficient for I/O-bound tasks.  Let's look into what makes them tick and how to use their capabilities.
 
 ## What are Coroutines?
 

@@ -4,10 +4,6 @@ date: "03/06/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, a cornerstone of scientific computing in Python, provides powerful functions for array manipulation.  Among its most useful tools are `argmin()` and `argmax()`, which efficiently locate the indices of the minimum and maximum values within an array, respectively.  This blog post will explore these functions with clear examples, demonstrating their versatility and practical applications.
-
-
 ## Understanding `argmin()`
 
 The `argmin()` function returns the *index* of the minimum value along a specified axis of a NumPy array.  If multiple minimum values exist, it returns the index of the first occurrence.

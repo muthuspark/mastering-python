@@ -5,8 +5,7 @@ categories: [ basic ]
 ---
 
 
-Bitwise operators are fundamental tools in programming that manipulate individual bits within an integer. While often overlooked, they offer powerful capabilities for efficient data manipulation, especially in areas like low-level programming, cryptography, and data compression.  This guide delves into the six core bitwise operators in Python, providing clear explanations and practical code examples to enhance your understanding.
-
+Bitwise operators are fundamental tools in programming that manipulate individual bits within an integer. While often overlooked, they offer powerful capabilities for efficient data manipulation, especially in areas like low-level programming, cryptography, and data compression.  This guide looks into the six core bitwise operators in Python, providing clear explanations and practical code examples to enhance your understanding.
 
 ## Understanding Bits and Bytes
 

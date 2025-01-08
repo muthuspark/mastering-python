@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's `with` statement, combined with the power of context managers, offers a clean and efficient way to manage resources.  This elegant approach simplifies code, improves readability, and ensures resources are properly handled, even in the face of errors. Let's delve into the mechanics and benefits.
+Python's `with` statement, combined with the power of context managers, offers a clean and efficient way to manage resources.  This elegant approach simplifies code, improves readability, and ensures resources are properly handled, even in the face of errors. Let's look into the mechanics and benefits.
 
 
 ## What are Context Managers?

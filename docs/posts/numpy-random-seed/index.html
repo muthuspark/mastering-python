@@ -207,7 +207,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python’s NumPy library is a cornerstone for numerical computing, and within it, the <code>random</code> module plays a crucial role in generating random numbers. However, reproducibility in scientific computing and machine learning is paramount. This is where the NumPy random seed comes in. This blog post will explore what the random seed is, how it works, and how to effectively use it in your Python code.</p>
 <section id="what-is-a-random-seed" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-random-seed">What is a Random Seed?</h2>
 <p>In essence, a random seed is an integer value that acts as an initial input to a pseudorandom number generator (PRNG). A PRNG doesn’t generate truly random numbers; instead, it produces a deterministic sequence of numbers based on the initial seed. The same seed will always produce the same sequence of “random” numbers. This deterministic nature is vital for reproducibility. Without a set seed, NumPy’s <code>random</code> functions will use a system-dependent seed, leading to different sequences on different runs, even with identical code.</p>

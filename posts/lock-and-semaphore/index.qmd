@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's concurrency model, leveraging threads and processes, presents unique challenges when managing shared resources.  Multiple threads or processes accessing the same data simultaneously can lead to race conditions and unpredictable behavior.  This is where synchronization primitives like locks and semaphores become crucial.  This post will delve into their functionalities and demonstrate their usage with clear code examples.
+Python's concurrency model, leveraging threads and processes, presents unique challenges when managing shared resources.  Multiple threads or processes accessing the same data simultaneously can lead to race conditions and unpredictable behavior.  This is where synchronization primitives like locks and semaphores become crucial.  This post will look into their functionalities and demonstrate their usage with clear code examples.
 
 
 ## Understanding Locks in Python

@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy, the cornerstone of numerical computing in Python, offers a powerful function, `setdiff1d`, for efficiently determining the unique elements in one array that are *not* present in another. This is incredibly useful in various data manipulation tasks, from cleaning datasets to performing set operations on numerical data.  This post dives into the functionality of `setdiff1d`, exploring its usage with clear code examples.
+`setdiff1d` is used for efficiently determining the unique elements in one array that are *not* present in another. This is incredibly useful in various data manipulation tasks, from cleaning datasets to performing set operations on numerical data.  This post dives into the functionality of `setdiff1d`, exploring its usage with clear code examples.
 
 ## Understanding `setdiff1d`
 

@@ -5,7 +5,7 @@ categories: [ pandas ]
 ---
 
 
-Pandas, the powerhouse Python library for data manipulation, offers a rich set of functions for data analysis.  One of the most frequently used is the `min()` function, which allows you to efficiently find the minimum value within your DataFrame or Series. This post dives deep into the various ways you can leverage `min()` to extract minimum values, catering to different data types and scenarios.
+Pandas, the powerhouse Python library for data manipulation, offers a rich set of functions for data analysis.  One of the most frequently used is the `min()` function, which allows you to efficiently find the minimum value within your DataFrame or Series. This post dives deep into the various ways you can use `min()` to extract minimum values, catering to different data types and scenarios.
 
 
 ## Finding the Minimum Value in a Pandas Series

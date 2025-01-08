@@ -205,7 +205,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Pandas is a cornerstone of data manipulation in Python, offering powerful tools for data cleaning, transformation, and analysis. But what happens when your data contains messy strings, inconsistent formats, or unwanted characters? This is where regular expressions (regex or regexp) come in, providing a flexible and efficient way to search, match, and manipulate text patterns within your Pandas DataFrames. This post will explore how to effectively combine the power of Pandas with the precision of regular expressions.</p>
 <section id="the-basics-regex-and-pandas-integration" class="level2">
 <h2 class="anchored" data-anchor-id="the-basics-regex-and-pandas-integration">The Basics: Regex and Pandas Integration</h2>
 <p>Regular expressions are sequences of characters defining a search pattern. Pandas integrates seamlessly with regex through various string methods within its Series and DataFrame objects. The most common method is <code>.str.contains()</code>, which allows you to check if a string contains a particular pattern.</p>
@@ -250,7 +249,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="advanced-techniques-multiple-patterns-and-lookarounds" class="level2">
 <h2 class="anchored" data-anchor-id="advanced-techniques-multiple-patterns-and-lookarounds">Advanced Techniques: Multiple Patterns and Lookarounds</h2>
-<p>For more complex scenarios, you can leverage more advanced regex features within Pandas. For instance, you can use lookarounds to match patterns based on context without including them in the match itself.</p>
+<p>For more complex scenarios, you can use more advanced regex features within Pandas. For instance, you can use lookarounds to match patterns based on context without including them in the match itself.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'text'</span>: [<span class="st">'Start 123 End'</span>, <span class="st">'Start 456 End'</span>, <span class="st">'Ignore 789'</span>]}</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>

@@ -4,9 +4,6 @@ date: "08/05/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of scientific computing in Python, provides powerful tools for linear algebra. Among these, the computation of eigenvalues and eigenvectors stands out as a crucial technique with applications spanning diverse fields like machine learning, physics, and engineering.  This post will guide you through understanding and calculating eigenvalues and eigenvectors using NumPy, illustrated with clear code examples.
-
 ## What are Eigenvalues and Eigenvectors?
 
 Before diving into the code, let's briefly revisit the mathematical concepts.  Given a square matrix *A*, an eigenvector *v* is a non-zero vector that, when multiplied by *A*, only changes its scale; it doesn't change its direction.  The scaling factor is the eigenvalue *λ*.  Mathematically, this relationship is expressed as:

@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
 ## Method 2:  Using Entry Points (setuptools)
 
-For more complex plugin systems, using `setuptools` entry points provides a more structured approach.  This is particularly beneficial when distributing plugins separately.  This method requires creating a `setup.py` file for your main application and each plugin.  We will not delve into the specifics of `setup.py` in this example, but the core principle remains the same: defining a clear interface and loading plugins based on that interface.  The details on how to use `setuptools` are readily available online.
+For more complex plugin systems, using `setuptools` entry points provides a more structured approach.  This is particularly beneficial when distributing plugins separately.  This method requires creating a `setup.py` file for your main application and each plugin.  We will not look into the specifics of `setup.py` in this example, but the core principle remains the same: defining a clear interface and loading plugins based on that interface.  The details on how to use `setuptools` are readily available online.
 
 
 ##  Choosing the Right Approach

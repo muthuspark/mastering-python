@@ -72,5 +72,5 @@ This improves the time complexity to O(√n), a substantial gain for larger numb
 
 ##  Further Optimizations (Beyond the Scope of this Basic Introduction)
 
-More advanced primality testing algorithms exist, such as the Miller-Rabin primality test, which offer probabilistic primality testing with significantly better performance for very large numbers.  These are beyond the scope of this introductory post but are worth exploring for more demanding applications.  These advanced algorithms often leverage concepts from number theory for improved efficiency.
+More advanced primality testing algorithms exist, such as the Miller-Rabin primality test, which offer probabilistic primality testing with significantly better performance for very large numbers.  These are beyond the scope of this introductory post but are worth exploring for more demanding applications.  These advanced algorithms often use concepts from number theory for improved efficiency.
 

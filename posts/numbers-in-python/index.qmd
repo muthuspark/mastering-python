@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, a versatile and widely-used programming language, offers robust support for various numerical data types.  This post delves into the different ways Python handles numbers, exploring integers, floating-point numbers, and complex numbers, along with their practical applications and limitations.
+Python, a versatile and widely-used programming language, offers robust support for various numerical data types.  This post looks into the different ways Python handles numbers, exploring integers, floating-point numbers, and complex numbers, along with their practical applications and limitations.
 
 ## Integer Numbers (int)
 

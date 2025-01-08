@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Regular expressions (regex or regexp) are powerful tools for pattern matching within strings.  Python's built-in `re` module provides comprehensive support for working with regular expressions, enabling you to efficiently search, extract, and manipulate text data. This guide will walk you through the fundamentals of Python regular expressions with practical code examples.
+Regular expressions (regex or regexp) are powerful tools for pattern matching within strings.  Python's built-in `re` module provides  support for working with regular expressions, enabling you to efficiently search, extract, and manipulate text data. This guide will walk you through the fundamentals of Python regular expressions with practical code examples.
 
 
 ## Understanding the Basics

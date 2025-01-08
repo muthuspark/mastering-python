@@ -4,10 +4,6 @@ date: "09/27/2024"
 categories: [ pandas ]
 ---
 
-
-Pandas is a powerful Python library for data manipulation and analysis.  A core component of Pandas is the DataFrame, a two-dimensional, size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns).  One of the easiest ways to create a DataFrame is from a list or a list of lists. This post will walk you through different methods, illustrating with clear code examples.
-
-
 ##  From a Single List to a DataFrame
 
 If you have a single list, Pandas will interpret it as a single column in your DataFrame. You need to specify the column name.

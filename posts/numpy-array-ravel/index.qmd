@@ -4,9 +4,6 @@ date: "05/20/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a powerful function called `ravel()` that's indispensable for reshaping arrays.  This post delves into the intricacies of `ravel()` showing you how to effectively flatten multi-dimensional arrays into one-dimensional vectors.  Understanding `ravel()` is crucial for various data manipulation tasks and optimizing your code.
-
 ## Understanding NumPy's `ravel()`
 
 The `ravel()` function takes a NumPy array (of any dimension) as input and returns a flattened 1D array containing all the elements of the original array.  Crucially, it returns a *view* of the original array, not a copy. This means changes made to the flattened array will be reflected in the original array, and vice-versa, leading to memory efficiency.

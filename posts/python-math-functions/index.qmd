@@ -10,7 +10,7 @@ Python, renowned for its readability and versatility, offers a rich set of built
 
 ## Importing the `math` Module
 
-Before we delve into specific functions, it's crucial to import the `math` module. This is done using the `import` statement:
+Before we look into specific functions, it's crucial to import the `math` module. This is done using the `import` statement:
 
 ```python
 import math
@@ -71,7 +71,7 @@ print(math.log(x, 10)) # Logarithm base 10
 
 ## Trigonometric Functions
 
-Python's `math` module also provides a comprehensive set of trigonometric functions:
+Python's `math` module also provides a  set of trigonometric functions:
 
 **1. `math.sin(x)`:** Returns the sine of *x* (in radians).
 

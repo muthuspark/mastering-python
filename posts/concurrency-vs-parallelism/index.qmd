@@ -4,10 +4,6 @@ date: "07/20/2024"
 categories: [ advanced ]
 ---
 
-
-Python, despite its reputation for elegance and readability, can sometimes struggle with performance when dealing with computationally intensive tasks.  Understanding the difference between concurrency and parallelism is crucial for optimizing your code and leveraging your system's resources effectively.  This post will explore these concepts in the context of Python programming, providing clear explanations and illustrative examples.
-
-
 ## Concurrency: Doing Multiple Things Seemingly at Once
 
 Concurrency refers to the ability of a program to manage multiple tasks at the same time, *even if they're not actually executing simultaneously*.  This is achieved through techniques like multithreading or asynchronous programming. The key here is that the tasks are *interleaved*, switching between them rapidly, giving the illusion of parallel execution.

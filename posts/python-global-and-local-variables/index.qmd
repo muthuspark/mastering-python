@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, like many other programming languages, distinguishes between global and local variables.  Understanding this distinction is crucial for writing clean, efficient, and bug-free code.  Let's delve into the specifics with clear examples.
+Python, like many other programming languages, distinguishes between global and local variables.  Understanding this distinction is crucial for writing clean, efficient, and bug-free code.  Let's look into the specifics with clear examples.
 
 ## What are Global Variables?
 

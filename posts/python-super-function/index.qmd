@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's `super()` function is a powerful tool often associated with inheritance, but its true functionality and uses extend beyond the basics. This post will delve into the intricacies of `super()`, providing clear explanations and practical examples to help you master its application.
+Python's `super()` function is a powerful tool often associated with inheritance, but its true functionality and uses extend beyond the basics. This post will look into the intricacies of `super()`, providing clear explanations and practical examples to help you master its application.
 
 ## Understanding Inheritance: The Foundation
 

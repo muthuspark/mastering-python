@@ -7,7 +7,7 @@ categories: [ basic ]
 
 Python offers a unique set of operators called identity operators, which are used to compare the memory locations of objects, rather than their values. Unlike equality operators (`==` and `!=`), which check for value equality, identity operators (`is` and `is not`) check if two variables point to the same object in memory.  Understanding this distinction is crucial for writing efficient and error-free Python code.
 
-This post will delve into the functionality of Python's identity operators, `is` and `is not`, with clear examples to illustrate their usage and potential pitfalls.
+This post will look into the functionality of Python's identity operators, `is` and `is not`, with clear examples to illustrate their usage and potential pitfalls.
 
 ## The `is` Operator
 

@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python's logical operators are essential tools for controlling the flow of your programs and making decisions based on multiple conditions.  Understanding how they work is crucial for writing efficient and readable code. This post will delve into the three main logical operators: `and`, `or`, and `not`, providing clear explanations and practical examples.
+Python's logical operators are essential tools for controlling the flow of your programs and making decisions based on multiple conditions.  Understanding how they work is crucial for writing efficient and readable code. This post will look into the three main logical operators: `and`, `or`, and `not`, providing clear explanations and practical examples.
 
 ## The `and` Operator
 

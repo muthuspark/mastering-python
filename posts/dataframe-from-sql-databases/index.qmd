@@ -83,6 +83,5 @@ It's crucial to close the database connection when you're finished to release re
 conn.close()
 ```
 
-
 This ensures proper database management and prevents potential issues.
 

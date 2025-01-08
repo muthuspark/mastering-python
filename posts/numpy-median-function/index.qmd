@@ -4,10 +4,6 @@ date: "02/16/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, provides a powerful and efficient function for calculating the median: `numpy.median()`.  Understanding how to use this function effectively is crucial for data analysis and manipulation. This post will explore the `numpy.median()` function in detail, providing clear explanations and practical examples.
-
-
 ## Understanding the Median
 
 Before diving into the NumPy implementation, let's refresh our understanding of the median. The median is the middle value in a dataset when it's sorted.  For an odd number of data points, it's the central value. For an even number, it's the average of the two central values.  The median is a robust measure of central tendency, less sensitive to outliers than the mean.

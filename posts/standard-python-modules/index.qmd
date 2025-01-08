@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python's strength lies not just in its elegant syntax but also in its extensive standard library.  This rich collection of modules provides pre-built functionalities, saving you countless hours of development time and effort.  Instead of reinventing the wheel, you can leverage these modules to tackle a wide range of tasks, from manipulating strings and files to networking and interacting with operating systems.  Let's delve into some essential standard modules with practical examples.
+Python's strength lies not just in its elegant syntax but also in its extensive standard library.  This rich collection of modules provides pre-built functionalities, saving you countless hours of development time and effort.  Instead of reinventing the wheel, you can use these modules to tackle a wide range of tasks, from manipulating strings and files to networking and interacting with operating systems.  Let's look into some essential standard modules with practical examples.
 
 
 ## 1. `os` Module:  Mastering Your Operating System
@@ -34,7 +34,7 @@ os.remove("new_file.txt") #Requires new_file.txt to exist
 
 ## 2. `math` Module:  Mathematical Operations Simplified
 
-The `math` module offers a comprehensive set of mathematical functions, from basic arithmetic to trigonometry and logarithmic calculations.
+The `math` module offers a  set of mathematical functions, from basic arithmetic to trigonometry and logarithmic calculations.
 
 ```python
 import math

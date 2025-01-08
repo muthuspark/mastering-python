@@ -4,10 +4,6 @@ date: "11/26/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, provides powerful tools for manipulating arrays.  One such crucial function is `flatten()`, which transforms multi-dimensional arrays into one-dimensional arrays. Understanding its nuances is essential for efficient data processing and manipulation. This post dives deep into NumPy's `flatten()` method, exploring its functionality, use cases, and providing illustrative examples.
-
-
 ## Understanding NumPy's `flatten()`
 
 The `flatten()` method is a NumPy array method that reshapes a multi-dimensional array into a single-dimensional array.  Crucially, it creates a *copy* of the original array. This means modifications to the flattened array won't affect the original.  This behavior is important to remember when working with large datasets to avoid unintended side effects.

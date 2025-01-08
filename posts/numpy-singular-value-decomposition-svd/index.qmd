@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-Singular Value Decomposition (SVD) is a powerful matrix factorization technique with wide-ranging applications in data science, machine learning, and beyond.  This post will explore how to leverage NumPy's efficient implementation of SVD in Python, providing practical examples and explanations along the way.
+Singular Value Decomposition (SVD) is a powerful matrix factorization technique with wide-ranging applications in data science, machine learning, and beyond.  This post will explore how to use NumPy's efficient implementation of SVD in Python, providing practical examples and explanations along the way.
 
 ## What is Singular Value Decomposition?
 

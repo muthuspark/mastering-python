@@ -4,9 +4,6 @@ date: "12/24/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers powerful array manipulation capabilities.  However, a common source of confusion, especially for beginners, lies in the distinction between creating a *copy* and a *view* of a NumPy array.  Understanding this difference is crucial for writing efficient and bug-free code.  Let's delve into the details.
-
 ## What is a View?
 
 A NumPy view shares the same data buffer as the original array.  This means that any changes made to the view *directly affect* the original array, and vice-versa.  They are essentially different ways of looking at the same underlying data.  Creating a view is generally faster and uses less memory than creating a copy, but it introduces the risk of unintended modifications.
@@ -59,7 +56,7 @@ As you can see, changes to `array_copy` leave `original_array` untouched.  This 
 
 ##  Deep vs. Shallow Copies
 
-While `.copy()` creates a deep copy, it's worth noting the existence of shallow copies.  Shallow copies duplicate the array's structure, but not necessarily its contents, especially if the array contains nested objects. We won't delve into this further here to maintain focus on the fundamental difference between view and copy for simple arrays.
+While `.copy()` creates a deep copy, it's worth noting the existence of shallow copies.  Shallow copies duplicate the array's structure, but not necessarily its contents, especially if the array contains nested objects. We won't look into this further here to maintain focus on the fundamental difference between view and copy for simple arrays.
 
 
 ## When to Use Which?

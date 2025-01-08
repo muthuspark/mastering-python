@@ -4,12 +4,6 @@ date: "10/16/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone library for data manipulation in Python, and within it, the `qcut` function offers a powerful way to bin continuous data into quantiles. Unlike `cut`, which bins data into equal-width intervals, `qcut` divides data into equal-sized groups based on the distribution of values.  This is particularly useful when dealing with skewed data, where `cut` might produce bins with vastly different numbers of observations.
-
-This post will delve into the functionalities of `qcut`, providing clear explanations and practical code examples to illustrate its application.
-
-
 ## Understanding `qcut`
 
 The core purpose of `qcut` is to discretize continuous data into quantiles.  A quantile represents a fraction or percentage of the data. For example, the 0.5 quantile (or 50th percentile) is the median. `qcut` ensures that each bin contains approximately the same number of data points. This is crucial for situations where you need to maintain a consistent sample size across different bins, irrespective of the underlying data distribution.

@@ -4,9 +4,6 @@ date: "07/05/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of scientific computing in Python, offers powerful array manipulation capabilities. While basic indexing allows you to access single elements or slices, **advanced indexing** opens the door to more complex and efficient array selections. This post dives into the nuances of NumPy advanced indexing, showcasing its versatility with clear code examples.
-
 ## Integer Array Indexing
 
 Integer array indexing allows you to select specific elements using arrays of indices.  This method differs significantly from slicing, as it creates a copy of the selected data rather than a view.

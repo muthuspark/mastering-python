@@ -96,5 +96,5 @@ This demonstrates how a package is isolated within the virtual environment.  Try
 
 ## Using `conda` Environments (Alternative)
 
-If you're working with data science projects or prefer a more comprehensive package and environment manager, `conda` is a powerful alternative.  `conda` offers similar functionality to `venv` but with better handling of non-Python dependencies and different Python versions.  Creating and managing `conda` environments follows a different set of commands but offers similar benefits.
+If you're working with data science projects or prefer a more  package and environment manager, `conda` is a powerful alternative.  `conda` offers similar functionality to `venv` but with better handling of non-Python dependencies and different Python versions.  Creating and managing `conda` environments follows a different set of commands but offers similar benefits.
 

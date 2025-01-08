@@ -4,10 +4,6 @@ date: "11/24/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a powerful and versatile function for shuffling arrays: `numpy.random.shuffle`.  This function is invaluable for tasks involving randomization, simulations, bootstrapping, and more. This post delves into the functionality of `numpy.random.shuffle`, providing clear explanations and practical code examples to solidify your understanding.
-
-
 ## Understanding `numpy.random.shuffle`
 
 The `numpy.random.shuffle` function operates *in-place*, meaning it directly modifies the original array rather than creating a new shuffled copy. This is crucial for memory efficiency, especially when dealing with large datasets.  It randomly rearranges the elements along the first axis of an array.  If you're working with a 1D array, this simply shuffles the elements. For multi-dimensional arrays, it shuffles the rows.

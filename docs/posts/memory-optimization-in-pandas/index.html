@@ -211,7 +211,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Pandas is a cornerstone of data science in Python, offering powerful tools for data manipulation and analysis. However, working with large datasets can quickly lead to memory issues. This post explores practical strategies to optimize Pandas memory usage, allowing you to handle significantly larger datasets efficiently.</p>
 <section id="understanding-pandas-memory-consumption" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-pandas-memory-consumption">Understanding Pandas Memory Consumption</h2>
 <p>Before diving into optimization, it’s crucial to understand how Pandas consumes memory. DataFrames store data in NumPy arrays, which are inherently memory-efficient. However, the data <em>type</em> chosen for each column significantly impacts memory usage. For example, storing integers as <code>int64</code> (64-bit integers) consumes significantly more memory than <code>int32</code> (32-bit integers) if the values fit within the smaller type. Similarly, using <code>float64</code> when <code>float32</code> suffices wastes considerable memory.</p>

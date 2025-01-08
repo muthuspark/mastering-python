@@ -206,7 +206,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>NumPy, the cornerstone of scientific computing in Python, offers a powerful and efficient way to manipulate arrays using Boolean indexing. This technique allows you to select array elements based on a Boolean condition, making it incredibly useful for data filtering, manipulation, and analysis. Let’s dive into the details and explore its capabilities with practical examples.</p>
 <section id="understanding-boolean-indexing" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-boolean-indexing">Understanding Boolean Indexing</h2>
 <p>Boolean indexing leverages Boolean arrays (arrays containing only <code>True</code> and <code>False</code> values) to filter elements from another array. The index array’s shape must be compatible with the array being indexed. A compatible shape means that either the index array has the same shape as the array being indexed, or it has a shape that’s broadcastable to match.</p>
@@ -272,7 +271,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>arr_new <span class="op">=</span> np.where(arr<span class="op">&gt;</span><span class="dv">2</span>, <span class="dv">100</span>, arr)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr_new) <span class="co"># Output: [  1   2 100 100 100]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>np.where(condition, x, y)</code> assigns <code>x</code> where the condition is true and <code>y</code> where it’s false. This adds another layer of flexibility to your Boolean indexing operations.</p>
-<p>This exploration provides a strong foundation for leveraging the power of Boolean indexing in NumPy. Mastering this technique will significantly improve your ability to efficiently process and analyze data within the NumPy framework.</p>
 
 
 </section>

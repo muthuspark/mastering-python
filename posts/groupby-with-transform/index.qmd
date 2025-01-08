@@ -4,11 +4,6 @@ date: "05/26/2024"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone of data analysis in Python, and its `groupby()` function is a powerful tool for aggregating and manipulating data based on groups.  However, the true potential of `groupby()` is unlocked when combined with the `transform()` function.  This combination allows you to apply a function to each group and return a result with the same size as your original DataFrame, aligning the results back to the original index.  This is incredibly useful for various data manipulation tasks.
-
-Let's dive into some examples to understand how `groupby()` and `transform()` work together.
-
 ## Understanding the Basics
 
 The core idea is simple:

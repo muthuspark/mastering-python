@@ -206,7 +206,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Data manipulation is a cornerstone of data science, and a crucial aspect of this involves combining data from multiple sources. In Python, using the powerful Pandas library, we achieve this through DataFrame joins. This guide will walk you through the different types of DataFrame joins, providing clear explanations and practical code examples.</p>
 <section id="understanding-dataframe-joins" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-dataframe-joins">Understanding DataFrame Joins</h2>
 <p>Pandas offers flexible methods for joining DataFrames based on shared columns (keys). The primary join types mirror those found in relational databases:</p>
@@ -217,7 +216,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="the-merge-function-your-workhorse-for-dataframe-joins" class="level2">
 <h2 class="anchored" data-anchor-id="the-merge-function-your-workhorse-for-dataframe-joins">The <code>merge()</code> Function: Your Workhorse for DataFrame Joins</h2>
-<p>The <code>merge()</code> function is the most comprehensive way to join DataFrames. It allows you to specify the join type, the keys used for joining, and how to handle overlapping columns.</p>
+<p>The <code>merge()</code> function is the most way to join DataFrames. It allows you to specify the join type, the keys used for joining, and how to handle overlapping columns.</p>
 <p>Let’s consider two DataFrames:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -282,7 +281,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df5 <span class="op">=</span> pd.DataFrame({<span class="st">'CustomerID'</span>: [<span class="dv">1</span>,<span class="dv">2</span>], <span class="st">'Name'</span>: [<span class="st">'Alice Updated'</span>, <span class="st">'Bob Updated'</span>]})</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>custom_suffix_join <span class="op">=</span> pd.merge(df1, df5, on<span class="op">=</span><span class="st">'CustomerID'</span>, how<span class="op">=</span><span class="st">'left'</span>, suffixes<span class="op">=</span>(<span class="st">'_original'</span>, <span class="st">'_updated'</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Custom Suffix Join:</span><span class="ch">\n</span><span class="st">"</span>, custom_suffix_join)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>These examples showcase the flexibility and power of Pandas’ DataFrame joining capabilities. By understanding the different join types and their nuances, you can effectively combine data from various sources for comprehensive data analysis.</p>
+<p>These examples showcase the flexibility and power of Pandas’ DataFrame joining capabilities. By understanding the different join types and their nuances, you can effectively combine data from various sources for data analysis.</p>
 
 
 </section>

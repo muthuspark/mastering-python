@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy, the cornerstone of numerical computing in Python, offers powerful tools for statistical analysis.  Among these, the standard deviation calculation stands out as a fundamental metric for understanding data dispersion. This post will delve into how to efficiently calculate standard deviations using NumPy, covering various scenarios and providing clear code examples.
+Standard deviation calculation stands out as a fundamental metric for understanding data dispersion. This post will look into how to efficiently calculate standard deviations using NumPy, covering various scenarios and providing clear code examples.
 
 ## Understanding Standard Deviation
 

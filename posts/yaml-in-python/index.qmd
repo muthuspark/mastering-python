@@ -119,5 +119,5 @@ This robust approach ensures your application gracefully handles potential issue
 ##  Beyond the Basics
 
 
-This provides a foundation for working with YAML in Python. More advanced features of PyYAML, such as custom object handling and more intricate YAML structures, can be explored based on your specific needs.  The PyYAML documentation offers comprehensive details.
+This provides a foundation for working with YAML in Python. More advanced features of PyYAML, such as custom object handling and more intricate YAML structures, can be explored based on your specific needs.  The PyYAML documentation offers  details.
 

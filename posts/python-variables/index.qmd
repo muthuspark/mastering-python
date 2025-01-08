@@ -4,7 +4,7 @@ date: "05/22/2024"
 categories: [ basic ]
 ---
 
-Python, known for its readability and versatility, relies heavily on variables to store and manipulate data.  This post provides a comprehensive introduction to Python variables, covering their declaration, types, naming conventions, and best practices.
+Python, known for its readability and versatility, relies heavily on variables to store and manipulate data.  This post provides a  introduction to Python variables, covering their declaration, types, naming conventions, and best practices.
 
 ## What are Variables?
 

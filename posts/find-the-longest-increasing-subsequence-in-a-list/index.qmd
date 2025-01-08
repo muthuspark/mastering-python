@@ -81,10 +81,5 @@ This improved version uses binary search to find the correct position in `tails`
 
 ## Approach 2:  (Less Efficient) Simple Recursive Approach (for smaller inputs only)
 
-A simpler, but less efficient (O(2<sup>n</sup>)) approach involves recursion.  This is suitable only for smaller input lists due to its exponential time complexity.  We won't delve into the code here as it is significantly less efficient than the dynamic programming approach.
-
-
-## Choosing the Right Approach
-
-For most practical scenarios, the dynamic programming approach with binary search is the recommended solution due to its significantly better time complexity. The recursive approach is only viable for extremely small input lists where efficiency is not a primary concern.  The dynamic programming solution offers a balance of readability and performance making it the preferred method for finding the longest increasing subsequence in a Python list.
+A simpler, but less efficient (O(2<sup>n</sup>)) approach involves recursion.  This is suitable only for smaller input lists due to its exponential time complexity.  We won't look into the code here as it is significantly less efficient than the dynamic programming approach.
 

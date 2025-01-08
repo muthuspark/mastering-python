@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy arrays are fundamental data structures in Python for numerical computation.  A key aspect of working effectively with NumPy arrays is understanding and manipulating their *shape*.  The shape of a NumPy array defines its dimensions and the size of each dimension.  This blog post will delve into the concept of NumPy array shape, exploring how to access, modify, and utilize it effectively in your code.
+NumPy arrays are fundamental data structures in Python for numerical computation.  A key aspect of working effectively with NumPy arrays is understanding and manipulating their *shape*.  The shape of a NumPy array defines its dimensions and the size of each dimension.  This blog post will look into the concept of NumPy array shape, exploring how to access, modify, and utilize it effectively in your code.
 
 ## What is NumPy Array Shape?
 

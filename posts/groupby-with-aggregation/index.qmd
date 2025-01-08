@@ -4,10 +4,6 @@ date: "12/12/2024"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone library for data manipulation in Python, and its `groupby()` function, combined with aggregation, is a powerful tool for summarizing and analyzing data. This post will walk you through the essentials of using `groupby()` with various aggregation functions, providing clear code examples to illustrate its capabilities.
-
-
 ## Understanding GroupBy
 
 The `groupby()` method in Pandas allows you to group rows of a DataFrame based on the values of one or more columns.  Think of it as creating subsets of your data based on shared characteristics.  Once grouped, you can then apply aggregate functions to calculate summary statistics for each group.

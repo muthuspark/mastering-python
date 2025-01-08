@@ -5,7 +5,7 @@ categories: [ numpy ]
 ---
 
 
-NumPy, a fundamental package for scientific computing in Python, offers efficient tools for statistical analysis.  One crucial statistic is variance, a measure of how spread out a dataset is. This post delves into understanding and calculating variance using NumPy, providing clear examples and explanations.
+NumPy, a fundamental package for scientific computing in Python, offers efficient tools for statistical analysis.  One crucial statistic is variance, a measure of how spread out a dataset is. This post looks into understanding and calculating variance using NumPy, providing clear examples and explanations.
 
 
 ## What is Variance?

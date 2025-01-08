@@ -4,10 +4,6 @@ date: "10/07/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone library in the Python data science ecosystem, renowned for its powerful data manipulation capabilities.  At the heart of Pandas lie two fundamental data structures: the `Series` and the `DataFrame`. Understanding these is crucial for effectively leveraging Pandas' potential.  This post will delve into each, providing clear explanations and practical code examples.
-
-
 ## Pandas Series: One-Dimensional Data
 
 A Pandas `Series` is essentially a one-dimensional labeled array capable of holding data of any type (integer, string, float, Python objects, etc.).  The labels are collectively called the *index*.  Think of it as a highly enhanced and efficient version of a Python list or dictionary.

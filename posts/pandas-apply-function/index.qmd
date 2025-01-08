@@ -4,10 +4,6 @@ date: "11/10/2024"
 categories: [ pandas ]
 ---
 
-
-Pandas is a cornerstone of any data scientist's Python toolkit, and the `apply()` function is a powerful weapon in its arsenal.  This versatile function allows you to apply custom functions to either rows or columns of your DataFrame, enabling flexible and efficient data manipulation beyond the capabilities of vectorized operations.  Let's explore its capabilities with clear examples.
-
-
 ## Understanding the `apply()` Function
 
 The `apply()` function provides a way to execute a function along an axis of a DataFrame.  The axis parameter determines whether the function operates on rows (`axis=0`) or columns (`axis=1`).  This opens up a world of possibilities for custom data transformations.

@@ -85,7 +85,7 @@ pip install -r requirements.txt
 
 ##  Creating and Uploading Your Own Packages
 
-While this post focuses on using PyPI, it's also worth noting that you can contribute to this valuable resource by creating and uploading your own Python packages. This involves creating a package structure, writing setup metadata, and using tools like `twine` to upload your package to PyPI.  This process involves more advanced steps and is beyond the scope of this introductory blog post.  However, the official PyPI documentation provides comprehensive guides on this topic.
+While this post focuses on using PyPI, it's also worth noting that you can contribute to this valuable resource by creating and uploading your own Python packages. This involves creating a package structure, writing setup metadata, and using tools like `twine` to upload your package to PyPI.  This process involves more advanced steps and is beyond the scope of this introductory blog post.  However, the official PyPI documentation provides  guides on this topic.
 
 
 ## Virtual Environments: A Best Practice

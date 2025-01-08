@@ -4,9 +4,6 @@ date: "09/30/2023"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, provides efficient functions for a wide range of mathematical operations.  Among these are trigonometric functions, specifically `tan()` and `arctan()`, which are crucial for various applications in science, engineering, and data analysis. This post delves into the usage of these functions, showcasing their capabilities with clear code examples.
-
 ## NumPy's `tan()` Function: Calculating Tangents
 
 The `tan()` function in NumPy computes the tangent of an angle (in radians).  It's a vectorized function, meaning it can operate on single values, arrays, or even matrices with remarkable efficiency.
@@ -61,10 +58,10 @@ print(f"Arctangents using arctan2: {angles_rad} radians")
 
 ```
 
-The code showcases the basic usage of `arctan()`. Note that `arctan()` returns values in the range (-π/2, π/2). For a more comprehensive solution that accounts for all four quadrants,  consider using `arctan2(y, x)`, which takes both the y and x coordinates as input, providing a more accurate angle.
+The code showcases the basic usage of `arctan()`. Note that `arctan()` returns values in the range (-π/2, π/2). For a more  solution that accounts for all four quadrants,  consider using `arctan2(y, x)`, which takes both the y and x coordinates as input, providing a more accurate angle.
 
 
 ##  Beyond the Basics:  Degrees and Broadcasting
 
-While `tan()` and `arctan()` operate on radians, you can easily convert between radians and degrees using NumPy's `degrees()` and `radians()` functions. NumPy's broadcasting rules allow for seamless operations between arrays of different shapes (under certain conditions), making these functions extremely versatile for complex calculations.  Exploring these aspects will further enhance your ability to leverage the power of NumPy's trigonometric capabilities.
+While `tan()` and `arctan()` operate on radians, you can easily convert between radians and degrees using NumPy's `degrees()` and `radians()` functions. NumPy's broadcasting rules allow for seamless operations between arrays of different shapes (under certain conditions), making these functions extremely versatile for complex calculations.  Exploring these aspects will further enhance your ability to use the power of NumPy's trigonometric capabilities.
 

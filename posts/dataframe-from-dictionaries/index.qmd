@@ -4,9 +4,6 @@ date: "05/01/2023"
 categories: [ pandas ]
 ---
 
-
-Pandas is a powerful Python library for data manipulation and analysis.  A core component of Pandas is the DataFrame, a two-dimensional labeled data structure similar to a table. One of the most common ways to create a DataFrame is from a dictionary. This post explores various methods for constructing DataFrames from dictionaries, providing clear explanations and illustrative code examples.
-
 ## From a Single Dictionary
 
 The simplest way to create a DataFrame is from a single dictionary where keys represent column names and values represent column data (lists or arrays of equal length).

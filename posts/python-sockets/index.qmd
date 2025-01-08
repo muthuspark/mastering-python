@@ -5,7 +5,7 @@ categories: [ advanced ]
 ---
 
 
-Python's socket module is a powerful tool for building network applications.  Whether you're creating a simple chat application, a web server, or a complex distributed system, understanding sockets is crucial. This post provides a comprehensive introduction to Python sockets, covering both the basics and some advanced concepts, with practical code examples to solidify your understanding.
+Python's socket module is a powerful tool for building network applications.  Whether you're creating a simple chat application, a web server, or a complex distributed system, understanding sockets is crucial. This post provides a  introduction to Python sockets, covering both the basics and some advanced concepts, with practical code examples to solidify your understanding.
 
 ## What are Sockets?
 

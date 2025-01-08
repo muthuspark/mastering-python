@@ -4,10 +4,6 @@ date: "11/11/2024"
 categories: [ pandas ]
 ---
 
-
-Pandas DataFrames are the workhorse of data manipulation in Python.  One of the most common tasks is adding new columns to an existing DataFrame.  This guide will walk you through several methods, providing clear examples for each.
-
-
 ## Method 1: Direct Assignment
 
 The simplest way to add a new column is by assigning a list, array, or Series to a new column name. The length of the assigned data must match the number of rows in your DataFrame.
@@ -99,7 +95,3 @@ Remember to ensure the data type of the new column is consistent with the values
 ```python
 df['col12'] = df['col1'].astype(str)
 ```
-
-
-This comprehensive guide provides various approaches to adding new columns to your Pandas DataFrames, empowering you to efficiently manage and manipulate your data.
-

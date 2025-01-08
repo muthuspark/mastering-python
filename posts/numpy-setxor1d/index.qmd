@@ -4,8 +4,7 @@ date: "08/27/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, offers a rich array of functions.  One particularly useful function, often overlooked, is `setxor1d`. This function efficiently computes the symmetric difference of two arrays, returning elements that are present in either array but not both.  This is incredibly helpful in various data manipulation and analysis tasks.  Let's delve into its functionality and practical applications with clear code examples.
+`setxor1d` function efficiently computes the symmetric difference of two arrays, returning elements that are present in either array but not both.  This is incredibly helpful in various data manipulation and analysis tasks.  Let's look into its functionality and practical applications with clear code examples.
 
 
 ## Understanding the Symmetric Difference

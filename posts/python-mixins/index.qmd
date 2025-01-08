@@ -9,7 +9,7 @@ Python mixins offer a powerful way to add functionality to classes without using
 
 ## What are Mixins?
 
-A mixin is a small class designed to be mixed into other classes using multiple inheritance. Unlike regular classes intended for instantiation, mixins primarily provide methods that other classes can leverage.  A key characteristic is that mixins are rarely, if ever, instantiated on their own.  Their purpose is to extend the capabilities of other classes.
+A mixin is a small class designed to be mixed into other classes using multiple inheritance. Unlike regular classes intended for instantiation, mixins primarily provide methods that other classes can use.  A key characteristic is that mixins are rarely, if ever, instantiated on their own.  Their purpose is to extend the capabilities of other classes.
 
 ## How Mixins Work
 

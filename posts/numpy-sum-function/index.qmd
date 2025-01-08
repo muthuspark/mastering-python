@@ -4,10 +4,6 @@ date: "07/16/2024"
 categories: [ numpy ]
 ---
 
-
-NumPy, the cornerstone of numerical computing in Python, provides a powerful and versatile `sum()` function that goes far beyond the basic summation you might be used to.  This function offers significant speed advantages over standard Python loops, especially when dealing with large arrays. Let's explore its capabilities with clear examples.
-
-
 ## Basic Summation with NumPy's `sum()`
 
 The simplest use of `sum()` involves summing all elements within a NumPy array.
