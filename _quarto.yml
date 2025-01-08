@@ -3,9 +3,12 @@ project:
   output-dir: docs
 
 website:
+  favicon: favicon.ico
   title: "Mastering Python"
   reader-mode: false
   open-graph: true
+  google-analytics: 
+    tracking-id: 'G-HE366VCQBM'
   site-url: 'https://python.muthu.co'
   site-path: '/'
   navbar:
