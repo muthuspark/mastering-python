@@ -1,1 +1,0 @@
-average = df['col1'].mean()  # Calculates the mean of 'col1'

@@ -1,1 +1,0 @@
-The determinant of the 2x2 matrix is: -2.0

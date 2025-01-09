@@ -1,1 +1,0 @@
-os.rmdir("my_new_directory") #Replace with a valid directory path

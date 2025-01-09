@@ -1,1 +1,0 @@
-df.to_csv("output.csv", index=False) # index=False prevents writing the index to the file.

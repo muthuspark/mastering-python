@@ -1,1 +1,0 @@
-numpy.empty(shape, dtype=float, order='C')

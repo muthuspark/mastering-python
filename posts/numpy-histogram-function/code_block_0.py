@@ -1,1 +1,0 @@
-numpy.histogram(a, bins=10, range=None, normed=None, weights=None, density=None)

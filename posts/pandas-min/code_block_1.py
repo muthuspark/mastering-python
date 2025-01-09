@@ -1,1 +1,0 @@
-The minimum value in the series is: 0

@@ -1,1 +1,0 @@
-df['col5'] = df['col1'] > 500000 # Creates a boolean Series

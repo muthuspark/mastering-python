@@ -1,1 +1,0 @@
-os.remove("new_file.txt") #Replace with a valid file path.

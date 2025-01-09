@@ -1,1 +1,0 @@
-print(my_tuple[1:4])  # Output: (20, 30, 40) (elements from index 1 up to, but not including, 4)

@@ -1,1 +1,0 @@
-print(len(combined_tuple)) # Output: 4

@@ -1,1 +1,0 @@
-numpy.arange([start, ]stop, [step, ]dtype=None)

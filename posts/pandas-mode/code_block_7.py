@@ -1,1 +1,0 @@
-Mode of an empty series: Series([], dtype: int64)

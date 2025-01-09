@@ -1,1 +1,0 @@
-pip install --upgrade <package_name>

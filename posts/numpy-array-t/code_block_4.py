@@ -1,1 +1,0 @@
-array_2d = array_2d.T #This modifies the original array_2d.

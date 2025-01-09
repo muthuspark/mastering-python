@@ -1,1 +1,0 @@
-The octal representation of 1234 is: 2322

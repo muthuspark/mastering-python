@@ -1,7 +1,0 @@
-plt.figure(figsize=(10, 6))
-plt.plot(time_series)
-plt.xlabel("Date")
-plt.ylabel("Value")
-plt.title("Sample Time Series")
-plt.grid(True)
-plt.show()

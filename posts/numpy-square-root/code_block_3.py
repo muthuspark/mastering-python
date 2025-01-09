@@ -1,1 +1,0 @@
-The square roots of the array are: [2. 3. 4. 5.]

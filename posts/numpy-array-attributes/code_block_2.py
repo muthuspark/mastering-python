@@ -1,1 +1,0 @@
-print(arr.shape)  # Output: (2, 3) (2 rows, 3 columns)

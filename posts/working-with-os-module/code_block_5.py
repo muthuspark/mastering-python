@@ -1,1 +1,0 @@
-os.makedirs("my_new_directory", exist_ok=True)

@@ -1,1 +1,0 @@
-DataFrame.applymap(func)

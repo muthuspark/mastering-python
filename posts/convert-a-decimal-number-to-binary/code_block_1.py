@@ -1,1 +1,0 @@
-The binary representation of 25 is: 0b11001

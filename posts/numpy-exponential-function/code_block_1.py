@@ -1,1 +1,0 @@
-The exponential of 2 is: 7.38905609893065

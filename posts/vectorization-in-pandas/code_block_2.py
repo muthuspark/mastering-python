@@ -1,1 +1,0 @@
-df['col4'] = df['col1'] * 2  # Multiply an entire column by 2

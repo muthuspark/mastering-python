@@ -1,1 +1,0 @@
-numpy.identity(n, dtype=None)

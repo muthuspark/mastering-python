@@ -1,2 +1,0 @@
-squares = [x**2 for x in range(1, 6)] # Creates a list of squares from 1 to 25: [1, 4, 9, 16, 25]
-even_numbers = [x for x in range(10) if x % 2 == 0] # Creates a list of even numbers from 0 to 9: [0, 2, 4, 6, 8]
