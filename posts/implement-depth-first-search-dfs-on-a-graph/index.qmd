@@ -1,0 +1,98 @@
+---
+title: "Implement Depth-First Search (DFS) on a Graph"
+date: "01/19/2024"
+categories: [ problem-solving ]
+---
+
+Depth-First Search (DFS) is a fundamental graph traversal algorithm.  It explores a graph as deeply as possible along each branch before backtracking.  This makes it particularly useful for tasks like finding connected components, detecting cycles, and topological sorting.  This post will guide you through implementing DFS on a graph using Python, with clear code examples and explanations.
+
+
+## Understanding Graph Representation
+
+Before diving into the DFS algorithm, let's clarify how we represent graphs in Python.  We'll use an adjacency list, a common and efficient representation. An adjacency list is a dictionary where keys represent nodes (vertices) and values are lists of their adjacent nodes (neighbors).
+
+```python
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+```
+
+This `graph` dictionary represents a graph where node 'A' is connected to 'B' and 'C', 'B' is connected to 'D' and 'E', and so on.
+
+
+## Implementing DFS Iteratively
+
+An iterative approach to DFS uses a stack data structure to manage the nodes to be visited.
+
+```python
+def dfs_iterative(graph, start):
+    visited = set()
+    stack = [start]
+
+    while stack:
+        vertex = stack.pop()
+        if vertex not in visited:
+            visited.add(vertex)
+            print(vertex, end=" ")
+            stack.extend(neighbor for neighbor in graph[vertex] if neighbor not in visited)
+
+# Example usage:
+dfs_iterative(graph, 'A') # Output: A B D E F C 
+```
+
+The code first initializes a `visited` set to track visited nodes and a `stack` containing the starting node.  The `while` loop continues until the stack is empty.  In each iteration, a node is popped from the stack. If it's not visited, it's marked as visited, printed, and its unvisited neighbors are added to the stack.
+
+
+## Implementing DFS Recursively
+
+A recursive approach is often considered more elegant and easier to understand for DFS.
+
+```python
+def dfs_recursive(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    print(start, end=" ")
+    for neighbor in graph[start]:
+        if neighbor not in visited:
+            dfs_recursive(graph, neighbor, visited)
+
+# Example usage:
+dfs_recursive(graph, 'A') # Output: A B D E F C
+```
+
+The recursive function marks the current node as visited, prints it, and then recursively calls itself for each unvisited neighbor.  The `visited` set is passed as an argument to prevent infinite loops in cyclic graphs.
+
+
+## Handling Disconnected Graphs
+
+The previous examples assume a connected graph.  To handle disconnected graphs (graphs with multiple unconnected components), we need to iterate through all nodes and start DFS from any unvisited node.
+
+```python
+def dfs_all(graph):
+    visited = set()
+    for node in graph:
+        if node not in visited:
+            dfs_recursive(graph, node, visited) # Or dfs_iterative
+
+# Example usage with a disconnected graph:
+disconnected_graph = {
+    'A': ['B', 'C'],
+    'D': ['E'],
+    'F': []
+}
+dfs_all(disconnected_graph) #Output will depend on the order of nodes in the dictionary and whether iterative or recursive is used.  Example: A B C D E F
+```
+
+This `dfs_all` function iterates through all nodes in the graph and initiates a DFS from each unvisited node, ensuring all components are explored.  This approach handles both connected and disconnected graphs effectively.
+
+
+##  Choosing between Iterative and Recursive DFS
+
+Both iterative and recursive implementations achieve the same result. The choice often depends on personal preference and the specific application. Recursive DFS is often considered more readable, while iterative DFS might be slightly more efficient in some cases and avoids potential stack overflow issues with very deep graphs.  For most cases, either approach is suitable.
+

@@ -1,0 +1,77 @@
+---
+title: "Implement the Bellman-Ford Algorithm for Shortest Path in a Weighted Graph"
+date: "12/12/2024"
+categories: [ problem-solving ]
+---
+
+Finding the shortest path between nodes in a weighted graph is a fundamental problem in computer science with applications ranging from GPS navigation to network routing. While Dijkstra's algorithm is a popular choice, it falters when dealing with graphs containing negative edge weights.  This is where the Bellman-Ford algorithm shines.  It's a dynamic programming approach capable of handling negative weights (though it can't handle negative cycles). Let's dive into its implementation in Python.
+
+## Understanding the Bellman-Ford Algorithm
+
+The Bellman-Ford algorithm works by iteratively relaxing edges.  "Relaxing" an edge means checking if a shorter path to a node can be found by going through that edge.  It repeats this process |V| - 1 times, where |V| is the number of vertices in the graph. This ensures that all shortest paths are found, even those involving multiple intermediate nodes.
+
+**Here's the basic idea:**
+
+1. **Initialization:** Assign an initial distance of infinity to all vertices except the source, which gets a distance of 0.
+2. **Iteration:** Repeat the edge relaxation process |V| - 1 times.  For each edge (u, v) with weight w, if `dist[u] + w < dist[v]`, then update `dist[v]` to `dist[u] + w`. This means we've found a shorter path to `v`.
+3. **Negative Cycle Detection:** After |V| - 1 iterations, perform one final pass. If any edge can still be relaxed, it indicates the presence of a negative cycle.
+
+## Python Implementation
+
+Let's implement the Bellman-Ford algorithm in Python using an adjacency list representation for the graph:
+
+```python
+import sys
+
+def bellman_ford(graph, source):
+    """
+    Implements the Bellman-Ford algorithm to find shortest paths.
+
+    Args:
+        graph: A dictionary representing the graph where keys are vertices and values are lists of (neighbor, weight) tuples.
+        source: The source vertex.
+
+    Returns:
+        A dictionary of shortest distances from the source to all other vertices, or None if a negative cycle is detected.
+    """
+    distances = {vertex: float('inf') for vertex in graph}
+    distances[source] = 0
+    num_vertices = len(graph)
+
+    for _ in range(num_vertices - 1):
+        for vertex in graph:
+            for neighbor, weight in graph[vertex]:
+                if distances[vertex] + weight < distances[neighbor]:
+                    distances[neighbor] = distances[vertex] + weight
+
+    # Negative cycle detection
+    for vertex in graph:
+        for neighbor, weight in graph[vertex]:
+            if distances[vertex] + weight < distances[neighbor]:
+                return None  # Negative cycle detected
+
+    return distances
+
+
+# Example graph represented as an adjacency list
+graph = {
+    'A': [('B', -1), ('C', 4)],
+    'B': [('C', 3), ('D', 2)],
+    'C': [('D', 5), ('E', 2)],
+    'D': [('E', -3)],
+    'E': []
+}
+
+shortest_distances = bellman_ford(graph, 'A')
+
+if shortest_distances:
+    print("Shortest distances from source 'A':")
+    for vertex, distance in shortest_distances.items():
+        print(f"To {vertex}: {distance}")
+else:
+    print("Graph contains a negative cycle.")
+
+```
+
+This code efficiently calculates shortest paths, clearly handling negative edge weights and detecting negative cycles.  The use of an adjacency list makes the code readable and relatively easy to understand. Remember to adapt the graph representation to suit your specific needs.  You can easily modify this to also return the shortest paths themselves, not just the distances, by tracking the previous node in the path during the relaxation steps.
+

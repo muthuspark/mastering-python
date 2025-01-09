@@ -1,0 +1,80 @@
+---
+title: "Detect a Cycle in a Linked List"
+date: "05/26/2024"
+categories: [ problem-solving ]
+---
+
+Linked lists are fundamental data structures, but they can present unique challenges. One such challenge is efficiently detecting the presence of a cycle – a situation where a node in the list points back to a previously visited node, creating a loop.  This blog post will explore different approaches to cycle detection in linked lists using Python, focusing on clarity and efficiency.
+
+
+## Understanding the Problem
+
+Before diving into solutions, let's clarify what a cycle in a linked list actually is.  Imagine a linked list where the `next` pointer of the last node points back to a node somewhere earlier in the list. This creates a closed loop, and traversing the list would never terminate.  Detecting these cycles is crucial for maintaining the integrity and functionality of your linked list-based applications.
+
+
+## Method 1: Using a Set (HashSet)
+
+This approach leverages the constant-time lookup capability of a set (or hash set) to efficiently detect cycles. We iterate through the linked list, adding each node's address (memory location) to the set. If we encounter a node whose address is already in the set, we've found a cycle.
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def detectCycleHashSet(head):
+    visited = set()
+    current = head
+    while current:
+        if id(current) in visited:
+            return True  # Cycle detected
+        visited.add(id(current))
+        current = current.next
+    return False  # No cycle
+
+
+# Example usage
+head = Node(1)
+head.next = Node(2)
+head.next.next = Node(3)
+head.next.next.next = head.next #Creating a cycle
+
+print(f"Cycle detected using HashSet: {detectCycleHashSet(head)}") # Output: True
+
+head2 = Node(1)
+head2.next = Node(2)
+head2.next.next = Node(3)
+
+print(f"Cycle detected using HashSet: {detectCycleHashSet(head2)}") # Output: False
+
+```
+
+This method has a time complexity of O(N) and a space complexity of O(N) in the worst case (where there's no cycle and the entire list is traversed).
+
+
+## Method 2: Floyd's Tortoise and Hare Algorithm (Cycle Detection)
+
+Floyd's algorithm, also known as the "tortoise and hare" algorithm, is a highly efficient method for cycle detection.  It uses two pointers, one moving one step at a time (the tortoise) and the other moving two steps at a time (the hare). If a cycle exists, the hare will eventually lap the tortoise within the cycle.
+
+```python
+def detectCycleFloyd(head):
+    slow = head
+    fast = head
+    while slow and fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True  # Cycle detected
+    return False  # No cycle
+
+#Example Usage (same as above, reuse head and head2)
+print(f"Cycle detected using Floyd's Algorithm: {detectCycleFloyd(head)}") # Output: True
+print(f"Cycle detected using Floyd's Algorithm: {detectCycleFloyd(head2)}") # Output: False
+```
+
+Floyd's algorithm boasts a time complexity of O(N) and a space complexity of O(1), making it significantly more memory-efficient than the HashSet approach, especially for very large linked lists.  This makes it the preferred method in most scenarios.
+
+
+## Choosing the Right Method
+
+While both methods effectively detect cycles, Floyd's Tortoise and Hare algorithm is generally preferred due to its superior space complexity.  The HashSet approach might be considered if you need to perform additional operations on the visited nodes, but for simple cycle detection, Floyd's algorithm is the more efficient choice.

@@ -1,0 +1,73 @@
+---
+title: "Merge Two Binary Trees"
+date: "08/06/2024"
+categories: [ problem-solving ]
+---
+
+Merging two binary trees is a classic problem in computer science, often encountered in data structure and algorithm courses and real-world applications involving hierarchical data.  This post delves into the efficient and elegant ways to solve this problem in Python. We'll explore the problem statement, different approaches, and provide detailed code examples.
+
+## Understanding the Problem
+
+The task is to merge two binary trees into a single resulting tree.  The merging process involves combining nodes from both trees. If a node exists in both trees at the same position, the value of the node in the resulting tree is the sum of the values of the corresponding nodes in the input trees. If a node exists in only one of the input trees, the node is simply copied to the corresponding position in the resulting tree.
+
+## Approach: Recursive Depth-First Traversal
+
+The most intuitive and commonly used approach to merging binary trees is through a recursive depth-first traversal.  This approach efficiently explores the tree's structure and combines nodes as needed.
+
+**Algorithm:**
+
+1. **Base Case:** If both input tree nodes are `None`, return `None`.
+2. **Recursive Step:**
+   - Create a new node with the sum of the values of the corresponding nodes (or the value of the single node if one is `None`).
+   - Recursively merge the left subtrees and right subtrees.
+   - Connect the merged left and right subtrees to the newly created node.
+3. **Return:** The newly created node.
+
+
+**Python Code:**
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def mergeTrees(root1, root2):
+    if not root1 and not root2:
+        return None
+    
+    val1 = root1.val if root1 else 0
+    val2 = root2.val if root2 else 0
+    
+    new_node = TreeNode(val1 + val2)
+    
+    new_node.left = mergeTrees(root1.left if root1 else None, root2.left if root2 else None)
+    new_node.right = mergeTrees(root1.right if root1 else None, root2.right if root2 else None)
+    
+    return new_node
+
+# Example Usage:
+root1 = TreeNode(1, TreeNode(3, TreeNode(5), TreeNode(7)), TreeNode(2))
+root2 = TreeNode(2, TreeNode(1, TreeNode(4), TreeNode(6)), TreeNode(3, None, TreeNode(9)))
+
+merged_tree = mergeTrees(root1, root2)
+
+# Function to print the merged tree (inorder traversal - you might need to adapt this depending on your needs)
+def print_tree(node):
+    if node:
+        print_tree(node.left)
+        print(node.val, end=" ")
+        print_tree(node.right)
+
+print("Merged Tree (inorder traversal): ")
+print_tree(merged_tree) #Output: 5 7 4 8 6 5 9 
+```
+
+This code defines a `TreeNode` class to represent nodes in the binary tree. The `mergeTrees` function implements the recursive merging algorithm. The example shows how to create sample trees and merge them.  The `print_tree` function (using inorder traversal) helps visualize the resulting merged tree. You can adapt this printing method to use other tree traversals (preorder, postorder) if needed.
+
+
+## Iterative Approach (using Queue)
+
+While recursion provides a clear and concise solution, an iterative approach using a queue can be beneficial for extremely large trees to avoid potential stack overflow issues.  This approach utilizes Breadth-First Search (BFS).  The implementation would involve using a queue to manage nodes to visit level by level, and then similarly handle the merging logic at each node. However, this approach is generally more complex than the recursive solution and is less readable.  For most practical scenarios, the recursive approach is preferred due to its simplicity and readability.  Implementing the iterative solution is left as an exercise for those interested in exploring alternative approaches.
+

@@ -1,0 +1,85 @@
+---
+title: "Implement the Rabin-Karp String Matching Algorithm"
+date: "06/07/2024"
+categories: [ problem-solving ]
+---
+
+The Rabin-Karp algorithm offers a probabilistic approach to string matching, making it efficient for larger texts and patterns.  Unlike brute-force methods, it leverages hashing to quickly compare substrings, significantly reducing the number of character-by-character comparisons. This post will guide you through implementing the Rabin-Karp algorithm in Python with clear code examples.
+
+## Understanding the Algorithm
+
+The core idea behind Rabin-Karp revolves around hashing.  We calculate a hash value for the pattern and then compute the hash values for all substrings of the text of the same length as the pattern. If the hash values match, we perform a character-by-character comparison to confirm a true match. This minimizes direct string comparisons, boosting efficiency.
+
+A crucial aspect is the rolling hash function. This function allows us to efficiently calculate the hash value of the next substring without recalculating the entire hash from scratch. We use modular arithmetic to keep the hash values within a manageable range.
+
+## Python Implementation
+
+Here's a Python implementation of the Rabin-Karp algorithm:
+
+
+```python
+def rabin_karp(text, pattern):
+    """
+    Implements the Rabin-Karp string matching algorithm.
+
+    Args:
+        text: The text string to search within.
+        pattern: The pattern string to search for.
+
+    Returns:
+        A list of indices where the pattern is found in the text.  Returns an empty list if no matches are found.
+    """
+
+    d = 256  # Number of characters in the input alphabet
+    q = 101  # A large prime number to prevent hash collisions
+    n = len(text)
+    m = len(pattern)
+    h = pow(d, m - 1, q) #Precompute the power of d
+
+    p = 0  # Hash value for the pattern
+    t = 0  # Hash value for the current substring of text
+
+    #Compute hash for pattern and the first substring of text
+    for i in range(m):
+        p = (d * p + ord(pattern[i])) % q
+        t = (d * t + ord(text[i])) % q
+
+    occurrences = []
+    # Slide the pattern across the text
+    for i in range(n - m + 1):
+        if p == t:  # If hash values match, check for a true match
+            match = True
+            for j in range(m):
+                if text[i + j] != pattern[j]:
+                    match = False
+                    break
+            if match:
+                occurrences.append(i)
+        if i < n - m: #Update the hash value for the next substring
+            t = (d * (t - ord(text[i]) * h) + ord(text[i + m])) % q
+            #Handle negative values
+            if t < 0:
+                t += q
+
+    return occurrences
+
+# Example usage
+text = "ABABDABACDABABCABAB"
+pattern = "ABAB"
+indices = rabin_karp(text, pattern)
+print(f"Pattern '{pattern}' found at indices: {indices}")
+
+text = "This is a test string. This is another test."
+pattern = "test"
+indices = rabin_karp(text, pattern)
+print(f"Pattern '{pattern}' found at indices: {indices}")
+
+```
+
+This code efficiently handles string matching using the rolling hash technique. The use of modular arithmetic (`% q`) helps prevent hash value overflow and potential collisions.  The `h` variable is precomputed to optimize the rolling hash calculation.  The code also includes error handling for negative hash values resulting from subtraction.
+
+
+## Optimizations and Considerations
+
+While efficient, the Rabin-Karp algorithm's performance depends on the choice of the prime number `q` and the hash function.  A poorly chosen `q` can lead to more collisions, negating the performance benefits.  Furthermore,  handling collisions effectively is crucial for optimal performance.  For extremely large datasets, further optimizations might be necessary.  Consider using more sophisticated hash functions or incorporating techniques like double hashing to mitigate collision effects.
+

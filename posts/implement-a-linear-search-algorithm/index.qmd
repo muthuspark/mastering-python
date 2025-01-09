@@ -1,0 +1,93 @@
+---
+title: "Implement a Linear Search Algorithm"
+date: "02/10/2024"
+categories: [ problem-solving ]
+---
+
+Linear search is one of the simplest searching algorithms.  It's a fundamental concept in computer science and a great starting point for understanding search techniques. This blog post will guide you through implementing a linear search algorithm in Python, providing clear explanations and code examples.
+
+## Understanding Linear Search
+
+The linear search algorithm sequentially checks each element of a list (or array) until it finds the target value.  If the target value is found, the algorithm returns its index (position). If the target value is not present in the list, it returns a value indicating that (often -1).
+
+**How it works:**
+
+1. **Start at the beginning:** The algorithm begins by examining the first element of the list.
+2. **Compare and continue:** It compares the current element with the target value. If they match, the search is successful, and the index is returned. If they don't match, the algorithm moves to the next element.
+3. **Repeat:** Steps 2 is repeated until either the target value is found or the end of the list is reached.
+4. **Not found:** If the end of the list is reached without finding the target value, it means the value is not present in the list, and a designated value (like -1) is returned.
+
+
+## Python Implementation: Iterative Approach
+
+The most straightforward way to implement a linear search is using an iterative approach (using a `for` loop):
+
+```python
+def linear_search_iterative(data, target):
+    """
+    Performs a linear search iteratively.
+
+    Args:
+        data: The list to search.
+        target: The value to search for.
+
+    Returns:
+        The index of the target value if found, otherwise -1.
+    """
+    for i, element in enumerate(data):
+        if element == target:
+            return i
+    return -1
+
+# Example usage:
+my_list = [2, 5, 7, 1, 9, 3]
+target_value = 7
+index = linear_search_iterative(my_list, target_value)
+
+if index != -1:
+    print(f"Target value {target_value} found at index {index}")
+else:
+    print(f"Target value {target_value} not found in the list")
+
+```
+
+## Python Implementation: Recursive Approach
+
+Linear search can also be implemented recursively. This approach is less efficient than the iterative approach due to function call overhead but demonstrates a different programming paradigm:
+
+```python
+def linear_search_recursive(data, target, index=0):
+    """
+    Performs a linear search recursively.
+
+    Args:
+        data: The list to search.
+        target: The value to search for.
+        index: The current index being checked (default is 0).
+
+    Returns:
+        The index of the target value if found, otherwise -1.
+    """
+    if index == len(data):
+        return -1  # Base case: Target not found
+    if data[index] == target:
+        return index  # Base case: Target found
+    else:
+        return linear_search_recursive(data, target, index + 1)  # Recursive call
+
+
+# Example usage:
+my_list = [2, 5, 7, 1, 9, 3]
+target_value = 1
+index = linear_search_recursive(my_list, target_value)
+
+if index != -1:
+    print(f"Target value {target_value} found at index {index}")
+else:
+    print(f"Target value {target_value} not found in the list")
+```
+
+## Time and Space Complexity
+
+Linear search has a time complexity of O(n), where n is the number of elements in the list.  In the worst-case scenario (the target is at the end or not present), the algorithm examines every element.  Its space complexity is O(1) for the iterative version and O(n) in the worst case for the recursive version (due to recursive calls on the call stack).  The iterative approach is generally preferred for its efficiency.
+

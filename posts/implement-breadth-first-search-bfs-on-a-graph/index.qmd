@@ -1,0 +1,101 @@
+---
+title: "Implement Breadth-First Search (BFS) on a Graph"
+date: "11/15/2024"
+categories: [ problem-solving ]
+---
+
+Breadth-First Search (BFS) is a fundamental graph traversal algorithm used to explore all the vertices of a graph.  Unlike Depth-First Search (DFS), which explores a branch as deeply as possible before backtracking, BFS explores the graph level by level. This makes it particularly useful for finding the shortest path between two nodes in an unweighted graph.
+
+This blog post will guide you through implementing BFS in Python using both adjacency lists and adjacency matrices, providing clear explanations and code examples.
+
+
+## Understanding Breadth-First Search
+
+BFS starts at a designated source node and explores all its neighbors before moving to their neighbors.  This exploration is managed using a queue data structure.  Nodes are added to the queue as they are discovered, and processed in a first-in, first-out (FIFO) manner.
+
+The core steps are:
+
+1. **Initialization:**  Start with a queue containing the source node.  Mark the source node as visited.
+2. **Iteration:** While the queue is not empty:
+   - Dequeue a node.
+   - Process the node (e.g., print its value, add it to a path).
+   - Enqueue all its unvisited neighbors, marking them as visited.
+
+
+## BFS using Adjacency List
+
+An adjacency list represents a graph as a dictionary where keys are nodes and values are lists of their neighbors. This is often a more efficient representation for sparse graphs.
+
+```python
+from collections import deque
+
+def bfs_adjacency_list(graph, start):
+    visited = set()
+    queue = deque([start])
+    visited.add(start)
+
+    while queue:
+        vertex = queue.popleft()
+        print(vertex, end=" ")  # Process the node
+
+        for neighbor in graph[vertex]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+
+
+# Example graph represented as an adjacency list
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+print("BFS traversal (Adjacency List):")
+bfs_adjacency_list(graph, 'A')  # Output: A B C D E F
+```
+
+
+## BFS using Adjacency Matrix
+
+An adjacency matrix represents a graph as a two-dimensional array where `matrix[i][j]` is 1 if there's an edge between node `i` and node `j`, and 0 otherwise.  This is often more efficient for dense graphs but can be less space-efficient for sparse graphs.
+
+```python
+from collections import deque
+
+def bfs_adjacency_matrix(matrix, start):
+    num_nodes = len(matrix)
+    visited = [False] * num_nodes
+    queue = deque([start])
+    visited[start] = True
+
+    while queue:
+        vertex = queue.popleft()
+        print(vertex, end=" ") #Process the node
+
+        for neighbor in range(num_nodes):
+            if matrix[vertex][neighbor] == 1 and not visited[neighbor]:
+                visited[neighbor] = True
+                queue.append(neighbor)
+
+
+# Example graph represented as an adjacency matrix
+matrix = [
+    [0, 1, 1, 0, 0, 0],  # A
+    [0, 0, 0, 1, 1, 0],  # B
+    [0, 0, 0, 0, 0, 1],  # C
+    [0, 0, 0, 0, 0, 0],  # D
+    [0, 0, 0, 0, 0, 1],  # E
+    [0, 0, 0, 0, 0, 0]   # F
+]
+
+print("\n\nBFS traversal (Adjacency Matrix):")
+bfs_adjacency_matrix(matrix, 0) # Output: 0 1 2 3 4 5 (Nodes are numbered 0-5)
+
+```
+
+These examples demonstrate how to implement BFS using both common graph representations. Remember to choose the representation best suited for your specific graph structure and application.  The choice between adjacency list and matrix often involves a trade-off between space and time complexity.
+

@@ -1,0 +1,69 @@
+---
+title: "Find the Sum of Prime Numbers up to N"
+date: "03/24/2024"
+categories: [ problem-solving ]
+---
+
+Finding the sum of prime numbers up to a given limit (N) is a classic programming problem that tests your understanding of prime number identification and efficient algorithm design.  This post explores several Python methods to tackle this challenge, from a straightforward (but less efficient) approach to optimized solutions.
+
+
+## The Naive Approach
+
+The most intuitive way involves iterating through numbers up to N, checking for primality, and summing the primes.  We can check for primality by testing divisibility from 2 up to the square root of the number.
+
+```python
+import math
+
+def sum_primes_naive(n):
+    """
+    Calculates the sum of prime numbers up to n (naive approach).
+    """
+    total = 0
+    for i in range(2, n + 1):
+        is_prime = True
+        for j in range(2, int(math.sqrt(i)) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            total += i
+    return total
+
+# Example usage
+n = 20
+print(f"Sum of primes up to {n}: {sum_primes_naive(n)}") # Output: 77
+```
+
+This approach works correctly but becomes slow for larger values of N due to its nested loop structure.  The time complexity is approximately O(n√n).
+
+
+## Sieve of Eratosthenes: A More Efficient Solution
+
+The Sieve of Eratosthenes is a significantly faster algorithm for finding all prime numbers up to a specified integer. It leverages a boolean array to mark non-prime numbers, eliminating redundant checks.
+
+```python
+def sum_primes_sieve(n):
+    """
+    Calculates the sum of prime numbers up to n using the Sieve of Eratosthenes.
+    """
+    sieve = [True] * (n + 1)
+    sieve[0] = sieve[1] = False
+    for i in range(2, int(n**0.5) + 1):
+        if sieve[i]:
+            for j in range(i * i, n + 1, i):
+                sieve[j] = False
+    total = sum(i for i, is_prime in enumerate(sieve) if is_prime)
+    return total
+
+# Example usage
+n = 20
+print(f"Sum of primes up to {n}: {sum_primes_sieve(n)}") # Output: 77
+```
+
+The Sieve of Eratosthenes boasts a time complexity of O(n log log n), making it considerably faster than the naive approach, especially for large values of N.  This makes it the preferred method for most practical applications.
+
+
+## Optimizations and Considerations
+
+For extremely large values of N, further optimizations might be necessary. These could involve using more advanced prime-finding algorithms or employing techniques like segmented sieves to manage memory usage effectively.  The choice of method depends on the specific constraints and performance requirements of your application.  The Sieve of Eratosthenes, however, provides an excellent balance between efficiency and simplicity for a wide range of inputs.
+

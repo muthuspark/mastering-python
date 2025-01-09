@@ -1,0 +1,96 @@
+---
+title: "Find the Minimum Spanning Tree Using Prim's Algorithm"
+date: "05/30/2024"
+categories: [ problem-solving ]
+---
+
+Finding the minimum spanning tree (MST) of a graph is a fundamental problem in computer science with applications in network design, clustering, and more.  Prim's algorithm provides an efficient way to solve this problem. This post will explain Prim's algorithm and demonstrate its implementation in Python.
+
+## Understanding Prim's Algorithm
+
+Prim's algorithm is a greedy algorithm that builds the MST one edge at a time. It starts with a single vertex and iteratively adds the shortest edge connecting a vertex in the MST to a vertex outside the MST until all vertices are included.
+
+The algorithm can be summarized as follows:
+
+1. **Initialization:** Start with an arbitrary vertex and include it in the MST.
+2. **Iteration:**  While there are vertices not in the MST:
+    * Find the edge with the minimum weight connecting a vertex in the MST to a vertex not in the MST.
+    * Add this edge and its corresponding vertex to the MST.
+3. **Termination:** The algorithm terminates when all vertices are part of the MST.
+
+## Python Implementation
+
+We'll represent the graph using an adjacency matrix.  Each element `graph[i][j]` represents the weight of the edge between vertex `i` and vertex `j`.  A value of `float('inf')` indicates no edge.
+
+```python
+import sys
+
+def prim_mst(graph):
+    """
+    Finds the minimum spanning tree using Prim's algorithm.
+
+    Args:
+        graph: An adjacency matrix representing the graph.
+
+    Returns:
+        A list of tuples representing the edges in the MST, 
+        or None if the graph is not connected.
+    """
+    num_vertices = len(graph)
+    mst = []
+    visited = [False] * num_vertices
+    min_edge = [sys.maxsize] * num_vertices
+    parent = [-1] * num_vertices
+
+    # Start with an arbitrary vertex (vertex 0 in this case)
+    min_edge[0] = 0
+
+    for _ in range(num_vertices):
+        min_weight = sys.maxsize
+        min_index = -1
+
+        # Find the vertex with the minimum edge weight not yet in MST
+        for v in range(num_vertices):
+            if min_edge[v] < min_weight and not visited[v]:
+                min_weight = min_edge[v]
+                min_index = v
+
+        if min_index == -1: #Graph is not connected
+            return None
+
+        visited[min_index] = True
+
+        # Add the edge to the MST
+        if parent[min_index] != -1:
+            mst.append((parent[min_index], min_index))
+
+        # Update minimum edge weights for adjacent vertices
+        for v in range(num_vertices):
+            if graph[min_index][v] < min_edge[v] and not visited[v]:
+                min_edge[v] = graph[min_index][v]
+                parent[v] = min_index
+
+    return mst
+
+#Example Usage
+graph = [
+    [0, 2, float('inf'), 6, float('inf')],
+    [2, 0, 3, 8, 5],
+    [float('inf'), 3, 0, float('inf'), 7],
+    [6, 8, float('inf'), 0, 9],
+    [float('inf'), 5, 7, 9, 0]
+]
+
+mst = prim_mst(graph)
+if mst:
+    print("Edges in the Minimum Spanning Tree:")
+    for u, v in mst:
+        print(f"({u}, {v})")
+else:
+    print("Graph is not connected.")
+
+
+```
+
+This code efficiently finds the MST using Prim's algorithm.  The use of an adjacency matrix simplifies the implementation, though other graph representations are possible.  Remember that the algorithm assumes a connected graph;  handling disconnected graphs would require additional checks.  This implementation showcases the core logic of Prim's algorithm, providing a clear and understandable solution for finding the minimum spanning tree.
+

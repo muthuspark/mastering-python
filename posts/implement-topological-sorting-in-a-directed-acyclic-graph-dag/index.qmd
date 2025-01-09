@@ -1,0 +1,113 @@
+---
+title: "Implement Topological Sorting in a Directed Acyclic Graph (DAG)"
+date: "09/26/2024"
+categories: [ problem-solving ]
+---
+
+Topological sorting is a linear ordering of nodes in a Directed Acyclic Graph (DAG) such that for every directed edge from node A to node B, node A appears before node B in the ordering.  This is a fundamental algorithm with applications in various fields, including scheduling tasks, resolving dependencies, and course scheduling.  This post will explore how to implement topological sorting in Python using two common approaches: Kahn's algorithm and Depth-First Search (DFS).
+
+
+## Understanding Directed Acyclic Graphs
+
+Before diving into the algorithms, let's clarify what a DAG is.  A DAG is a directed graph with no directed cycles.  This means you can't follow a sequence of edges and end up back where you started.  This acyclicity is crucial for topological sorting;  it guarantees that a topological ordering exists.
+
+
+## Kahn's Algorithm
+
+Kahn's algorithm is a breadth-first search (BFS) based approach. It efficiently finds a topological ordering. Here's a Python implementation:
+
+```python
+from collections import defaultdict
+
+def topological_sort_kahn(graph):
+    """
+    Performs topological sorting using Kahn's algorithm.
+
+    Args:
+        graph: A dictionary representing the graph where keys are nodes and values are lists of their neighbors.
+
+    Returns:
+        A list representing a topological ordering of the nodes, or None if the graph is cyclic.
+    """
+    in_degree = defaultdict(int)
+    for node in graph:
+        for neighbor in graph[node]:
+            in_degree[neighbor] += 1
+
+    queue = [node for node in graph if in_degree[node] == 0]
+    result = []
+
+    while queue:
+        node = queue.pop(0)
+        result.append(node)
+
+        for neighbor in graph[node]:
+            in_degree[neighbor] -= 1
+            if in_degree[neighbor] == 0:
+                queue.append(neighbor)
+
+    if len(result) != len(graph):  # Cycle detected if not all nodes are in result
+        return None
+    return result
+
+
+# Example usage:
+graph = {
+    'A': ['C'],
+    'B': ['C', 'D'],
+    'C': ['E'],
+    'D': ['F'],
+    'E': ['H'],
+    'F': ['H'],
+    'G': ['H'],
+}
+
+sorted_nodes = topological_sort_kahn(graph)
+print(f"Topological Sort (Kahn's Algorithm): {sorted_nodes}")
+
+```
+
+
+## Depth-First Search (DFS) Algorithm
+
+The DFS approach uses recursion to traverse the graph.  It maintains a visited set and a stack to store nodes in reverse post-order.  The stack then provides a topological ordering.
+
+
+```python
+def topological_sort_dfs(graph):
+    """
+    Performs topological sorting using Depth-First Search (DFS).
+
+    Args:
+        graph: A dictionary representing the graph.
+
+    Returns:
+        A list representing a topological ordering, or None if the graph is cyclic.
+    """
+    visited = set()
+    stack = []
+
+    def dfs(node):
+        visited.add(node)
+        for neighbor in graph.get(node, []):
+            if neighbor not in visited:
+                if not dfs(neighbor):
+                    return False
+        stack.append(node)
+        return True
+
+    for node in graph:
+        if node not in visited:
+            if not dfs(node):
+                return None  # Cycle detected
+
+    return stack[::-1] # Reverse the stack to get the topological order
+
+# Example usage (same graph as above):
+sorted_nodes_dfs = topological_sort_dfs(graph)
+print(f"Topological Sort (DFS Algorithm): {sorted_nodes_dfs}")
+
+```
+
+Both Kahn's algorithm and DFS provide valid topological orderings for a DAG.  Kahn's algorithm is generally preferred for its better performance in sparse graphs, while DFS can be more concise in implementation.  The choice often depends on the specific application and graph characteristics.  Remember to handle the case where a cycle exists in the graph to avoid infinite loops or errors.
+

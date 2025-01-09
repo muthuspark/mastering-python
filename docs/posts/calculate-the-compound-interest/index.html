@@ -112,6 +112,35 @@ gtag('js', new Date());
 gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Calculate the Compound Interest – Mastering Python">
@@ -195,7 +224,6 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
   <li><a href="#python-implementation-basic-compound-interest" id="toc-python-implementation-basic-compound-interest" class="nav-link" data-scroll-target="#python-implementation-basic-compound-interest">Python Implementation: Basic Compound Interest</a></li>
   <li><a href="#handling-different-compounding-frequencies" id="toc-handling-different-compounding-frequencies" class="nav-link" data-scroll-target="#handling-different-compounding-frequencies">Handling Different Compounding Frequencies</a></li>
   <li><a href="#continuous-compounding" id="toc-continuous-compounding" class="nav-link" data-scroll-target="#continuous-compounding">Continuous Compounding</a></li>
-  <li><a href="#more-advanced-scenarios-future-posts" id="toc-more-advanced-scenarios-future-posts" class="nav-link" data-scroll-target="#more-advanced-scenarios-future-posts">More Advanced Scenarios (Future Posts)</a></li>
   </ul>
 </nav>
     </div>
@@ -210,7 +238,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <section id="understanding-the-formula" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-formula">Understanding the Formula</h2>
 <p>The fundamental formula for compound interest is:</p>
-<p>A = P (1 + r/n)^(nt)</p>
+<p><span class="math display">\[ A = P \left( 1 + \frac{r}{n} \right)^{nt} \]</span></p>
 <p>Where:</p>
 <ul>
 <li><strong>A</strong> = the future value of the investment/loan, including interest</li>
@@ -244,7 +272,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span>            <span class="co"># Compounded annually</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>future_value <span class="op">=</span> calculate_compound_interest(principal, rate, time, n)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Future value after </span><span class="sc">{</span>time<span class="sc">}</span><span class="ss"> years: $</span><span class="sc">{</span>future_value<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Future value after </span><span class="sc">{</span>time<span class="sc">}</span><span class="ss"> years: $</span><span class="sc">{</span>future_value<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Future value after 5 years: $1276.28</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This function takes the principal amount, annual interest rate, time period, and compounding frequency as input and returns the future value. The example shows how to use the function with annual compounding.</p>
 </section>
 <section id="handling-different-compounding-frequencies" class="level2">
@@ -264,13 +294,18 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Future value (quarterly compounding): $</span><span class="sc">{</span>future_value_quarterly<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>future_value_monthly <span class="op">=</span> calculate_compound_interest(principal, rate, time, <span class="dv">12</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Future value (monthly compounding): $</span><span class="sc">{</span>future_value_monthly<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Future value (monthly compounding): $</span><span class="sc">{</span>future_value_monthly<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Future value (annual compounding): $1276.28</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Future value (semi-annual compounding): $1280.08</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Future value (quarterly compounding): $1282.04</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Future value (monthly compounding): $1283.36</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This code snippet shows how changing the <code>n</code> value affects the final amount. As you can see, more frequent compounding leads to slightly higher returns.</p>
 </section>
 <section id="continuous-compounding" class="level2">
 <h2 class="anchored" data-anchor-id="continuous-compounding">Continuous Compounding</h2>
 <p>In the case of continuous compounding, the formula changes slightly:</p>
-<p>A = Pe^(rt)</p>
+<p><span class="math display">\[ A = P e^{rt} \]</span></p>
 <p>where ‘e’ is the mathematical constant approximately equal to 2.71828. Let’s add a function for this:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -284,17 +319,10 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>future_value_continuous <span class="op">=</span> calculate_continuous_compound_interest(principal, rate, time)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Future value (continuous compounding): $</span><span class="sc">{</span>future_value_continuous<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Future value (continuous compounding): $</span><span class="sc">{</span>future_value_continuous<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Future value (continuous compounding): $1284.03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This demonstrates how to calculate compound interest with continuous compounding using the <code>math.exp()</code> function.</p>
-</section>
-<section id="more-advanced-scenarios-future-posts" class="level2">
-<h2 class="anchored" data-anchor-id="more-advanced-scenarios-future-posts">More Advanced Scenarios (Future Posts)</h2>
-<p>This covers the basics of calculating compound interest in Python. Future posts will explore more advanced scenarios, including:</p>
-<ul>
-<li>Handling irregular deposits and withdrawals.</li>
-<li>Incorporating taxes and fees.</li>
-<li>Using libraries like NumPy for more efficient calculations with large datasets.</li>
-</ul>
 
 
 </section>

@@ -1,0 +1,76 @@
+---
+title: "Implement a Queue Using a List"
+date: "04/18/2024"
+categories: [ problem-solving ]
+---
+
+Queues are a fundamental data structure in computer science, operating on the "First-In, First-Out" (FIFO) principle.  Imagine a real-world queue at a store – the first person in line is the first person served.  Python doesn't have a built-in queue data structure in the same way it does for lists or dictionaries, but we can easily implement one using a standard list. This approach is simple and efficient for many applications.
+
+## Understanding the Queue Data Structure
+
+Before diving into the Python code, let's briefly review the core operations of a queue:
+
+* **Enqueue:** Adds an element to the rear (end) of the queue.
+* **Dequeue:** Removes and returns the element at the front of the queue.
+* **Peek (or Front):** Returns the element at the front of the queue without removing it.
+* **Is Empty:** Checks if the queue is empty.
+* **Size:** Returns the number of elements in the queue.
+
+
+## Implementing a Queue with Python Lists
+
+We can leverage Python's list methods to create a queue.  Lists offer `append()` for adding elements to the end (enqueue) and `pop(0)` for removing elements from the beginning (dequeue).
+
+Here's a Python class implementing a queue using a list:
+
+
+```python
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        self.items.append(item)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.items.pop(0)
+        else:
+            return None  # Or raise an exception
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[0]
+        else:
+            return None # Or raise an exception
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+# Example usage
+q = Queue()
+q.enqueue(10)
+q.enqueue(20)
+q.enqueue(30)
+
+print("Size:", q.size())  # Output: Size: 3
+print("Front:", q.peek())  # Output: Front: 10
+print("Dequeued:", q.dequeue())  # Output: Dequeued: 10
+print("Size after dequeue:", q.size()) # Output: Size after dequeue: 2
+
+```
+
+This code defines a `Queue` class with methods for enqueue, dequeue, peek, checking emptiness, and getting the size.  The `is_empty()` and  `peek()` methods include error handling for attempting to operate on an empty queue.  You can adapt this error handling to suit your specific needs (e.g., raising exceptions instead of returning `None`).
+
+
+##  Efficiency Considerations
+
+While using a list is straightforward, it's important to note that `pop(0)` on a list has a time complexity of O(n) because it requires shifting all subsequent elements.  For large queues where frequent dequeues are expected, using the `collections.deque` object is a more efficient alternative, offering O(1) time complexity for both enqueue and dequeue operations.  We will explore `collections.deque` in a future post.
+
+
+##  Beyond the Basics
+
+This basic implementation provides a foundation for understanding queue operations.  More sophisticated queue implementations might include features like bounded queues (limiting the maximum size), priority queues (elements are dequeued based on priority), and thread-safe queues (for concurrent access in multi-threaded environments).

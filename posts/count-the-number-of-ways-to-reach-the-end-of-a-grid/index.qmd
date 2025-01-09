@@ -1,0 +1,116 @@
+---
+title: "Count the Number of Ways to Reach the End of a Grid"
+date: "06/25/2024"
+categories: [ problem-solving ]
+---
+
+Navigating grids is a fundamental problem in computer science with applications ranging from pathfinding algorithms to dynamic programming.  This blog post explores a classic variation: counting the number of distinct paths from the top-left corner to the bottom-right corner of a grid, where you can only move right or down. We'll tackle this problem using Python, illustrating different approaches with clear explanations and code examples.
+
+
+## Understanding the Problem
+
+Imagine an M x N grid.  You start at the top-left cell (0, 0) and want to reach the bottom-right cell (M-1, N-1).  At each step, you can only move one cell to the right or one cell down. The question is: how many different paths exist to reach the destination?
+
+## Approach 1: Recursive Solution
+
+The most intuitive approach is recursion.  Each cell can be reached either from the cell above or the cell to its left.  We can recursively count paths from each cell.
+
+```python
+def count_paths_recursive(m, n):
+  """
+  Counts the number of paths recursively.
+
+  Args:
+    m: Number of rows in the grid.
+    n: Number of columns in the grid.
+
+  Returns:
+    The number of distinct paths.
+  """
+  if m == 1 or n == 1:
+    return 1
+  return count_paths_recursive(m - 1, n) + count_paths_recursive(m, n - 1)
+
+#Example
+rows = 3
+cols = 3
+print(f"Number of paths (recursive): {count_paths_recursive(rows, cols)}")
+```
+
+This recursive solution is easy to understand but suffers from significant performance issues due to repeated calculations.  It has exponential time complexity.
+
+
+## Approach 2: Dynamic Programming
+
+Dynamic programming optimizes the recursive approach by storing the results of subproblems to avoid redundant computations. We create a table (or matrix) to store the number of paths to each cell.
+
+```python
+def count_paths_dynamic(m, n):
+  """
+  Counts the number of paths using dynamic programming.
+
+  Args:
+    m: Number of rows in the grid.
+    n: Number of columns in the grid.
+
+  Returns:
+    The number of distinct paths.
+  """
+  dp = [[0 for _ in range(n)] for _ in range(m)]
+
+  # Initialize first row and column
+  for i in range(m):
+    dp[i][0] = 1
+  for j in range(n):
+    dp[0][j] = 1
+
+  # Fill the dp table
+  for i in range(1, m):
+    for j in range(1, n):
+      dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+
+  return dp[m - 1][n - 1]
+
+#Example
+rows = 3
+cols = 3
+print(f"Number of paths (dynamic programming): {count_paths_dynamic(rows, cols)}")
+```
+
+This dynamic programming solution has a time complexity of O(M*N), a significant improvement over the recursive approach.
+
+
+## Approach 3: Combinatorial Approach
+
+The problem can also be solved using combinatorics.  To reach the bottom-right corner, you need to make M-1 downward moves and N-1 rightward moves. The total number of moves is M+N-2.  The number of ways to arrange these moves is given by the binomial coefficient: (M+N-2)! / ((M-1)! * (N-1)!)
+
+```python
+import math
+
+def count_paths_combinatorial(m, n):
+  """
+  Counts the number of paths using the combinatorial approach.
+
+  Args:
+    m: Number of rows in the grid.
+    n: Number of columns in the grid.
+
+  Returns:
+    The number of distinct paths.
+  """
+  return math.comb(m + n - 2, m - 1)
+
+#Example
+rows = 3
+cols = 3
+print(f"Number of paths (combinatorial): {count_paths_combinatorial(rows, cols)}")
+
+```
+
+This combinatorial approach is the most efficient, with a time complexity that depends on the efficiency of the binomial coefficient calculation (often O(min(m,n)) or even O(1) with optimized libraries).
+
+
+## Choosing the Right Approach
+
+While the recursive approach is conceptually simple, it's impractical for larger grids. Dynamic programming offers a significant performance improvement, and the combinatorial approach provides the most efficient solution.  The best choice depends on the specific constraints of your application and the size of the grid.
+

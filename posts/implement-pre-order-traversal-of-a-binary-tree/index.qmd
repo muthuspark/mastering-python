@@ -1,0 +1,81 @@
+---
+title: "Implement Pre-order Traversal of a Binary Tree"
+date: "05/06/2024"
+categories: [ problem-solving ]
+---
+
+Pre-order traversal is one of the fundamental ways to traverse a binary tree.  Understanding it is crucial for anyone working with tree data structures in computer science. This post will explain pre-order traversal and provide Python code examples to implement it.
+
+## Understanding Pre-order Traversal
+
+Pre-order traversal follows a specific pattern: it visits the **root node** first, then recursively traverses the **left subtree**, and finally, recursively traverses the **right subtree**.  The order of visitation is always: Root, Left, Right.
+
+Let's visualize this with an example:
+
+```
+     1
+    / \
+   2   3
+  / \
+ 4   5
+```
+
+A pre-order traversal of this tree would yield the sequence: `1, 2, 4, 5, 3`.
+
+
+## Python Implementation: Recursive Approach
+
+The most straightforward way to implement pre-order traversal is using recursion.  This elegantly mirrors the recursive nature of the tree itself.
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def preorder_recursive(node):
+    if node:
+        print(node.data, end=" ")  # Visit the root
+        preorder_recursive(node.left)  # Traverse left subtree
+        preorder_recursive(node.right) # Traverse right subtree
+
+# Example usage:
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+
+print("Pre-order traversal (recursive):")
+preorder_recursive(root)  # Output: 1 2 4 5 3
+```
+
+
+## Python Implementation: Iterative Approach
+
+While recursion is often preferred for its readability, an iterative approach using a stack can also be used. This can be beneficial for very deep trees to avoid potential stack overflow errors.
+
+
+```python
+def preorder_iterative(node):
+    if node is None:
+        return
+
+    stack = [node]
+    while(len(stack) > 0):
+        node = stack.pop()
+        print(node.data, end=" ")
+
+        if node.right is not None:
+            stack.append(node.right)
+        if node.left is not None:
+            stack.append(node.left)
+
+#Example Usage (using the same root node from the recursive example):
+print("\nPre-order traversal (iterative):")
+preorder_iterative(root) # Output: 1 2 4 5 3
+```
+
+Both the recursive and iterative approaches achieve the same result: a pre-order traversal of the binary tree.  Choose the method that best suits your needs and coding style.  The recursive approach is generally easier to understand, while the iterative approach might offer performance advantages in certain scenarios.
+

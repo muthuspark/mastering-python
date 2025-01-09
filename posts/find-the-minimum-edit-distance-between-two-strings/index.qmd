@@ -1,0 +1,99 @@
+---
+title: "Find the Minimum Edit Distance Between Two Strings"
+date: "01/13/2024"
+categories: [ problem-solving ]
+---
+
+Finding the minimum edit distance between two strings is a fundamental problem in computer science with applications in various fields, including spell checking, DNA sequencing, and information retrieval.  The edit distance, also known as Levenshtein distance, quantifies the similarity between two strings by counting the minimum number of single-character edits required to change one string into the other. These edits can be insertions, deletions, or substitutions.
+
+This post will explore how to calculate the minimum edit distance using Python, focusing on both a recursive approach (for understanding the underlying logic) and a more efficient dynamic programming approach.
+
+
+## Understanding the Problem
+
+Let's say we have two strings: `str1 = "kitten"` and `str2 = "sitting"`.  To transform `kitten` into `sitting`, we can perform the following edits:
+
+1. **Substitute** 'k' with 's'
+2. **Substitute** 'e' with 'i'
+3. **Insert** 'g' at the end
+
+This gives us a total of 3 edits.  However, is this the *minimum* number of edits?  Finding the minimum is crucial, and that's where the algorithms come in.
+
+
+## Recursive Approach (Illustrative, not efficient)
+
+A recursive approach directly implements the definition of edit distance. It considers three possibilities for each character comparison:
+
+* **Match:** If the characters match, no edit is needed.
+* **Mismatch:**  A substitution is required (cost of 1).
+* **Insertion/Deletion:** Inserting a character into `str1` or deleting a character from `str1` to match `str2` (cost of 1 each).
+
+The recursive function chooses the minimum cost among these options:
+
+```python
+def min_edit_distance_recursive(str1, str2):
+    m = len(str1)
+    n = len(str2)
+
+    if m == 0:
+        return n
+    if n == 0:
+        return m
+
+    if str1[m - 1] == str2[n - 1]:
+        return min_edit_distance_recursive(str1[:m - 1], str2[:n - 1])
+    else:
+        return 1 + min(
+            min_edit_distance_recursive(str1[:m - 1], str2),  # Deletion
+            min_edit_distance_recursive(str1, str2[:n - 1]),  # Insertion
+            min_edit_distance_recursive(str1[:m - 1], str2[:n - 1]),  # Substitution
+        )
+
+
+str1 = "kitten"
+str2 = "sitting"
+distance = min_edit_distance_recursive(str1, str2)
+print(f"Minimum edit distance (recursive): {distance}")  #Output: 3
+
+```
+
+**Caveat:** This recursive approach is highly inefficient for longer strings due to overlapping subproblems.  It's primarily for understanding the concept.
+
+
+## Dynamic Programming Approach (Efficient)
+
+Dynamic programming avoids redundant calculations by storing the results of subproblems in a table (matrix). This significantly improves efficiency.
+
+```python
+def min_edit_distance_dp(str1, str2):
+    m = len(str1)
+    n = len(str2)
+
+    # Create a matrix to store results of subproblems
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+    # Initialize first row and column
+    for i in range(m + 1):
+        dp[i][0] = i
+    for j in range(n + 1):
+        dp[0][j] = j
+
+    # Fill the matrix using dynamic programming
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if str1[i - 1] == str2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1]
+            else:
+                dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1])
+
+    return dp[m][n]
+
+
+str1 = "kitten"
+str2 = "sitting"
+distance = min_edit_distance_dp(str1, str2)
+print(f"Minimum edit distance (dynamic programming): {distance}") # Output: 3
+```
+
+The dynamic programming approach offers a vastly superior performance, especially for longer strings, making it the preferred method for practical applications.  It systematically builds the solution from smaller subproblems, ensuring that each subproblem is solved only once.
+

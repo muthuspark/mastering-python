@@ -1,0 +1,63 @@
+---
+title: "Find the Longest Palindromic Subsequence in a String"
+date: "12/27/2024"
+categories: [ problem-solving ]
+---
+
+Finding the longest palindromic subsequence within a given string is a classic computer science problem with applications in various fields, including bioinformatics and string algorithms.  A subsequence doesn't need to be contiguous; it's a sequence of characters from the original string that maintain their original order.  A palindrome is a sequence that reads the same forwards and backward. This post will explore how to efficiently solve this problem in Python using dynamic programming.
+
+## Understanding the Problem
+
+Let's consider the string "bananas".  Some palindromic subsequences include "anana", "bab", and "aa".  The longest palindromic subsequence is "anana". The goal is to develop an algorithm that can identify this longest subsequence for any given input string.
+
+## Dynamic Programming Approach
+
+Dynamic programming is a powerful technique well-suited for this problem. We'll create a table (typically a 2D array) to store the lengths of the longest palindromic subsequences.  Each cell `dp[i][j]` will represent the length of the longest palindromic subsequence within the substring from index `i` to `j`.
+
+Here's how we build the table:
+
+1. **Base Cases:**  If `i == j` (a single character), the longest palindromic subsequence is the character itself (length 1). If `i > j` (invalid substring), the length is 0.
+
+2. **Recursive Relation:**  If the characters at indices `i` and `j` are the same (`s[i] == s[j]`), the longest palindromic subsequence includes these characters, and its length is `2 + dp[i+1][j-1]` (the length of the subsequence between them plus the two matching characters).  If the characters are different, the longest palindromic subsequence is either the longest subsequence from `i+1` to `j` or the longest subsequence from `i` to `j-1`.  We choose the maximum of these two.
+
+
+## Python Code Implementation
+
+```python
+def longest_palindromic_subsequence(s):
+    n = len(s)
+    # Create a table to store lengths of palindromic subsequences
+    dp = [[0] * n for _ in range(n)]
+
+    # Base cases: single characters
+    for i in range(n):
+        dp[i][i] = 1
+
+    # Build the dp table diagonally
+    for cl in range(2, n + 1):
+        for i in range(n - cl + 1):
+            j = i + cl - 1
+            if s[i] == s[j] and cl == 2:
+                dp[i][j] = 2
+            elif s[i] == s[j]:
+                dp[i][j] = dp[i + 1][j - 1] + 2
+            else:
+                dp[i][j] = max(dp[i][j - 1], dp[i + 1][j])
+
+    # The longest palindromic subsequence length is at dp[0][n-1]
+    return dp[0][n - 1]
+
+
+# Example usage
+string = "bananas"
+length = longest_palindromic_subsequence(string)
+print(f"The length of the longest palindromic subsequence in '{string}' is: {length}")
+
+
+string = "cbbd"
+length = longest_palindromic_subsequence(string)
+print(f"The length of the longest palindromic subsequence in '{string}' is: {length}")
+```
+
+This code efficiently computes the length of the longest palindromic subsequence.  You can extend this to reconstruct the actual subsequence itself, though that's left as an exercise for the reader.  The time complexity of this dynamic programming solution is O(n^2), where n is the length of the string, making it a reasonably efficient approach for moderately sized strings.
+

@@ -11,7 +11,7 @@ Compound interest is the interest earned on both the principal amount and the ac
 
 The fundamental formula for compound interest is:
 
-A = P (1 + r/n)^(nt)
+$$ A = P \left( 1 + \frac{r}{n} \right)^{nt} $$
 
 Where:
 
@@ -49,6 +49,8 @@ n = 1            # Compounded annually
 
 future_value = calculate_compound_interest(principal, rate, time, n)
 print(f"Future value after {time} years: ${future_value:.2f}")
+
+# Future value after 5 years: $1276.28
 ```
 
 This function takes the principal amount, annual interest rate, time period, and compounding frequency as input and returns the future value. The example shows how to use the function with annual compounding.
@@ -75,6 +77,10 @@ print(f"Future value (quarterly compounding): ${future_value_quarterly:.2f}")
 future_value_monthly = calculate_compound_interest(principal, rate, time, 12)
 print(f"Future value (monthly compounding): ${future_value_monthly:.2f}")
 
+# Future value (annual compounding): $1276.28
+# Future value (semi-annual compounding): $1280.08
+# Future value (quarterly compounding): $1282.04
+# Future value (monthly compounding): $1283.36
 ```
 
 This code snippet shows how changing the `n` value affects the final amount.  As you can see, more frequent compounding leads to slightly higher returns.
@@ -84,7 +90,7 @@ This code snippet shows how changing the `n` value affects the final amount.  As
 
 In the case of continuous compounding, the formula changes slightly:
 
-A = Pe^(rt)
+$$ A = P e^{rt} $$
 
 where 'e' is the mathematical constant approximately equal to 2.71828.  Let's add a function for this:
 
@@ -103,18 +109,8 @@ time = 5
 
 future_value_continuous = calculate_continuous_compound_interest(principal, rate, time)
 print(f"Future value (continuous compounding): ${future_value_continuous:.2f}")
+
+# Future value (continuous compounding): $1284.03
 ```
 
 This demonstrates how to calculate compound interest with continuous compounding using the `math.exp()` function.
-
-
-##  More Advanced Scenarios (Future Posts)
-
-This covers the basics of calculating compound interest in Python.  Future posts will explore more advanced scenarios, including:
-
-*   Handling irregular deposits and withdrawals.
-*   Incorporating taxes and fees.
-*   Using libraries like NumPy for more efficient calculations with large datasets.
-
-
-

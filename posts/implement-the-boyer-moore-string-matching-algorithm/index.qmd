@@ -1,0 +1,126 @@
+---
+title: "Implement the Boyer-Moore String Matching Algorithm"
+date: "04/11/2024"
+categories: [ problem-solving ]
+---
+
+The Boyer-Moore algorithm is a highly efficient string-searching algorithm.  Unlike naive string search, which checks every possible position, Boyer-Moore uses heuristics to skip characters and significantly reduce the number of comparisons. This makes it particularly useful for searching large texts for relatively short patterns. This post will guide you through implementing the Boyer-Moore algorithm in Python.
+
+## Understanding the Heuristics
+
+The algorithm's efficiency stems from two key heuristics:
+
+* **Bad Character Heuristic:** If a mismatch occurs at a character `c` in the pattern, the algorithm shifts the pattern to the right until either:
+    * `c` appears in the pattern at or to the right of the mismatch position, or
+    * the end of the pattern is reached.
+
+* **Good Suffix Heuristic:** If a mismatch occurs, the algorithm examines the suffix of the pattern that matches the text.  It then shifts the pattern based on the occurrences of this matching suffix within the pattern itself.
+
+
+## Python Implementation
+
+Let's break down a Python implementation of the Boyer-Moore algorithm:
+
+```python
+def boyer_moore(text, pattern):
+    """
+    Implements the Boyer-Moore string matching algorithm.
+
+    Args:
+        text: The text to search within.
+        pattern: The pattern to search for.
+
+    Returns:
+        A list of indices where the pattern is found in the text.  Returns an empty list if no matches are found.
+    """
+
+    m = len(pattern)
+    n = len(text)
+    if m > n:
+        return []  # Pattern is longer than the text
+
+    # Preprocessing: Create bad character and good suffix tables
+    bad_char = {}
+    for i in range(m - 1):
+        bad_char[pattern[i]] = m - 1 - i
+
+    suffix = {}
+    for i in range(m):
+        suffix[i] = m
+
+    for i in range(m - 1):
+        j = i
+        k = 0
+        while j >= 0 and pattern[j] == pattern[m - 1 - k]:
+            j -= 1
+            k += 1
+            suffix[k] = j + 1
+
+    for i in range(m - 1):
+      j=m-1-i
+      k=1
+      while k <= m-1-i and j<m-1:
+        if pattern[j]==pattern[m-1-k]:
+            suffix[k]=j+1
+            j=j-1
+            k=k+1
+        else:
+            break
+
+    # Search
+    occurrences = []
+    i = 0
+    while i <= n - m:
+        j = m - 1
+        while j >= 0 and pattern[j] == text[i + j]:
+            j -= 1
+        if j == -1:
+            occurrences.append(i)
+            i += 1  # Shift by one after a match
+        else:
+            shift = 0
+            if text[i + j] in bad_char:
+                shift = max(shift, j - bad_char[text[i + j]])
+
+            suffix_shift = suffix[1]
+            if j < m - 1 and j > 0:
+              k=1
+              while k <=j+1:
+                if pattern[m-1-k]==text[i+j]:
+                  suffix_shift=min(suffix_shift,j+1-suffix[k])
+                k=k+1
+
+            shift = max(shift, suffix_shift)
+            i += shift
+
+
+
+    return occurrences
+
+
+# Example Usage
+text = "This is a test string to demonstrate the Boyer-Moore algorithm."
+pattern = "algorithm"
+matches = boyer_moore(text, pattern)
+print(f"Pattern '{pattern}' found at indices: {matches}")
+
+text = "ABABDABACDABABCABAB"
+pattern = "ABAB"
+matches = boyer_moore(text, pattern)
+print(f"Pattern '{pattern}' found at indices: {matches}")
+
+
+```
+
+This code implements both the bad character and good suffix heuristics.  The `bad_char` and `suffix` dictionaries are pre-computed for efficiency.  The main search loop iterates through the text, utilizing the heuristics to efficiently skip portions of the text.
+
+
+## Optimizations and Further Reading
+
+While this implementation provides a good understanding of the algorithm, further optimizations are possible, particularly for very large texts and patterns. Consider exploring these avenues for enhanced performance:
+
+* **Using more sophisticated data structures:**  Replacing dictionaries with more efficient structures for specific cases.
+* **Further refinement of the good suffix heuristic:** Implementing variations for improved shift calculations.
+
+This post provides a solid foundation for understanding and implementing the Boyer-Moore algorithm.  Experiment with different texts and patterns to observe its efficiency firsthand.
+

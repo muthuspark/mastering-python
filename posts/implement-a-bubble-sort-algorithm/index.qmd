@@ -1,0 +1,75 @@
+---
+title: "Implement a Bubble Sort Algorithm"
+date: "05/14/2024"
+categories: [ problem-solving ]
+---
+
+Bubble Sort is one of the simplest sorting algorithms.  While not efficient for large datasets, understanding its mechanics is crucial for learning more advanced sorting techniques.  This post will guide you through implementing Bubble Sort in Python, explaining the code step-by-step.
+
+
+## Understanding Bubble Sort
+
+Bubble Sort works by repeatedly stepping through the list, comparing adjacent elements and swapping them if they are in the wrong order.  The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted.  Think of it like bubbles rising to the surface – the largest elements "bubble" up to their correct positions.
+
+
+## The Python Code
+
+Here's a Python function implementing Bubble Sort:
+
+```python
+def bubble_sort(list_):
+    n = len(list_)
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if list_[j] > list_[j+1]:
+                list_[j], list_[j+1] = list_[j+1], list_[j]  # Swap elements
+    return list_
+
+# Example usage:
+my_list = [64, 34, 25, 12, 22, 11, 90]
+sorted_list = bubble_sort(my_list)
+print("Sorted array:", sorted_list)
+```
+
+
+## Code Explanation
+
+* **`def bubble_sort(list_)`:** Defines the function that takes a list as input.
+* **`n = len(list_)`:** Gets the length of the input list.
+* **`for i in range(n-1)`:** The outer loop iterates through the list `n-1` times.  Each iteration ensures at least one element is in its correct sorted position.
+* **`for j in range(n-i-1)`:** The inner loop compares adjacent elements.  The `n-i-1` ensures we don't compare elements that are already sorted.
+* **`if list_[j] > list_[j+1]`:** This condition checks if the elements need swapping.
+* **`list_[j], list_[j+1] = list_[j+1], list_[j]`:** This line performs the swap using simultaneous assignment, a concise way to swap values in Python.
+* **`return list_`:** The function returns the sorted list.
+
+
+## Optimizations
+
+While the above code works, it can be optimized.  One improvement is to add a flag to check if any swaps were made in a pass. If no swaps are made, the list is already sorted, and we can stop early:
+
+```python
+def bubble_sort_optimized(list_):
+    n = len(list_)
+    for i in range(n-1):
+        swapped = False
+        for j in range(n-i-1):
+            if list_[j] > list_[j+1]:
+                list_[j], list_[j+1] = list_[j+1], list_[j]
+                swapped = True
+        if not swapped:
+            break  # Exit if no swaps were made in this pass
+    return list_
+```
+
+This optimized version can significantly improve performance on partially sorted or already sorted lists.
+
+
+## Time and Space Complexity
+
+Bubble Sort has a time complexity of O(n^2) in the worst and average cases, and O(n) in the best case (when the list is already sorted).  Its space complexity is O(1), making it an in-place sorting algorithm.  This means it doesn't require significant extra memory beyond the input list itself.
+
+
+## When to Use Bubble Sort
+
+Due to its poor time complexity, Bubble Sort is generally not recommended for large datasets. It's primarily used for educational purposes to illustrate basic sorting concepts or for very small lists where its simplicity outweighs its inefficiency.
+

@@ -1,0 +1,90 @@
+---
+title: "Check if a Year is a Leap Year"
+date: "06/01/2024"
+categories: [ problem-solving ]
+---
+
+Determining whether a year is a leap year is a common programming task, especially when working with dates and calendars.  Python offers straightforward ways to accomplish this, and this post will explore several approaches, from basic conditional logic to using the `calendar` module.
+
+## Understanding Leap Years
+
+Before diving into the code, let's briefly review the rules for leap years:
+
+* A leap year is divisible by 4.
+* However, if a year is divisible by 100, it's NOT a leap year, unless...
+* It's also divisible by 400.
+
+This seemingly complex rule can be elegantly translated into Python code.
+
+
+## Method 1: Using Conditional Logic
+
+This method directly implements the leap year rules using `if-elif-else` statements.  It's clear, concise, and easy to understand.
+
+```python
+def is_leap_year(year):
+  """Checks if a year is a leap year using conditional logic."""
+  if year % 4 == 0:
+    if year % 100 == 0:
+      if year % 400 == 0:
+        return True
+      else:
+        return False
+    else:
+      return True
+  else:
+    return False
+
+# Example usage
+print(is_leap_year(2024))  # Output: True
+print(is_leap_year(2000))  # Output: True
+print(is_leap_year(1900))  # Output: False
+print(is_leap_year(2023))  # Output: False
+```
+
+
+## Method 2: A More Concise Approach with Conditional Expressions
+
+We can improve readability and reduce code length by using Python's conditional expressions (ternary operator).
+
+```python
+def is_leap_year_concise(year):
+  """Checks if a year is a leap year using conditional expressions."""
+  return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+# Example usage
+print(is_leap_year_concise(2024))  # Output: True
+print(is_leap_year_concise(2000))  # Output: True
+print(is_leap_year_concise(1900))  # Output: False
+print(is_leap_year_concise(2023))  # Output: False
+```
+
+This version cleverly uses the `and` and `or` operators to concisely express the leap year rules.
+
+
+## Method 3: Leveraging the `calendar` Module
+
+Python's built-in `calendar` module provides a convenient function for this purpose.
+
+```python
+import calendar
+
+def is_leap_year_calendar(year):
+    """Checks if a year is a leap year using the calendar module."""
+    return calendar.isleap(year)
+
+# Example usage
+print(is_leap_year_calendar(2024))  # Output: True
+print(is_leap_year_calendar(2000))  # Output: True
+print(is_leap_year_calendar(1900))  # Output: False
+print(is_leap_year_calendar(2023))  # Output: False
+
+```
+
+The `calendar.isleap()` function provides a simple and efficient way to check for leap years.  This is often the preferred method due to its clarity and reliance on a well-tested library function.
+
+
+## Handling Invalid Input
+
+For robust code, consider adding error handling to manage invalid input, such as non-integer values or negative years.  This could involve using a `try-except` block to catch `TypeError` or `ValueError` exceptions.  We leave this as an exercise for the reader to explore and enhance the provided examples.
+

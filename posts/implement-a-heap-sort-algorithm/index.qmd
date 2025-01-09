@@ -1,0 +1,79 @@
+---
+title: "Implement a Heap Sort Algorithm"
+date: "12/02/2024"
+categories: [ problem-solving ]
+---
+
+Heap sort stands as a powerful and efficient sorting algorithm, boasting a time complexity of O(n log n) in all cases – a significant advantage over algorithms like bubble sort or insertion sort, which can degrade to O(n²) in worst-case scenarios.  This makes it a preferred choice for large datasets where performance is critical.  This blog post will delve into the intricacies of heap sort, providing a clear explanation and practical Python implementation.
+
+## Understanding the Heap Data Structure
+
+Before diving into the algorithm itself, it's crucial to grasp the concept of a heap. A heap is a specialized tree-based data structure that satisfies the heap property:
+
+* **Max-Heap:** The value of each node is greater than or equal to the value of its children.  The root node contains the largest element.
+* **Min-Heap:** The value of each node is less than or equal to the value of its children. The root node contains the smallest element.
+
+We'll focus on max-heap for our heap sort implementation, as it simplifies the process of finding the largest element.  Heaps are often represented as arrays for efficient memory management and access.
+
+## Building the Heap
+
+The first step in heap sort involves transforming the input array into a max-heap.  This is achieved using a process called *heapify*.  The `heapify` function recursively ensures that the heap property is maintained for every subtree within the array.
+
+```python
+def heapify(arr, n, i):
+    largest = i  # Initialize largest as root
+    l = 2 * i + 1  # left = 2*i + 1
+    r = 2 * i + 2  # right = 2*i + 2
+
+    # See if left child of root exists and is greater than root
+    if l < n and arr[l] > arr[largest]:
+        largest = l
+
+    # See if right child of root exists and is greater than root
+    if r < n and arr[r] > arr[largest]:
+        largest = r
+
+    # Change root, if needed
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+
+        # Heapify the root.
+        heapify(arr, n, largest)
+```
+
+The `heapify` function takes the array, its size, and the index of the element to heapify as input.  It recursively ensures the subtree rooted at that index satisfies the max-heap property.
+
+## Implementing the Heap Sort Algorithm
+
+With the `heapify` function in place, we can now implement the complete heap sort algorithm:
+
+```python
+def heap_sort(arr):
+    n = len(arr)
+
+    # Build a maxheap.
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+    # One by one extract an element from heap
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # swap
+        heapify(arr, i, 0)
+
+#Example Usage
+arr = [12, 11, 13, 5, 6, 7]
+heap_sort(arr)
+print("Sorted array is:", arr)
+```
+
+The algorithm first builds a max-heap from the input array. Then, it iteratively extracts the maximum element (the root) and places it at the end of the array.  The remaining array is then heapified again, repeating the process until the entire array is sorted.
+
+
+##  Analyzing the Time Complexity
+
+As mentioned earlier, heap sort has a time complexity of O(n log n) for all cases (best, average, and worst).  The building of the heap takes O(n) time, and extracting the maximum element and heapifying the remaining array takes O(log n) time for each of the n elements.
+
+
+## Space Complexity
+
+Heap sort is an *in-place* algorithm, meaning it sorts the array without requiring significant extra space.  Its space complexity is therefore O(1).  This makes it memory-efficient, especially when dealing with large datasets.

@@ -1,0 +1,110 @@
+---
+title: "Search for a Word in a Trie"
+date: "04/01/2024"
+categories: [ problem-solving ]
+---
+
+Tries (pronounced "try") are fascinating tree-like data structures renowned for their efficiency in searching and storing strings.  Unlike hash tables, tries excel when dealing with a large number of strings that share common prefixes. This makes them particularly well-suited for applications like autocomplete, spell checkers, and IP routing. This post will explore how to efficiently search for a word within a Trie implemented in Python.
+
+
+## Understanding the Trie Structure
+
+A Trie is a rooted tree where each node represents a character in a string.  Each path from the root to a leaf node represents a complete word in the Trie's vocabulary.  Nodes typically store a boolean value indicating whether that node represents the end of a valid word.
+
+Let's visualize a simple Trie containing the words "cat," "cats," and "dog":
+
+```
+     root
+    /   \
+   c     d
+  / \   /
+ a   a  o
+/ \ / \
+t  t g g
+ \
+  s
+```
+
+In this example, the node representing 't' in 'cat' has a boolean flag set to True (indicating the word "cat"), while the node representing 's' in 'cats' also has its flag set to True (indicating "cats").
+
+
+## Python Implementation
+
+We'll now create a Python class to represent our Trie:
+
+```python
+class TrieNode:
+    def __init__(self):
+        self.children = {}  # Dictionary to store child nodes
+        self.is_end_of_word = False
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_word = True
+
+    def search(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return node.is_end_of_word
+```
+
+The `TrieNode` class represents a single node in the Trie, containing a dictionary of children and a boolean flag. The `Trie` class provides methods for inserting words and searching for them.
+
+## Searching a Word
+
+The `search` method iterates through the characters of the input word. If a character is not found as a child of the current node, the word is not in the Trie, and the method returns `False`. If the loop completes successfully, it means the word exists as a path in the Trie.  However, we need to check `node.is_end_of_word` to ensure it's a complete word, not just a prefix.
+
+## Example Usage
+
+Let's test our implementation:
+
+```python
+trie = Trie()
+trie.insert("cat")
+trie.insert("cats")
+trie.insert("dog")
+
+print(trie.search("cat"))  # Output: True
+print(trie.search("cats")) # Output: True
+print(trie.search("ca"))   # Output: False
+print(trie.search("dog"))  # Output: True
+print(trie.search("bird")) # Output: False
+
+```
+
+This demonstrates how efficiently the `search` method locates words within the Trie.  The time complexity of searching is proportional to the length of the word, making it significantly faster than linear searches for large datasets.
+
+
+
+## Handling Prefixes
+
+While the current `search` method only checks for complete words,  modifying it to detect prefixes is straightforward:
+
+```python
+def search_prefix(self, prefix):
+    node = self.root
+    for char in prefix:
+        if char not in node.children:
+            return False
+        node = node.children[char]
+    return True
+```
+
+This enhanced `search_prefix` method returns `True` if the Trie contains the given prefix, regardless of whether it's a complete word.
+
+
+## Optimizations and Extensions
+
+Further optimizations could involve using more compact data structures for child nodes, especially when dealing with a large alphabet or character set.  You could also extend the Trie to support operations like deleting words or listing all words starting with a particular prefix.  These extensions would build upon the core concepts presented here, providing a robust and powerful string-handling tool.
+

@@ -1,0 +1,107 @@
+---
+title: "Implement a Max-Heap"
+date: "10/30/2024"
+categories: [ problem-solving ]
+---
+
+A heap is a specialized tree-based data structure that satisfies the heap property:  in a max-heap, the value of each node is greater than or equal to the value of its children. This property makes heaps incredibly efficient for tasks like priority queues and heapsort. This post will guide you through implementing a max-heap in Python, complete with code examples and explanations.
+
+
+## Understanding the Max-Heap Property
+
+Before diving into the code, let's solidify our understanding of the max-heap property.  Imagine a binary tree. In a max-heap:
+
+* The root node contains the largest element.
+* The value of each node is greater than or equal to the values of its children.
+
+This property isn't just about the root; it applies recursively to every subtree within the heap.
+
+
+## Implementing the Max-Heap using a List
+
+Python doesn't have a built-in heap data structure, but we can cleverly use a list to represent it.  We'll leverage list indexing to represent the parent-child relationships inherent in a binary tree.  Specifically:
+
+* The parent of node `i` is at index `(i-1)//2`.
+* The left child of node `i` is at index `2*i + 1`.
+* The right child of node `i` is at index `2*i + 2`.
+
+
+## Core Functions: `heapify`, `insert`, `extract_max`
+
+Our max-heap implementation will focus on three core functions:
+
+**1. `heapify(arr)`:** This function takes a list `arr` and transforms it into a max-heap in-place.  It starts from the last non-leaf node and works its way up, ensuring the max-heap property is satisfied at each level.
+
+```python
+def heapify(arr, n, i):
+    largest = i  # Initialize largest as root
+    l = 2 * i + 1  # left = 2*i + 1
+    r = 2 * i + 2  # right = 2*i + 2
+
+    # See if left child of root exists and is greater than root
+    if l < n and arr[largest] < arr[l]:
+        largest = l
+
+    # See if right child of root exists and is greater than root
+    if r < n and arr[largest] < arr[r]:
+        largest = r
+
+    # Change root, if needed
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+
+        # Heapify the root.
+        heapify(arr, n, largest)
+
+def build_heap(arr):
+    n = len(arr)
+    # Build heap (rearrange array)
+    for i in range(n//2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+```
+
+**2. `insert(arr, new_element)`:**  This function adds a `new_element` to the max-heap, maintaining the max-heap property.
+
+```python
+def insert(arr, new_element):
+    arr.append(new_element)
+    n = len(arr)
+    i = n - 1
+    while i > 0 and arr[(i - 1) // 2] < arr[i]:
+        arr[i], arr[(i - 1) // 2] = arr[(i - 1) // 2], arr[i]
+        i = (i - 1) // 2
+```
+
+**3. `extract_max(arr)`:** This function removes and returns the largest element (root) from the max-heap, again preserving the max-heap property.
+
+
+```python
+def extract_max(arr):
+    if not arr:
+        return None
+    n = len(arr)
+    max_element = arr[0]
+    arr[0] = arr[n - 1]
+    arr.pop()
+    heapify(arr, len(arr), 0)
+    return max_element
+```
+
+## Putting it all Together: A Complete Example
+
+Let's create a complete example showcasing the functions:
+
+```python
+arr = [10, 5, 30, 20, 15]
+build_heap(arr)
+print("Max-Heap:", arr)
+insert(arr, 35)
+print("After inserting 35:", arr)
+max_element = extract_max(arr)
+print("Extracted Max:", max_element)
+print("After extracting max:", arr)
+
+```
+
+This example demonstrates how to build a max-heap, insert a new element, and extract the maximum element, illustrating the core functionality of a max-heap in Python.  Remember that the `heapify` function is crucial for maintaining the heap property after insertions and extractions.  This implementation provides a foundational understanding of max-heap operations and can be extended for more complex applications.

@@ -1,0 +1,118 @@
+---
+title: "Implement a Binary Search Algorithm"
+date: "11/24/2024"
+categories: [ problem-solving ]
+---
+
+Binary search is a highly efficient algorithm for finding a specific item within a *sorted* list or array.  Unlike linear search, which checks each element one by one, binary search repeatedly divides the search interval in half.  This dramatically reduces the number of comparisons needed, resulting in a logarithmic time complexity of O(log n).  This post will walk you through implementing binary search in Python, explaining the logic and providing code examples.
+
+
+## Understanding the Algorithm
+
+The core idea behind binary search is simple:
+
+1. **Start with a sorted list.**  Binary search only works on sorted data.
+2. **Find the middle element.**  Calculate the middle index of the search interval.
+3. **Compare the middle element to the target value.**
+    * If they are equal, the search is successful.
+    * If the target is less than the middle element, continue searching in the left half of the list.
+    * If the target is greater than the middle element, continue searching in the right half of the list.
+4. **Repeat steps 2 and 3** until the target is found or the search interval is empty (meaning the target is not in the list).
+
+
+## Python Implementation: Iterative Approach
+
+This approach uses a `while` loop to repeatedly narrow down the search space:
+
+```python
+def binary_search_iterative(data, target):
+    """
+    Performs a binary search iteratively.
+
+    Args:
+        data: A sorted list of numbers.
+        target: The number to search for.
+
+    Returns:
+        The index of the target if found, otherwise -1.
+    """
+    low = 0
+    high = len(data) - 1
+
+    while low <= high:
+        mid = (low + high) // 2  # Integer division to get the middle index
+
+        if data[mid] == target:
+            return mid
+        elif data[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1  # Target not found
+
+
+# Example usage:
+sorted_list = [2, 5, 7, 8, 11, 12]
+target_value = 11
+
+index = binary_search_iterative(sorted_list, target_value)
+
+if index != -1:
+    print(f"Target found at index: {index}")
+else:
+    print("Target not found")
+```
+
+
+## Python Implementation: Recursive Approach
+
+This approach uses recursion to break down the problem into smaller subproblems:
+
+```python
+def binary_search_recursive(data, target, low, high):
+    """
+    Performs a binary search recursively.
+
+    Args:
+        data: A sorted list of numbers.
+        target: The number to search for.
+        low: The lower index of the search interval.
+        high: The upper index of the search interval.
+
+    Returns:
+        The index of the target if found, otherwise -1.
+    """
+    if low > high:
+        return -1
+
+    mid = (low + high) // 2
+
+    if data[mid] == target:
+        return mid
+    elif data[mid] < target:
+        return binary_search_recursive(data, target, mid + 1, high)
+    else:
+        return binary_search_recursive(data, target, low, mid - 1)
+
+
+# Example usage:
+sorted_list = [2, 5, 7, 8, 11, 12]
+target_value = 8
+
+index = binary_search_recursive(sorted_list, target_value, 0, len(sorted_list) - 1)
+
+if index != -1:
+    print(f"Target found at index: {index}")
+else:
+    print("Target not found")
+
+```
+
+Both the iterative and recursive approaches achieve the same result. The choice between them often depends on personal preference and the specific context of the application.  The iterative approach is generally considered slightly more efficient due to the overhead of function calls in recursion. However, the recursive approach can be more readable for some.
+
+
+## Handling Duplicate Values
+
+The provided code finds only *one* instance of the target value.  If you need to find all occurrences of a value that appears multiple times, you'll need to modify the algorithm to scan left and right from the initial found index.  We will explore that in a future post.
+

@@ -1,0 +1,81 @@
+---
+title: "Implement a Dynamic Programming Solution for Fibonacci"
+date: "12/03/2024"
+categories: [ problem-solving ]
+---
+
+Dynamic programming is a powerful algorithmic technique that can significantly optimize solutions to problems exhibiting overlapping subproblems and optimal substructure.  The Fibonacci sequence, a classic example, perfectly demonstrates the elegance and efficiency of this approach.  This post will guide you through implementing a dynamic programming solution for the Fibonacci sequence in Python, explaining the concepts along the way.
+
+## Understanding the Fibonacci Sequence
+
+The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1.  The sequence begins: 0, 1, 1, 2, 3, 5, 8, 13, and so on.
+
+A naive recursive implementation, while conceptually simple, suffers from exponential time complexity due to repeated calculations of the same Fibonacci numbers. This is where dynamic programming steps in.
+
+## Dynamic Programming to the Rescue
+
+Dynamic programming tackles the problem of redundant calculations by storing the results of subproblems.  Instead of recalculating, it retrieves previously computed values, dramatically improving efficiency. We can implement this using two primary approaches: **top-down (memoization)** and **bottom-up (tabulation)**.
+
+### 1. Top-Down (Memoization)
+
+Memoization involves storing the results of function calls in a cache (usually a dictionary). Before computing a Fibonacci number, the function checks the cache. If the result is already present, it's returned; otherwise, it's calculated, stored in the cache, and then returned.
+
+```python
+cache = {}
+
+def fibonacci_memoization(n):
+  if n in cache:
+    return cache[n]
+  if n <= 1:
+    result = n
+  else:
+    result = fibonacci_memoization(n-1) + fibonacci_memoization(n-2)
+  cache[n] = result
+  return result
+
+# Example usage
+print(fibonacci_memoization(10))  # Output: 55
+```
+
+### 2. Bottom-Up (Tabulation)
+
+Tabulation builds a table (usually a list) storing the results from the base cases up to the desired Fibonacci number.  It iteratively fills the table, ensuring that each entry depends only on previously computed values.
+
+```python
+def fibonacci_tabulation(n):
+  if n <= 1:
+    return n
+  fib_table = [0, 1]
+  for i in range(2, n + 1):
+    next_fib = fib_table[i - 1] + fib_table[i - 2]
+    fib_table.append(next_fib)
+  return fib_table[n]
+
+# Example usage
+print(fibonacci_tabulation(10))  # Output: 55
+```
+
+## Comparing the Approaches
+
+Both memoization and tabulation achieve linear time complexity (O(n)), a significant improvement over the exponential complexity of the naive recursive approach.  Tabulation generally offers slightly better performance in practice because it avoids the overhead of function calls inherent in memoization. However, memoization can be more intuitive for certain problems and easier to adapt.  The choice depends on the specific problem and personal preference.  For the Fibonacci sequence, both methods provide efficient and elegant solutions.
+
+
+## Optimizing further (Space Complexity)
+
+Both the memoization and tabulation methods shown above use O(n) space complexity.  For very large n, this can become a concern.  We can further optimize the space complexity to O(1) by only storing the last two Fibonacci numbers during the iterative calculation.
+
+```python
+def fibonacci_optimized(n):
+    if n <= 1:
+        return n
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b
+
+#Example Usage
+print(fibonacci_optimized(10)) # Output: 55
+```
+
+This optimized version maintains the linear time complexity while significantly reducing the space requirements.  This makes it suitable for calculating extremely large Fibonacci numbers without memory issues.
+

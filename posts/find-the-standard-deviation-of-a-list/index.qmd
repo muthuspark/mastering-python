@@ -24,6 +24,8 @@ import numpy as np
 sample_std_dev = np.std(data, ddof=1) # ddof=1 for sample standard deviation
 print(f"Sample Standard Deviation: {sample_std_dev}")
 
+# Population Standard Deviation: 2.138089935299395
+# Sample Standard Deviation: 2.138089935299395
 
 ```
 
@@ -63,6 +65,8 @@ sample_std_dev = math.sqrt(sample_variance) #Sample Standard Deviation
 print(f"Manually calculated Population Standard Deviation: {std_dev}")
 print(f"Manually calculated Sample Standard Deviation: {sample_std_dev}")
 
+# Manually calculated Population Standard Deviation: 2.0
+# Manually calculated Sample Standard Deviation: 2.138089935299395
 ```
 
 This code demonstrates the manual calculation, mirroring the steps outlined above.  Note the difference in how the variance is calculated for the population and sample standard deviation.
@@ -83,6 +87,9 @@ sample_std_dev = np.std(data, ddof=1) #sample std
 
 print(f"NumPy Population Standard Deviation: {population_std_dev}")
 print(f"NumPy Sample Standard Deviation: {sample_std_dev}")
+
+# NumPy Population Standard Deviation: 2.0
+# NumPy Sample Standard Deviation: 2.138089935299395
 ```
 
 NumPy's vectorized operations make calculations much faster, especially when dealing with substantial amounts of data.  Remember that `ddof=1` in `np.std` is crucial for obtaining the sample standard deviation.

@@ -1,0 +1,73 @@
+---
+title: "Find the Largest Rectangle in a Histogram"
+date: "11/23/2024"
+categories: [ problem-solving ]
+---
+
+Finding the largest rectangular area within a histogram is a classic algorithmic problem with applications in various fields, from image processing to data analysis. This post delves into efficient Python solutions for tackling this challenge.  We'll explore the problem, analyze different approaches, and provide optimized code examples for you to implement.
+
+## Understanding the Problem
+
+Imagine a histogram represented as a list of integers, where each integer signifies the height of a bar. The goal is to find the largest possible rectangle that can be formed within this histogram, such that the rectangle's base rests on the x-axis and its top-left and top-right corners touch the bars of the histogram.
+
+
+For instance, consider the histogram represented by the array `[2, 1, 5, 6, 2, 3]`. The largest rectangle would have a width of 2 and a height of 5, resulting in an area of 10.
+
+
+## Brute-Force Approach (Inefficient)
+
+A straightforward, albeit inefficient, method involves checking every possible rectangle within the histogram.  This approach has a time complexity of O(n^3), making it impractical for large histograms.
+
+
+```python
+def largest_rectangle_brute_force(heights):
+    max_area = 0
+    n = len(heights)
+    for i in range(n):
+        for j in range(i, n):
+            min_height = min(heights[i:j+1])
+            area = min_height * (j - i + 1)
+            max_area = max(max_area, area)
+    return max_area
+
+# Example Usage
+heights = [2, 1, 5, 6, 2, 3]
+print(f"Largest Rectangle Area (Brute-Force): {largest_rectangle_brute_force(heights)}")
+```
+
+##  Efficient Approach using a Stack
+
+A significantly more efficient solution leverages a stack data structure to achieve a time complexity of O(n).  The algorithm iterates through the histogram, using the stack to keep track of indices of bars.  When a shorter bar is encountered, it pops bars from the stack and calculates the area of the rectangles they form.
+
+```python
+def largest_rectangle_stack(heights):
+    stack = [-1]  # Initialize stack with -1 to handle edge cases
+    max_area = 0
+    for i in range(len(heights)):
+        while stack[-1] != -1 and heights[stack[-1]] >= heights[i]:
+            height = heights[stack.pop()]
+            width = i - stack[-1] - 1
+            max_area = max(max_area, height * width)
+        stack.append(i)
+
+    while stack[-1] != -1:
+        height = heights[stack.pop()]
+        width = len(heights) - stack[-1] - 1
+        max_area = max(max_area, height * width)
+
+    return max_area
+
+
+#Example Usage
+heights = [2, 1, 5, 6, 2, 3]
+print(f"Largest Rectangle Area (Stack): {largest_rectangle_stack(heights)}")
+
+heights = [2,4]
+print(f"Largest Rectangle Area (Stack): {largest_rectangle_stack(heights)}")
+
+heights = [4,2]
+print(f"Largest Rectangle Area (Stack): {largest_rectangle_stack(heights)}")
+```
+
+This stack-based approach provides a substantial performance improvement over the brute-force method, making it suitable for handling larger histograms effectively.  The use of a stack elegantly manages the calculation of areas by efficiently tracking potential rectangles.  This method is recommended for practical applications due to its improved time complexity.
+

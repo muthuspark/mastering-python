@@ -1,0 +1,105 @@
+---
+title: "Find the Lowest Common Ancestor (LCA) of Two Nodes in a Binary Tree"
+date: "07/27/2024"
+categories: [ problem-solving ]
+---
+
+The Lowest Common Ancestor (LCA) of two nodes in a binary tree is the lowest node that has both nodes as descendants.  This is a fundamental problem in tree algorithms with applications in file systems, version control systems, and phylogenetic analysis.  This post will explore efficient ways to solve the LCA problem in Python, focusing on different approaches and their complexities.
+
+
+## Understanding the Problem
+
+Before diving into the solutions, let's clarify the problem definition. Given a binary tree and two nodes, `node1` and `node2`, we need to find the LCA node.  If either `node1` or `node2` is not present in the tree, or if one is an ancestor of the other, the problem needs to handle these edge cases appropriately.
+
+
+## Approach 1: Recursive Approach
+
+This is a straightforward recursive solution.  The core idea is:
+
+1. **Base Case:** If the current node is `None`, return `None`. If the current node is either `node1` or `node2`, return the current node.
+2. **Recursive Step:** Recursively search for the LCA in the left and right subtrees.
+3. **Combine Results:** If both left and right subtrees return a non-`None` node (meaning both `node1` and `node2` were found in different subtrees), the current node is the LCA. Otherwise, return the non-`None` result from the left or right subtree.
+
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def lca_recursive(root, node1, node2):
+    if root is None:
+        return None
+    if root.data == node1.data or root.data == node2.data:
+        return root
+
+    left_lca = lca_recursive(root.left, node1, node2)
+    right_lca = lca_recursive(root.right, node1, node2)
+
+    if left_lca and right_lca:
+        return root
+    elif left_lca:
+        return left_lca
+    else:
+        return right_lca
+
+# Example usage
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+
+node1 = root.left.left  # Node with data 4
+node2 = root.left.right # Node with data 5
+
+lca = lca_recursive(root, node1, node2)
+print(f"LCA of {node1.data} and {node2.data}: {lca.data}") # Output: LCA of 4 and 5: 2
+
+```
+
+This recursive approach has a time complexity of O(N), where N is the number of nodes in the tree, as it might traverse the entire tree in the worst case. The space complexity is O(H) in the worst case due to the recursive call stack, where H is the height of the tree.
+
+
+## Approach 2: Iterative Approach using Parent Pointers
+
+An alternative approach involves adding parent pointers to each node. This allows for a more efficient iterative solution.  We can traverse upwards from both `node1` and `node2`, storing the ancestors of each node in sets. The LCA will be the lowest common element in both sets.
+
+Adding parent pointers requires modifying the `Node` class and tree construction:
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.parent = None
+
+# ... (Tree construction code would need to update parent pointers) ...
+
+
+def lca_iterative(node1, node2):
+    ancestors1 = set()
+    curr = node1
+    while curr:
+        ancestors1.add(curr)
+        curr = curr.parent
+
+    curr = node2
+    while curr:
+        if curr in ancestors1:
+            return curr
+        curr = curr.parent
+    return None # Should not reach here if both nodes exist in tree
+
+```
+
+This iterative approach has a time complexity of O(H), where H is the height of the tree, as it traverses upwards from both nodes. The space complexity is O(H) due to the set storing ancestors.
+
+
+## Approach 3: Using Path from Root
+
+
+We can find the paths from the root to each of the given nodes and then iterate through both paths simultaneously.  The last common node encountered is the LCA. This approach avoids parent pointers but requires two traversals to find the paths.  The details and code are left as an exercise for the reader.  Its time and space complexity are similar to the recursive approach.
+

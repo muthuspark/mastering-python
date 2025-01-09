@@ -1,0 +1,76 @@
+---
+title: "Implement a Dynamic Programming Solution for Coin Change Problem"
+date: "08/14/2024"
+categories: [ problem-solving ]
+---
+
+The coin change problem is a classic computer science puzzle that challenges you to find the minimum number of coins needed to make a given amount of change, using a set of available coin denominations.  While brute-force approaches exist, they quickly become inefficient for larger amounts.  Dynamic programming offers a significantly more elegant and efficient solution. This post dives into implementing a dynamic programming solution for the coin change problem in Python.
+
+## Understanding the Coin Change Problem
+
+Let's formally define the problem:
+
+Given a target amount `amount` and a list of coin denominations `coins`, find the minimum number of coins needed to make up the `amount`.  If it's impossible to make the `amount` using the given coins, return -1.
+
+For example:
+
+* **`amount = 11`**, **`coins = [1, 2, 5]`**: The minimum number of coins is 3 (five + five + one).
+* **`amount = 11`**, **`coins = [2, 5]`**: It's impossible to make 11 using only 2 and 5.  The result should be -1.
+
+
+## Dynamic Programming to the Rescue
+
+Dynamic programming excels at solving problems with overlapping subproblems. The coin change problem fits this perfectly.  We can break down the problem into smaller subproblems: finding the minimum number of coins to make smaller amounts.  We store the solutions to these subproblems to avoid redundant calculations.
+
+## Python Implementation
+
+Here's a Python function that uses dynamic programming to solve the coin change problem:
+
+```python
+def coin_change_dp(coins, amount):
+    """
+    Solves the coin change problem using dynamic programming.
+
+    Args:
+        coins: A list of coin denominations.
+        amount: The target amount.
+
+    Returns:
+        The minimum number of coins needed to make the amount, or -1 if impossible.
+    """
+
+    dp = [float('inf')] * (amount + 1)  # Initialize DP array with infinity
+    dp[0] = 0  # Base case: 0 coins needed to make amount 0
+
+    for coin in coins:
+        for i in range(coin, amount + 1):
+            dp[i] = min(dp[i], dp[i - coin] + 1)
+
+    return dp[amount] if dp[amount] != float('inf') else -1
+
+
+# Example usage
+coins = [1, 2, 5]
+amount = 11
+result = coin_change_dp(coins, amount)
+print(f"Minimum coins needed for amount {amount}: {result}")  # Output: 3
+
+coins = [2, 5]
+amount = 11
+result = coin_change_dp(coins, amount)
+print(f"Minimum coins needed for amount {amount}: {result}")  # Output: -1
+```
+
+## Explanation of the Code
+
+1. **Initialization:** We create a DP array `dp` of size `amount + 1`.  Each `dp[i]` will store the minimum number of coins needed to make amount `i`. We initialize all values to infinity, except `dp[0]` which is 0 (no coins needed for amount 0).
+
+2. **Iteration:** We iterate through each coin denomination.  For each coin, we iterate from the coin value up to the target amount.
+
+3. **Minimization:** For each amount `i`, we update `dp[i]` to the minimum between its current value and `dp[i - coin] + 1`.  `dp[i - coin]` represents the minimum coins needed for the remaining amount after using one coin of the current denomination.  We add 1 to account for the coin we just used.
+
+4. **Result:** Finally, `dp[amount]` will contain the minimum number of coins needed to make the target amount. If it's still infinity, it means it's impossible to make the amount.
+
+
+This dynamic programming approach provides a far more efficient solution to the coin change problem than brute-force methods, especially when dealing with larger amounts and a wider range of coin denominations.  It demonstrates the power of breaking down a problem into smaller, overlapping subproblems and storing their solutions for reuse.
+

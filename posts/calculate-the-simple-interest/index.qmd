@@ -11,7 +11,7 @@ Simple interest is a fundamental concept in finance. It's the interest calculate
 
 The formula for calculating simple interest is:
 
-`Simple Interest = (P x R x T) / 100`
+$$Simple~Interest = \frac{P \times R \times T}{100}$$
 
 Where:
 
@@ -87,7 +87,13 @@ if isinstance(interest, str): #check for error message
     print(interest)
 else:
     print(f"The simple interest is: {interest}")
+
+# The simple interest is: 100.0
+# The simple interest is: 137.5
+# Error: Principal, rate, and time must be non-negative values.
+# Error: Invalid input type. Please use numbers.
 ```
+
 
 This code defines a function `calculate_simple_interest` which performs the calculation and includes error handling for negative or invalid inputs. The example usage demonstrates how to call the function and print the result.  The added error handling improves the robustness of the function.
 
@@ -114,6 +120,7 @@ if isinstance(total, str): #check for error message
 else:
     print(f"The total amount is: {total}")
 
+# The total amount is: 1100.0
 ```
 
 This enhanced function shows how to calculate the final amount, adding to the practical application of simple interest calculations in Python.  Remember to always handle potential errors in your code for a more reliable program.

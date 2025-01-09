@@ -1,0 +1,77 @@
+---
+title: "Check if a Number is a Perfect Number"
+date: "01/01/2024"
+categories: [ problem-solving ]
+---
+
+Perfect numbers are a fascinating topic in number theory.  A perfect number is a positive integer that is equal to the sum of its proper divisors (excluding itself). For example, 6 is a perfect number because its divisors are 1, 2, and 3, and 1 + 2 + 3 = 6.  This blog post will explore how to efficiently determine if a given number is a perfect number using Python.
+
+## Understanding Perfect Numbers
+
+Before diving into the code, let's solidify our understanding.  A proper divisor of a number `n` is a positive divisor of `n` that is strictly less than `n`.  To check if a number is perfect, we need to find all its proper divisors and sum them. If this sum equals the original number, then it's a perfect number.
+
+## Python Implementation: A Simple Approach
+
+A straightforward approach involves iterating through all numbers from 1 up to (but not including) the given number, checking for divisibility, and summing the divisors.
+
+```python
+def is_perfect_number_simple(n):
+  """Checks if a number is a perfect number using a simple approach.
+
+  Args:
+    n: The number to check.
+
+  Returns:
+    True if n is a perfect number, False otherwise.
+  """
+  if n <= 1:
+    return False
+  sum_of_divisors = 0
+  for i in range(1, n):
+    if n % i == 0:
+      sum_of_divisors += i
+  return sum_of_divisors == n
+
+# Example usage
+print(f"Is 6 a perfect number? {is_perfect_number_simple(6)}")  # Output: True
+print(f"Is 28 a perfect number? {is_perfect_number_simple(28)}") # Output: True
+print(f"Is 10 a perfect number? {is_perfect_number_simple(10)}") # Output: False
+```
+
+This approach works correctly, but its efficiency is limited, especially for larger numbers.  The time complexity is O(n), meaning the execution time grows linearly with the input number.
+
+
+## A More Efficient Approach
+
+We can optimize the process by iterating only up to the square root of `n`.  This is because divisors come in pairs. If `i` is a divisor, then `n/i` is also a divisor.
+
+```python
+import math
+
+def is_perfect_number_efficient(n):
+  """Checks if a number is a perfect number using a more efficient approach.
+
+  Args:
+    n: The number to check.
+
+  Returns:
+    True if n is a perfect number, False otherwise.
+  """
+  if n <= 1:
+    return False
+  sum_of_divisors = 1
+  for i in range(2, int(math.sqrt(n)) + 1):
+    if n % i == 0:
+      sum_of_divisors += i
+      if i * i != n:  # Avoid double-counting for perfect squares
+        sum_of_divisors += n // i
+  return sum_of_divisors == n
+
+# Example usage
+print(f"Is 6 a perfect number? {is_perfect_number_efficient(6)}")  # Output: True
+print(f"Is 28 a perfect number? {is_perfect_number_efficient(28)}") # Output: True
+print(f"Is 10 a perfect number? {is_perfect_number_efficient(10)}") # Output: False
+
+```
+
+This improved version has a time complexity of $\mathcal{O}(\sqrt{n})$, making it significantly faster for larger numbers.

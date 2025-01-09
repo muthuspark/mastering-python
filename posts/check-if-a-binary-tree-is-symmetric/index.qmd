@@ -1,0 +1,162 @@
+---
+title: "Check if a Binary Tree is Symmetric"
+date: "02/20/2024"
+categories: [ problem-solving ]
+---
+
+Symmetric trees, also known as mirror trees, are a fascinating data structure with unique properties.  In this post, we'll explore how to efficiently determine if a given binary tree is symmetric using Python.  A binary tree is symmetric if its left and right subtrees are mirror images of each other.
+
+
+## Understanding Tree Symmetry
+
+Before diving into the code, let's solidify our understanding of what constitutes a symmetric binary tree.  Consider the following examples:
+
+**Symmetric Tree:**
+
+```
+      1
+     / \
+    2   2
+   / \ / \
+  3  4 4  3
+```
+
+In this example, the left subtree (2, 3, 4) is a mirror reflection of the right subtree (2, 4, 3).
+
+
+**Asymmetric Tree:**
+
+```
+      1
+     / \
+    2   2
+   / \   \
+  3  4    3
+```
+
+Here, the left and right subtrees are not mirror images; therefore, this tree is not symmetric.
+
+
+## Python Implementation: Recursive Approach
+
+The most elegant and intuitive approach to checking for symmetry involves recursion.  We'll compare nodes recursively, ensuring that the left subtree of the left child matches the right subtree of the right child, and vice-versa.
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def is_symmetric(root):
+    """
+    Recursively checks if a binary tree is symmetric.
+
+    Args:
+        root: The root node of the binary tree.
+
+    Returns:
+        True if the tree is symmetric, False otherwise.
+    """
+    if root is None:
+        return True  # Empty tree is considered symmetric
+
+    return is_mirror(root.left, root.right)
+
+def is_mirror(left, right):
+    """
+    Checks if two subtrees are mirror images of each other.
+
+    Args:
+        left: The left subtree.
+        right: The right subtree.
+
+    Returns:
+        True if the subtrees are mirror images, False otherwise.
+    """
+    if left is None and right is None:
+        return True  # Both subtrees are empty, they are mirror images
+
+    if (left is None and right is not None) or (right is None and left is not None):  
+        return False  # One subtree is empty, they are not mirror images
+
+    if left.data != right.data:
+        return False  # Data mismatch
+
+    return is_mirror(left.left, right.right) and is_mirror(left.right, right.left)
+
+
+# Example usage:
+# Test Case 1: Symmetric tree
+#       1
+#      / \
+#     2   2
+#    / \ / \
+#   3  4 4  3
+root = Node(1)
+root.left = Node(2)
+root.right = Node(2)
+root.left.left = Node(3)
+root.left.right = Node(4)
+root.right.left = Node(4)
+root.right.right = Node(3)
+
+if is_symmetric(root):
+    print("Test Case 1: The tree is symmetric")
+else:
+    print("Test Case 1: The tree is not symmetric")
+
+
+# Test Case 2: Asymmetric tree
+#       1
+#      / \
+#     2   2
+#      \   \
+#       3   3
+root2 = Node(1)
+root2.left = Node(2)
+root2.right = Node(2)
+root2.left.right = Node(3)
+root2.right.right = Node(3)
+
+if is_symmetric(root2):
+    print("Test Case 2: The tree is symmetric")
+else:
+    print("Test Case 2: The tree is not symmetric")
+
+# Test Case 1: The tree is symmetric
+# Test Case 2: The tree is not symmetric
+```
+
+This code efficiently utilizes recursion to traverse the tree and compare nodes. The `is_mirror` function is crucial for comparing the left and right subtrees.  The base cases handle empty subtrees and data mismatches.
+
+
+## Python Implementation: Iterative Approach (using Queue)
+
+While recursion offers an elegant solution, an iterative approach using a queue can be beneficial for extremely large trees to avoid potential stack overflow errors.
+
+```python
+from collections import deque
+
+def is_symmetric_iterative(root):
+    if root is None:
+        return True
+
+    queue = deque([(root.left, root.right)])
+
+    while queue:
+        left, right = queue.popleft()
+
+        if left is None and right is None:
+            continue
+
+        if left is None or right is None or left.data != right.data:
+            return False
+
+        queue.append((left.left, right.right))
+        queue.append((left.right, right.left))
+
+    return True
+```
+
+This iterative solution uses a queue to manage node comparisons, avoiding the recursive call stack.  It systematically compares nodes level by level.

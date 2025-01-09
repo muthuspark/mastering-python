@@ -1,0 +1,82 @@
+---
+title: "Implement a Selection Sort Algorithm"
+date: "11/29/2024"
+categories: [ problem-solving ]
+---
+
+Selection sort is a simple and intuitive sorting algorithm.  While not the most efficient for large datasets, its ease of understanding makes it a great starting point for learning about sorting algorithms. This post will walk you through the implementation of selection sort in Python, providing clear explanations and code examples.
+
+## Understanding the Selection Sort Algorithm
+
+Selection sort works by repeatedly finding the minimum element from the unsorted part of the list and placing it at the beginning.  The algorithm divides the list into two parts: the sorted part (at the beginning) and the unsorted part (at the end).  In each iteration:
+
+1. **Find the minimum element:** The algorithm scans the unsorted part of the list to find the minimum element.
+2. **Swap:** The minimum element is swapped with the first element of the unsorted part.
+3. **Repeat:** Steps 1 and 2 are repeated until the entire list is sorted.
+
+
+## Python Implementation
+
+Let's implement selection sort in Python. The code below provides a clear and concise implementation:
+
+
+```python
+def selection_sort(data):
+    """
+    Sorts a list using the selection sort algorithm.
+
+    Args:
+        data: The list to be sorted.
+
+    Returns:
+        The sorted list.
+    """
+    n = len(data)
+    for i in range(n):
+        # Find the minimum element in the unsorted part
+        min_index = i
+        for j in range(i + 1, n):
+            if data[j] < data[min_index]:
+                min_index = j
+
+        # Swap the minimum element with the first element of the unsorted part
+        data[i], data[min_index] = data[min_index], data[i]
+    return data
+
+#Example usage
+my_list = [64, 25, 12, 22, 11]
+sorted_list = selection_sort(my_list)
+print("Sorted array:", sorted_list)
+```
+
+This code first iterates through the unsorted portion of the list to find the minimum element.  The `min_index` variable keeps track of the index of the minimum element found so far.  After finding the minimum element, a simple swap using simultaneous assignment (`data[i], data[min_index] = data[min_index], data[i]`) places it in its correct sorted position.
+
+
+##  Step-by-Step Example
+
+Let's trace the execution of the algorithm with the list `[64, 25, 12, 22, 11]`:
+
+**Iteration 1:**
+- Minimum element: 11 (at index 4)
+- Swap 64 and 11: `[11, 25, 12, 22, 64]`
+
+**Iteration 2:**
+- Minimum element: 12 (at index 2)
+- Swap 25 and 12: `[11, 12, 25, 22, 64]`
+
+**Iteration 3:**
+- Minimum element: 22 (at index 3)
+- Swap 25 and 22: `[11, 12, 22, 25, 64]`
+
+**Iteration 4:**
+- Minimum element: 25 (at index 3)
+- No swap needed.
+
+The list is now sorted: `[11, 12, 22, 25, 64]`
+
+
+## Time and Space Complexity
+
+Selection sort has a time complexity of O(n²) and a space complexity of O(1).  This means its runtime increases quadratically with the size of the input, making it inefficient for large datasets.  However, its simplicity and constant space usage make it valuable for educational purposes and smaller datasets.
+
+

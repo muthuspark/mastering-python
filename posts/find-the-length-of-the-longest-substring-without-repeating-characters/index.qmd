@@ -1,0 +1,75 @@
+---
+title: "Find the Length of the Longest Substring Without Repeating Characters"
+date: "04/05/2024"
+categories: [ problem-solving ]
+---
+
+Finding the length of the longest substring without repeating characters is a classic computer science problem.  It tests your understanding of string manipulation, data structures, and algorithm optimization.  This post will explore several Python solutions, ranging from straightforward brute force to more efficient approaches using sliding windows.
+
+## Understanding the Problem
+
+The goal is simple: given a string, find the length of the longest substring that contains no repeating characters.  For example:
+
+* **Input:** "abcabcbb"
+* **Output:** 3 (The longest substring without repeating characters is "abc")
+
+* **Input:** "bbbbb"
+* **Output:** 1 (The longest substring without repeating characters is "b")
+
+* **Input:** "pwwkew"
+* **Output:** 3 (The longest substring without repeating characters is "wke")
+
+
+## Brute Force Approach
+
+A naive approach involves checking every possible substring.  This is computationally expensive, especially for long strings.  The time complexity is O(n³), where n is the length of the string.
+
+```python
+def longest_substring_brute_force(s):
+    n = len(s)
+    max_length = 0
+    for i in range(n):
+        for j in range(i, n):
+            substring = s[i:j+1]
+            if len(substring) == len(set(substring)):  # Check for unique characters
+                max_length = max(max_length, len(substring))
+    return max_length
+
+print(longest_substring_brute_force("abcabcbb"))  # Output: 3
+print(longest_substring_brute_force("bbbbb"))  # Output: 1
+print(longest_substring_brute_force("pwwkew"))  # Output: 3
+```
+
+## Sliding Window Approach
+
+A much more efficient solution utilizes the sliding window technique.  This reduces the time complexity to O(n).
+
+```python
+def longest_substring_sliding_window(s):
+    n = len(s)
+    max_length = 0
+    start = 0
+    char_index_map = {}  # Dictionary to store character indices
+
+    for end in range(n):
+        if s[end] in char_index_map and start <= char_index_map[s[end]]:
+            start = char_index_map[s[end]] + 1
+        else:
+            max_length = max(max_length, end - start + 1)
+        char_index_map[s[end]] = end
+
+    return max_length
+
+print(longest_substring_sliding_window("abcabcbb"))  # Output: 3
+print(longest_substring_sliding_window("bbbbb"))  # Output: 1
+print(longest_substring_sliding_window("pwwkew"))  # Output: 3
+
+```
+
+The sliding window approach maintains a window within the string. It expands the window as long as it encounters unique characters.  If a repeating character is found, the window's start is moved to the right of the previous occurrence of that character.  This ensures that the window always contains a substring without repeating characters.
+
+
+## Optimizations and Considerations
+
+While the sliding window approach is significantly faster, further optimizations are possible depending on the specific requirements and constraints of the application.  For extremely large strings, consider using more advanced data structures or parallel processing techniques.  The choice of the best approach will depend on factors like the size of the input string and performance requirements.
+

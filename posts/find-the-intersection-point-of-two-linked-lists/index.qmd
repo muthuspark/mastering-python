@@ -1,0 +1,90 @@
+---
+title: "Find the Intersection Point of Two Linked Lists"
+date: "09/23/2024"
+categories: [ problem-solving ]
+---
+
+Finding the intersection point of two linked lists is a classic interview question that tests your understanding of linked list manipulation and algorithm design.  This post will explore efficient ways to solve this problem in Python, along with detailed code examples and explanations.
+
+## Understanding the Problem
+
+We're given two singly linked lists, `list1` and `list2`.  These lists may or may not intersect. If they do intersect, they share a common node from some point onwards. The task is to find the node where the intersection begins, or return `None` if no intersection exists.
+
+## Brute Force Approach
+
+A straightforward, albeit inefficient, approach involves nested loops.  We iterate through each node in `list1` and compare it with every node in `list2`.  While simple to understand, this method has a time complexity of O(m*n), where 'm' and 'n' are the lengths of the lists.  This becomes very slow for large lists.
+
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def findIntersectionBruteForce(head1, head2):
+    current1 = head1
+    while current1:
+        current2 = head2
+        while current2:
+            if current1 == current2:
+                return current1.data  #Return the data of the intersecting node
+            current2 = current2.next
+        current1 = current1.next
+    return None #No intersection found
+
+# Example usage (Brute force - inefficient for large lists)
+list1 = Node(1)
+list1.next = Node(2)
+list1.next.next = Node(3)
+list1.next.next.next = Node(4)
+
+list2 = Node(5)
+list2.next = Node(6)
+list2.next.next = list1.next.next #Intersection at node with data 3
+
+intersection_node = findIntersectionBruteForce(list1, list2)
+print(f"Intersection node (Brute Force): {intersection_node}") # Output: 3
+
+
+```
+
+## Hash Table Approach
+
+A more efficient solution involves using a hash table (dictionary in Python). We iterate through the first list, storing each node's address (memory location) as a key in the hash table. Then, we iterate through the second list, checking if each node's address is present in the hash table. If found, that node is the intersection point.  This approach boasts a time complexity of O(m + n), significantly faster than the brute force method.
+
+
+```python
+def findIntersectionHash(head1, head2):
+    node_set = set()
+    current = head1
+    while current:
+        node_set.add(current)
+        current = current.next
+    current = head2
+    while current:
+        if current in node_set:
+            return current.data
+        current = current.next
+    return None
+
+# Example Usage (Hash Table - efficient)
+list1 = Node(1)
+list1.next = Node(2)
+list1.next.next = Node(3)
+list1.next.next.next = Node(4)
+
+list2 = Node(5)
+list2.next = Node(6)
+list2.next.next = list1.next.next #Intersection at node with data 3
+
+intersection_node = findIntersectionHash(list1, list2)
+print(f"Intersection node (Hash Table): {intersection_node}") # Output: 3
+
+```
+
+## Two Pointer Approach (Optimized)
+
+This method is arguably the most elegant and efficient.  We first calculate the lengths of both lists.  Then, we iterate through the longer list until we reach a point where the remaining length is equal to the shorter list's length. From there, we iterate both lists simultaneously until we find the intersection point, or reach the end of both lists. This also achieves O(m + n) time complexity but uses less space than the hash table approach.  We leave the implementation of this optimized approach as an exercise for the reader, encouraging you to try it out as a challenge.  Consider how to handle cases where one or both lists are empty.
+
+Implementing the two pointer approach will provide you with a deeper understanding of this problem. Remember to carefully handle edge cases for a robust solution.
+

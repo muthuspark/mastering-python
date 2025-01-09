@@ -1,0 +1,94 @@
+---
+title: "Reverse a Linked List"
+date: "01/24/2024"
+categories: [ problem-solving ]
+---
+
+Reversing a linked list is a classic computer science problem that tests your understanding of data structures and algorithms.  This post will explore several ways to reverse a linked list in Python, from iterative approaches to recursive solutions, providing clear explanations and code examples along the way.
+
+## Understanding Linked Lists
+
+Before diving into the reversal process, let's briefly recap linked lists. A linked list is a linear data structure where elements are stored in nodes. Each node contains data and a pointer (or reference) to the next node in the sequence. The last node's pointer points to `None`, signifying the end of the list.
+
+Here's a simple Python class representing a node:
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+```
+
+## Method 1: Iterative Reversal
+
+This is arguably the most straightforward and efficient approach.  We iterate through the list, keeping track of the current node, the previous node, and the next node. We progressively change the `next` pointers to reverse the links.
+
+```python
+def reverse_linked_list_iterative(head):
+    prev = None
+    curr = head
+    while curr:
+        next_node = curr.next  # Store the next node
+        curr.next = prev       # Reverse the current node's pointer
+        prev = curr            # Move 'prev' one step forward
+        curr = next_node      # Move 'curr' one step forward
+    return prev  # 'prev' is now the new head
+```
+
+Let's create a sample linked list and test it:
+
+```python
+head = Node(1)
+head.next = Node(2)
+head.next.next = Node(3)
+head.next.next.next = Node(4)
+
+reversed_head = reverse_linked_list_iterative(head)
+
+# Print the reversed list
+while reversed_head:
+    print(reversed_head.data, end=" ")
+    reversed_head = reversed_head.next
+# Output: 4 3 2 1
+```
+
+
+## Method 2: Recursive Reversal
+
+A recursive solution offers an elegant alternative.  The base case is an empty list or a list with one node.  Otherwise, we recursively reverse the rest of the list and then attach the current node to the end of the reversed sublist.
+
+```python
+def reverse_linked_list_recursive(head):
+    if not head or not head.next:
+        return head
+    new_head = reverse_linked_list_recursive(head.next)
+    head.next.next = head
+    head.next = None
+    return new_head
+```
+
+Testing with the same sample list:
+
+```python
+head = Node(1)
+head.next = Node(2)
+head.next.next = Node(3)
+head.next.next.next = Node(4)
+
+reversed_head = reverse_linked_list_recursive(head)
+
+while reversed_head:
+    print(reversed_head.data, end=" ")
+    reversed_head = reversed_head.next
+# Output: 4 3 2 1
+```
+
+##  Time and Space Complexity
+
+Both the iterative and recursive approaches have a time complexity of O(n), where n is the number of nodes in the list.  The iterative approach has a space complexity of O(1) (constant space), while the recursive approach has a space complexity of O(n) in the worst case due to the recursive call stack.  For large lists, the iterative method is generally preferred due to its lower space complexity.
+
+
+## Choosing the Right Method
+
+The choice between iterative and recursive reversal depends on the context.  The iterative approach is often favored for its efficiency, especially with very large lists. The recursive approach, while potentially less efficient, can be more concise and easier to understand for some programmers.  Understanding both methods provides a broader perspective on linked list manipulation.
+

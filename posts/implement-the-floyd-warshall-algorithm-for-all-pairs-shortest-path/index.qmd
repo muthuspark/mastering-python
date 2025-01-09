@@ -1,0 +1,101 @@
+---
+title: "Implement the Floyd-Warshall Algorithm for All-Pairs Shortest Path"
+date: "09/02/2024"
+categories: [ problem-solving ]
+---
+
+The Floyd-Warshall algorithm is a classic algorithm for finding the shortest paths between all pairs of vertices in a weighted graph.  Unlike algorithms like Dijkstra's which find the shortest path from a single source, Floyd-Warshall tackles the problem comprehensively, providing a solution for every possible starting and ending point in the graph. This makes it incredibly useful in various applications, from network routing to route planning. This post will walk you through the implementation of the Floyd-Warshall algorithm in Python, providing clear explanations and code examples.
+
+
+## Understanding the Algorithm
+
+The Floyd-Warshall algorithm works on the principle of dynamic programming. It iteratively considers all possible intermediate vertices between each pair of source and destination vertices.  The core idea is that the shortest path between two vertices might involve going through other intermediate vertices.
+
+The algorithm uses a distance matrix, `dist`, where `dist[i][j]` represents the shortest distance between vertex `i` and vertex `j`.  Initially, `dist[i][j]` is set to the direct edge weight between `i` and `j` (or infinity if no direct edge exists). The algorithm then iterates through all vertices `k`, checking if going through `k` results in a shorter path between `i` and `j`.  If it does, `dist[i][j]` is updated.
+
+## Python Implementation
+
+Let's implement the Floyd-Warshall algorithm in Python.  We'll represent the graph using an adjacency matrix.  A value of `float('inf')` indicates no direct edge between two vertices.
+
+```python
+import sys
+
+def floyd_warshall(graph):
+    """
+    Implements the Floyd-Warshall algorithm to find all-pairs shortest paths.
+
+    Args:
+        graph: A square adjacency matrix representing the graph.  
+               float('inf') represents no edge between vertices.
+
+    Returns:
+        A square distance matrix where dist[i][j] is the shortest distance 
+        between vertex i and vertex j.  Returns None if the graph contains 
+        negative cycles.
+    """
+    num_vertices = len(graph)
+    dist = [[float('inf')] * num_vertices for _ in range(num_vertices)]
+
+    # Initialize distances with direct edge weights
+    for i in range(num_vertices):
+        dist[i][i] = 0
+        for j in range(num_vertices):
+            if graph[i][j] != float('inf'):
+                dist[i][j] = graph[i][j]
+
+    # Iterate through all possible intermediate vertices
+    for k in range(num_vertices):
+        for i in range(num_vertices):
+            for j in range(num_vertices):
+                if dist[i][k] != float('inf') and dist[k][j] != float('inf') and dist[i][k] + dist[k][j] < dist[i][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+
+    #Check for negative cycles
+    for i in range(num_vertices):
+        if dist[i][i] < 0:
+            return None #Negative cycle detected
+
+    return dist
+
+
+
+# Example usage:
+graph = [
+    [0, 5, float('inf'), 10],
+    [float('inf'), 0, 3, float('inf')],
+    [float('inf'), float('inf'), 0, 1],
+    [float('inf'), float('inf'), float('inf'), 0]
+]
+
+shortest_paths = floyd_warshall(graph)
+
+if shortest_paths:
+    print("Shortest Paths Matrix:")
+    for row in shortest_paths:
+        print(row)
+else:
+    print("Graph contains negative cycles.")
+
+
+```
+
+This code efficiently calculates the shortest paths between all pairs of nodes. The inclusion of a negative cycle check enhances robustness.  Remember that the Floyd-Warshall algorithm doesn't provide the actual paths, only the shortest distances.  Extending the algorithm to reconstruct the paths is a straightforward but slightly more involved task.
+
+
+##  Handling Negative Cycles
+
+The algorithm can also detect negative cycles. A negative cycle is a cycle in the graph whose total weight is negative. The presence of a negative cycle means that there are infinitely many shorter paths, as you can continuously traverse the negative cycle to reduce the overall distance infinitely. The code above checks for this and returns `None` if a negative cycle is detected.
+
+
+
+## Applications of Floyd-Warshall
+
+The Floyd-Warshall algorithm finds applications in numerous domains including:
+
+* **Transitive Closure:** Determining reachability between all pairs of vertices in a directed graph.
+* **Finding Shortest Paths in Graphs:**  As demonstrated above, this is its primary use.
+* **Resource Allocation:** Optimizing resource allocation problems where the graph represents resource dependencies.
+* **Bioinformatics:** Used in genomic sequence alignment and phylogenetic tree construction.
+
+This versatility highlights the algorithm's importance in computer science and related fields.
+

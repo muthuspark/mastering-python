@@ -1,0 +1,111 @@
+---
+title: "Find the Longest Common Substring Between Two Strings"
+date: "01/26/2024"
+categories: [ problem-solving ]
+---
+Finding the longest common substring between two strings is a classic computer science problem with applications in various fields, from bioinformatics (comparing DNA sequences) to plagiarism detection.  This blog post will explore efficient ways to solve this problem in Python, providing clear explanations and code examples.
+
+
+## Understanding the Problem
+
+Before diving into the code, let's clearly define the problem.  Given two strings, we need to find the longest substring that is present in both strings.  For example:
+
+* **String 1:** "abcdefg"
+* **String 2:** "bcdefgh"
+
+The longest common substring is "bcdefg".  Note that it's a *substring*, meaning it's a contiguous sequence of characters.  "bcd" is a common substring, but it's shorter than "bcdefg".
+
+
+## Approach 1: Brute Force
+
+A straightforward, though inefficient, approach is brute force. We can iterate through all possible substrings of the shorter string and check if each substring is present in the longer string.
+
+```python
+def longest_common_substring_brute_force(str1, str2):
+    """
+    Finds the longest common substring using brute force.
+
+    Args:
+        str1: The first string.
+        str2: The second string.
+
+    Returns:
+        The longest common substring.  Returns an empty string if no common substring is found.
+    """
+    m = len(str1)
+    n = len(str2)
+    longest_substring = ""
+
+    for i in range(m):
+        for j in range(i, m):
+            substring = str1[i:j+1]
+            if substring in str2 and len(substring) > len(longest_substring):
+                longest_substring = substring
+    return longest_substring
+
+
+string1 = "abcdefg"
+string2 = "bcdefgh"
+result = longest_common_substring_brute_force(string1, string2)
+print(f"Longest common substring (brute force): {result}")  # Output: bcdefg
+
+
+string3 = "applepie"
+string4 = "pineapple"
+result = longest_common_substring_brute_force(string3,string4)
+print(f"Longest common substring (brute force): {result}") # Output: apple
+
+```
+
+This brute-force method has a time complexity of O(m*n*k), where 'm' and 'n' are the lengths of the strings and 'k' is the maximum length of a common substring.  It's computationally expensive for longer strings.
+
+
+## Approach 2: Dynamic Programming
+
+A more efficient approach uses dynamic programming. We create a table (matrix) where each cell (i, j) represents the length of the longest common substring ending at str1[i] and str2[j].
+
+```python
+def longest_common_substring_dp(str1, str2):
+    """
+    Finds the longest common substring using dynamic programming.
+
+    Args:
+        str1: The first string.
+        str2: The second string.
+
+    Returns:
+        The longest common substring. Returns an empty string if no common substring is found.
+    """
+    m = len(str1)
+    n = len(str2)
+    dp = [[0 for _ in range(n + 1)] for _ in range(m + 1)]
+    longest_substring = ""
+    max_length = 0
+
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if str1[i - 1] == str2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+                if dp[i][j] > max_length:
+                    max_length = dp[i][j]
+                    longest_substring = str1[i - max_length:i]
+
+    return longest_substring
+
+string1 = "abcdefg"
+string2 = "bcdefgh"
+result = longest_common_substring_dp(string1, string2)
+print(f"Longest common substring (dynamic programming): {result}") # Output: bcdefg
+
+string3 = "applepie"
+string4 = "pineapple"
+result = longest_common_substring_dp(string3,string4)
+print(f"Longest common substring (dynamic programming): {result}") # Output: apple
+```
+
+Dynamic programming offers a significant performance improvement with a time complexity of O(m*n), making it much more suitable for longer strings.
+
+
+## Choosing the Right Approach
+
+For short strings, the brute-force approach might suffice. However, for longer strings, the dynamic programming approach is strongly recommended due to its significantly better time complexity.  The dynamic programming solution provides a more scalable and efficient way to solve the longest common substring problem.

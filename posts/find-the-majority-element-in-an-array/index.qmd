@@ -1,0 +1,118 @@
+---
+title: "Find the Majority Element in an Array"
+date: "12/03/2024"
+categories: [ problem-solving ]
+---
+
+Finding the majority element in an array is a classic computer science problem.  The majority element is the element that appears more than ⌊n/2⌋ times, where n is the size of the array.  This means it occurs more than half the time.  This blog post explores efficient ways to solve this problem using Python.
+
+
+## Approach 1: Brute Force
+
+The simplest, though least efficient, approach is brute force. We can iterate through each element, counting the occurrences of each unique element and then checking if any count exceeds ⌊n/2⌋.
+
+```python
+def find_majority_brute_force(nums):
+    """Finds the majority element using brute force.
+
+    Args:
+        nums: A list of numbers.
+
+    Returns:
+        The majority element if it exists, otherwise None.
+    """
+    counts = {}
+    for num in nums:
+        counts[num] = counts.get(num, 0) + 1
+
+    n = len(nums)
+    for num, count in counts.items():
+        if count > n // 2:
+            return num
+    return None
+
+#Example Usage
+nums = [2,2,1,1,1,2,2]
+majority_element = find_majority_brute_force(nums)
+print(f"Majority element (Brute Force): {majority_element}") #Output: 2
+
+nums = [3,2,3]
+majority_element = find_majority_brute_force(nums)
+print(f"Majority element (Brute Force): {majority_element}") #Output: 3
+
+nums = [1]
+majority_element = find_majority_brute_force(nums)
+print(f"Majority element (Brute Force): {majority_element}") #Output: 1
+
+
+nums = [1,2,3]
+majority_element = find_majority_brute_force(nums)
+print(f"Majority element (Brute Force): {majority_element}") #Output: None
+```
+
+This approach has a time complexity of O(n) due to the iteration, and a space complexity of O(n) in the worst case (if all elements are unique).
+
+
+## Approach 2: Using `collections.Counter`
+
+Python's `collections.Counter` object provides a more concise way to count element occurrences.
+
+```python
+from collections import Counter
+
+def find_majority_counter(nums):
+    """Finds the majority element using collections.Counter.
+
+    Args:
+        nums: A list of numbers.
+
+    Returns:
+        The majority element if it exists, otherwise None.
+    """
+    counts = Counter(nums)
+    n = len(nums)
+    for num, count in counts.items():
+        if count > n // 2:
+            return num
+    return None
+
+#Example Usage
+nums = [2,2,1,1,1,2,2]
+majority_element = find_majority_counter(nums)
+print(f"Majority element (Counter): {majority_element}") #Output: 2
+```
+
+While this is more readable, the time and space complexity remain the same as the brute force approach.
+
+
+## Approach 3: Boyer-Moore Voting Algorithm
+
+The Boyer-Moore Voting Algorithm is a significantly more efficient approach with a linear time complexity of O(n) and constant space complexity of O(1).  It works by iteratively canceling out elements that are not the majority element.
+
+
+```python
+def find_majority_boyer_moore(nums):
+    """Finds the majority element using the Boyer-Moore Voting Algorithm.
+
+    Args:
+        nums: A list of numbers.
+
+    Returns:
+        The majority element if it exists, otherwise None.
+    """
+    candidate = None
+    count = 0
+    for num in nums:
+        if count == 0:
+            candidate = num
+        count += (1 if num == candidate else -1)
+    return candidate if nums.count(candidate) > len(nums) // 2 else None
+
+#Example Usage
+nums = [2,2,1,1,1,2,2]
+majority_element = find_majority_boyer_moore(nums)
+print(f"Majority element (Boyer-Moore): {majority_element}") #Output: 2
+```
+
+This algorithm is highly optimized for this specific problem and offers a substantial performance advantage over the previous methods, especially for large arrays.  It leverages the guarantee that a majority element exists to efficiently find it.
+

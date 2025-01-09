@@ -1,0 +1,95 @@
+---
+title: "Implement a Priority Queue Using a Heap"
+date: "10/07/2024"
+categories: [ problem-solving ]
+---
+
+Priority queues are fundamental data structures used in various algorithms and applications where elements are processed based on their priority.  A priority queue ensures that the highest (or lowest) priority element is always accessed first.  While you could implement a priority queue using a sorted list or other structures, using a heap offers significant performance advantages, especially for frequent insertion and deletion operations.  This post will demonstrate how to efficiently implement a priority queue using Python's built-in `heapq` module.
+
+## Understanding Heaps
+
+A heap is a tree-based data structure that satisfies the heap property:  In a *min-heap*, the value of each node is less than or equal to the value of its children.  In a *max-heap*, the value of each node is greater than or equal to the value of its children.  `heapq` in Python implements a min-heap by default.
+
+## Implementing a Priority Queue with `heapq`
+
+Python's `heapq` module provides functions for heap operations, allowing us to easily create and manage a priority queue.  Let's look at the essential functions:
+
+* **`heappush(heap, item)`:** Pushes an item onto the heap, maintaining the heap property.
+* **`heappop(heap)`:** Pops the smallest item from the heap (the highest priority in a min-heap).
+* **`heapify(x)`:** Transforms a list into a heap in-place.
+* **`heappushpop(heap, item)`:** Pushes *item* onto the heap, then pops and returns the smallest item. This is more efficient than pushing and then popping separately.
+
+## Code Example: Simple Priority Queue
+
+Let's build a simple priority queue to manage tasks based on their urgency (represented by a numerical priority, with lower numbers indicating higher priority):
+
+```python
+import heapq
+
+tasks = []
+heapq.heappush(tasks, (1, "Urgent Task"))  # Priority 1, high urgency
+heapq.heappush(tasks, (3, "Medium Task"))
+heapq.heappush(tasks, (2, "High Priority Task"))
+heapq.heappush(tasks, (4, "Low Priority Task"))
+
+
+while tasks:
+    priority, task = heapq.heappop(tasks)
+    print(f"Processing task: {task} (Priority: {priority})")
+```
+
+This code will output the tasks in order of increasing priority (1,2,3,4), demonstrating the priority queue behavior.  Note that we use tuples `(priority, task)` to maintain both priority and task data.  The heap sorts based on the first element of the tuple (the priority).
+
+## Code Example:  More Advanced Use Case
+
+Let's build a slightly more complex example to demonstrate `heappushpop`:
+
+```python
+import heapq
+
+tasks = [(3, "Task C"), (2, "Task B"), (1, "Task A")]  # Initialize with some tasks
+heapq.heapify(tasks) #Turn list into a heap
+
+new_task = (1.5, "New Task") #insert higher priority task
+
+# Efficiently insert and retrieve the highest priority task.
+highest_priority_task = heapq.heappushpop(tasks, new_task)
+
+print(f"Highest priority task removed: {highest_priority_task}")
+
+#Remaining tasks
+for priority, task in tasks:
+    print(f"Remaining task: {task} (Priority: {priority})")
+```
+
+This example shows how `heappushpop` efficiently handles insertion and retrieval of the highest priority item.
+
+
+
+## Handling Custom Objects
+
+To use custom objects in your priority queue, you need to implement the `__lt__` (less than) method to define the comparison behavior:
+
+
+```python
+import heapq
+
+class Task:
+    def __init__(self, priority, description):
+        self.priority = priority
+        self.description = description
+
+    def __lt__(self, other):
+        return self.priority < other.priority
+
+tasks = []
+heapq.heappush(tasks, Task(1, "Urgent Task"))
+heapq.heappush(tasks, Task(3, "Medium Task"))
+
+while tasks:
+    task = heapq.heappop(tasks)
+    print(f"Processing task: {task.description} (Priority: {task.priority})")
+
+```
+
+This example demonstrates how to use custom objects within a heap by defining a custom comparison.  This makes the `heapq` module very versatile for managing various data types.

@@ -1,0 +1,115 @@
+---
+title: "Find the Diameter of a Binary Tree"
+date: "09/28/2024"
+categories: [ problem-solving ]
+---
+
+Finding the diameter of a binary tree is a classic tree traversal problem.  The diameter is defined as the *maximum* number of nodes between any two leaf nodes in the tree. This isn't simply the longest path from root to leaf; it could be a path that passes *through* the root, or completely bypasses it.  This post will explore efficient Python solutions to tackle this problem.
+
+## Understanding the Problem
+
+Before diving into code, let's clarify the concept. Consider this example:
+
+```
+      1
+     / \
+    2   3
+   / \     \
+  4   5     6
+ / \
+7   8
+```
+
+The diameter of this tree is 6 (nodes 7, 4, 2, 1, 3, 6).  Note that a simple traversal from root to leaf (e.g., 1-2-4-7) wouldn't reveal this.
+
+## Approach 1: Brute Force (Inefficient)
+
+A naive approach would involve calculating the distance between every pair of nodes.  This is highly inefficient, with a time complexity of O(n²), where n is the number of nodes.  We'll avoid this approach in favor of more optimized solutions.
+
+## Approach 2: Optimized Depth-First Search (DFS)
+
+A more efficient approach utilizes Depth-First Search (DFS). The key insight is that the diameter might pass through a given node.  For each node, we calculate the height of its left and right subtrees. The diameter passing through that node is the sum of these heights plus 1 (to include the node itself).  We then keep track of the maximum diameter encountered so far.
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def diameter(root):
+    max_diameter = [0]  # Use a list to modify a variable within a recursive function
+
+    def height(node):
+        if node is None:
+            return 0
+        left_height = height(node.left)
+        right_height = height(node.right)
+        max_diameter[0] = max(max_diameter[0], left_height + right_height + 1)
+        return max(left_height, right_height) + 1
+
+    height(root)
+    return max_diameter[0]
+
+
+# Example usage:
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+root.right.right = Node(6)
+root.left.left.left = Node(7)
+root.left.left.right = Node(8)
+
+diameter_of_tree = diameter(root)
+print(f"The diameter of the tree is: {diameter_of_tree}")  # Output: 6
+```
+
+This DFS approach has a time complexity of O(n) because each node is visited only once.  The use of a list to modify `max_diameter` within the recursive `height` function is a common technique in Python for updating variables across recursive calls.
+
+
+## Approach 3:  Slight Modification for Clarity
+
+We can make the code slightly more readable by separating the height calculation and diameter calculation into distinct functions.
+
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def height(node):
+    if node is None:
+        return 0
+    return max(height(node.left), height(node.right)) + 1
+
+def diameter(root):
+    if root is None:
+        return 0
+    lheight = height(root.left)
+    rheight = height(root.right)
+    ldiameter = diameter(root.left)
+    rdiameter = diameter(root.right)
+
+    return max(lheight + rheight + 1, ldiameter, rdiameter)
+
+# Example usage (same as before)
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+root.right.right = Node(6)
+root.left.left.left = Node(7)
+root.left.left.right = Node(8)
+
+diameter_of_tree = diameter(root)
+print(f"The diameter of the tree is: {diameter_of_tree}")  # Output: 6
+
+```
+
+This version is arguably clearer, separating concerns, although it might be slightly less efficient due to redundant height calculations.  The choice between these two optimized approaches often comes down to personal preference and code readability priorities.
+

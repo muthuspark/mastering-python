@@ -1,0 +1,103 @@
+---
+title: "Count the Number of Leaf Nodes in a Binary Tree"
+date: "12/13/2024"
+categories: [ problem-solving ]
+---
+
+Binary trees are fundamental data structures in computer science, used extensively in various applications.  Often, we need to perform specific operations on these trees, such as counting the number of leaf nodes.  Leaf nodes are nodes without any children – the endpoints of branches in the tree. This blog post will explore different approaches to efficiently count leaf nodes in a binary tree using Python.
+
+## Understanding Binary Trees
+
+Before diving into the code, let's briefly recap the structure of a binary tree. Each node in a binary tree can have at most two children, referred to as the left child and the right child.  A node with no children is a leaf node.  The topmost node is called the root.
+
+
+## Method 1: Recursive Approach
+
+Recursion is a natural fit for traversing tree structures.  This approach involves a function that calls itself to process the left and right subtrees.  The base case is when we reach a leaf node (a node with no children).
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def count_leaf_nodes_recursive(root):
+    """
+    Counts leaf nodes in a binary tree using recursion.
+
+    Args:
+      root: The root node of the binary tree.
+
+    Returns:
+      The number of leaf nodes in the tree.  Returns 0 if the tree is empty.
+    """
+    if root is None:
+        return 0
+    if root.left is None and root.right is None:
+        return 1
+    else:
+        return count_leaf_nodes_recursive(root.left) + count_leaf_nodes_recursive(root.right)
+
+# Example Usage
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+
+leaf_count = count_leaf_nodes_recursive(root)
+print(f"Number of leaf nodes (recursive): {leaf_count}")  # Output: 3
+```
+
+This recursive function elegantly handles the base case (empty tree or leaf node) and recursively processes the subtrees.
+
+
+## Method 2: Iterative Approach using a Queue (Breadth-First Search)
+
+An iterative approach using a queue provides an alternative solution. This method uses Breadth-First Search (BFS) to traverse the tree level by level.
+
+```python
+from collections import deque
+
+def count_leaf_nodes_iterative(root):
+    """
+    Counts leaf nodes in a binary tree using iteration (BFS).
+
+    Args:
+      root: The root node of the binary tree.
+
+    Returns:
+      The number of leaf nodes in the tree. Returns 0 if the tree is empty.
+    """
+    if root is None:
+        return 0
+
+    queue = deque([root])
+    leaf_count = 0
+
+    while queue:
+        current_node = queue.popleft()
+        if current_node.left is None and current_node.right is None:
+            leaf_count += 1
+        if current_node.left:
+            queue.append(current_node.left)
+        if current_node.right:
+            queue.append(current_node.right)
+
+    return leaf_count
+
+
+#Example Usage (same tree as above)
+leaf_count = count_leaf_nodes_iterative(root)
+print(f"Number of leaf nodes (iterative): {leaf_count}")  # Output: 3
+
+```
+
+This iterative approach offers a different perspective and can be beneficial in scenarios where recursion might be less efficient or cause stack overflow issues for very deep trees.
+
+
+## Choosing the Right Method
+
+Both recursive and iterative approaches are valid for counting leaf nodes. The choice often depends on personal preference, coding style, and the specific characteristics of the tree being processed.  Recursive solutions are often considered more concise and easier to understand for smaller trees, while iterative approaches using BFS might be preferred for very large trees to avoid potential stack overflow issues.
+

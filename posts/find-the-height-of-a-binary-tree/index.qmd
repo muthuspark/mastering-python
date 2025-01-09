@@ -1,0 +1,82 @@
+---
+title: "Find the Height of a Binary Tree"
+date: "03/19/2024"
+categories: [ problem-solving ]
+---
+
+Determining the height of a binary tree is a fundamental task in computer science, with applications ranging from algorithm analysis to data structure optimization.  This post will explore several approaches to calculating the height of a binary tree using Python, along with detailed explanations and code examples.
+
+## Understanding Binary Tree Height
+
+The height of a binary tree is defined as the number of edges on the longest path from the root node to a leaf node.  A leaf node is a node with no children.  An empty tree has a height of -1, while a tree with only a root node has a height of 0.
+
+## Method 1: Recursive Approach
+
+The most intuitive way to find the height is through recursion.  We recursively traverse the left and right subtrees, finding their respective heights, and then take the maximum of those heights plus one (to account for the current node).
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def tree_height_recursive(node):
+    if node is None:
+        return -1
+    else:
+        left_height = tree_height_recursive(node.left)
+        right_height = tree_height_recursive(node.right)
+        return max(left_height, right_height) + 1
+
+# Example usage:
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+
+height = tree_height_recursive(root)
+print(f"The height of the tree is: {height}") # Output: 2
+```
+
+This recursive approach is elegant and easy to understand, but it can be less efficient for very large trees due to the overhead of recursive function calls.
+
+
+## Method 2: Iterative Approach using Level Order Traversal (BFS)
+
+An iterative approach using Breadth-First Search (BFS) offers a more memory-efficient solution for large trees.  We traverse the tree level by level, keeping track of the height.
+
+```python
+from collections import deque
+
+def tree_height_iterative(node):
+    if node is None:
+        return -1
+
+    queue = deque([(node, 0)])  # (node, level)
+    max_height = -1
+
+    while queue:
+        current_node, level = queue.popleft()
+        max_height = max(max_height, level)
+
+        if current_node.left:
+            queue.append((current_node.left, level + 1))
+        if current_node.right:
+            queue.append((current_node.right, level + 1))
+
+    return max_height
+
+# Example usage (same tree as above):
+height = tree_height_iterative(root)
+print(f"The height of the tree is: {height}") # Output: 2
+```
+
+This iterative method avoids the recursive call overhead, making it generally more efficient for large trees.  The space complexity, however, is proportional to the maximum width of the tree.
+
+
+## Choosing the Right Method
+
+The best method depends on the specific application and the characteristics of the tree. For smaller trees, the recursive approach is often simpler and easier to understand.  For larger trees, the iterative approach using BFS is generally preferred for its better performance and memory management.  Consider factors like tree size and memory constraints when making your choice.
+

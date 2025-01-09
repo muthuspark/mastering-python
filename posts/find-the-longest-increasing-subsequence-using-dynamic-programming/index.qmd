@@ -1,0 +1,68 @@
+---
+title: "Find the Longest Increasing Subsequence Using Dynamic Programming"
+date: "11/15/2024"
+categories: [ problem-solving ]
+---
+
+Dynamic programming is a powerful algorithmic technique that can significantly optimize solutions for problems exhibiting overlapping subproblems and optimal substructure.  One classic example where dynamic programming shines is finding the longest increasing subsequence (LIS) within a given sequence of numbers.  This post will explore how to efficiently solve this problem using dynamic programming in Python.
+
+## Understanding the Problem
+
+The longest increasing subsequence problem is defined as follows: given an unsorted array of numbers, find the length of the longest subsequence such that all elements in the subsequence are sorted in increasing order.  For example, in the array `[10, 9, 2, 5, 3, 7, 101, 18]`, the longest increasing subsequence is `[2, 3, 7, 101]`, and its length is 4.  Note that a subsequence doesn't have to be contiguous.
+
+## The Dynamic Programming Approach
+
+A naive approach would involve checking all possible subsequences, which has exponential time complexity.  Dynamic programming offers a much more efficient solution.  The core idea is to build a table (typically a list in Python) where `dp[i]` stores the length of the LIS ending at index `i`.
+
+1. **Initialization:** We initialize a `dp` list with all 1s, representing the length of the LIS ending at each index if that element is considered alone.
+
+2. **Iteration:** We iterate through the input array. For each element `nums[i]`, we compare it with all preceding elements `nums[j]` (where `j < i`). If `nums[i] > nums[j]`, it means we can extend the LIS ending at index `j` by including `nums[i]`.  We update `dp[i]` to be `max(dp[i], dp[j] + 1)`.
+
+3. **Finding the Maximum:** After iterating through the entire array, the maximum value in the `dp` list represents the length of the longest increasing subsequence.
+
+
+## Python Code Implementation
+
+Here's a Python function that implements the dynamic programming solution:
+
+```python
+def longest_increasing_subsequence(nums):
+    """
+    Finds the length of the longest increasing subsequence using dynamic programming.
+
+    Args:
+        nums: A list of numbers.
+
+    Returns:
+        The length of the longest increasing subsequence.
+    """
+    n = len(nums)
+    if n == 0:
+        return 0
+
+    dp = [1] * n  # Initialize dp array with 1s
+
+    for i in range(1, n):
+        for j in range(i):
+            if nums[i] > nums[j]:
+                dp[i] = max(dp[i], dp[j] + 1)
+
+    return max(dp)
+
+
+# Example usage
+nums = [10, 9, 2, 5, 3, 7, 101, 18]
+length = longest_increasing_subsequence(nums)
+print(f"Length of LIS: {length}")  # Output: Length of LIS: 4
+
+nums = [0,1,0,3,2,3]
+length = longest_increasing_subsequence(nums)
+print(f"Length of LIS: {length}") # Output: Length of LIS: 4
+
+nums = [7,7,7,7,7,7,7]
+length = longest_increasing_subsequence(nums)
+print(f"Length of LIS: {length}") # Output: Length of LIS: 1
+```
+
+This code efficiently computes the length of the LIS in O(n^2) time complexity, a significant improvement over the exponential time complexity of a brute-force approach.  This dynamic programming solution provides a clear and concise way to solve the longest increasing subsequence problem.  Further optimizations are possible, but this provides a strong foundation for understanding the technique.
+

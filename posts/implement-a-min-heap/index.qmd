@@ -1,0 +1,98 @@
+---
+title: "Implement a Min-Heap"
+date: "07/11/2024"
+categories: [ problem-solving ]
+---
+
+Min-heaps are fundamental data structures in computer science, prized for their efficiency in retrieving the smallest element.  This blog post will walk you through the implementation of a min-heap in Python, providing clear explanations and illustrative code examples.  We'll cover the core concepts and demonstrate practical applications.
+
+
+## Understanding Min-Heaps
+
+A min-heap is a complete binary tree where the value of each node is less than or equal to the value of its children. This property ensures that the root node always holds the minimum element in the heap.  This characteristic makes min-heaps incredibly useful for tasks like priority queues and heapsort.
+
+
+## Implementing a Min-Heap in Python
+
+We can implement a min-heap using a list to represent the underlying tree structure. This approach is memory-efficient and leverages Python's built-in list operations for ease of implementation.
+
+```python
+class MinHeap:
+    def __init__(self):
+        self.heap = []
+
+    def parent(self, i):
+        return (i - 1) // 2
+
+    def left_child(self, i):
+        return 2 * i + 1
+
+    def right_child(self, i):
+        return 2 * i + 2
+
+    def insert(self, item):
+        self.heap.append(item)
+        self._heapify_up(len(self.heap) - 1)
+
+    def _heapify_up(self, i):
+        while i > 0 and self.heap[i] < self.heap[self.parent(i)]:
+            self.heap[i], self.heap[self.parent(i)] = self.heap[self.parent(i)], self.heap[i]
+            i = self.parent(i)
+
+    def extract_min(self):
+        if not self.heap:
+            return None
+        min_val = self.heap[0]
+        self.heap[0] = self.heap[-1]
+        self.heap.pop()
+        self._heapify_down(0)
+        return min_val
+
+    def _heapify_down(self, i):
+        smallest = i
+        left = self.left_child(i)
+        right = self.right_child(i)
+
+        if left < len(self.heap) and self.heap[left] < self.heap[smallest]:
+            smallest = left
+        if right < len(self.heap) and self.heap[right] < self.heap[smallest]:
+            smallest = right
+
+        if smallest != i:
+            self.heap[i], self.heap[smallest] = self.heap[smallest], self.heap[i]
+            self._heapify_down(smallest)
+
+    def peek(self):
+        return self.heap[0] if self.heap else None
+
+
+```
+
+## Code Explanation:
+
+* **`__init__`**: Initializes an empty heap.
+* **`parent`, `left_child`, `right_child`**: Helper functions to determine parent and child indices.
+* **`insert`**: Adds an element to the heap and maintains the min-heap property using `_heapify_up`.
+* **`_heapify_up`**:  Restores the min-heap property by moving the newly inserted element up the tree.
+* **`extract_min`**: Removes and returns the minimum element (root) and maintains the min-heap property using `_heapify_down`.
+* **`_heapify_down`**: Restores the min-heap property by moving the element at the root down the tree.
+* **`peek`**: Returns the minimum element without removing it.
+
+
+## Example Usage
+
+```python
+min_heap = MinHeap()
+min_heap.insert(3)
+min_heap.insert(1)
+min_heap.insert(4)
+min_heap.insert(10)
+min_heap.insert(2)
+
+print(min_heap.extract_min())  # Output: 1
+print(min_heap.peek())       # Output: 2
+print(min_heap.extract_min()) #Output: 2
+
+```
+
+This example demonstrates the basic operations of inserting and extracting elements from the min-heap.  You can extend this implementation to incorporate additional functionalities as needed for your specific application.  Remember that the efficiency of min-heap operations (insert, extract-min, peek) is O(log n), where n is the number of elements in the heap.  This makes them highly efficient for many priority queue scenarios.

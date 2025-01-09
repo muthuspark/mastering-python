@@ -1,0 +1,78 @@
+---
+title: "Solve the Traveling Salesman Problem Using Dynamic Programming"
+date: "08/24/2024"
+categories: [ problem-solving ]
+---
+
+The Traveling Salesman Problem (TSP) is a classic optimization problem: given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?  It's notoriously difficult to solve optimally for large numbers of cities, as the number of possible routes grows factorially. However, dynamic programming offers a way to find the optimal solution, albeit with significant computational cost for larger problem instances.
+
+This blog post will explore how to solve the TSP using dynamic programming in Python.  We'll focus on understanding the underlying algorithm and providing a practical implementation.
+
+
+## Understanding the Dynamic Programming Approach
+
+Dynamic programming tackles the TSP by breaking down the problem into smaller, overlapping subproblems.  The core idea is to build a solution iteratively, storing and reusing the results of previously solved subproblems.  We use a table (typically a multi-dimensional array) to store the optimal distances for visiting subsets of cities.
+
+Let's define some notation:
+
+* `n`: The number of cities.
+* `S`: A subset of cities (represented as a set).
+* `i`: The current city.
+* `dp[S][i]`: The minimum distance to visit all cities in `S` ending at city `i`.
+
+
+The algorithm essentially works as follows:
+
+1. **Base Case:** The minimum distance to visit a single city starting and ending at that city is 0.
+2. **Recursive Step:** For each subset `S` and city `i` in `S`,  we iterate through all cities `j` in `S` excluding `i`. We find the minimum distance to visit all cities in `S` excluding `i` ending at `j`, and add the distance from `j` to `i`. This gives us the minimum distance to visit all cities in `S` ending at `i`.
+3. **Optimal Solution:**  After calculating `dp[S][i]` for all subsets `S` and cities `i`, the minimum distance for visiting all cities starting and ending at city 0 is found in `dp[{0, 1, ..., n-1}][0]`.
+
+
+## Python Implementation
+
+This code implements a dynamic programming solution for the TSP. It assumes a distance matrix is provided as input.
+
+```python
+import itertools
+
+def solve_tsp_dp(distance_matrix):
+    n = len(distance_matrix)
+    # Initialize DP table
+    dp = {}
+    for i in range(n):
+        dp[frozenset([i]), i] = 0
+
+    for subset_size in range(2, n + 1):
+        for subset in itertools.combinations(range(n), subset_size):
+            subset = frozenset(subset)
+            for i in subset:
+                min_dist = float('inf')
+                for j in subset - {i}:
+                    min_dist = min(min_dist, dp[subset - {i}, j] + distance_matrix[j][i])
+                dp[subset, i] = min_dist
+
+    #Find optimal solution
+    optimal_subset = frozenset(range(n))
+    min_distance = float('inf')
+    for i in optimal_subset:
+        min_distance = min(min_distance, dp[optimal_subset, i] + distance_matrix[i][0])
+
+
+    return min_distance
+
+
+# Example Usage
+distance_matrix = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
+min_distance = solve_tsp_dp(distance_matrix)
+print(f"Minimum distance: {min_distance}")
+
+```
+
+This code efficiently calculates the optimal solution.  Note that the time complexity is O(n² * 2ⁿ), making it computationally expensive for large `n`.  For extremely large TSP instances, approximation algorithms are often preferred.  This example demonstrates the core principles of applying dynamic programming to this challenging problem.  Further enhancements could involve backtracking to reconstruct the actual optimal tour.
+

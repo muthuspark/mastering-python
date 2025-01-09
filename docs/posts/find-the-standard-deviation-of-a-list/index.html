@@ -218,7 +218,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>sample_std_dev <span class="op">=</span> np.std(data, ddof<span class="op">=</span><span class="dv">1</span>) <span class="co"># ddof=1 for sample standard deviation</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample Standard Deviation: </span><span class="sc">{</span>sample_std_dev<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Population Standard Deviation: 2.138089935299395</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample Standard Deviation: 2.138089935299395</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This code snippet first imports the <code>statistics</code> module. Then, it defines a sample list <code>data</code>. The <code>statistics.stdev()</code> function calculates the population standard deviation, which is then printed to the console. The example also demonstrates finding sample standard deviation using numpy. Remember that the <code>statistics</code> module’s <code>stdev</code> calculates the <em>population</em> standard deviation, while many statistical analyses will require you to use the <em>sample</em> standard deviation.</p>
 </section>
 <section id="manual-calculation-of-standard-deviation" class="level2">
@@ -247,7 +249,10 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Manually calculated Population Standard Deviation: </span><span class="sc">{</span>std_dev<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Manually calculated Sample Standard Deviation: </span><span class="sc">{</span>sample_std_dev<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Manually calculated Sample Standard Deviation: </span><span class="sc">{</span>sample_std_dev<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Manually calculated Population Standard Deviation: 2.0</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Manually calculated Sample Standard Deviation: 2.138089935299395</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This code demonstrates the manual calculation, mirroring the steps outlined above. Note the difference in how the variance is calculated for the population and sample standard deviation.</p>
 </section>
 <section id="handling-large-datasets-with-numpy" class="level2">
@@ -261,7 +266,10 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sample_std_dev <span class="op">=</span> np.std(data, ddof<span class="op">=</span><span class="dv">1</span>) <span class="co">#sample std</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"NumPy Population Standard Deviation: </span><span class="sc">{</span>population_std_dev<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"NumPy Sample Standard Deviation: </span><span class="sc">{</span>sample_std_dev<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"NumPy Sample Standard Deviation: </span><span class="sc">{</span>sample_std_dev<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># NumPy Population Standard Deviation: 2.0</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># NumPy Sample Standard Deviation: 2.138089935299395</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>NumPy’s vectorized operations make calculations much faster, especially when dealing with substantial amounts of data. Remember that <code>ddof=1</code> in <code>np.std</code> is crucial for obtaining the sample standard deviation.</p>
 
 

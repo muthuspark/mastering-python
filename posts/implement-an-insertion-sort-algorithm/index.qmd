@@ -1,0 +1,82 @@
+---
+title: "Implement an Insertion Sort Algorithm"
+date: "08/01/2024"
+categories: [ problem-solving ]
+---
+
+Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time.  It's efficient for small datasets or nearly sorted datasets, making it a valuable algorithm to understand in your programming journey. This post will walk you through the implementation of insertion sort in Python with clear explanations and code examples.
+
+## Understanding the Algorithm
+
+Insertion sort operates by iterating through the unsorted portion of the array. For each element, it compares it to the elements already sorted (to its left) and inserts it into its correct position within the sorted portion. Think of it like sorting a hand of playing cards: you pick up one card at a time and insert it into its correct place within the cards already sorted in your hand.
+
+**Here's a breakdown of the process:**
+
+1. **Start with the second element:** The first element is considered already sorted.
+
+2. **Compare and shift:**  Compare the current element with the elements before it. If the current element is smaller than the element to its left, shift the larger element one position to the right.
+
+3. **Insert:** Continue shifting until you find the correct position for the current element, and insert it there.
+
+4. **Repeat:** Repeat steps 2 and 3 for each element in the unsorted portion of the array.
+
+
+## Python Implementation
+
+Let's implement insertion sort in Python.  The code below provides a clear and concise implementation:
+
+```python
+def insertion_sort(arr):
+    """
+    Sorts a list using the insertion sort algorithm.
+
+    Args:
+      arr: The list to be sorted.
+    """
+    for i in range(1, len(arr)):
+        key = arr[i]  # Current element to be inserted
+        j = i - 1     # Index of the last element in the sorted subarray
+
+        # Move elements of arr[0..i-1], that are greater than key,
+        # to one position ahead of their current position
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key  # Insert key into its correct position
+
+
+# Example usage
+my_list = [12, 11, 13, 5, 6]
+insertion_sort(my_list)
+print("Sorted array:", my_list)  # Output: Sorted array: [5, 6, 11, 12, 13]
+
+my_list = [5,1,4,2,8]
+insertion_sort(my_list)
+print("Sorted array:", my_list) #Output: Sorted array: [1, 2, 4, 5, 8]
+```
+
+
+##  Step-by-Step Walkthrough with Example
+
+Let's trace the execution of `insertion_sort` on the list `[12, 11, 13, 5, 6]`:
+
+1. **Iteration 1 (i=1):** `key` is 11.  11 < 12, so 12 is shifted to the right.  11 is inserted at index 0: `[11, 12, 13, 5, 6]`
+
+2. **Iteration 2 (i=2):** `key` is 13. 13 > 12, so no shifting is needed.  The array remains `[11, 12, 13, 5, 6]`
+
+3. **Iteration 3 (i=3):** `key` is 5. 5 < 13, 5 < 12, 5 < 11.  13, 12, and 11 are shifted to the right. 5 is inserted at index 0: `[5, 11, 12, 13, 6]`
+
+4. **Iteration 4 (i=4):** `key` is 6. 6 < 13, 6 < 12, 6 > 11. 13 and 12 are shifted. 6 is inserted at index 2: `[5, 6, 11, 12, 13]`
+
+
+This detailed walkthrough demonstrates how the algorithm efficiently sorts the array by repeatedly inserting elements into their correct positions within the already sorted subarray.
+
+
+## Time and Space Complexity
+
+* **Time Complexity:**  O(n^2) in the worst and average case, O(n) in the best case (when the array is already sorted).
+* **Space Complexity:** O(1) – insertion sort is an in-place algorithm, meaning it doesn't require significant extra memory.
+
+
+This makes insertion sort a good choice for small datasets or nearly sorted datasets where its simplicity and low space overhead are advantageous.
+

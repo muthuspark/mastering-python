@@ -112,6 +112,35 @@ gtag('js', new Date());
 gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Calculate the Simple Interest – Mastering Python">
@@ -208,7 +237,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <section id="understanding-the-formula" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-formula">Understanding the Formula</h2>
 <p>The formula for calculating simple interest is:</p>
-<p><code>Simple Interest = (P x R x T) / 100</code></p>
+<p><span class="math display">\[Simple~Interest = \frac{P \times R \times T}{100}\]</span></p>
 <p>Where:</p>
 <ul>
 <li><strong>P</strong> = Principal amount (the initial amount of money)</li>
@@ -279,7 +308,12 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">isinstance</span>(interest, <span class="bu">str</span>): <span class="co">#check for error message</span></span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(interest)</span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"The simple interest is: </span><span class="sc">{</span>interest<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"The simple interest is: </span><span class="sc">{</span>interest<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co"># The simple interest is: 100.0</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co"># The simple interest is: 137.5</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Error: Principal, rate, and time must be non-negative values.</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Error: Invalid input type. Please use numbers.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This code defines a function <code>calculate_simple_interest</code> which performs the calculation and includes error handling for negative or invalid inputs. The example usage demonstrates how to call the function and print the result. The added error handling improves the robustness of the function.</p>
 </section>
 <section id="calculating-total-amount" class="level2">
@@ -300,7 +334,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">isinstance</span>(total, <span class="bu">str</span>): <span class="co">#check for error message</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(total)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"The total amount is: </span><span class="sc">{</span>total<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"The total amount is: </span><span class="sc">{</span>total<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># The total amount is: 1100.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This enhanced function shows how to calculate the final amount, adding to the practical application of simple interest calculations in Python. Remember to always handle potential errors in your code for a more reliable program.</p>
 
 

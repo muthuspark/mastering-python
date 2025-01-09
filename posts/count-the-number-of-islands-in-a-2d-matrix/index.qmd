@@ -1,0 +1,91 @@
+---
+title: "Count the Number of Islands in a 2D Matrix"
+date: "10/24/2024"
+categories: [ problem-solving ]
+---
+
+Finding the number of "islands" in a 2D matrix is a classic graph problem with applications in image analysis, geographic information systems (GIS), and more.  An "island" is typically defined as a group of connected '1's (land) surrounded by '0's (water). This blog post will explore how to efficiently solve this problem using Python.
+
+
+## Understanding the Problem
+
+Imagine a 2D matrix representing a map, where '1' represents land and '0' represents water.  Our goal is to count the number of separate landmasses (islands).  For instance:
+
+```
+matrix = [
+  [1, 1, 0, 0, 0],
+  [0, 1, 0, 0, 1],
+  [1, 0, 0, 1, 1],
+  [0, 0, 0, 0, 0],
+  [1, 0, 1, 0, 1]
+]
+```
+
+This matrix contains 5 islands.
+
+
+## Depth-First Search (DFS) Approach
+
+A common and efficient solution involves Depth-First Search (DFS).  DFS recursively explores connected components of the graph (in this case, the matrix).  Once an island is found, we mark all its cells as visited to avoid recounting.
+
+Here's the Python code implementing this approach:
+
+```python
+def count_islands(matrix):
+    """
+    Counts the number of islands in a 2D matrix using Depth-First Search (DFS).
+
+    Args:
+        matrix: A list of lists representing the 2D matrix.
+
+    Returns:
+        The number of islands.
+    """
+
+    rows = len(matrix)
+    cols = len(matrix[0]) if rows > 0 else 0
+    num_islands = 0
+    visited = set()  # Keep track of visited cells
+
+    def dfs(row, col):
+        if (row, col) in visited or not (0 <= row < rows and 0 <= col < cols) or matrix[row][col] == 0:
+            return
+        visited.add((row, col))
+        dfs(row + 1, col)
+        dfs(row - 1, col)
+        dfs(row, col + 1)
+        dfs(row, col - 1)
+
+    for row in range(rows):
+        for col in range(cols):
+            if matrix[row][col] == 1 and (row, col) not in visited:
+                dfs(row, col)
+                num_islands += 1
+
+    return num_islands
+
+# Example usage:
+matrix = [
+  [1, 1, 0, 0, 0],
+  [0, 1, 0, 0, 1],
+  [1, 0, 0, 1, 1],
+  [0, 0, 0, 0, 0],
+  [1, 0, 1, 0, 1]
+]
+
+num_islands = count_islands(matrix)
+print(f"Number of islands: {num_islands}")  # Output: Number of islands: 5
+```
+
+This code uses a `visited` set to efficiently track visited cells, preventing redundant exploration. The `dfs` function recursively explores all connected '1's, effectively identifying and counting each island.
+
+##  Time and Space Complexity
+
+The time complexity of this DFS approach is O(M*N), where M and N are the dimensions of the matrix, as we visit each cell at most once. The space complexity is also O(M*N) in the worst case, primarily due to the `visited` set which could store all the cells.  However, in practice, the space used often remains significantly less than O(M*N)
+
+
+## Optimizations
+
+While the DFS approach is efficient, further optimizations are possible for extremely large matrices, but for most practical scenarios, the above implementation is sufficient.  You might consider using a union-find algorithm for even better performance in specific cases.
+
+

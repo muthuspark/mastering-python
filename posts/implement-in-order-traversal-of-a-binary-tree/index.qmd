@@ -1,0 +1,78 @@
+---
+title: "Implement In-order Traversal of a Binary Tree"
+date: "08/07/2024"
+categories: [ problem-solving ]
+---
+
+In-order traversal is one of the fundamental ways to traverse a binary tree.  It's particularly useful because it visits nodes in a sorted order for Binary Search Trees (BSTs).  This post will guide you through implementing in-order traversal in Python, exploring both recursive and iterative approaches.
+
+## Understanding In-order Traversal
+
+In-order traversal follows this simple rule:
+
+1. **Traverse the left subtree.**
+2. **Visit the root node.**
+3. **Traverse the right subtree.**
+
+This order ensures that for a BST, the nodes are visited in ascending order of their values.
+
+
+## Recursive Approach
+
+The recursive approach elegantly mirrors the definition of in-order traversal. It's concise and easy to understand, but can be less efficient for very deep trees due to function call overhead.
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def inorder_recursive(root):
+    if root:
+        inorder_recursive(root.left)
+        print(root.data, end=" ")
+        inorder_recursive(root.right)
+
+# Example usage:
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+
+print("Inorder traversal (recursive):")
+inorder_recursive(root)  # Output: 4 2 5 1 3
+```
+
+## Iterative Approach using a Stack
+
+The iterative approach uses a stack to simulate the recursion. This avoids the overhead of recursive function calls, making it more efficient for large trees.
+
+```python
+def inorder_iterative(root):
+    stack = []
+    current = root
+    while True:
+        if current:
+            stack.append(current)
+            current = current.left
+        elif stack:
+            current = stack.pop()
+            print(current.data, end=" ")
+            current = current.right
+        else:
+            break
+
+print("\nInorder traversal (iterative):")
+inorder_iterative(root) # Output: 4 2 5 1 3
+```
+
+## Choosing the Right Approach
+
+The recursive approach is generally preferred for its readability and simplicity, especially for smaller trees. However, for very large trees or when memory efficiency is critical, the iterative approach using a stack is recommended due to its avoidance of potential stack overflow errors.  The iterative method also offers better performance in these cases.
+
+##  Further Exploration
+
+You can adapt these methods to return a list of the nodes' data instead of printing them directly. This allows for more flexible use of the traversal results.  Experiment with different tree structures to solidify your understanding of in-order traversal. You can also explore other tree traversal methods like pre-order and post-order.
+

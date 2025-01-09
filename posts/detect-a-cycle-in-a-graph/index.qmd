@@ -1,0 +1,88 @@
+---
+title: "Detect a Cycle in a Graph"
+date: "03/03/2024"
+categories: [ problem-solving ]
+---
+
+Graphs are fundamental data structures used to represent relationships between objects.  Many algorithms rely on understanding the structure of a graph, and a crucial aspect of this understanding is determining whether a graph contains cycles—a closed path where you can start and end at the same node by traversing edges. This blog post explores how to detect cycles in graphs using Python, focusing on different graph representations and algorithms.
+
+## Understanding Graph Representations
+
+Before diving into cycle detection algorithms, it's important to understand how we represent graphs in code. Two common representations are:
+
+* **Adjacency Matrix:** A 2D array where `matrix[i][j] = 1` indicates an edge from node `i` to node `j`, and 0 otherwise.  Suitable for dense graphs (many edges).
+
+* **Adjacency List:** A dictionary where keys represent nodes, and values are lists of their neighbors. Efficient for sparse graphs (relatively few edges).
+
+
+## Cycle Detection Algorithms
+
+Several algorithms can effectively detect cycles in graphs.  We'll explore two popular methods:
+
+### 1. Depth-First Search (DFS)
+
+DFS is a powerful graph traversal technique well-suited for cycle detection.  The core idea is to mark nodes as visited during traversal. If we encounter a visited node that's not an ancestor in the current path, we've found a cycle.
+
+Here's a Python implementation using an adjacency list:
+
+
+```python
+def has_cycle_dfs(graph):
+    visited = set()
+    recursion_stack = set()
+
+    def dfs(node):
+        visited.add(node)
+        recursion_stack.add(node)
+
+        for neighbor in graph.get(node, []):
+            if neighbor in recursion_stack:
+                return True
+            if neighbor not in visited:
+                if dfs(neighbor):
+                    return True
+
+        recursion_stack.remove(node)
+        return False
+
+    for node in graph:
+        if node not in visited:
+            if dfs(node):
+                return True
+    return False
+
+#Example usage
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': ['E'],
+    'D': ['F'],
+    'E': ['F'],
+    'F': ['C'] #Cycle present
+}
+
+print(f"Graph has cycle (DFS): {has_cycle_dfs(graph)}")
+
+
+graph2 = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': ['E'],
+    'D': ['F'],
+    'E': ['F'],
+    'F': ['G']
+}
+
+print(f"Graph has cycle (DFS): {has_cycle_dfs(graph2)}")
+```
+
+
+### 2. Breadth-First Search (BFS)
+
+While less commonly used for cycle detection than DFS, BFS can also be adapted.  The approach involves tracking the distance from the starting node. If we encounter a node with a shorter distance than its current distance, a cycle exists.  However, implementing BFS for cycle detection is generally more complex than DFS.
+
+
+## Choosing the Right Algorithm
+
+For cycle detection in directed graphs, DFS is generally preferred due to its simpler implementation and efficiency.  For undirected graphs, both DFS and BFS can be used, with DFS often being slightly more efficient.  The choice ultimately depends on the specific application and graph characteristics.  The adjacency list representation often proves more efficient for sparse graphs, which are common in many real-world scenarios.
+
