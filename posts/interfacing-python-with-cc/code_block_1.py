@@ -1,0 +1,1 @@
+gcc -shared -o add.so -fPIC add.c

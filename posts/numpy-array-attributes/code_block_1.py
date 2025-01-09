@@ -1,0 +1,1 @@
+print(arr.ndim)  # Output: 2 (a 2D array)

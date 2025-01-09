@@ -1,0 +1,1 @@
+df.rename(columns=new_names, inplace=True) 

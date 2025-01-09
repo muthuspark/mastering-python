@@ -1,0 +1,1 @@
+print(df.xs('Clothing', level='Category'))

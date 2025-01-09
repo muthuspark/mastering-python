@@ -1,0 +1,1 @@
+print(len(my_tuple)) # Output: 5

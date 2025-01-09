@@ -1,0 +1,1 @@
+python -m cProfile your_script.py

@@ -1,0 +1,1 @@
+print(df.loc[slice('North', 'South')] )

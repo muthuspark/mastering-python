@@ -1,0 +1,1 @@
+The character 'l' appears 3 times in the string.

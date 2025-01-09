@@ -1,0 +1,1 @@
+numpy.ones(shape, dtype=None, order='C')

@@ -1,0 +1,1 @@
+print(df['names'].str.len())

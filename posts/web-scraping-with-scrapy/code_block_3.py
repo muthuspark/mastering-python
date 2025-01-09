@@ -1,0 +1,1 @@
+scrapy crawl products -O products.json

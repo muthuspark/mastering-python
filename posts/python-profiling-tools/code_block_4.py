@@ -1,0 +1,1 @@
+kernprof -l -v your_script.py

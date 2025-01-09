@@ -1,0 +1,1 @@
+The sum of the series is: 150

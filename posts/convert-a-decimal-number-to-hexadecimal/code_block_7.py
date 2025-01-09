@@ -1,0 +1,1 @@
+The hexadecimal representation of 4567 is: 11D7

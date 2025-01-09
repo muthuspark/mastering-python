@@ -1,0 +1,1 @@
+print(df.iloc[:2]['col2'])

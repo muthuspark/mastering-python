@@ -1,0 +1,1 @@
+df.to_csv('exported_data_tab.tsv', sep='\t', index=False)

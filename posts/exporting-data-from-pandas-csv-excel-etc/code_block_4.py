@@ -1,0 +1,1 @@
+df.to_csv('large_file.csv', index=False, chunksize=10000) #writes in 10000 row chunks.

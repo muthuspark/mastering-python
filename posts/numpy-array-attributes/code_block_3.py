@@ -1,0 +1,1 @@
+print(arr.size)  # Output: 6
