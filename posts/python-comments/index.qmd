@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, known for its readability, benefits immensely from well-written comments.  Comments are essential for explaining your code's logic, making it easier to understand, debug, and maintain, especially as projects grow in complexity. This guide will explore the different types of comments in Python and demonstrate their effective use.
+Python, known for its readability, benefits immensely from well-written comments.  Comments are essential for explaining your code's logic, making it easier to understand, debug, and maintain, especially as projects grow in complexity. This guide will look at the different types of comments in Python and demonstrate their effective use.
 
 ## Types of Python Comments
 
@@ -22,7 +22,7 @@ print(x) # This line prints the value of x
 
 **2. Multi-Line Comments (Docstrings):**
 
-While Python doesn't have a dedicated multi-line comment syntax like `/* ... */` in C++, we use docstrings for this purpose. Docstrings are enclosed in triple quotes (`'''` or `"""`).  They're typically used to document functions, classes, modules, and methods.  They're also crucial for generating documentation automatically using tools like Sphinx.
+While Python doesn't have a dedicated multi-line comment syntax like `/* ... */` in C++, we use docstrings for this purpose. Docstrings are enclosed in triple quotes (`'''` or `"""`). They're typically used to document functions, classes, modules, and methods. They're also used for generating documentation automatically using tools like Sphinx.
 
 ```python
 def my_function(a, b):
@@ -46,7 +46,7 @@ print(my_function(5, 3)) # Output: 8
 * **Explain the "Why," Not the "What":**  The code itself should clearly show *what* it does. Comments should focus on *why* a particular approach was chosen or what a complex section of code achieves.
 * **Keep Comments Updated:**  Outdated comments are worse than no comments.  Always update comments when you modify the associated code.
 * **Avoid Redundant Comments:** Don't comment on obvious code.  Let the code speak for itself where possible.
-* **Use Consistent Formatting:** Maintain a consistent style for your comments to enhance readability.
+* **Use Consistent Formatting:** Maintain a consistent style for your comments to improve readability.
 
 
 ##  Example: Illustrating Comment Usage in a Function
@@ -86,5 +86,5 @@ except ValueError as e:
 
 ```
 
-This example showcases how comments clarify the function's purpose, arguments, return value, error handling, and the logic behind the calculation.  This makes the code significantly easier to understand and maintain.
+This example showcases how comments clarify the function's purpose, arguments, return value, error handling, and the logic behind the calculation. This makes the code easier to understand and maintain.
 

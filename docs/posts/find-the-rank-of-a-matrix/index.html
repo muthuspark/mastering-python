@@ -206,10 +206,10 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Determining the rank of a matrix is a fundamental operation in linear algebra with applications across various fields, including machine learning, computer graphics, and data analysis. The rank of a matrix represents the maximum number of linearly independent rows (or columns) it contains. This post will explore efficient methods for calculating the matrix rank using Python, focusing on the <code>NumPy</code> library.</p>
+<p>Determining the rank of a matrix is a fundamental operation in linear algebra with applications across various fields, including machine learning, computer graphics, and data analysis. The rank of a matrix represents the maximum number of linearly independent rows (or columns) it contains. This post will look at efficient methods for calculating the matrix rank using Python, focusing on the <code>NumPy</code> library.</p>
 <section id="understanding-matrix-rank" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-matrix-rank">Understanding Matrix Rank</h2>
-<p>Before diving into the Python implementation, let’s briefly revisit the concept of matrix rank. A matrix’s rank provides valuable insights into its properties. For example:</p>
+<p>Before diving into the Python implementation, let’s briefly revisit the concept of matrix rank. A matrix’s rank provides insights into its properties. For example:</p>
 <ul>
 <li><strong>Full Rank:</strong> A matrix is considered to have full rank if its rank equals the minimum of its number of rows and columns. This signifies that all rows (or columns) are linearly independent.</li>
 <li><strong>Singular Matrix:</strong> A square matrix with a rank less than its dimension is singular (non-invertible). This implies that its determinant is zero, and it cannot be inverted.</li>
@@ -228,7 +228,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the rank</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>rank <span class="op">=</span> np.linalg.matrix_rank(matrix)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The rank of the matrix is: </span><span class="sc">{</span>rank<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># Output: The rank of the matrix is: 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This function efficiently computes the rank using singular value decomposition (SVD). SVD is a robust method that handles potential numerical instability effectively.</p>
+<p>This function efficiently computes the rank using singular value decomposition (SVD). SVD is a method that handles potential numerical instability effectively.</p>
 </section>
 <section id="handling-different-matrix-types" class="level2">
 <h2 class="anchored" data-anchor-id="handling-different-matrix-types">Handling Different Matrix Types</h2>
@@ -253,12 +253,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="beyond-simple-rank-calculation" class="level2">
 <h2 class="anchored" data-anchor-id="beyond-simple-rank-calculation">Beyond Simple Rank Calculation</h2>
-<p>The rank of a matrix is a fundamental concept with wide-ranging applications. Understanding how to compute it efficiently using Python’s <code>NumPy</code> library is crucial for many data science and engineering tasks. Further exploration might involve using rank calculations within more complex algorithms or analyzing the implications of rank deficiency in specific applications.</p>
+<p>The rank of a matrix is a fundamental concept with wide-ranging applications. Understanding how to compute it efficiently using Python’s <code>NumPy</code> library is important for many data science and engineering tasks. Further exploration might involve using rank calculations within more complex algorithms or analyzing rank deficiency in specific applications.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

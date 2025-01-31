@@ -67,7 +67,7 @@ If `weather` is "sunny," the output will be "Enjoy the sunshine!".
 
 ## Nested Conditional Statements: Combining Conditions
 
-You can nest conditional statements within each other to create more complex logic.  This allows you to handle intricate decision-making processes.
+You can nest conditional statements within each other to create more complex logic. This allows you to handle decision-making processes.
 
 
 ```python
@@ -99,7 +99,7 @@ This single line achieves the same result as a longer `if-else` statement.
 
 ## Boolean Operators: Enhancing Conditional Logic
 
-Boolean operators (`and`, `or`, `not`) allow you to combine multiple conditions within a single `if` statement, creating more sophisticated decision-making processes.
+Boolean operators (`and`, `or`, `not`) allow you to combine multiple conditions within a single `if` statement, creating more complex decision-making processes.
 
 
 ```python

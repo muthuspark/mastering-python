@@ -27,7 +27,7 @@ The `expression` evaluates to a context manager, and the `variable` (optional) r
 
 ## Building Your Own Context Managers
 
-You can create your own context managers using either classes or functions.  Let's explore both approaches.
+You can create your own context managers using either classes or functions.  Let's look at both approaches.
 
 ### Class-Based Context Managers
 

@@ -4,7 +4,7 @@ date: "01/01/2024"
 categories: [ problem-solving ]
 ---
 
-Perfect numbers are a fascinating topic in number theory.  A perfect number is a positive integer that is equal to the sum of its proper divisors (excluding itself). For example, 6 is a perfect number because its divisors are 1, 2, and 3, and 1 + 2 + 3 = 6.  This blog post will explore how to efficiently determine if a given number is a perfect number using Python.
+Perfect numbers are a fascinating topic in number theory.  A perfect number is a positive integer that is equal to the sum of its proper divisors (excluding itself). For example, 6 is a perfect number because its divisors are 1, 2, and 3, and 1 + 2 + 3 = 6.  This blog post will look at how to efficiently determine if a given number is a perfect number using Python.
 
 ## Understanding Perfect Numbers
 
@@ -74,4 +74,4 @@ print(f"Is 10 a perfect number? {is_perfect_number_efficient(10)}") # Output: Fa
 
 ```
 
-This improved version has a time complexity of $\mathcal{O}(\sqrt{n})$, making it significantly faster for larger numbers.
+This improved version has a time complexity of $\mathcal{O}(\sqrt{n})$, making it faster for larger numbers.

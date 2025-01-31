@@ -4,7 +4,7 @@ date: "06/01/2024"
 categories: [ problem-solving ]
 ---
 
-Determining whether a year is a leap year is a common programming task, especially when working with dates and calendars.  Python offers straightforward ways to accomplish this, and this post will explore several approaches, from basic conditional logic to using the `calendar` module.
+Determining whether a year is a leap year is a common programming task, especially when working with dates and calendars.  Python offers straightforward ways to accomplish this, and this post will look at many approaches, from basic conditional logic to using the `calendar` module.
 
 ## Understanding Leap Years
 
@@ -86,5 +86,5 @@ The `calendar.isleap()` function provides a simple and efficient way to check fo
 
 ## Handling Invalid Input
 
-For robust code, consider adding error handling to manage invalid input, such as non-integer values or negative years.  This could involve using a `try-except` block to catch `TypeError` or `ValueError` exceptions.  We leave this as an exercise for the reader to explore and enhance the provided examples.
+For code clarity, consider adding error handling to manage invalid input, such as non-integer values or negative years. This could involve using a `try-except` block to catch `TypeError` or `ValueError` exceptions. We leave this as an exercise for the reader.
 

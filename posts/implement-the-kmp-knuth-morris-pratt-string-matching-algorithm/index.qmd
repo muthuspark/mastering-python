@@ -105,5 +105,5 @@ This code first generates the PMT and then uses it to efficiently search for the
 
 ##  Analyzing the Time Complexity
 
-The PMT generation takes O(m) time, and the matching process also takes O(n) time in the worst case. Therefore, the overall time complexity of the KMP algorithm is O(m + n), making it significantly faster than naive string searching for larger texts and patterns.  This efficiency makes KMP a preferred choice for many string searching applications.
+The PMT generation takes O(m) time, and the matching process also takes O(n) time in the worst case. Therefore, the overall time complexity of the KMP algorithm is O(m + n), making it faster than naive string searching for larger texts and patterns. This efficiency makes KMP a preferred choice for many string searching applications.
 

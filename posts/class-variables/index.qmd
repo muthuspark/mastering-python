@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Class variables are attributes that belong to the class itself, rather than to individual instances (objects) of the class.  They're shared among all instances of the class, meaning any change to a class variable affects all objects. This differs from instance variables, which are unique to each object. Understanding this distinction is crucial for writing efficient and well-structured Python code.
+Class variables are attributes that belong to the class itself, rather than to individual instances (objects) of the class.  They're shared among all instances of the class, meaning any change to a class variable affects all objects. This differs from instance variables, which are unique to each object. Understanding this distinction is important for writing efficient and well-structured Python code.
 
 
 ## Defining Class Variables
@@ -38,7 +38,7 @@ As you can see, changing `species` through the class itself (`Dog.species`) alte
 
 ## Accessing Class Variables
 
-You can access class variables in several ways:
+You can access class variables in many ways:
 
 * **Through the class itself:** `Dog.species`
 * **Through an instance of the class:** `my_dog.species`

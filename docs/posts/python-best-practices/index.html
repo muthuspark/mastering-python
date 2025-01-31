@@ -191,11 +191,11 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#embrace-meaningful-variable-and-function-names" id="toc-embrace-meaningful-variable-and-function-names" class="nav-link active" data-scroll-target="#embrace-meaningful-variable-and-function-names">1. Embrace Meaningful Variable and Function Names</a></li>
+  <li><a href="#meaningful-variable-and-function-names" id="toc-meaningful-variable-and-function-names" class="nav-link active" data-scroll-target="#meaningful-variable-and-function-names">1. Meaningful Variable and Function Names</a></li>
   <li><a href="#use-docstrings-for-clear-documentation" id="toc-use-docstrings-for-clear-documentation" class="nav-link" data-scroll-target="#use-docstrings-for-clear-documentation">2. use Docstrings for Clear Documentation</a></li>
   <li><a href="#consistent-indentation-the-foundation-of-python" id="toc-consistent-indentation-the-foundation-of-python" class="nav-link" data-scroll-target="#consistent-indentation-the-foundation-of-python">3. Consistent Indentation: The Foundation of Python</a></li>
   <li><a href="#utilize-list-comprehensions-for-concise-code" id="toc-utilize-list-comprehensions-for-concise-code" class="nav-link" data-scroll-target="#utilize-list-comprehensions-for-concise-code">4. Utilize List Comprehensions for Concise Code</a></li>
-  <li><a href="#embrace-the-power-of-functions" id="toc-embrace-the-power-of-functions" class="nav-link" data-scroll-target="#embrace-the-power-of-functions">5. Embrace the Power of Functions</a></li>
+  <li><a href="#the-power-of-functions" id="toc-the-power-of-functions" class="nav-link" data-scroll-target="#the-power-of-functions">5. The Power of Functions</a></li>
   <li><a href="#error-handling-with-try...except-blocks" id="toc-error-handling-with-try...except-blocks" class="nav-link" data-scroll-target="#error-handling-with-try...except-blocks">6. Error Handling with <code>try...except</code> Blocks</a></li>
   <li><a href="#employ-type-hints-for-enhanced-readability-and-maintainability" id="toc-employ-type-hints-for-enhanced-readability-and-maintainability" class="nav-link" data-scroll-target="#employ-type-hints-for-enhanced-readability-and-maintainability">7. Employ Type Hints for Enhanced Readability and Maintainability</a></li>
   <li><a href="#comments-explain-the-why-not-the-what" id="toc-comments-explain-the-why-not-the-what" class="nav-link" data-scroll-target="#comments-explain-the-why-not-the-what">8. Comments: Explain the “Why,” Not the “What”</a></li>
@@ -211,10 +211,10 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python’s readability and versatility make it a favorite for beginners and experts alike. However, writing clean, efficient, and maintainable Python code requires adhering to best practices. This post dives into key principles, illustrated with clear code examples, to help you elevate your Python skills.</p>
-<section id="embrace-meaningful-variable-and-function-names" class="level2">
-<h2 class="anchored" data-anchor-id="embrace-meaningful-variable-and-function-names">1. Embrace Meaningful Variable and Function Names</h2>
-<p>Choosing descriptive names significantly improves code readability. Avoid abbreviations or single-letter variables unless their meaning is utterly obvious within a very small scope.</p>
+<p>Python’s readability and versatility make it a favorite for beginners and experts alike. However, writing clean, efficient, and maintainable Python code requires adhering to best practices. This post dives into key principles, illustrated with clear code examples, to help you improve your Python skills.</p>
+<section id="meaningful-variable-and-function-names" class="level2">
+<h2 class="anchored" data-anchor-id="meaningful-variable-and-function-names">1. Meaningful Variable and Function Names</h2>
+<p>Choosing descriptive names improves code readability. Avoid abbreviations or single-letter variables unless their meaning is utterly obvious within a very small scope.</p>
 <p><strong>Bad:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">5</span></span>
@@ -228,7 +228,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="use-docstrings-for-clear-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="use-docstrings-for-clear-documentation">2. use Docstrings for Clear Documentation</h2>
-<p>Docstrings (triple-quoted strings within functions and classes) are crucial for explaining what your code does. They’re automatically accessible through tools like <code>help()</code> and IDEs.</p>
+<p>Docstrings (triple-quoted strings within functions and classes) explain what your code does. They’re automatically accessible through tools like <code>help()</code> and IDEs.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_average(numbers):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Calculates the average of a list of numbers.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -258,8 +258,8 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <p><strong>List Comprehension:</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> [i<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="embrace-the-power-of-functions" class="level2">
-<h2 class="anchored" data-anchor-id="embrace-the-power-of-functions">5. Embrace the Power of Functions</h2>
+<section id="the-power-of-functions" class="level2">
+<h2 class="anchored" data-anchor-id="the-power-of-functions">5. The Power of Functions</h2>
 <p>Break down complex tasks into smaller, reusable functions. This improves modularity, readability, and testability.</p>
 </section>
 <section id="error-handling-with-try...except-blocks" class="level2">
@@ -292,6 +292,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

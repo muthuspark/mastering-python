@@ -4,7 +4,7 @@ date: "06/02/2024"
 categories: [ problem-solving ]
 ---
 
-String manipulation is a common task in programming, and sometimes you need to determine if one string is a rotation of another.  This means checking if you can obtain one string by rotating the characters of another string. For example, "waterbottle" is a rotation of "erbottlewat"—we've simply moved the "wat" from the beginning to the end.  This blog post will explore efficient ways to solve this problem in Python.
+String manipulation is a common task in programming, and sometimes you need to determine if one string is a rotation of another.  This means checking if you can obtain one string by rotating the characters of another string. For example, "waterbottle" is a rotation of "erbottlewat"—we've simply moved the "wat" from the beginning to the end.  This blog post will look at efficient ways to solve this problem in Python.
 
 
 ## The Naive Approach: Brute Force
@@ -49,7 +49,7 @@ print(f"'{string6}' is a rotation of '{string5}': {is_rotation_naive(string5, st
 
 ## A More Efficient Approach: Concatenation
 
-A significantly more efficient method leverages string concatenation and the `in` operator.  If string `str2` is a rotation of `str1`, then `str2` will be a substring of `str1` concatenated with itself. This approach boasts a time complexity of O(n), a considerable improvement.
+A more efficient method uses string concatenation and the `in` operator. If string `str2` is a rotation of `str1`, then `str2` will be a substring of `str1` concatenated with itself. This approach boasts a time complexity of O(n), a considerable improvement.
 
 ```python
 def is_rotation_efficient(str1, str2):

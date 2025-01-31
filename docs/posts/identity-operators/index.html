@@ -204,7 +204,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python offers a unique set of operators called identity operators, which are used to compare the memory locations of objects, rather than their values. Unlike equality operators (<code>==</code> and <code>!=</code>), which check for value equality, identity operators (<code>is</code> and <code>is not</code>) check if two variables point to the same object in memory. Understanding this distinction is crucial for writing efficient and error-free Python code.</p>
+<p>Python offers a unique set of operators called identity operators, which are used to compare the memory locations of objects, rather than their values. Unlike equality operators (<code>==</code> and <code>!=</code>), which check for value equality, identity operators (<code>is</code> and <code>is not</code>) check if two variables point to the same object in memory. Understanding this distinction is important for writing efficient and error-free Python code.</p>
 <p>This post will look into the functionality of Python’s identity operators, <code>is</code> and <code>is not</code>, with clear examples to illustrate their usage and potential pitfalls.</p>
 <section id="the-is-operator" class="level2">
 <h2 class="anchored" data-anchor-id="the-is-operator">The <code>is</code> Operator</h2>
@@ -260,12 +260,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> cls._instance <span class="kw">is</span> <span class="va">None</span>:</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            cls._instance <span class="op">=</span> <span class="bu">super</span>(Singleton, cls).<span class="fu">__new__</span>(cls)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cls._instance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Understanding identity operators enhances your ability to write more precise and robust Python code, particularly when dealing with mutable objects and memory management. They are a powerful tool for managing object references and identity checks within your applications.</p>
+<p>Understanding identity operators enhances your ability to write more precise Python code, particularly when dealing with mutable objects and memory management. They are a powerful tool for managing object references and identity checks within your applications.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

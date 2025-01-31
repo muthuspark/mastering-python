@@ -77,6 +77,6 @@ The list is now sorted: `[11, 12, 22, 25, 64]`
 
 ## Time and Space Complexity
 
-Selection sort has a time complexity of O(n²) and a space complexity of O(1).  This means its runtime increases quadratically with the size of the input, making it inefficient for large datasets.  However, its simplicity and constant space usage make it valuable for educational purposes and smaller datasets.
+Selection sort has a time complexity of O(n²) and a space complexity of O(1). This means its runtime increases quadratically with the size of the input, making it inefficient for large datasets. However, its simplicity and constant space usage make it  suitable for educational purposes and smaller datasets.
 
 

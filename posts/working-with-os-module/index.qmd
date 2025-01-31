@@ -69,7 +69,7 @@ os.rename("old_file.txt", "new_file.txt") #Replace with valid file names
 
 ## File and Directory Management
 
-Beyond navigation, the `os` module offers robust file and directory management capabilities.
+Beyond navigation, the `os` module offers file and directory management capabilities.
 
 * **`os.remove(path)`:** Deletes a file.
 
@@ -125,5 +125,5 @@ print(f"Home directory: {home_directory}")
 ```
 
 
-This exploration of the `os` module provides a strong foundation for interacting with your operating system within Python programs. Remember to handle potential errors (like `FileNotFoundError`) using `try...except` blocks for robust code.  Further exploration into the `os.path` and `shutil` modules will expand your capabilities even further.
+This exploration of the `os` module provides a strong foundation for interacting with your operating system within Python programs. Remember to handle potential errors (like `FileNotFoundError`) using `try...except` blocks for code. Further exploration into the `os.path` and `shutil` modules will expand your capabilities even further.
 

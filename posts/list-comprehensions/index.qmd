@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-List comprehensions are one of Python's most elegant and efficient features. They provide a concise way to create lists based on existing iterables (like lists, tuples, or ranges).  This makes your code more readable and often faster than traditional loops.  This post will explore list comprehensions with various examples, helping you master this powerful tool.
+List comprehensions are one of Python's most elegant and efficient features. They provide a concise way to create lists based on existing iterables (like lists, tuples, or ranges).  This makes your code more readable and often faster than traditional loops.  This post will look at list comprehensions with various examples, helping you master this powerful tool.
 
 
 ## The Basics of List Comprehensions

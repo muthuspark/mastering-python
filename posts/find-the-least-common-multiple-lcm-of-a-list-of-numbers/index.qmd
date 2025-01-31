@@ -14,7 +14,7 @@ The LCM of two or more integers is the smallest positive integer that is divisib
 
 ## Method 1: Using the `math.gcd()` function (For efficiency)
 
-Python's `math` module provides a highly efficient `gcd()` function (Greatest Common Divisor). We can leverage this to calculate the LCM using the formula:
+Python's `math` module provides a highly efficient `gcd()` function (Greatest Common Divisor). We can use this to calculate the LCM using the formula:
 
 `LCM(a, b) = (a * b) / GCD(a, b)`
 

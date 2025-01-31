@@ -4,7 +4,7 @@ date: "12/26/2024"
 categories: [ problem-solving ]
 ---
 
-Efficiently finding the longest common prefix (LCP) among a set of strings is a common task in various applications, from autocomplete suggestions to data compression.  While there are several approaches, using a Trie data structure offers an elegant and efficient solution. This post explores how to implement this efficiently in Python.
+Efficiently finding the longest common prefix (LCP) among a set of strings is a common task in various applications, from autocomplete suggestions to data compression.  While there are many approaches, using a Trie data structure offers an elegant and efficient solution. This post explores how to implement this efficiently in Python.
 
 ## Understanding Tries
 

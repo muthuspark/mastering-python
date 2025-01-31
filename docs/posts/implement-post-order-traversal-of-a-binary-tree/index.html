@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Post-order traversal is one of the three fundamental ways to traverse a binary tree (the others being pre-order and in-order). Understanding tree traversal is crucial for various algorithms and data structure manipulations. This post focuses on efficiently implementing post-order traversal in Python, providing clear explanations and code examples.</p>
+<p>Post-order traversal is one of the three fundamental ways to traverse a binary tree (the others being pre-order and in-order). Understanding tree traversal is important for various algorithms and data structure manipulations. This post focuses on efficiently implementing post-order traversal in Python, providing clear explanations and code examples.</p>
 <section id="understanding-post-order-traversal" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-post-order-traversal">Understanding Post-order Traversal</h2>
 <p>Post-order traversal visits the nodes of a binary tree in a specific order: <strong>left subtree</strong>, <strong>right subtree</strong>, <strong>root</strong>. This means that the root node is always processed <em>after</em> its children.</p>
@@ -237,7 +237,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="iterative-approach-using-a-stack" class="level2">
 <h2 class="anchored" data-anchor-id="iterative-approach-using-a-stack">Iterative Approach using a Stack</h2>
-<p>While recursion is elegant, it can be less efficient for very deep trees due to stack overflow issues. An iterative approach using a stack provides a more robust solution.</p>
+<p>While recursion is elegant, it can be less efficient for very deep trees due to stack overflow issues. An iterative approach using a stack provides a more efficient solution.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> postorder_iterative(node):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> node <span class="kw">is</span> <span class="va">None</span>:</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
@@ -266,12 +266,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="choosing-the-right-approach" class="level2">
 <h2 class="anchored" data-anchor-id="choosing-the-right-approach">Choosing the Right Approach</h2>
-<p>The recursive approach is often preferred for its simplicity and readability. However, for large trees or situations where stack overflow is a concern, the iterative approach using a stack is a more robust and efficient alternative. The choice depends on the specific application and constraints.</p>
+<p>The recursive approach is often preferred for its simplicity and readability. However, for large trees or situations where stack overflow is a concern, the iterative approach using a stack is a more efficient alternative. The choice depends on the specific application and constraints.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

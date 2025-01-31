@@ -21,7 +21,7 @@ The optimal solution would be to not cut the rod at all (selling it as a length 
 
 ## Dynamic Programming Approach
 
-Dynamic programming solves this problem by breaking it down into smaller overlapping subproblems. Instead of repeatedly calculating the revenue for the same subproblems, it stores the results in a table (often an array) and reuses them as needed.  This significantly reduces computation time.
+Dynamic programming solves this problem by breaking it down into smaller overlapping subproblems. Instead of repeatedly calculating the revenue for the same subproblems, it stores the results in a table (often an array) and reuses them as needed. This reduces computation time.
 
 Here's a Python implementation using a bottom-up dynamic programming approach:
 

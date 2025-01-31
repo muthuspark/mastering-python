@@ -4,7 +4,7 @@ date: "09/28/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the diameter of a binary tree is a classic tree traversal problem.  The diameter is defined as the *maximum* number of nodes between any two leaf nodes in the tree. This isn't simply the longest path from root to leaf; it could be a path that passes *through* the root, or completely bypasses it.  This post will explore efficient Python solutions to tackle this problem.
+Finding the diameter of a binary tree is a classic tree traversal problem.  The diameter is defined as the *maximum* number of nodes between any two leaf nodes in the tree. This isn't simply the longest path from root to leaf; it could be a path that passes *through* the root, or completely bypasses it.  This post will look at efficient Python solutions to tackle this problem.
 
 ## Understanding the Problem
 

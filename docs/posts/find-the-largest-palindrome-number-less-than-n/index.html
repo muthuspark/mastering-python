@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding the largest palindrome number less than a given number <code>N</code> is a fascinating algorithmic problem with applications in number theory and cryptography. A palindromic number reads the same forwards and backward (e.g., 121, 9009). This post will explore efficient Python solutions to tackle this challenge.</p>
+<p>Finding the largest palindrome number less than a given number <code>N</code> is a fascinating algorithmic problem with applications in number theory and cryptography. A palindromic number reads the same forwards and backward (e.g., 121, 9009). This post will look at efficient Python solutions to tackle this challenge.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>The core challenge lies in efficiently searching for palindromes within a decreasing sequence of numbers, starting from <code>N-1</code>. Brute-force approaches, while conceptually simple, become computationally expensive for large values of <code>N</code>. We need an optimized strategy.</p>
@@ -241,16 +241,19 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="optimizations-for-larger-numbers" class="level2">
 <h2 class="anchored" data-anchor-id="optimizations-for-larger-numbers">Optimizations for Larger Numbers</h2>
-<p>For significantly larger values of <code>N</code>, this approach might still be slow. More sophisticated algorithms could leverage number theory properties to speed up the search. These advanced techniques are beyond the scope of this introductory post but could involve generating palindromes directly instead of checking each number. Consider exploring techniques like generating palindromes by manipulating digits if you require handling extremely large numbers.</p>
+<p>For larger values of <code>N</code>, this approach might still be slow. More complex algorithms could use number theory properties to speed up the search. These advanced techniques are beyond the scope of this introductory post but could involve generating palindromes directly instead of checking each number. Consider exploring techniques like generating palindromes by manipulating digits if you require handling extremely large numbers.</p>
 </section>
 <section id="handling-edge-cases" class="level2">
 <h2 class="anchored" data-anchor-id="handling-edge-cases">Handling Edge Cases</h2>
-<p>The code includes a check for <code>n &lt;= 1</code> to handle edge cases where no palindrome exists (or 0 is considered the largest palindrome less than 1). Proper handling of such cases is crucial for robust code.</p>
+<p>The code includes a check for <code>n &lt;= 1</code> to handle edge cases where no palindrome exists (or 0 is considered the largest palindrome less than 1).</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

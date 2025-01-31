@@ -204,7 +204,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding the sum of prime numbers up to a given limit (N) is a classic programming problem that tests your understanding of prime number identification and efficient algorithm design. This post explores several Python methods to tackle this challenge, from a straightforward (but less efficient) approach to optimized solutions.</p>
+<p>Finding the sum of prime numbers up to a given limit (N) is a classic programming problem that tests your understanding of prime number identification and efficient algorithm design. This post explores many Python methods to tackle this challenge, from a straightforward (but less efficient) approach to optimized solutions.</p>
 <section id="the-naive-approach" class="level2">
 <h2 class="anchored" data-anchor-id="the-naive-approach">The Naive Approach</h2>
 <p>The most intuitive way involves iterating through numbers up to N, checking for primality, and summing the primes. We can check for primality by testing divisibility from 2 up to the square root of the number.</p>
@@ -232,7 +232,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="sieve-of-eratosthenes-a-more-efficient-solution" class="level2">
 <h2 class="anchored" data-anchor-id="sieve-of-eratosthenes-a-more-efficient-solution">Sieve of Eratosthenes: A More Efficient Solution</h2>
-<p>The Sieve of Eratosthenes is a significantly faster algorithm for finding all prime numbers up to a specified integer. It leverages a boolean array to mark non-prime numbers, eliminating redundant checks.</p>
+<p>The Sieve of Eratosthenes is a faster algorithm for finding all prime numbers up to a specified integer. It uses a boolean array to mark non-prime numbers, eliminating redundant checks.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sum_primes_sieve(n):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculates the sum of prime numbers up to n using the Sieve of Eratosthenes.</span></span>
@@ -259,6 +259,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

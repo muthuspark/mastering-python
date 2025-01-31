@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>The knapsack problem is a classic optimization problem in computer science. Imagine you’re a thief with a knapsack of limited weight capacity. You’re presented with a collection of items, each with a weight and a value. Your goal is to fill your knapsack with the most valuable combination of items without exceeding the weight limit. This seemingly simple problem has significant applications in various fields, from resource allocation to investment portfolio optimization.</p>
+<p>The knapsack problem is a classic optimization problem in computer science. Imagine you’re a thief with a knapsack of limited weight capacity. You’re presented with a collection of items, each with a weight and a value. Your goal is to fill your knapsack with the most combination of items without exceeding the weight limit. This seemingly simple problem has significant applications in various fields, from resource allocation to investment portfolio optimization.</p>
 <p>While brute-force approaches exist, they quickly become computationally infeasible for larger datasets. This is where dynamic programming shines. Dynamic programming allows us to break down the problem into smaller overlapping subproblems, solve them efficiently, and store the results to avoid redundant computations. This drastically improves performance.</p>
 <section id="understanding-the-01-knapsack-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-01-knapsack-problem">Understanding the 0/1 Knapsack Problem</h2>
@@ -263,16 +263,19 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="analyzing-the-time-and-space-complexity" class="level2">
 <h2 class="anchored" data-anchor-id="analyzing-the-time-and-space-complexity">Analyzing the Time and Space Complexity</h2>
-<p>The dynamic programming approach offers a significant advantage in terms of efficiency. The time complexity is O(nW), where ‘n’ is the number of items and ‘W’ is the maximum weight. The space complexity is also O(nW) due to the table used for storing intermediate results. While this space complexity might seem high, it’s significantly better than the exponential time complexity of brute-force methods for larger problem instances. Optimizations exist to reduce space complexity, but we’ll leave those for a future discussion.</p>
+<p>The dynamic programming approach offers an advantage in terms of efficiency. The time complexity is O(nW), where ‘n’ is the number of items and ‘W’ is the maximum weight. The space complexity is also O(nW) due to the table used for storing intermediate results. While this space complexity might seem high, it’s better than the exponential time complexity of brute-force methods for larger problem instances. Optimizations exist to reduce space complexity, but we’ll leave those for a future discussion.</p>
 </section>
 <section id="extending-the-solution" class="level2">
 <h2 class="anchored" data-anchor-id="extending-the-solution">Extending the Solution</h2>
-<p>This fundamental implementation can be further enhanced. We can modify it to not only return the maximum value but also identify <em>which</em> items were selected to achieve that maximum value. This requires tracking the decisions made during the dynamic programming process. This is a valuable extension that adds practical utility to the solution.</p>
+<p>This fundamental implementation can be further enhanced. We can modify it to not only return the maximum value but also identify <em>which</em> items were selected to achieve that maximum value. This requires tracking the decisions made during the dynamic programming process. This extension adds practical utility to the solution.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

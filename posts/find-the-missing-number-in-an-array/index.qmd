@@ -4,7 +4,7 @@ date: "10/20/2024"
 categories: [ problem-solving ]
 ---
 
-Finding a missing number within a sequence of numbers is a common programming challenge.  This post explores several efficient Python methods to solve this problem, catering to different scenarios and array properties. We'll cover approaches suitable for both sorted and unsorted arrays.
+Finding a missing number within a sequence of numbers is a common programming challenge.  This post explores many efficient Python methods to solve this problem, catering to different scenarios and array properties. We'll cover approaches suitable for both sorted and unsorted arrays.
 
 
 ## Understanding the Problem
@@ -13,7 +13,7 @@ The core problem involves an array of integers containing numbers from 1 to *n*,
 
 ## Method 1: Using the Summation Formula (For Sorted Arrays)
 
-This method leverages the mathematical formula for the sum of an arithmetic series.  If the array were complete, the sum would be  `n * (n + 1) / 2`. By subtracting the sum of the given array from this expected sum, we find the missing number.  This approach is efficient for sorted arrays because it has a time complexity of O(n).
+This method uses the mathematical formula for the sum of an arithmetic series.  If the array were complete, the sum would be  `n * (n + 1) / 2`. By subtracting the sum of the given array from this expected sum, we find the missing number.  This approach is efficient for sorted arrays because it has a time complexity of O(n).
 
 
 ```python
@@ -71,12 +71,12 @@ print(f"The missing number in the unsorted array is: {missing_number}") #Output:
 
 ```
 
-This method efficiently handles unsorted arrays, but again, it's crucial that the input adheres to the condition of numbers from 1 to *n* with only one missing number.
+This method efficiently handles unsorted arrays, but the input must contain numbers from 1 to *n* with only one missing number.
 
 
 ## Method 3: Using a Set (For Unsorted Arrays with Potential Duplicates)
 
-If the input array might contain duplicate numbers,  using a set offers a robust solution.  We create a set from the array and then iterate through the numbers from 1 to *n*, checking for their presence in the set. The missing number is the one not found in the set.  While more memory-intensive, this approach handles duplicates effectively and has a time complexity of O(n).
+If the input array might contain duplicate numbers, using a set offers a solution. We create a set from the array and then iterate through the numbers from 1 to *n*, checking for their presence in the set. The missing number is the one not found in the set. While more memory-intensive, this approach handles duplicates effectively and has a time complexity of O(n).
 
 ```python
 def find_missing_with_duplicates(arr):

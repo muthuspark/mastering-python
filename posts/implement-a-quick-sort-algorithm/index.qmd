@@ -4,7 +4,7 @@ date: "02/17/2024"
 categories: [ problem-solving ]
 ---
 
-QuickSort is a highly efficient sorting algorithm known for its speed in many practical scenarios.  This post dives deep into its implementation in Python, explaining the core concepts and providing clear code examples to help you master this fundamental algorithm.
+QuickSort is a highly efficient sorting algorithm known for its speed in many practical scenarios.  This post explores its implementation in Python, explaining the core concepts and providing clear code examples to help you master this fundamental algorithm.
 
 
 ## Understanding the QuickSort Algorithm
@@ -14,7 +14,7 @@ QuickSort employs a divide-and-conquer strategy.  The algorithm works by selecti
 
 ## Choosing a Pivot: Strategies and Impact
 
-The choice of pivot significantly influences QuickSort's performance.  Poor pivot selection can lead to worst-case O(n²) time complexity.  Common pivot selection strategies include:
+The choice of pivot influences QuickSort's performance. Poor pivot selection can lead to worst-case O(n²) time complexity. Common pivot selection strategies include:
 
 * **First element:**  Simple but susceptible to already-sorted or nearly-sorted input.
 * **Last element:** Similar to the first element strategy.
@@ -85,4 +85,4 @@ Further optimizations can be implemented, such as:
 * **Three-way partitioning:** Handles duplicate elements more efficiently.
 
 
-These improvements enhance QuickSort's efficiency, making it a powerful sorting algorithm for various applications.  Understanding these implementations provides a solid foundation for tackling more complex sorting challenges.
+These improvements make QuickSort a powerful sorting algorithm for various applications. Understanding these implementations provides a solid foundation for tackling more complex sorting challenges.

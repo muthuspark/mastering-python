@@ -207,7 +207,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Tries (pronounced “try”) are fascinating tree-like data structures renowned for their efficiency in searching and storing strings. Unlike hash tables, tries excel when dealing with a large number of strings that share common prefixes. This makes them particularly well-suited for applications like autocomplete, spell checkers, and IP routing. This post will explore how to efficiently search for a word within a Trie implemented in Python.</p>
+<p>Tries (pronounced “try”) are fascinating tree-like data structures renowned for their efficiency in searching and storing strings. Unlike hash tables, tries excel when dealing with a large number of strings that share common prefixes. This makes them particularly well-suited for applications like autocomplete, spell checkers, and IP routing. This post will look at how to efficiently search for a word within a Trie implemented in Python.</p>
 <section id="understanding-the-trie-structure" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-trie-structure">Understanding the Trie Structure</h2>
 <p>A Trie is a rooted tree where each node represents a character in a string. Each path from the root to a leaf node represents a complete word in the Trie’s vocabulary. Nodes typically store a boolean value indicating whether that node represents the end of a valid word.</p>
@@ -269,7 +269,7 @@ t  t g g
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trie.search(<span class="st">"ca"</span>))   <span class="co"># Output: False</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trie.search(<span class="st">"dog"</span>))  <span class="co"># Output: True</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trie.search(<span class="st">"bird"</span>)) <span class="co"># Output: False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This demonstrates how efficiently the <code>search</code> method locates words within the Trie. The time complexity of searching is proportional to the length of the word, making it significantly faster than linear searches for large datasets.</p>
+<p>This demonstrates how efficiently the <code>search</code> method locates words within the Trie. The time complexity of searching is proportional to the length of the word, making it faster than linear searches for large datasets.</p>
 </section>
 <section id="handling-prefixes" class="level2">
 <h2 class="anchored" data-anchor-id="handling-prefixes">Handling Prefixes</h2>
@@ -285,12 +285,15 @@ t  t g g
 </section>
 <section id="optimizations-and-extensions" class="level2">
 <h2 class="anchored" data-anchor-id="optimizations-and-extensions">Optimizations and Extensions</h2>
-<p>Further optimizations could involve using more compact data structures for child nodes, especially when dealing with a large alphabet or character set. You could also extend the Trie to support operations like deleting words or listing all words starting with a particular prefix. These extensions would build upon the core concepts presented here, providing a robust and powerful string-handling tool.</p>
+<p>Further optimizations could involve using more compact data structures for child nodes, especially when dealing with a large alphabet or character set. You could also extend the Trie to support operations like deleting words or listing all words starting with a particular prefix. These extensions would build upon the core concepts presented here, providing a powerful string-handling tool.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

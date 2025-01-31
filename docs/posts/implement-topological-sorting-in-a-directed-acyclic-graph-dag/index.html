@@ -204,10 +204,10 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Topological sorting is a linear ordering of nodes in a Directed Acyclic Graph (DAG) such that for every directed edge from node A to node B, node A appears before node B in the ordering. This is a fundamental algorithm with applications in various fields, including scheduling tasks, resolving dependencies, and course scheduling. This post will explore how to implement topological sorting in Python using two common approaches: Kahn’s algorithm and Depth-First Search (DFS).</p>
+<p>Topological sorting is a linear ordering of nodes in a Directed Acyclic Graph (DAG) such that for every directed edge from node A to node B, node A appears before node B in the ordering. This is a fundamental algorithm with applications in various fields, including scheduling tasks, resolving dependencies, and course scheduling. This post will look at how to implement topological sorting in Python using two common approaches: Kahn’s algorithm and Depth-First Search (DFS).</p>
 <section id="understanding-directed-acyclic-graphs" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-directed-acyclic-graphs">Understanding Directed Acyclic Graphs</h2>
-<p>Before diving into the algorithms, let’s clarify what a DAG is. A DAG is a directed graph with no directed cycles. This means you can’t follow a sequence of edges and end up back where you started. This acyclicity is crucial for topological sorting; it guarantees that a topological ordering exists.</p>
+<p>Before diving into the algorithms, let’s clarify what a DAG is. A DAG is a directed graph with no directed cycles. This means you can’t follow a sequence of edges and end up back where you started. This acyclicity guarantees that a topological ordering exists.</p>
 </section>
 <section id="kahns-algorithm" class="level2">
 <h2 class="anchored" data-anchor-id="kahns-algorithm">Kahn’s Algorithm</h2>
@@ -301,6 +301,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

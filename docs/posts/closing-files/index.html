@@ -209,10 +209,10 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Properly closing files in Python is crucial for several reasons: it prevents data loss, frees up system resources, and avoids potential errors. This post will explore different methods for closing files and highlight why it’s a habit you should cultivate.</p>
+<p>Properly closing files in Python for many reasons: it prevents data loss, frees up system resources, and avoids potential errors. This post will look at different methods for closing files and highlight why it’s a habit you should cultivate.</p>
 <section id="why-close-files" class="level2">
 <h2 class="anchored" data-anchor-id="why-close-files">Why Close Files?</h2>
-<p>Leaving files open unnecessarily can lead to several problems:</p>
+<p>Leaving files open unnecessarily can lead to many problems:</p>
 <ul>
 <li><strong>Data Loss:</strong> If your program crashes while a file is open for writing, unsaved changes might be lost.</li>
 <li><strong>Resource Leaks:</strong> Open files consume system resources. Keeping many files open can eventually lead to performance degradation or even system instability.</li>
@@ -222,10 +222,10 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="methods-for-closing-files" class="level2">
 <h2 class="anchored" data-anchor-id="methods-for-closing-files">Methods for Closing Files</h2>
-<p>Python offers several ways to ensure files are closed reliably. The most common and recommended approach is using the <code>with</code> statement.</p>
+<p>Python offers many ways to ensure files are closed reliably. The most common and recommended approach is using the <code>with</code> statement.</p>
 <section id="using-the-with-statement-recommended" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-with-statement-recommended">Using the <code>with</code> statement (Recommended)</h3>
-<p>The <code>with</code> statement is the most elegant and robust way to handle file I/O. It automatically closes the file, even if exceptions occur.</p>
+<p>The <code>with</code> statement is the most elegant way to handle file I/O. It automatically closes the file, even if exceptions occur.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">"my_file.txt"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"This is some text."</span>)</span>
@@ -281,6 +281,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

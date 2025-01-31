@@ -249,7 +249,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="file-and-directory-management" class="level2">
 <h2 class="anchored" data-anchor-id="file-and-directory-management">File and Directory Management</h2>
-<p>Beyond navigation, the <code>os</code> module offers robust file and directory management capabilities.</p>
+<p>Beyond navigation, the <code>os</code> module offers file and directory management capabilities.</p>
 <ul>
 <li><strong><code>os.remove(path)</code>:</strong> Deletes a file.</li>
 </ul>
@@ -287,12 +287,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </ul>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>home_directory <span class="op">=</span> os.getenv(<span class="st">"HOME"</span>, <span class="st">"/tmp"</span>) <span class="co">#If HOME is not set, use /tmp</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Home directory: </span><span class="sc">{</span>home_directory<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This exploration of the <code>os</code> module provides a strong foundation for interacting with your operating system within Python programs. Remember to handle potential errors (like <code>FileNotFoundError</code>) using <code>try...except</code> blocks for robust code. Further exploration into the <code>os.path</code> and <code>shutil</code> modules will expand your capabilities even further.</p>
+<p>This exploration of the <code>os</code> module provides a strong foundation for interacting with your operating system within Python programs. Remember to handle potential errors (like <code>FileNotFoundError</code>) using <code>try...except</code> blocks for code. Further exploration into the <code>os.path</code> and <code>shutil</code> modules will expand your capabilities even further.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

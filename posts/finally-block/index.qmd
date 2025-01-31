@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-The Python `finally` block is a powerful tool often overlooked, yet crucial for ensuring clean code and preventing resource leaks.  Unlike `try` and `except` which handle exceptions, `finally` guarantees the execution of a specific block of code regardless of whether an exception occurred or not. This makes it invaluable for tasks like closing files, releasing network connections, or cleaning up temporary resources.
+The Python `finally` block is a powerful tool often overlooked, yet it ensures clean code and prevents resource leaks. Unlike `try` and `except` which handle exceptions, `finally` guarantees the execution of a specific block of code regardless of whether an exception occurred or not. This makes it useful for tasks like closing files, releasing network connections, or cleaning up temporary resources.
 
 ## Understanding the `try...except...finally` Structure
 
@@ -78,5 +78,5 @@ The `finally` block is not limited to file operations.  Any cleanup action requi
 * **Cleaning up temporary files or directories:** Delete temporary files created during processing.
 * **Restoring system state:** Roll back changes if an error occurs.
 
-By strategically using the `finally` block, you can write robust and reliable Python code, minimizing potential errors and resource leaks.
+By strategically using the `finally` block, you can write reliable Python code, minimizing potential errors and resource leaks.
 

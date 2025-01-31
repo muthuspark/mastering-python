@@ -271,27 +271,30 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trie.starts_with(<span class="st">"app"</span>))  <span class="co"># Output: True</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trie.starts_with(<span class="st">"ba"</span>))  <span class="co"># Output: True</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(trie.starts_with(<span class="st">"ca"</span>)) <span class="co"># Output: False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This code demonstrates the basic functionalities of insertion, searching for a complete word, and checking for prefixes. You can expand upon this foundation to implement more sophisticated Trie operations, such as deleting words or finding all words starting with a given prefix. Remember to handle edge cases such as empty strings appropriately in a production environment.</p>
+<p>This code demonstrates the basic functionalities of insertion, searching for a complete word, and checking for prefixes. You can expand upon this foundation to implement more complex Trie operations, such as deleting words or finding all words starting with a given prefix. Remember to handle edge cases such as empty strings appropriately in a production environment.</p>
 </section>
 <section id="optimizations-and-enhancements" class="level2">
 <h2 class="anchored" data-anchor-id="optimizations-and-enhancements">Optimizations and Enhancements</h2>
-<p>For larger datasets, consider optimizing your Trie implementation. Techniques like using more efficient data structures for the <code>children</code> dictionary (e.g., a custom array-based implementation for known character sets) can significantly improve performance. You could also explore using more compact node representations to minimize memory usage.</p>
+<p>For larger datasets, consider optimizing your Trie implementation. Techniques like using more efficient data structures for the <code>children</code> dictionary (e.g., a custom array-based implementation for known character sets) can improve performance. You could also look at using more compact node representations to minimize memory usage.</p>
 </section>
 <section id="applications-of-tries" class="level2">
 <h2 class="anchored" data-anchor-id="applications-of-tries">Applications of Tries</h2>
-<p>The versatility of Tries makes them valuable across various domains. Consider these applications:</p>
+<p>The versatility of Tries makes them useful across various domains. Consider these applications:</p>
 <ul>
 <li><strong>Autocomplete:</strong> Suggesting words as a user types.</li>
 <li><strong>Spell Checking:</strong> Identifying misspelled words.</li>
 <li><strong>IP Routing:</strong> Efficiently routing network packets.</li>
 <li><strong>T9 predictive text:</strong> Predicting words based on keypad presses.</li>
 </ul>
-<p>This comprehensive guide provides a solid foundation for understanding and implementing Tries in Python. Experiment with different applications and optimizations to further enhance your understanding.</p>
+<p>This guide provides a solid foundation for understanding and implementing Tries in Python. Experiment with different applications and optimizations to further your understanding.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

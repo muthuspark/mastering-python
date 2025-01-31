@@ -4,7 +4,7 @@ date: "06/19/2024"
 categories: [ problem-solving ]
 ---
 
-The knapsack problem is a classic optimization problem in computer science.  Imagine you're a thief with a knapsack of limited weight capacity. You're presented with a collection of items, each with a weight and a value. Your goal is to fill your knapsack with the most valuable combination of items without exceeding the weight limit. This seemingly simple problem has significant applications in various fields, from resource allocation to investment portfolio optimization.
+The knapsack problem is a classic optimization problem in computer science. Imagine you're a thief with a knapsack of limited weight capacity. You're presented with a collection of items, each with a weight and a value. Your goal is to fill your knapsack with the most combination of items without exceeding the weight limit. This seemingly simple problem has significant applications in various fields, from resource allocation to investment portfolio optimization.
 
 While brute-force approaches exist, they quickly become computationally infeasible for larger datasets.  This is where dynamic programming shines.  Dynamic programming allows us to break down the problem into smaller overlapping subproblems, solve them efficiently, and store the results to avoid redundant computations. This drastically improves performance.
 
@@ -72,10 +72,10 @@ This code efficiently builds the `dp` table, iteratively calculating the maximum
 
 ##  Analyzing the Time and Space Complexity
 
-The dynamic programming approach offers a significant advantage in terms of efficiency.  The time complexity is O(nW), where 'n' is the number of items and 'W' is the maximum weight. The space complexity is also O(nW) due to the table used for storing intermediate results.  While this space complexity might seem high, it's significantly better than the exponential time complexity of brute-force methods for larger problem instances.  Optimizations exist to reduce space complexity, but we'll leave those for a future discussion.
+The dynamic programming approach offers an advantage in terms of efficiency. The time complexity is O(nW), where 'n' is the number of items and 'W' is the maximum weight. The space complexity is also O(nW) due to the table used for storing intermediate results. While this space complexity might seem high, it's better than the exponential time complexity of brute-force methods for larger problem instances. Optimizations exist to reduce space complexity, but we'll leave those for a future discussion.
 
 
 ## Extending the Solution
 
-This fundamental implementation can be further enhanced. We can modify it to not only return the maximum value but also identify *which* items were selected to achieve that maximum value.  This requires tracking the decisions made during the dynamic programming process.  This is a valuable extension that adds practical utility to the solution.
+This fundamental implementation can be further enhanced. We can modify it to not only return the maximum value but also identify *which* items were selected to achieve that maximum value.  This requires tracking the decisions made during the dynamic programming process. This extension adds practical utility to the solution.
 

@@ -3,7 +3,7 @@ title: "Find the Longest Common Substring Between Two Strings"
 date: "01/26/2024"
 categories: [ problem-solving ]
 ---
-Finding the longest common substring between two strings is a classic computer science problem with applications in various fields, from bioinformatics (comparing DNA sequences) to plagiarism detection.  This blog post will explore efficient ways to solve this problem in Python, providing clear explanations and code examples.
+Finding the longest common substring between two strings is a classic computer science problem with applications in various fields, from bioinformatics (comparing DNA sequences) to plagiarism detection.  This blog post will look at efficient ways to solve this problem in Python, providing clear explanations and code examples.
 
 
 ## Understanding the Problem
@@ -108,4 +108,4 @@ Dynamic programming offers a significant performance improvement with a time com
 
 ## Choosing the Right Approach
 
-For short strings, the brute-force approach might suffice. However, for longer strings, the dynamic programming approach is strongly recommended due to its significantly better time complexity.  The dynamic programming solution provides a more scalable and efficient way to solve the longest common substring problem.
+For short strings, the brute-force approach might suffice. However, for longer strings, the dynamic programming approach is strongly recommended due to its better time complexity. The dynamic programming solution provides a more scalable and efficient way to solve the longest common substring problem.

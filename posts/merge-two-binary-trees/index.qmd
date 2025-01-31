@@ -4,7 +4,7 @@ date: "08/06/2024"
 categories: [ problem-solving ]
 ---
 
-Merging two binary trees is a classic problem in computer science, often encountered in data structure and algorithm courses and real-world applications involving hierarchical data.  This post delves into the efficient and elegant ways to solve this problem in Python. We'll explore the problem statement, different approaches, and provide detailed code examples.
+Merging two binary trees is a classic problem in computer science, often encountered in data structure and algorithm courses and real-world applications involving hierarchical data.  This post delves into the efficient and elegant ways to solve this problem in Python. We'll look at the problem statement, different approaches, and provide detailed code examples.
 
 ## Understanding the Problem
 
@@ -64,7 +64,7 @@ print("Merged Tree (inorder traversal): ")
 print_tree(merged_tree) #Output: 5 7 4 8 6 5 9 
 ```
 
-This code defines a `TreeNode` class to represent nodes in the binary tree. The `mergeTrees` function implements the recursive merging algorithm. The example shows how to create sample trees and merge them.  The `print_tree` function (using inorder traversal) helps visualize the resulting merged tree. You can adapt this printing method to use other tree traversals (preorder, postorder) if needed.
+This code defines a `TreeNode` class to represent nodes in the binary tree. The `mergeTrees` function implements the recursive merging algorithm. The example shows how to create sample trees and merge them. The `print_tree` function (using inorder traversal) helps visualize the resulting merged tree. You can use other tree traversals (preorder, postorder) if needed.
 
 
 ## Iterative Approach (using Queue)

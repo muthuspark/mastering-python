@@ -204,7 +204,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Determining whether a given binary tree adheres to the rules of a Binary Search Tree (BST) is a common problem in computer science. A BST is a node-based binary tree data structure where each node has a value greater than all values in its left subtree and less than all values in its right subtree. This post will explore efficient Pythonic ways to solve this problem.</p>
+<p>Determining whether a given binary tree adheres to the rules of a Binary Search Tree (BST) is a common problem in computer science. A BST is a node-based binary tree data structure where each node has a value greater than all values in its left subtree and less than all values in its right subtree. This post will look at efficient Pythonic ways to solve this problem.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>Before diving into the code, let’s recap the defining characteristic of a BST:</p>
@@ -267,7 +267,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="iterative-approach-using-inorder-traversal" class="level2">
 <h2 class="anchored" data-anchor-id="iterative-approach-using-inorder-traversal">Iterative Approach (Using Inorder Traversal)</h2>
-<p>An alternative approach involves an inorder traversal of the tree. The inorder traversal of a BST will always produce a sorted sequence. We can leverage this property to check if the tree is a BST.</p>
+<p>An alternative approach involves an inorder traversal of the tree. The inorder traversal of a BST will always produce a sorted sequence. We can use this property to check if the tree is a BST.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_bst_iterative(root):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Iteratively checks if a binary tree is a BST using inorder traversal.</span></span>
@@ -304,6 +304,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

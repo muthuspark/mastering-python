@@ -204,7 +204,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python, known for its readability, benefits immensely from well-written comments. Comments are essential for explaining your code’s logic, making it easier to understand, debug, and maintain, especially as projects grow in complexity. This guide will explore the different types of comments in Python and demonstrate their effective use.</p>
+<p>Python, known for its readability, benefits immensely from well-written comments. Comments are essential for explaining your code’s logic, making it easier to understand, debug, and maintain, especially as projects grow in complexity. This guide will look at the different types of comments in Python and demonstrate their effective use.</p>
 <section id="types-of-python-comments" class="level2">
 <h2 class="anchored" data-anchor-id="types-of-python-comments">Types of Python Comments</h2>
 <p>Python primarily supports two types of comments:</p>
@@ -213,7 +213,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span>  <span class="co"># This comment explains the variable x</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x) <span class="co"># This line prints the value of x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. Multi-Line Comments (Docstrings):</strong></p>
-<p>While Python doesn’t have a dedicated multi-line comment syntax like <code>/* ... */</code> in C++, we use docstrings for this purpose. Docstrings are enclosed in triple quotes (<code>'''</code> or <code>"""</code>). They’re typically used to document functions, classes, modules, and methods. They’re also crucial for generating documentation automatically using tools like Sphinx.</p>
+<p>While Python doesn’t have a dedicated multi-line comment syntax like <code>/* ... */</code> in C++, we use docstrings for this purpose. Docstrings are enclosed in triple quotes (<code>'''</code> or <code>"""</code>). They’re typically used to document functions, classes, modules, and methods. They’re also used for generating documentation automatically using tools like Sphinx.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(a, b):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""This function adds two numbers together.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -235,7 +235,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <li><strong>Explain the “Why,” Not the “What”:</strong> The code itself should clearly show <em>what</em> it does. Comments should focus on <em>why</em> a particular approach was chosen or what a complex section of code achieves.</li>
 <li><strong>Keep Comments Updated:</strong> Outdated comments are worse than no comments. Always update comments when you modify the associated code.</li>
 <li><strong>Avoid Redundant Comments:</strong> Don’t comment on obvious code. Let the code speak for itself where possible.</li>
-<li><strong>Use Consistent Formatting:</strong> Maintain a consistent style for your comments to enhance readability.</li>
+<li><strong>Use Consistent Formatting:</strong> Maintain a consistent style for your comments to improve readability.</li>
 </ul>
 </section>
 <section id="example-illustrating-comment-usage-in-a-function" class="level2">
@@ -269,12 +269,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(factorial(<span class="op">-</span><span class="dv">1</span>)) <span class="co">#This will raise a ValueError</span></span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error:"</span>, e) <span class="co">#catching and handling the exception</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This example showcases how comments clarify the function’s purpose, arguments, return value, error handling, and the logic behind the calculation. This makes the code significantly easier to understand and maintain.</p>
+<p>This example showcases how comments clarify the function’s purpose, arguments, return value, error handling, and the logic behind the calculation. This makes the code easier to understand and maintain.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

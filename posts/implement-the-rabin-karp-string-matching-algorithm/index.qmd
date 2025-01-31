@@ -4,13 +4,13 @@ date: "06/07/2024"
 categories: [ problem-solving ]
 ---
 
-The Rabin-Karp algorithm offers a probabilistic approach to string matching, making it efficient for larger texts and patterns.  Unlike brute-force methods, it leverages hashing to quickly compare substrings, significantly reducing the number of character-by-character comparisons. This post will guide you through implementing the Rabin-Karp algorithm in Python with clear code examples.
+The Rabin-Karp algorithm offers a probabilistic approach to string matching, making it efficient for larger texts and patterns.  Unlike brute-force methods, it uses hashing to quickly compare substrings, reducing the number of character-by-character comparisons. This post will guide you through implementing the Rabin-Karp algorithm in Python with clear code examples.
 
 ## Understanding the Algorithm
 
 The core idea behind Rabin-Karp revolves around hashing.  We calculate a hash value for the pattern and then compute the hash values for all substrings of the text of the same length as the pattern. If the hash values match, we perform a character-by-character comparison to confirm a true match. This minimizes direct string comparisons, boosting efficiency.
 
-A crucial aspect is the rolling hash function. This function allows us to efficiently calculate the hash value of the next substring without recalculating the entire hash from scratch. We use modular arithmetic to keep the hash values within a manageable range.
+An aspect is the rolling hash function. This function allows efficient calculation of the next substring's hash value without recalculating the entire hash from scratch. We use modular arithmetic to keep the hash values within a manageable range.
 
 ## Python Implementation
 
@@ -81,5 +81,5 @@ This code efficiently handles string matching using the rolling hash technique. 
 
 ## Optimizations and Considerations
 
-While efficient, the Rabin-Karp algorithm's performance depends on the choice of the prime number `q` and the hash function.  A poorly chosen `q` can lead to more collisions, negating the performance benefits.  Furthermore,  handling collisions effectively is crucial for optimal performance.  For extremely large datasets, further optimizations might be necessary.  Consider using more sophisticated hash functions or incorporating techniques like double hashing to mitigate collision effects.
+While efficient, the Rabin-Karp algorithm's performance depends on the choice of the prime number `q` and the hash function. A poorly chosen `q` can lead to more collisions, negating the performance benefits.  Furthermore, handling collisions effectively is important for optimal performance. For extremely large datasets, further optimizations might be necessary. Consider using more complex hash functions or incorporating techniques like double hashing to mitigate collision effects.
 

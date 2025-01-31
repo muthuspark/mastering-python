@@ -12,7 +12,7 @@ Before diving into the code, let's clarify what connected components are. Imagin
 
 ## Implementing Depth-First Search (DFS)
 
-A classic and efficient algorithm for finding connected components is Depth-First Search (DFS).  DFS systematically explores a graph by going as deep as possible along each branch before backtracking.  We can adapt DFS to identify connected components:
+A classic and efficient algorithm for finding connected components is Depth-First Search (DFS).  DFS systematically explores a graph by going as deep as possible along each branch before backtracking.  DFS can identify connected components:
 
 ```python
 def dfs(graph, node, visited, component):
@@ -56,7 +56,7 @@ This code first initializes a `visited` array to track visited nodes and an empt
 
 ## Implementing Breadth-First Search (BFS)
 
-Alternatively, Breadth-First Search (BFS) can also be used to find connected components. BFS explores the graph level by level.  Here's how you can adapt BFS for this task:
+Alternatively, Breadth-First Search (BFS) can also be used to find connected components. BFS explores the graph level by level.  Here's how you can do this:
 
 ```python
 from collections import deque
@@ -86,5 +86,5 @@ Both DFS and BFS are viable options for finding connected components.  DFS gener
 
 ## Handling Different Graph Representations
 
-The code examples above assume the graph is represented as an adjacency list (a dictionary where keys are nodes and values are lists of their neighbors).  You might need to adapt the code if your graph is represented differently (e.g., an adjacency matrix).  The core algorithm (DFS or BFS) remains the same, but the way you access neighbors will change.
+The code examples above assume the graph is represented as an adjacency list (a dictionary where keys are nodes and values are lists of their neighbors).  If your graph is represented differently (e.g., an adjacency matrix), the way you access neighbors will change. The core algorithm (DFS or BFS) remains the same.
 

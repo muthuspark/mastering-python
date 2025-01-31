@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Matrix chain multiplication is a classic problem in computer science. Given a sequence of matrices, the goal is to find the most efficient way to multiply them. The naive approach, multiplying matrices sequentially as they appear, can lead to drastically inefficient computations. Dynamic programming offers a powerful solution to this problem, significantly reducing the computational complexity.</p>
+<p>Matrix chain multiplication is a classic problem in computer science. Given a sequence of matrices, the goal is to find the most efficient way to multiply them. The naive approach, multiplying matrices sequentially as they appear, can lead to drastically inefficient computations. Dynamic programming offers a powerful solution to this problem, reducing the computational complexity.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>The core challenge lies in the fact that matrix multiplication is associative but not commutative. This means we can group the matrices in different ways, resulting in varying numbers of scalar multiplications. For example, multiplying three matrices A, B, and C, we could compute (AB)C or A(BC). These two approaches can have drastically different computational costs.</p>
@@ -246,12 +246,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="further-optimizations-and-considerations" class="level2">
 <h2 class="anchored" data-anchor-id="further-optimizations-and-considerations">Further Optimizations and Considerations</h2>
-<p>For extremely large numbers of matrices, further optimization techniques might be considered, such as using more sophisticated data structures or parallelization strategies. However, for most practical applications, this dynamic programming solution provides a significant improvement over naive approaches. The time complexity is O(n³), where n is the number of matrices, a substantial improvement over the exponential time complexity of brute-force methods.</p>
+<p>For extremely large numbers of matrices, further optimization techniques might be considered, such as using more complex data structures or parallelization strategies. However, for most practical applications, this dynamic programming solution provides a significant improvement over naive approaches. The time complexity is O(n³), where n is the number of matrices, a substantial improvement over the exponential time complexity of brute-force methods.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

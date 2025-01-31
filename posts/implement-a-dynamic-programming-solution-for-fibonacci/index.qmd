@@ -4,7 +4,7 @@ date: "12/03/2024"
 categories: [ problem-solving ]
 ---
 
-Dynamic programming is a powerful algorithmic technique that can significantly optimize solutions to problems exhibiting overlapping subproblems and optimal substructure.  The Fibonacci sequence, a classic example, perfectly demonstrates the elegance and efficiency of this approach.  This post will guide you through implementing a dynamic programming solution for the Fibonacci sequence in Python, explaining the concepts along the way.
+Dynamic programming is a powerful algorithmic technique that can optimize solutions to problems exhibiting overlapping subproblems and optimal substructure.  The Fibonacci sequence, a classic example, perfectly demonstrates the elegance and efficiency of this approach.  This post will guide you through implementing a dynamic programming solution for the Fibonacci sequence in Python, explaining the concepts along the way.
 
 ## Understanding the Fibonacci Sequence
 
@@ -57,7 +57,7 @@ print(fibonacci_tabulation(10))  # Output: 55
 
 ## Comparing the Approaches
 
-Both memoization and tabulation achieve linear time complexity (O(n)), a significant improvement over the exponential complexity of the naive recursive approach.  Tabulation generally offers slightly better performance in practice because it avoids the overhead of function calls inherent in memoization. However, memoization can be more intuitive for certain problems and easier to adapt.  The choice depends on the specific problem and personal preference.  For the Fibonacci sequence, both methods provide efficient and elegant solutions.
+Both memoization and tabulation achieve linear time complexity (O(n)), a significant improvement over the exponential complexity of the naive recursive approach. Tabulation generally offers slightly better performance in practice because it avoids the overhead of function calls in memoization. However, memoization can be more intuitive for certain problems and easier to adapt. The choice depends on the specific problem and personal preference. For the Fibonacci sequence, both methods provide efficient and elegant solutions.
 
 
 ## Optimizing further (Space Complexity)
@@ -77,5 +77,5 @@ def fibonacci_optimized(n):
 print(fibonacci_optimized(10)) # Output: 55
 ```
 
-This optimized version maintains the linear time complexity while significantly reducing the space requirements.  This makes it suitable for calculating extremely large Fibonacci numbers without memory issues.
+This optimized version maintains the linear time complexity while reducing the space requirements. This makes it suitable for calculating extremely large Fibonacci numbers without memory issues.
 

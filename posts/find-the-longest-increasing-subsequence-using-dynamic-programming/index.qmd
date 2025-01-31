@@ -4,7 +4,7 @@ date: "11/15/2024"
 categories: [ problem-solving ]
 ---
 
-Dynamic programming is a powerful algorithmic technique that can significantly optimize solutions for problems exhibiting overlapping subproblems and optimal substructure.  One classic example where dynamic programming shines is finding the longest increasing subsequence (LIS) within a given sequence of numbers.  This post will explore how to efficiently solve this problem using dynamic programming in Python.
+Dynamic programming is a powerful algorithmic technique that can optimize solutions for problems exhibiting overlapping subproblems and optimal substructure.  One classic example where dynamic programming shines is finding the longest increasing subsequence (LIS) within a given sequence of numbers.  This post will look at how to efficiently solve this problem using dynamic programming in Python.
 
 ## Understanding the Problem
 

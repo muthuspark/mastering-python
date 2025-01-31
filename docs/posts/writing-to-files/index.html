@@ -206,7 +206,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python offers robust capabilities for file handling, allowing you to seamlessly interact with your system’s files. This guide focuses on writing data to files, covering various scenarios and best practices. We’ll explore different approaches, ensuring you can confidently manage file I/O in your Python projects.</p>
+<p>Python offers capabilities for file handling, allowing you to seamlessly interact with your system’s files. This guide focuses on writing data to files, covering various scenarios and best practices. We’ll look at different approaches, ensuring you can confidently manage file I/O in your Python projects.</p>
 <section id="the-open-function-your-gateway-to-file-writing" class="level2">
 <h2 class="anchored" data-anchor-id="the-open-function-your-gateway-to-file-writing">The <code>open()</code> Function: Your Gateway to File Writing</h2>
 <p>At the heart of Python’s file writing functionality lies the <code>open()</code> function. This function takes two primary arguments: the file path and the mode. For writing, the most common modes are:</p>
@@ -263,7 +263,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="working-with-large-files-buffering" class="level2">
 <h2 class="anchored" data-anchor-id="working-with-large-files-buffering">Working with Large Files: Buffering</h2>
-<p>When dealing with exceptionally large files, buffering can significantly improve performance. Instead of writing each line individually, data is accumulated in a buffer and written to the file in larger chunks. This can be accomplished using the <code>writelines()</code> method or by manually managing a buffer.</p>
+<p>When dealing with exceptionally large files, buffering can improve performance. Instead of writing each line individually, data is accumulated in a buffer and written to the file in larger chunks. This can be accomplished using the <code>writelines()</code> method or by manually managing a buffer.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lines <span class="op">=</span> [<span class="st">"line "</span> <span class="op">+</span> <span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100000</span>)] <span class="co">#Many lines</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'large_file.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
@@ -274,6 +274,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

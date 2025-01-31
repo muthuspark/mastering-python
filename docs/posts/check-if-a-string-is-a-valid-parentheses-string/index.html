@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Validating parentheses is a classic computer science problem with applications in various areas, from compiler design to evaluating mathematical expressions. This post will explore how to efficiently check if a given string containing parentheses (<code>()</code>, <code>[]</code>, <code>{}</code>) is valid in Python. A valid string means that all opening parentheses have corresponding closing parentheses of the same type, and they are nested correctly.</p>
+<p>Validating parentheses is a classic computer science problem with applications in various areas, from compiler design to evaluating mathematical expressions. This post will look at how to efficiently check if a given string containing parentheses (<code>()</code>, <code>[]</code>, <code>{}</code>) is valid in Python. A valid string means that all opening parentheses have corresponding closing parentheses of the same type, and they are nested correctly.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>The core idea is to use a stack data structure. As we iterate through the string:</p>
@@ -250,11 +250,11 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_valid_parentheses(<span class="st">"{[]}"</span>))  <span class="co"># True</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_valid_parentheses(<span class="st">"((()))"</span>)) <span class="co">#True</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_valid_parentheses(<span class="st">"(()"</span>)) <span class="co">#False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This code uses a dictionary <code>mapping</code> to efficiently check for matching parenthesis pairs. The <code>else</code> block handles opening parentheses by pushing them onto the stack. The <code>if</code> block handles closing parentheses, performing the crucial matching and stack manipulation. The final <code>return not stack</code> cleverly checks for the empty stack condition, indicating a valid string.</p>
+<p>This code uses a dictionary <code>mapping</code> to efficiently check for matching parenthesis pairs. The <code>else</code> block handles opening parentheses by pushing them onto the stack. The <code>if</code> block handles closing parentheses, performing matching and stack manipulation. The final <code>return not stack</code> cleverly checks for the empty stack condition, indicating a valid string.</p>
 </section>
 <section id="handling-edge-cases" class="level2">
 <h2 class="anchored" data-anchor-id="handling-edge-cases">Handling Edge Cases</h2>
-<p>The code above efficiently handles several edge cases:</p>
+<p>The code above efficiently handles many edge cases:</p>
 <ul>
 <li><strong>Empty String:</strong> An empty string is considered valid because it contains no unmatched parentheses.</li>
 <li><strong>Mismatched Parentheses:</strong> The code correctly identifies strings with mismatched parenthesis types (e.g., <code>(]</code>).</li>
@@ -263,12 +263,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="time-and-space-complexity" class="level2">
 <h2 class="anchored" data-anchor-id="time-and-space-complexity">Time and Space Complexity</h2>
-<p>The time complexity of this solution is O(n), where n is the length of the input string, because we iterate through the string once. The space complexity is also O(n) in the worst case, as the stack could potentially store all opening parentheses if they are deeply nested. However, in many practical scenarios, the space used will be significantly less than O(n).</p>
+<p>The time complexity of this solution is O(n), where n is the length of the input string, because we iterate through the string once. The space complexity is also O(n) in the worst case, as the stack could potentially store all opening parentheses if they are deeply nested. However, in many practical scenarios, the space used will be less than O(n).</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

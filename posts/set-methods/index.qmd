@@ -71,7 +71,7 @@ print(my_set)  # Output: set()
 
 ## Set Operations:  Combining and Comparing Sets
 
-Set methods also facilitate various mathematical set operations:
+Set methods also allow various mathematical set operations.
 
 * **`union(*others)` or `|`:** Returns a new set containing all elements from the original set and all others provided.
 
@@ -141,5 +141,5 @@ print(set3.isdisjoint(set4)) #Output: False
 ```
 
 
-These methods provide a robust toolkit for various set-based operations in your Python programs.  They're particularly valuable when dealing with unique identifiers, data cleaning, and algorithm design.
+These methods provide a toolkit for various set-based operations in your Python programs. They're particularly valuable when dealing with unique identifiers, data cleaning, and algorithm design.
 

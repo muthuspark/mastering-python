@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python closures are a powerful and often misunderstood feature.  They allow inner functions to access and remember variables from their enclosing scope, even after the outer function has finished executing. This creates a persistent connection between the inner and outer function, leading to flexible and efficient code.  Let's unravel this concept with clear explanations and practical examples.
+Python closures are a powerful and often misunderstood feature. They allow inner functions to access and remember variables from their enclosing scope, even after the outer function has finished executing. This creates a persistent connection between the inner and outer function, leading to flexible and efficient code. Let's explore this concept with clear explanations and practical examples.
 
 ## What is a Closure?
 
@@ -85,7 +85,7 @@ The `wrapper` function inside `my_decorator` forms a closure, accessing and exec
 
 ## When to Use Closures
 
-Closures are beneficial in several scenarios:
+Closures are beneficial in many scenarios:
 
 * **State preservation:**  Maintaining state across function calls (like the counter example).
 * **Partial functions:** Creating specialized versions of functions with pre-set parameters (multiplier example).

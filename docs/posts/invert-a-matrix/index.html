@@ -206,12 +206,12 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Matrix inversion is a fundamental operation in linear algebra with applications spanning diverse fields like computer graphics, machine learning, and physics. This post will delve into how to efficiently invert matrices in Python, exploring different approaches and highlighting their strengths and weaknesses.</p>
+<p>Matrix inversion is a fundamental operation in linear algebra with applications spanning various fields like computer graphics, machine learning, and physics. This post will show how to efficiently invert matrices in Python, exploring different approaches and highlighting their strengths and weaknesses.</p>
 <section id="why-invert-a-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="why-invert-a-matrix">Why Invert a Matrix?</h2>
 <p>Before diving into the code, let’s briefly understand the significance of matrix inversion. The inverse of a square matrix, denoted as A⁻¹, satisfies the equation:</p>
 <p>A * A⁻¹ = A⁻¹ * A = I</p>
-<p>where ‘I’ is the identity matrix. The inverse allows us to solve systems of linear equations (Ax = b =&gt; x = A⁻¹b), find matrix determinants, and perform other crucial linear algebra manipulations.</p>
+<p>where ‘I’ is the identity matrix. The inverse allows us to solve systems of linear equations (Ax = b =&gt; x = A⁻¹b), find matrix determinants, and perform other linear algebra manipulations.</p>
 </section>
 <section id="method-1-using-numpys-linalg.inv" class="level2">
 <h2 class="anchored" data-anchor-id="method-1-using-numpys-linalg.inv">Method 1: Using NumPy’s <code>linalg.inv()</code></h2>
@@ -235,11 +235,11 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <section id="method-2-gaussian-elimination-for-educational-purposes" class="level2">
 <h2 class="anchored" data-anchor-id="method-2-gaussian-elimination-for-educational-purposes">Method 2: Gaussian Elimination (for educational purposes)</h2>
 <p>While <code>np.linalg.inv()</code> is the practical choice, understanding the underlying algorithms is beneficial. Gaussian elimination is a fundamental technique for solving systems of linear equations and can be adapted for matrix inversion. However, it’s computationally less efficient than NumPy’s optimized implementation.</p>
-<p>Implementing Gaussian elimination for matrix inversion requires significantly more code and is prone to errors if not carefully implemented. It’s best suited for educational purposes to understand the process, rather than for practical applications. (A detailed implementation of Gaussian elimination for matrix inversion is beyond the scope of this concise blog post but can be found in many linear algebra textbooks and online resources).</p>
+<p>Implementing Gaussian elimination for matrix inversion requires more code and is prone to errors if not carefully implemented. It’s best suited for educational purposes to understand the process, rather than for practical applications. (A detailed implementation of Gaussian elimination for matrix inversion is beyond the scope of this concise blog post but can be found in many linear algebra textbooks and online resources).</p>
 </section>
 <section id="handling-singular-matrices" class="level2">
 <h2 class="anchored" data-anchor-id="handling-singular-matrices">Handling Singular Matrices</h2>
-<p>A singular matrix (also called a degenerate matrix) does not have an inverse. Attempting to invert a singular matrix using <code>np.linalg.inv()</code> will raise a <code>numpy.linalg.LinAlgError</code>. It’s crucial to check for singularity before attempting inversion. One way to check is to calculate the determinant. A singular matrix has a determinant of zero.</p>
+<p>A singular matrix (also called a degenerate matrix) does not have an inverse. Attempting to invert a singular matrix using <code>np.linalg.inv()</code> will raise a <code>numpy.linalg.LinAlgError</code>. It’s important to check for singularity before attempting inversion. One way to check is to calculate the determinant. A singular matrix has a determinant of zero.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>],</span>
@@ -260,6 +260,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

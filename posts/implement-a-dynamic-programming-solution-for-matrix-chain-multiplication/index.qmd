@@ -4,7 +4,7 @@ date: "07/20/2024"
 categories: [ problem-solving ]
 ---
 
-Matrix chain multiplication is a classic problem in computer science.  Given a sequence of matrices, the goal is to find the most efficient way to multiply them.  The naive approach, multiplying matrices sequentially as they appear, can lead to drastically inefficient computations.  Dynamic programming offers a powerful solution to this problem, significantly reducing the computational complexity.
+Matrix chain multiplication is a classic problem in computer science.  Given a sequence of matrices, the goal is to find the most efficient way to multiply them.  The naive approach, multiplying matrices sequentially as they appear, can lead to drastically inefficient computations.  Dynamic programming offers a powerful solution to this problem, reducing the computational complexity.
 
 ## Understanding the Problem
 
@@ -56,5 +56,5 @@ This code efficiently computes the minimum cost.  Note that this implementation 
 
 ##  Further Optimizations and Considerations
 
-For extremely large numbers of matrices, further optimization techniques might be considered, such as using more sophisticated data structures or parallelization strategies. However, for most practical applications, this dynamic programming solution provides a significant improvement over naive approaches.  The time complexity is O(n³), where n is the number of matrices, a substantial improvement over the exponential time complexity of brute-force methods.
+For extremely large numbers of matrices, further optimization techniques might be considered, such as using more complex data structures or parallelization strategies. However, for most practical applications, this dynamic programming solution provides a significant improvement over naive approaches.  The time complexity is O(n³), where n is the number of matrices, a substantial improvement over the exponential time complexity of brute-force methods.
 

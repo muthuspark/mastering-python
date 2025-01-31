@@ -5,12 +5,12 @@ categories: [ basic ]
 ---
 
 
-Python, renowned for its readability and versatility, offers a robust set of arithmetic operators to perform various mathematical calculations.  Understanding these operators is fundamental to any Python programmer, regardless of experience level. This guide provides a detailed walkthrough of each operator, complete with illustrative examples.
+Python, renowned for its readability and versatility, offers a set of arithmetic operators to perform various mathematical calculations. Understanding these operators is fundamental to any Python programmer, regardless of experience level. This guide provides a detailed walkthrough of each operator, complete with illustrative examples.
 
 
 ## The Core Arithmetic Operators
 
-Python's arithmetic operators mirror those found in standard mathematics, making them intuitive to use. Let's explore each one:
+Python's arithmetic operators mirror those found in standard mathematics, making them intuitive to use. Let's look at each one:
 
 **1. Addition (+):**  The addition operator adds two operands together.
 

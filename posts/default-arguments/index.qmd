@@ -23,7 +23,7 @@ In this example, `greeting` has a default value of "Hello".  If you call `greet(
 
 ## Benefits of Using Default Arguments
 
-* **Reduced Code Verbosity:** Default arguments significantly reduce the need for multiple function overloads or conditional statements within the function body to handle different input scenarios.
+* **Reduced Code Verbosity:** Default arguments reduce the need for multiple function overloads or conditional statements within the function body to handle different input scenarios.
 
 * **Improved Readability:** Code becomes cleaner and easier to understand when default values are explicitly defined.  The intent of the function is clearer.
 
@@ -66,7 +66,7 @@ This ensures that a new list is created for each function call, preventing unint
 
 ## Ordering of Arguments
 
-It's crucial to remember that default arguments must always come *after* non-default arguments in the function definition.  This is a syntactical rule in Python.
+Remember that default arguments must always come *after* non-default arguments in the function definition. This is a syntactical rule in Python.
 
 
 ```python

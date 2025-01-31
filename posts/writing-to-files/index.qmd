@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python offers robust capabilities for file handling, allowing you to seamlessly interact with your system's files.  This guide focuses on writing data to files, covering various scenarios and best practices.  We'll explore different approaches, ensuring you can confidently manage file I/O in your Python projects.
+Python offers capabilities for file handling, allowing you to seamlessly interact with your system's files. This guide focuses on writing data to files, covering various scenarios and best practices. We'll look at different approaches, ensuring you can confidently manage file I/O in your Python projects.
 
 
 ## The `open()` Function: Your Gateway to File Writing
@@ -84,7 +84,7 @@ This `try-except` block catches `FileExistsError` specifically for the `'x'` mod
 
 ## Working with Large Files: Buffering
 
-When dealing with exceptionally large files, buffering can significantly improve performance.  Instead of writing each line individually, data is accumulated in a buffer and written to the file in larger chunks. This can be accomplished using the `writelines()` method or by manually managing a buffer.
+When dealing with exceptionally large files, buffering can improve performance. Instead of writing each line individually, data is accumulated in a buffer and written to the file in larger chunks. This can be accomplished using the `writelines()` method or by manually managing a buffer.
 
 
 ```python

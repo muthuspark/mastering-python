@@ -266,12 +266,15 @@ i=2, j=0</code></pre>
 </section>
 <section id="handling-break-gracefully" class="level2">
 <h2 class="anchored" data-anchor-id="handling-break-gracefully">Handling <code>break</code> Gracefully</h2>
-<p>When using <code>break</code>, consider the implications on any code that depends on the loop completing its full iterations. You may need to adjust your logic to handle cases where the loop terminates early. For example, if you are calculating a sum inside the loop, you might need to add a check after the loop to account for a possible incomplete sum if the loop is terminated early using <code>break</code>.</p>
+<p>When using <code>break</code>, consider any code that depends on the loop completing its full iterations. You may need to adjust your logic to handle cases where the loop terminates early. For example, if you are calculating a sum inside the loop, you might need to add a check after the loop to account for a possible incomplete sum if the loop is terminated early using <code>break</code>.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

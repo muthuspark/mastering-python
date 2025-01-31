@@ -6,7 +6,7 @@ categories: [ problem-solving ]
 
 Finding the minimum edit distance between two strings is a fundamental problem in computer science with applications in various fields, including spell checking, DNA sequencing, and information retrieval.  The edit distance, also known as Levenshtein distance, quantifies the similarity between two strings by counting the minimum number of single-character edits required to change one string into the other. These edits can be insertions, deletions, or substitutions.
 
-This post will explore how to calculate the minimum edit distance using Python, focusing on both a recursive approach (for understanding the underlying logic) and a more efficient dynamic programming approach.
+This post will look at how to calculate the minimum edit distance using Python, focusing on both a recursive approach (for understanding the underlying logic) and a more efficient dynamic programming approach.
 
 
 ## Understanding the Problem
@@ -62,7 +62,7 @@ print(f"Minimum edit distance (recursive): {distance}")  #Output: 3
 
 ## Dynamic Programming Approach (Efficient)
 
-Dynamic programming avoids redundant calculations by storing the results of subproblems in a table (matrix). This significantly improves efficiency.
+Dynamic programming avoids redundant calculations by storing the results of subproblems in a table (matrix). This improves efficiency.
 
 ```python
 def min_edit_distance_dp(str1, str2):

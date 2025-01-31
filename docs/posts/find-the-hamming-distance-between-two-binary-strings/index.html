@@ -209,7 +209,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 <p>The Hamming distance is a fundamental concept in computer science and information theory. It quantifies the similarity between two strings of equal length. Specifically, it measures the number of positions at which the corresponding symbols are different. This is particularly useful when working with binary strings (strings containing only 0s and 1s), where the Hamming distance represents the number of bits that differ between two binary strings.</p>
-<p>This blog post will explore how to efficiently calculate the Hamming distance between two binary strings in Python. We’ll cover several approaches, ranging from a basic iterative method to more concise techniques leveraging Python’s built-in functionalities.</p>
+<p>This blog post will look at how to efficiently calculate the Hamming distance between two binary strings in Python. We’ll cover many approaches, ranging from a basic iterative method to more concise techniques leveraging Python’s built-in functionalities.</p>
 <section id="understanding-hamming-distance" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-hamming-distance">Understanding Hamming Distance</h2>
 <p>Before diving into the code, let’s solidify our understanding with an example. Consider two binary strings:</p>
@@ -228,7 +228,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="python-code-examples" class="level2">
 <h2 class="anchored" data-anchor-id="python-code-examples">Python Code Examples</h2>
-<p>Here are several ways to compute the Hamming distance in Python:</p>
+<p>Here are many ways to compute the Hamming distance in Python:</p>
 <section id="method-1-iterative-approach" class="level3">
 <h3 class="anchored" data-anchor-id="method-1-iterative-approach">Method 1: Iterative Approach</h3>
 <p>This is a straightforward method that iterates through the strings and counts the differences.</p>
@@ -263,7 +263,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="method-3-using-xor-and-bin-for-integer-inputs" class="level3">
 <h3 class="anchored" data-anchor-id="method-3-using-xor-and-bin-for-integer-inputs">Method 3: Using XOR and <code>bin()</code> (For Integer Inputs)</h3>
-<p>If you are working with integers represented as binary strings, you can leverage the bitwise XOR operator (<code>^</code>) and the <code>bin()</code> function for a potentially faster approach. This method converts integers to binary strings, performs XOR, and then counts the number of ’1’s in the result.</p>
+<p>If you are working with integers represented as binary strings, you can use the bitwise XOR operator (<code>^</code>) and the <code>bin()</code> function for a potentially faster approach. This method converts integers to binary strings, performs XOR, and then counts the number of ’1’s in the result.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hamming_distance_xor(int1, int2):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Calculates the Hamming distance using XOR (for integers)."""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    xor_result <span class="op">=</span> int1 <span class="op">^</span> int2</span>
@@ -281,6 +281,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

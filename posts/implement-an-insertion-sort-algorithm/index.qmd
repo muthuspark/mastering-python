@@ -4,7 +4,7 @@ date: "08/01/2024"
 categories: [ problem-solving ]
 ---
 
-Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time.  It's efficient for small datasets or nearly sorted datasets, making it a valuable algorithm to understand in your programming journey. This post will walk you through the implementation of insertion sort in Python with clear explanations and code examples.
+Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time.  It's efficient for small datasets or nearly sorted datasets, making it an algorithm to understand in your programming journey. This post will walk you through the implementation of insertion sort in Python with clear explanations and code examples.
 
 ## Understanding the Algorithm
 

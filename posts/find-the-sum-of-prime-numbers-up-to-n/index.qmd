@@ -4,7 +4,7 @@ date: "03/24/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the sum of prime numbers up to a given limit (N) is a classic programming problem that tests your understanding of prime number identification and efficient algorithm design.  This post explores several Python methods to tackle this challenge, from a straightforward (but less efficient) approach to optimized solutions.
+Finding the sum of prime numbers up to a given limit (N) is a classic programming problem that tests your understanding of prime number identification and efficient algorithm design.  This post explores many Python methods to tackle this challenge, from a straightforward (but less efficient) approach to optimized solutions.
 
 
 ## The Naive Approach
@@ -39,7 +39,7 @@ This approach works correctly but becomes slow for larger values of N due to its
 
 ## Sieve of Eratosthenes: A More Efficient Solution
 
-The Sieve of Eratosthenes is a significantly faster algorithm for finding all prime numbers up to a specified integer. It leverages a boolean array to mark non-prime numbers, eliminating redundant checks.
+The Sieve of Eratosthenes is a faster algorithm for finding all prime numbers up to a specified integer. It uses a boolean array to mark non-prime numbers, eliminating redundant checks.
 
 ```python
 def sum_primes_sieve(n):

@@ -77,7 +77,7 @@ else:
 
 ```
 
-This code efficiently leverages BFS to traverse the graph and detect any color conflicts, providing a clear and concise solution to the bipartite graph checking problem.  The use of a `collections.deque` ensures optimal performance for queue operations.
+This code efficiently uses BFS to traverse the graph and detect any color conflicts, providing a clear and concise solution to the bipartite graph checking problem.  The use of a `collections.deque` ensures optimal performance for queue operations.
 
 
 ##  Alternative Approach: Depth-First Search (DFS)

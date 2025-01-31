@@ -32,7 +32,7 @@ Rotated Matrix (90 degrees clockwise):
 
 ## Method 1: Using Zip and List Comprehension
 
-This elegant approach leverages Python's built-in `zip` function and list comprehension for a concise and efficient solution.
+This elegant approach uses Python's built-in `zip` function and list comprehension for a concise and efficient solution.
 
 ```python
 def rotate_matrix_zip(matrix):
@@ -55,7 +55,7 @@ print(rotated_matrix)  # Output: [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
 
 ## Method 2:  In-place Rotation (More Efficient for Large Matrices)
 
-For larger matrices, an in-place rotation is significantly more memory-efficient. This method modifies the original matrix directly, avoiding the creation of a new matrix.
+For larger matrices, an in-place rotation is more memory-efficient. This method modifies the original matrix directly, avoiding the creation of a new matrix.
 
 ```python
 def rotate_matrix_inplace(matrix):
@@ -84,7 +84,7 @@ This method uses a temporary variable (`temp`) to swap elements efficiently, lay
 
 ## Handling Non-Square Matrices
 
-The above methods assume a square matrix (same number of rows and columns).  Rotating a rectangular matrix by 90 degrees requires a more sophisticated approach, often involving padding or resizing to maintain a rectangular shape.  We'll explore this in a future post.
+The above methods assume a square matrix (same number of rows and columns).  Rotating a rectangular matrix by 90 degrees requires a more complex approach, often involving padding or resizing to maintain a rectangular shape.  We'll look at this in a future post.
 
 
 ##  Choosing the Right Method

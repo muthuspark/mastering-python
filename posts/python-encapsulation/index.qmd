@@ -5,12 +5,12 @@ categories: [ basic ]
 ---
 
 
-Python, known for its readability and versatility, offers powerful tools for managing the structure and integrity of your code.  One of the key principles of object-oriented programming (OOP) that significantly improves code organization and maintainability is **encapsulation**.  This post will look into the concept of encapsulation in Python and demonstrate its practical application with clear examples.
+Python, known for its readability and versatility, offers powerful tools for managing the structure and integrity of your code.  One of the key principles of object-oriented programming (OOP) that improves code organization and maintainability is **encapsulation**.  This post will look into the concept of encapsulation in Python and demonstrate its practical application with clear examples.
 
 
 ## What is Encapsulation?
 
-Encapsulation, in essence, bundles data (attributes) and the methods (functions) that operate on that data within a single unit—a class.  This bundling protects the internal state of the object from outside interference and misuse.  It promotes data hiding and controlled access, leading to more robust and secure code.  Think of it as a protective capsule shielding the inner workings of your object.
+Encapsulation, in essence, bundles data (attributes) and the methods (functions) that operate on that data within a single unit—a class. This bundling protects the internal state of the object from outside interference and misuse. It promotes data hiding and controlled access, leading to more secure code. Think of it as a protective capsule shielding the inner workings of your object.
 
 
 ## Achieving Encapsulation in Python
@@ -19,7 +19,7 @@ While Python doesn't enforce strict access modifiers like `private` or `public` 
 
 ### Name Mangling (\_\_)
 
-Python uses name mangling (prefixing with double underscores `__`) to indicate that an attribute or method should be treated as internal and not directly accessed from outside the class.  This is a strong convention, though not truly "private" as determined access is still possible.
+Python uses name mangling (prefixing with double underscores __) to indicate that an attribute or method should be treated as internal and not directly accessed from outside the class. This is a strong convention, though not truly "private" as determined access is still possible.
 
 ```python
 class Dog:
@@ -89,5 +89,5 @@ Using getters and setters, you can ensure that modifications to the `_balance` a
 ##  Beyond Simple Getters and Setters
 
 
-More sophisticated encapsulation can involve complex logic within getter and setter methods, allowing for more robust control and validation of the object's state.  This is especially useful when dealing with complex data structures or sensitive information.
+More complex encapsulation can involve complex logic within getter and setter methods, allowing for more control and validation of the object's state. This is especially useful when dealing with complex data structures or sensitive information.
 

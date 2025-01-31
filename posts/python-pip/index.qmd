@@ -45,7 +45,7 @@ This installs version 2.28.1 of `requests`.  You can also specify a range of acc
 
 ##  Managing Installed Packages
 
-pip offers several commands to manage your installed packages:
+pip offers many commands to manage your installed packages:
 
 * **Listing installed packages:**
 

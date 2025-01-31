@@ -8,7 +8,7 @@ The 0/1 Knapsack Problem is a classic optimization problem in computer science. 
 
 While brute-force approaches exist, they become computationally expensive very quickly as the number of items grows. That's where dynamic programming shines.  Dynamic programming breaks down the problem into smaller overlapping subproblems, solves them once, and stores the solutions to avoid redundant calculations.  This drastically improves efficiency.
 
-Let's dive into a Python implementation using dynamic programming.
+Let's see a Python implementation using dynamic programming.
 
 ## Understanding the Dynamic Programming Approach
 
@@ -63,5 +63,5 @@ print(f"Maximum value: {max_value}")  # Output: Maximum value: 220
 
 ```
 
-This code efficiently solves the 0/1 knapsack problem using dynamic programming.  The `knapsack_dynamic_programming` function takes the knapsack capacity and lists of item weights and values as input and returns the maximum achievable value. The example usage demonstrates how to use the function.  This approach avoids the exponential time complexity of brute-force methods, making it significantly faster for larger problem instances.  Remember that this solution only provides the maximum value.  To find which items were included to achieve that value, you would need to add some backtracking logic to the code.
+This code efficiently solves the 0/1 knapsack problem using dynamic programming.  The `knapsack_dynamic_programming` function takes the knapsack capacity and lists of item weights and values as input and returns the maximum achievable value. The example usage demonstrates how to use the function.  This approach avoids the exponential time complexity of brute-force methods, making it faster for larger problem instances.  Remember that this solution only provides the maximum value.  To find which items were included to achieve that value, you would need to add some backtracking logic to the code.
 

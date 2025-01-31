@@ -4,11 +4,11 @@ date: "12/02/2024"
 categories: [ problem-solving ]
 ---
 
-Heap sort stands as a powerful and efficient sorting algorithm, boasting a time complexity of O(n log n) in all cases – a significant advantage over algorithms like bubble sort or insertion sort, which can degrade to O(n²) in worst-case scenarios.  This makes it a preferred choice for large datasets where performance is critical.  This blog post will delve into the intricacies of heap sort, providing a clear explanation and practical Python implementation.
+Heap sort stands as a powerful and efficient sorting algorithm, boasting a time complexity of O(n log n) in all cases – a significant advantage over algorithms like bubble sort or insertion sort, which can degrade to O(n²) in worst-case scenarios.  This makes it a preferred choice for large datasets where performance is critical.  This blog post will look at the complexities of heap sort, providing a clear explanation and practical Python implementation.
 
 ## Understanding the Heap Data Structure
 
-Before diving into the algorithm itself, it's crucial to grasp the concept of a heap. A heap is a specialized tree-based data structure that satisfies the heap property:
+Before diving into the algorithm itself, it's important to grasp the concept of a heap. A heap is a specialized tree-based data structure that satisfies the heap property:
 
 * **Max-Heap:** The value of each node is greater than or equal to the value of its children.  The root node contains the largest element.
 * **Min-Heap:** The value of each node is less than or equal to the value of its children. The root node contains the smallest element.

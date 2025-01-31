@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Railway station management is a complex logistical challenge. One crucial aspect is optimizing platform allocation to ensure smooth train operations and avoid delays. A key problem in this area is determining the minimum number of platforms needed to handle arriving and departing trains without conflicts. This blog post will explore this problem and present a Python solution using efficient algorithms.</p>
+<p>Railway station management is a complex logistical challenge. One aspect is optimizing platform allocation to ensure smooth train operations and avoid delays. A key problem in this area is determining the minimum number of platforms needed to handle arriving and departing trains without conflicts. This blog post will look at this problem and present a Python solution using efficient algorithms.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>The core problem is as follows: given arrival and departure times of all trains that will arrive at a railway station on a particular day, find the minimum number of platforms needed so that no two trains need the same platform at the same time. We assume that a train occupies a platform from its arrival time until its departure time.</p>
@@ -276,12 +276,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="optimizations-and-considerations" class="level2">
 <h2 class="anchored" data-anchor-id="optimizations-and-considerations">Optimizations and Considerations</h2>
-<p>This algorithm has a time complexity of O(n log n) due to the sorting step. For extremely large datasets, further optimizations might be considered, but for most practical railway scheduling scenarios, this approach is sufficiently efficient. The code also includes basic error handling to check for inconsistencies in the input data. More robust error handling could be added for production environments.</p>
+<p>This algorithm has a time complexity of O(n log n) due to the sorting step. For extremely large datasets, further optimizations might be considered, but for most practical railway scheduling scenarios, this approach is sufficiently efficient. The code also includes basic error handling to check for inconsistencies in the input data. More error handling could be added for production environments.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

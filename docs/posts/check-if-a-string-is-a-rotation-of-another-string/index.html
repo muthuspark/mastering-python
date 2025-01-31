@@ -203,7 +203,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>String manipulation is a common task in programming, and sometimes you need to determine if one string is a rotation of another. This means checking if you can obtain one string by rotating the characters of another string. For example, “waterbottle” is a rotation of “erbottlewat”—we’ve simply moved the “wat” from the beginning to the end. This blog post will explore efficient ways to solve this problem in Python.</p>
+<p>String manipulation is a common task in programming, and sometimes you need to determine if one string is a rotation of another. This means checking if you can obtain one string by rotating the characters of another string. For example, “waterbottle” is a rotation of “erbottlewat”—we’ve simply moved the “wat” from the beginning to the end. This blog post will look at efficient ways to solve this problem in Python.</p>
 <section id="the-naive-approach-brute-force" class="level2">
 <h2 class="anchored" data-anchor-id="the-naive-approach-brute-force">The Naive Approach: Brute Force</h2>
 <p>A simple, but inefficient, approach involves generating all possible rotations of one string and comparing them to the other. This approach has a time complexity of O(n^2), where n is the length of the string. While functional, it’s not ideal for larger strings.</p>
@@ -242,7 +242,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="a-more-efficient-approach-concatenation" class="level2">
 <h2 class="anchored" data-anchor-id="a-more-efficient-approach-concatenation">A More Efficient Approach: Concatenation</h2>
-<p>A significantly more efficient method leverages string concatenation and the <code>in</code> operator. If string <code>str2</code> is a rotation of <code>str1</code>, then <code>str2</code> will be a substring of <code>str1</code> concatenated with itself. This approach boasts a time complexity of O(n), a considerable improvement.</p>
+<p>A more efficient method uses string concatenation and the <code>in</code> operator. If string <code>str2</code> is a rotation of <code>str1</code>, then <code>str2</code> will be a substring of <code>str1</code> concatenated with itself. This approach boasts a time complexity of O(n), a considerable improvement.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_rotation_efficient(str1, str2):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Checks if str2 is a rotation of str1 using a more efficient approach.</span></span>
@@ -276,6 +276,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

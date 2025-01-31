@@ -4,7 +4,7 @@ date: "06/09/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the maximum sum of a contiguous subarray within a larger array is a classic problem in computer science.  While brute-force approaches exist, they're inefficient for larger arrays.  Kadane's Algorithm provides an elegant and efficient solution with a time complexity of O(n), making it ideal for practical applications.  This blog post will explore Kadane's Algorithm and demonstrate its implementation in Python.
+Finding the maximum sum of a contiguous subarray within a larger array is a classic problem in computer science.  While brute-force approaches exist, they're inefficient for larger arrays.  Kadane's Algorithm provides an elegant and efficient solution with a time complexity of O(n), making it ideal for practical applications.  This blog post will look at Kadane's Algorithm and demonstrate its implementation in Python.
 
 ## Understanding the Problem
 
@@ -74,5 +74,5 @@ max_sum3 = kadanes_algorithm(arr3)
 print(f"The maximum subarray sum is: {max_sum3}") # Output: 0
 ```
 
-This code effectively demonstrates the algorithm, handling both positive and negative integer arrays including empty ones.  The comments enhance readability and understanding.  You can easily adapt this code to your specific needs.  This efficient algorithm is a valuable tool for solving various optimization problems involving subarrays.
+This code effectively demonstrates the algorithm, handling both positive and negative integer arrays including empty ones. The comments improve readability and understanding. You can easily modify this code to your specific needs. This efficient algorithm is a tool for solving various optimization problems involving subarrays.
 

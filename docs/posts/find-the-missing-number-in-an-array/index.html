@@ -205,14 +205,14 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding a missing number within a sequence of numbers is a common programming challenge. This post explores several efficient Python methods to solve this problem, catering to different scenarios and array properties. We’ll cover approaches suitable for both sorted and unsorted arrays.</p>
+<p>Finding a missing number within a sequence of numbers is a common programming challenge. This post explores many efficient Python methods to solve this problem, catering to different scenarios and array properties. We’ll cover approaches suitable for both sorted and unsorted arrays.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>The core problem involves an array of integers containing numbers from 1 to <em>n</em>, except for one missing number. Our task is to identify this missing integer. For example, given the array <code>[1, 2, 4, 5]</code>, the missing number is 3.</p>
 </section>
 <section id="method-1-using-the-summation-formula-for-sorted-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="method-1-using-the-summation-formula-for-sorted-arrays">Method 1: Using the Summation Formula (For Sorted Arrays)</h2>
-<p>This method leverages the mathematical formula for the sum of an arithmetic series. If the array were complete, the sum would be <code>n * (n + 1) / 2</code>. By subtracting the sum of the given array from this expected sum, we find the missing number. This approach is efficient for sorted arrays because it has a time complexity of O(n).</p>
+<p>This method uses the mathematical formula for the sum of an arithmetic series. If the array were complete, the sum would be <code>n * (n + 1) / 2</code>. By subtracting the sum of the given array from this expected sum, we find the missing number. This approach is efficient for sorted arrays because it has a time complexity of O(n).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_missing_sorted(arr):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Finds the missing number in a sorted array using the summation formula.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -257,11 +257,11 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>unsorted_array <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>missing_number <span class="op">=</span> find_missing_unsorted(unsorted_array)</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The missing number in the unsorted array is: </span><span class="sc">{</span>missing_number<span class="sc">}</span><span class="ss">"</span>) <span class="co">#Output: 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This method efficiently handles unsorted arrays, but again, it’s crucial that the input adheres to the condition of numbers from 1 to <em>n</em> with only one missing number.</p>
+<p>This method efficiently handles unsorted arrays, but the input must contain numbers from 1 to <em>n</em> with only one missing number.</p>
 </section>
 <section id="method-3-using-a-set-for-unsorted-arrays-with-potential-duplicates" class="level2">
 <h2 class="anchored" data-anchor-id="method-3-using-a-set-for-unsorted-arrays-with-potential-duplicates">Method 3: Using a Set (For Unsorted Arrays with Potential Duplicates)</h2>
-<p>If the input array might contain duplicate numbers, using a set offers a robust solution. We create a set from the array and then iterate through the numbers from 1 to <em>n</em>, checking for their presence in the set. The missing number is the one not found in the set. While more memory-intensive, this approach handles duplicates effectively and has a time complexity of O(n).</p>
+<p>If the input array might contain duplicate numbers, using a set offers a solution. We create a set from the array and then iterate through the numbers from 1 to <em>n</em>, checking for their presence in the set. The missing number is the one not found in the set. While more memory-intensive, this approach handles duplicates effectively and has a time complexity of O(n).</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_missing_with_duplicates(arr):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Finds the missing number in an unsorted array, handling potential duplicates.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -289,6 +289,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Object-Oriented Programming (OOP) is a powerful programming paradigm that allows you to structure your code in a way that's more organized, reusable, and scalable.  Python, being an object-oriented language, provides robust support for OOP principles. This post will guide you through the fundamental concepts of OOP in Python with clear examples.
+Object-Oriented Programming (OOP) is a powerful programming paradigm that allows you to structure your code in a way that's more organized, reusable, and scalable. Python, being an object-oriented language, provides support for OOP principles. This post will guide you through the fundamental concepts of OOP in Python with clear examples.
 
 
 ## Core OOP Concepts in Python

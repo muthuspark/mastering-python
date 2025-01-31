@@ -204,7 +204,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding the largest rectangular area within a histogram is a classic algorithmic problem with applications in various fields, from image processing to data analysis. This post delves into efficient Python solutions for tackling this challenge. We’ll explore the problem, analyze different approaches, and provide optimized code examples for you to implement.</p>
+<p>Finding the largest rectangular area within a histogram is a classic algorithmic problem with applications in various fields, from image processing to data analysis. This post delves into efficient Python solutions for tackling this challenge. We’ll look at the problem, analyze different approaches, and provide optimized code examples for you to implement.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>Imagine a histogram represented as a list of integers, where each integer signifies the height of a bar. The goal is to find the largest possible rectangle that can be formed within this histogram, such that the rectangle’s base rests on the x-axis and its top-left and top-right corners touch the bars of the histogram.</p>
@@ -229,7 +229,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="efficient-approach-using-a-stack" class="level2">
 <h2 class="anchored" data-anchor-id="efficient-approach-using-a-stack">Efficient Approach using a Stack</h2>
-<p>A significantly more efficient solution leverages a stack data structure to achieve a time complexity of O(n). The algorithm iterates through the histogram, using the stack to keep track of indices of bars. When a shorter bar is encountered, it pops bars from the stack and calculates the area of the rectangles they form.</p>
+<p>A more efficient solution uses a stack data structure to achieve a time complexity of O(n). The algorithm iterates through the histogram, using the stack to keep track of indices of bars. When a shorter bar is encountered, it pops bars from the stack and calculates the area of the rectangles they form.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> largest_rectangle_stack(heights):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>]  <span class="co"># Initialize stack with -1 to handle edge cases</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    max_area <span class="op">=</span> <span class="dv">0</span></span>
@@ -263,6 +263,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

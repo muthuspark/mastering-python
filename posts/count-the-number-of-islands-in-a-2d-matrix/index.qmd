@@ -4,7 +4,7 @@ date: "10/24/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the number of "islands" in a 2D matrix is a classic graph problem with applications in image analysis, geographic information systems (GIS), and more.  An "island" is typically defined as a group of connected '1's (land) surrounded by '0's (water). This blog post will explore how to efficiently solve this problem using Python.
+Finding the number of "islands" in a 2D matrix is a classic graph problem with applications in image analysis, geographic information systems (GIS), and more.  An "island" is typically defined as a group of connected '1's (land) surrounded by '0's (water). This blog post will look at how to efficiently solve this problem using Python.
 
 
 ## Understanding the Problem
@@ -81,7 +81,7 @@ This code uses a `visited` set to efficiently track visited cells, preventing re
 
 ##  Time and Space Complexity
 
-The time complexity of this DFS approach is O(M*N), where M and N are the dimensions of the matrix, as we visit each cell at most once. The space complexity is also O(M*N) in the worst case, primarily due to the `visited` set which could store all the cells.  However, in practice, the space used often remains significantly less than O(M*N)
+The time complexity of this DFS approach is O(M*N), where M and N are the dimensions of the matrix, as we visit each cell at most once. The space complexity is also O(M*N) in the worst case, primarily due to the `visited` set which could store all the cells. However, in practice, the space used often remains less than O(M*N).
 
 
 ## Optimizations

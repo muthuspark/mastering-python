@@ -4,12 +4,12 @@ date: "09/26/2024"
 categories: [ problem-solving ]
 ---
 
-Topological sorting is a linear ordering of nodes in a Directed Acyclic Graph (DAG) such that for every directed edge from node A to node B, node A appears before node B in the ordering.  This is a fundamental algorithm with applications in various fields, including scheduling tasks, resolving dependencies, and course scheduling.  This post will explore how to implement topological sorting in Python using two common approaches: Kahn's algorithm and Depth-First Search (DFS).
+Topological sorting is a linear ordering of nodes in a Directed Acyclic Graph (DAG) such that for every directed edge from node A to node B, node A appears before node B in the ordering.  This is a fundamental algorithm with applications in various fields, including scheduling tasks, resolving dependencies, and course scheduling.  This post will look at how to implement topological sorting in Python using two common approaches: Kahn's algorithm and Depth-First Search (DFS).
 
 
 ## Understanding Directed Acyclic Graphs
 
-Before diving into the algorithms, let's clarify what a DAG is.  A DAG is a directed graph with no directed cycles.  This means you can't follow a sequence of edges and end up back where you started.  This acyclicity is crucial for topological sorting;  it guarantees that a topological ordering exists.
+Before diving into the algorithms, let's clarify what a DAG is. A DAG is a directed graph with no directed cycles. This means you can't follow a sequence of edges and end up back where you started. This acyclicity guarantees that a topological ordering exists.
 
 
 ## Kahn's Algorithm

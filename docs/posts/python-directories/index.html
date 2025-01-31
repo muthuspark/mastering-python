@@ -202,7 +202,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python, being a versatile language, offers robust functionalities for interacting with your computer’s file system. A crucial part of this interaction involves understanding and manipulating directories (also known as folders). This post will look into the intricacies of working with directories in Python, providing clear explanations and practical code examples.</p>
+<p>Python, being a versatile language, offers functionalities for interacting with your computer’s file system. A part of this interaction involves understanding and manipulating directories (also known as folders). This post will look into the complexities of working with directories in Python, providing clear explanations and practical code examples.</p>
 <section id="navigating-the-file-system-with-os-and-os.path" class="level2">
 <h2 class="anchored" data-anchor-id="navigating-the-file-system-with-os-and-os.path">Navigating the File System with <code>os</code> and <code>os.path</code></h2>
 <p>The Python <code>os</code> module is your primary tool for interacting with the operating system, including file and directory management. Specifically, the <code>os.path</code> submodule offers a rich set of functions designed for path manipulation.</p>
@@ -256,17 +256,20 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Directory does not exist."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>7. Path Joining and Manipulation:</strong></p>
-<p><code>os.path.join()</code> is crucial for safely constructing file paths regardless of your operating system. It handles differences between Windows (<code>\</code> as path separator) and Unix-like systems (<code>/</code>).</p>
+<p><code>os.path.join()</code> safely constructs file paths regardless of your operating system. It handles differences between Windows (<code>\</code> as path separator) and Unix-like systems (<code>/</code>).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> os.path.join(<span class="st">"my_base_directory"</span>, <span class="st">"subdir"</span>, <span class="st">"my_file.txt"</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Constructed path: </span><span class="sc">{</span>path<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>These examples demonstrate the core functionalities of working with directories in Python. Mastering these techniques is essential for building robust and efficient file-handling applications. Remember always to handle potential errors (like <code>FileNotFoundError</code> or <code>PermissionError</code>) appropriately in your code.</p>
+<p>These examples demonstrate the core functionalities of working with directories in Python. Mastering these techniques is essential for building efficient file-handling applications. Remember always to handle potential errors (like <code>FileNotFoundError</code> or <code>PermissionError</code>) appropriately in your code.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

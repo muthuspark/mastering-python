@@ -4,11 +4,11 @@ date: "08/12/2024"
 categories: [ problem-solving ]
 ---
 
-The N-Queens puzzle is a classic combinatorial problem: place N chess queens on an N×N chessboard so that no two queens threaten each other.  This means no two queens can share the same row, column, or diagonal.  It's a great problem for illustrating backtracking algorithms.  Let's dive into a Python solution.
+The N-Queens puzzle is a classic combinatorial problem: place N chess queens on an N×N chessboard so that no two queens threaten each other. This means no two queens can share the same row, column, or diagonal. It's a great problem for illustrating backtracking algorithms. Let's explore a Python solution.
 
 ## Understanding the Backtracking Approach
 
-The core of our solution lies in backtracking.  We'll explore possible queen placements row by row.  If a placement is valid (doesn't conflict with existing queens), we continue to the next row. If a placement is invalid, we backtrack – undo the placement and try a different position in the current row.
+The core of our solution lies in backtracking.  We'll look at possible queen placements row by row.  If a placement is valid (doesn't conflict with existing queens), we continue to the next row. If a placement is invalid, we backtrack – undo the placement and try a different position in the current row.
 
 ## The Python Code
 
@@ -80,4 +80,4 @@ for i, solution in enumerate(solutions):
 * **`solve_nqueens(n)`:** This function initializes the board and calls the recursive utility function. It returns a list of all solutions.
 
 
-This implementation provides a clear and efficient way to tackle the N-Queens problem using Python and backtracking.  You can easily modify and experiment with this code to explore different aspects of the problem.  Remember that the number of solutions grows rapidly with `n`, so larger values of `n` will take significantly longer to compute.
+This implementation provides a clear and efficient way to tackle the N-Queens problem using Python and backtracking. You can easily modify and experiment with this code to look at different aspects of the problem. Remember that the number of solutions grows rapidly with `n`, so larger values of `n` will take longer to compute.

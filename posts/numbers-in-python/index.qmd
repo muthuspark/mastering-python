@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, a versatile and widely-used programming language, offers robust support for various numerical data types.  This post looks into the different ways Python handles numbers, exploring integers, floating-point numbers, and complex numbers, along with their practical applications and limitations.
+Python, a versatile and widely-used programming language, offers support for various numerical data types.  This post looks into the different ways Python handles numbers, exploring integers, floating-point numbers, and complex numbers, along with their practical applications and limitations.
 
 ## Integer Numbers (int)
 
@@ -77,7 +77,7 @@ print(type(w)) # Output: <class 'complex'>
 
 ```
 
-Understanding these conversions is crucial for avoiding unexpected behavior in your code.
+Understanding these conversions avoids unexpected behavior in your code.
 
 
 ## Number System Conversions
@@ -105,5 +105,5 @@ print(decimal_from_hex) #Output 255
 ```
 
 
-These functions facilitate working with numbers represented in different bases, which is particularly relevant in low-level programming or when dealing with data from external sources.
+These functions work with numbers represented in different bases, particularly relevant in low-level programming or when dealing with data from external sources.
 

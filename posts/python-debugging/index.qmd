@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Debugging is an inevitable part of programming.  No matter your skill level, you'll encounter bugs – those pesky errors that prevent your code from running correctly.  Fortunately, Python offers a robust set of tools and techniques to help you effectively debug your programs. This post will explore several common debugging methods, providing practical code examples to illustrate each approach.
+Debugging is an inevitable part of programming. No matter your skill level, you'll encounter bugs – those pesky errors that prevent your code from running correctly. Fortunately, Python offers a set of tools and techniques to help you effectively debug your programs. This post will look at many common debugging methods, providing practical code examples to illustrate each approach.
 
 ## The `print()` Statement: Your First Line of Defense
 
@@ -53,7 +53,7 @@ Once the debugger is activated, you'll have access to commands like:
 
 ## Using IDE Debuggers
 
-Most Integrated Development Environments (IDEs) like PyCharm, VS Code, and Thonny offer integrated debuggers with advanced features such as breakpoints, variable inspection, and call stack visualization.  These tools significantly streamline the debugging process, providing a more visual and intuitive experience.  Learning to use your IDE's debugger is highly recommended.
+Most Integrated Development Environments (IDEs) like PyCharm, VS Code, and Thonny offer integrated debuggers with advanced features such as breakpoints, variable inspection, and call stack visualization.  These tools streamline the debugging process, providing a more visual and intuitive experience.  Learning to use your IDE's debugger is highly recommended.
 
 
 ## Exception Handling with `try...except` Blocks

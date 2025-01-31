@@ -219,7 +219,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="implementing-a-queue-with-python-lists" class="level2">
 <h2 class="anchored" data-anchor-id="implementing-a-queue-with-python-lists">Implementing a Queue with Python Lists</h2>
-<p>We can leverage Python’s list methods to create a queue. Lists offer <code>append()</code> for adding elements to the end (enqueue) and <code>pop(0)</code> for removing elements from the beginning (dequeue).</p>
+<p>We can use Python’s list methods to create a queue. Lists offer <code>append()</code> for adding elements to the end (enqueue) and <code>pop(0)</code> for removing elements from the beginning (dequeue).</p>
 <p>Here’s a Python class implementing a queue using a list:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Queue:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
@@ -256,20 +256,23 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Front:"</span>, q.peek())  <span class="co"># Output: Front: 10</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Dequeued:"</span>, q.dequeue())  <span class="co"># Output: Dequeued: 10</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size after dequeue:"</span>, q.size()) <span class="co"># Output: Size after dequeue: 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This code defines a <code>Queue</code> class with methods for enqueue, dequeue, peek, checking emptiness, and getting the size. The <code>is_empty()</code> and <code>peek()</code> methods include error handling for attempting to operate on an empty queue. You can adapt this error handling to suit your specific needs (e.g., raising exceptions instead of returning <code>None</code>).</p>
+<p>This code defines a <code>Queue</code> class with methods for enqueue, dequeue, peek, checking emptiness, and getting the size. The <code>is_empty()</code> and <code>peek()</code> methods include error handling for attempting to operate on an empty queue. You can modify this error handling to suit your specific needs (e.g., raising exceptions instead of returning <code>None</code>).</p>
 </section>
 <section id="efficiency-considerations" class="level2">
 <h2 class="anchored" data-anchor-id="efficiency-considerations">Efficiency Considerations</h2>
-<p>While using a list is straightforward, it’s important to note that <code>pop(0)</code> on a list has a time complexity of O(n) because it requires shifting all subsequent elements. For large queues where frequent dequeues are expected, using the <code>collections.deque</code> object is a more efficient alternative, offering O(1) time complexity for both enqueue and dequeue operations. We will explore <code>collections.deque</code> in a future post.</p>
+<p>While using a list is straightforward, it’s important to note that <code>pop(0)</code> on a list has a time complexity of O(n) because it requires shifting all subsequent elements. For large queues where frequent dequeues are expected, using the <code>collections.deque</code> object is a more efficient alternative, offering O(1) time complexity for both enqueue and dequeue operations. We will look at <code>collections.deque</code> in a future post.</p>
 </section>
 <section id="beyond-the-basics" class="level2">
 <h2 class="anchored" data-anchor-id="beyond-the-basics">Beyond the Basics</h2>
-<p>This basic implementation provides a foundation for understanding queue operations. More sophisticated queue implementations might include features like bounded queues (limiting the maximum size), priority queues (elements are dequeued based on priority), and thread-safe queues (for concurrent access in multi-threaded environments).</p>
+<p>This basic implementation provides a foundation for understanding queue operations. More complex queue implementations might include features like bounded queues (limiting the maximum size), priority queues (elements are dequeued based on priority), and thread-safe queues (for concurrent access in multi-threaded environments).</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -75,5 +75,5 @@ This code first sorts the activities by their finish times. Then, it iterates th
 
 ## Optimizations and Considerations
 
-While this greedy approach is efficient (O(n log n) due to sorting),  it's crucial to understand that it only guarantees a solution; it doesn't necessarily find the absolute *best* solution for all possible variations of the problem.  For certain problem instances, other algorithms might yield a more optimal outcome. However, for the standard activity selection problem, the greedy approach is both efficient and effective.
+While this greedy approach is efficient (O(n log n) due to sorting), it only guarantees a solution; it doesn't necessarily find the absolute *best* solution for all possible variations of the problem.  For certain problem instances, other algorithms might yield a more optimal outcome. However, for the standard activity selection problem, the greedy approach is both efficient and effective.
 

@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python decorators are a powerful and expressive feature that allows you to modify or enhance functions and methods in a clean and readable way.  They provide a concise syntax for wrapping additional functionality around an existing function without modifying its core behavior. This blog post will explore decorators in detail, providing clear explanations and practical examples.
+Python decorators are a powerful and expressive feature that allows you to modify functions and methods in a clean and readable way.  They provide a concise syntax for wrapping additional functionality around an existing function without modifying its core behavior. This blog post will look at decorators in detail, providing clear explanations and practical examples.
 
 
 ## Understanding the Basics
@@ -82,7 +82,7 @@ This example shows how a decorator can modify the return value of the decorated 
 
 ##  Using `functools.wraps`
 
-When using decorators, it's crucial to preserve the metadata of the original function.  The `wraps` decorator from the `functools` module helps with this:
+When using decorators, it's important to preserve the metadata of the original function. The `wraps` decorator from the `functools` module helps with this:
 
 ```python
 from functools import wraps
@@ -119,5 +119,5 @@ Decorators are widely used in various scenarios, including:
 * **Input validation:**  Validate the input arguments of a function.
 
 
-By mastering Python decorators, you can write more efficient, reusable, and elegant code.  They offer a powerful mechanism to enhance your functions without cluttering your codebase.
+By mastering Python decorators, you can write more efficient, reusable, and elegant code. They offer a powerful mechanism to improve your functions without cluttering your codebase.
 

@@ -4,7 +4,7 @@ date: "11/27/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the kth smallest element in an unsorted array is a classic computer science problem with applications in various domains.  This blog post will explore efficient ways to solve this problem in Python, focusing on different approaches and their respective time complexities.
+Finding the kth smallest element in an unsorted array is a classic computer science problem with applications in various domains.  This blog post will look at efficient ways to solve this problem in Python, focusing on different approaches and their respective time complexities.
 
 ## Understanding the Problem
 
@@ -70,7 +70,7 @@ result = find_kth_smallest_heapq(arr, k)
 print(f"The {k}th smallest element is: {result}") # Output: 7
 ```
 
-This approach is more efficient than sorting when `k` is significantly smaller than `n`.
+This approach is more efficient than sorting when `k` is smaller than `n`.
 
 
 ## Approach 3: Quickselect (Average O(n) time)

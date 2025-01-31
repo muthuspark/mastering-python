@@ -17,7 +17,7 @@ Before diving into the code, let's clarify what we mean by "identical trees." Tw
 
 ## Recursive Approach
 
-The most intuitive and elegant method to compare trees is using recursion.  This approach leverages the self-similar nature of trees.
+The most intuitive and elegant method to compare trees is using recursion.  This approach uses the self-similar nature of trees.
 
 ```python
 class Node:

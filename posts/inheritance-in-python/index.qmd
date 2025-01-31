@@ -91,7 +91,7 @@ my_fish.swim() # Output: Swimming!
 
 ## The `super()` Function
 
-The `super()` function is crucial when working with inheritance, especially when you want to extend or modify methods from parent classes without completely rewriting them.
+The `super()` function is important when working with inheritance, especially when you want to extend or modify methods from parent classes without completely rewriting them.
 
 ```python
 class Bird:

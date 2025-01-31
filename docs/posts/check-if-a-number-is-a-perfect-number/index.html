@@ -233,7 +233,7 @@ window.Quarto = {
 
 
 
-<p>Perfect numbers are a fascinating topic in number theory. A perfect number is a positive integer that is equal to the sum of its proper divisors (excluding itself). For example, 6 is a perfect number because its divisors are 1, 2, and 3, and 1 + 2 + 3 = 6. This blog post will explore how to efficiently determine if a given number is a perfect number using Python.</p>
+<p>Perfect numbers are a fascinating topic in number theory. A perfect number is a positive integer that is equal to the sum of its proper divisors (excluding itself). For example, 6 is a perfect number because its divisors are 1, 2, and 3, and 1 + 2 + 3 = 6. This blog post will look at how to efficiently determine if a given number is a perfect number using Python.</p>
 <section id="understanding-perfect-numbers" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-perfect-numbers">Understanding Perfect Numbers</h2>
 <p>Before diving into the code, let’s solidify our understanding. A proper divisor of a number <code>n</code> is a positive divisor of <code>n</code> that is strictly less than <code>n</code>. To check if a number is perfect, we need to find all its proper divisors and sum them. If this sum equals the original number, then it’s a perfect number.</p>
@@ -292,12 +292,15 @@ window.Quarto = {
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Is 6 a perfect number? </span><span class="sc">{</span>is_perfect_number_efficient(<span class="dv">6</span>)<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># Output: True</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Is 28 a perfect number? </span><span class="sc">{</span>is_perfect_number_efficient(<span class="dv">28</span>)<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: True</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Is 10 a perfect number? </span><span class="sc">{</span>is_perfect_number_efficient(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This improved version has a time complexity of <span class="math inline">\(\mathcal{O}(\sqrt{n})\)</span>, making it significantly faster for larger numbers.</p>
+<p>This improved version has a time complexity of <span class="math inline">\(\mathcal{O}(\sqrt{n})\)</span>, making it faster for larger numbers.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python lists are versatile and powerful data structures.  Understanding list operations is fundamental to writing efficient and elegant Python code. This post dives deep into various list operations, providing clear explanations and practical code examples.
+Python lists are versatile and powerful data structures.  Understanding list operations is fundamental to writing efficient and elegant Python code. This post explores various list operations, providing clear explanations and practical code examples.
 
 
 ## Creating Lists

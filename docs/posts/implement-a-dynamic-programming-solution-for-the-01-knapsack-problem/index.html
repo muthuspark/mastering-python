@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 <p>The 0/1 Knapsack Problem is a classic optimization problem in computer science. Imagine you’re a thief with a knapsack of limited weight capacity, and you’re faced with a collection of items, each with a specific weight and value. Your goal? Maximize the total value of the items you can fit in your knapsack without exceeding its weight limit. This isn’t just a theoretical puzzle; it has real-world applications in resource allocation, logistics, and even finance.</p>
 <p>While brute-force approaches exist, they become computationally expensive very quickly as the number of items grows. That’s where dynamic programming shines. Dynamic programming breaks down the problem into smaller overlapping subproblems, solves them once, and stores the solutions to avoid redundant calculations. This drastically improves efficiency.</p>
-<p>Let’s dive into a Python implementation using dynamic programming.</p>
+<p>Let’s see a Python implementation using dynamic programming.</p>
 <section id="understanding-the-dynamic-programming-approach" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-dynamic-programming-approach">Understanding the Dynamic Programming Approach</h2>
 <p>The core idea is to create a table (typically a 2D array) where each cell <code>dp[i][w]</code> represents the maximum value that can be achieved using the first <code>i</code> items and a maximum weight capacity of <code>w</code>.</p>
@@ -253,12 +253,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> knapsack_dynamic_programming(capacity, weights, values)</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Maximum value: </span><span class="sc">{</span>max_value<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># Output: Maximum value: 220</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This code efficiently solves the 0/1 knapsack problem using dynamic programming. The <code>knapsack_dynamic_programming</code> function takes the knapsack capacity and lists of item weights and values as input and returns the maximum achievable value. The example usage demonstrates how to use the function. This approach avoids the exponential time complexity of brute-force methods, making it significantly faster for larger problem instances. Remember that this solution only provides the maximum value. To find which items were included to achieve that value, you would need to add some backtracking logic to the code.</p>
+<p>This code efficiently solves the 0/1 knapsack problem using dynamic programming. The <code>knapsack_dynamic_programming</code> function takes the knapsack capacity and lists of item weights and values as input and returns the maximum achievable value. The example usage demonstrates how to use the function. This approach avoids the exponential time complexity of brute-force methods, making it faster for larger problem instances. Remember that this solution only provides the maximum value. To find which items were included to achieve that value, you would need to add some backtracking logic to the code.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

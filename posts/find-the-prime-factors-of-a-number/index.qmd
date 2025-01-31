@@ -91,10 +91,10 @@ This recursive function repeatedly divides `n` by `i` until `n` becomes 1.  Each
 
 ## Handling Edge Cases
 
-Both methods effectively handle various inputs, including prime numbers and numbers with repeated factors.  Remember to add error handling (e.g., checking for non-positive inputs) for a more robust solution in production environments.
+Both methods effectively handle various inputs, including prime numbers and numbers with repeated factors.  Remember to add error handling (e.g., checking for non-positive inputs) for a more production-ready solution.
 
 
 ## Optimizations and Further Exploration
 
-For extremely large numbers, more advanced factorization algorithms like the Pollard rho algorithm or the general number field sieve could provide significant performance improvements.  You can explore these algorithms for further optimization.
+For extremely large numbers, more advanced factorization algorithms like the Pollard rho algorithm or the general number field sieve could provide significant performance improvements.  You can look at these algorithms for further optimization.
 

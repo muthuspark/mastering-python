@@ -114,5 +114,5 @@ Both the iterative and recursive approaches achieve the same result. The choice 
 
 ## Handling Duplicate Values
 
-The provided code finds only *one* instance of the target value.  If you need to find all occurrences of a value that appears multiple times, you'll need to modify the algorithm to scan left and right from the initial found index.  We will explore that in a future post.
+The provided code finds only *one* instance of the target value.  If you need to find all occurrences of a value that appears multiple times, you'll need to modify the algorithm to scan left and right from the initial found index.  We will look at that in a future post.
 

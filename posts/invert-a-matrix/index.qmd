@@ -4,7 +4,7 @@ date: "09/03/2024"
 categories: [ problem-solving ]
 ---
 
-Matrix inversion is a fundamental operation in linear algebra with applications spanning diverse fields like computer graphics, machine learning, and physics.  This post will delve into how to efficiently invert matrices in Python, exploring different approaches and highlighting their strengths and weaknesses.
+Matrix inversion is a fundamental operation in linear algebra with applications spanning various fields like computer graphics, machine learning, and physics.  This post will show how to efficiently invert matrices in Python, exploring different approaches and highlighting their strengths and weaknesses.
 
 ## Why Invert a Matrix?
 
@@ -12,7 +12,7 @@ Before diving into the code, let's briefly understand the significance of matrix
 
 A * A⁻¹ = A⁻¹ * A = I
 
-where 'I' is the identity matrix.  The inverse allows us to solve systems of linear equations (Ax = b  => x = A⁻¹b), find matrix determinants, and perform other crucial linear algebra manipulations.
+where 'I' is the identity matrix. The inverse allows us to solve systems of linear equations (Ax = b => x = A⁻¹b), find matrix determinants, and perform other linear algebra manipulations.
 
 ## Method 1: Using NumPy's `linalg.inv()`
 
@@ -42,12 +42,12 @@ This code snippet first defines a 2x2 matrix `A`.  `np.linalg.inv()` then comput
 
 While `np.linalg.inv()` is the practical choice, understanding the underlying algorithms is beneficial. Gaussian elimination is a fundamental technique for solving systems of linear equations and can be adapted for matrix inversion.  However, it's computationally less efficient than NumPy's optimized implementation.
 
-Implementing Gaussian elimination for matrix inversion requires significantly more code and is prone to errors if not carefully implemented.  It's best suited for educational purposes to understand the process, rather than for practical applications.  (A detailed implementation of Gaussian elimination for matrix inversion is beyond the scope of this concise blog post but can be found in many linear algebra textbooks and online resources).
+Implementing Gaussian elimination for matrix inversion requires more code and is prone to errors if not carefully implemented. It's best suited for educational purposes to understand the process, rather than for practical applications. (A detailed implementation of Gaussian elimination for matrix inversion is beyond the scope of this concise blog post but can be found in many linear algebra textbooks and online resources).
 
 
 ## Handling Singular Matrices
 
-A singular matrix (also called a degenerate matrix) does not have an inverse. Attempting to invert a singular matrix using `np.linalg.inv()` will raise a `numpy.linalg.LinAlgError`.  It's crucial to check for singularity before attempting inversion.  One way to check is to calculate the determinant. A singular matrix has a determinant of zero.
+A singular matrix (also called a degenerate matrix) does not have an inverse. Attempting to invert a singular matrix using `np.linalg.inv()` will raise a `numpy.linalg.LinAlgError`.  It's important to check for singularity before attempting inversion. One way to check is to calculate the determinant. A singular matrix has a determinant of zero.
 
 ```python
 import numpy as np

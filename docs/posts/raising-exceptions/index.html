@@ -264,7 +264,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    process_file(<span class="st">"nonexistent_file.txt"</span>)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">FileNotFoundError</span> <span class="im">as</span> e:</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"An error occurred: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this improved <code>process_file</code> function, if a <code>FileNotFoundError</code> occurs, a more informative exception is raised, including the filename. The <code>from e</code> clause helps preserve the original traceback, facilitating debugging.</p>
+<p>In this improved <code>process_file</code> function, if a <code>FileNotFoundError</code> occurs, a more informative exception is raised, including the filename. The <code>from e</code> clause helps preserve the original traceback, aiding debugging.</p>
 </section>
 <section id="re-raising-exceptions" class="level2">
 <h2 class="anchored" data-anchor-id="re-raising-exceptions">Re-raising Exceptions</h2>
@@ -280,12 +280,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="choosing-the-right-exception" class="level2">
 <h2 class="anchored" data-anchor-id="choosing-the-right-exception">Choosing the Right Exception</h2>
-<p>Selecting the appropriate exception type is critical. Using built-in exceptions where suitable avoids unnecessary custom exception classes and improves code clarity. Ensure that the exception message clearly communicates the error’s nature. Avoid overly generic exceptions like <code>Exception</code> unless absolutely necessary, as more specific exceptions enhance debugging and error handling.</p>
+<p>Selecting the appropriate exception type is critical. Using built-in exceptions where suitable avoids unnecessary custom exception classes and improves code clarity. Ensure that the exception message clearly communicates the error’s nature. Avoid overly generic exceptions like <code>Exception</code> unless absolutely necessary, as more specific exceptions improve debugging and error handling.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

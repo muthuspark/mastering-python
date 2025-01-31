@@ -102,7 +102,7 @@ print(f"Minimum jumps for {arr4}: {min_jumps_greedy(arr4)}") #Output: -1
 print(f"Minimum jumps for {arr5}: {min_jumps_greedy(arr5)}") #Output: -1
 ```
 
-The greedy approach has a time complexity of O(n), making it significantly faster than the dynamic programming solution for larger arrays.  It iterates through the array only once, updating the reachable indices efficiently.
+The greedy approach has a time complexity of O(n), making it faster than the dynamic programming solution for larger arrays. It iterates through the array only once, updating the reachable indices efficiently.
 
 
 ## Choosing the Right Approach

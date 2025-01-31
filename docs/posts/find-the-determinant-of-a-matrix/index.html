@@ -206,7 +206,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding the determinant of a matrix is a fundamental operation in linear algebra with applications across diverse fields like physics, engineering, and computer graphics. Python, with its powerful libraries like NumPy, makes this calculation remarkably straightforward. This post will explore several methods for computing matrix determinants in Python, catering to different matrix sizes and levels of expertise.</p>
+<p>Finding the determinant of a matrix is a fundamental operation in linear algebra with applications across various fields like physics, engineering, and computer graphics. Python, with its powerful libraries like NumPy, makes this calculation remarkably straightforward. This post will look at many methods for computing matrix determinants in Python, catering to different matrix sizes and levels of expertise.</p>
 <section id="understanding-determinants" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-determinants">Understanding Determinants</h2>
 <p>Before diving into the Python code, let’s briefly revisit what a determinant is. The determinant of a square matrix (a matrix with the same number of rows and columns) is a single number that encodes certain properties of the linear transformation described by the matrix. For a 2x2 matrix:</p>
@@ -244,7 +244,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>matrix_2x2 <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>det_2x2 <span class="op">=</span> determinant_2x2(matrix_2x2)</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Determinant of 2x2 matrix: </span><span class="sc">{</span>det_2x2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>3x3 Matrix (and beyond):</strong> Manual calculation for larger matrices becomes significantly more involved and is generally not recommended for practical applications due to its inefficiency compared to NumPy’s optimized functions. It would involve cofactor expansion and recursive calls.</p>
+<p><strong>3x3 Matrix (and beyond):</strong> Manual calculation for larger matrices becomes more involved and is generally not recommended for practical applications due to its inefficiency compared to NumPy’s optimized functions. It would involve cofactor expansion and recursive calls.</p>
 </section>
 <section id="handling-singular-matrices" class="level2">
 <h2 class="anchored" data-anchor-id="handling-singular-matrices">Handling Singular Matrices</h2>
@@ -258,6 +258,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

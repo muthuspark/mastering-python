@@ -120,5 +120,5 @@ Polymorphism allows objects of different classes to respond to the same method c
 
 ##  Further Exploration
 
-This covers the basics of Python classes.  More advanced topics include abstract classes, metaclasses, and decorators, which can significantly enhance your object-oriented programming capabilities in Python.  Exploring these concepts will further refine your understanding and ability to create robust and elegant Python applications.
+This covers the basics of Python classes. More advanced topics include abstract classes, metaclasses, and decorators, which can enhance your object-oriented programming capabilities in Python. Exploring these concepts will further refine your understanding and ability to create elegant Python applications.
 

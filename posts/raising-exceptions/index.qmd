@@ -77,7 +77,7 @@ except FileNotFoundError as e:
     print(f"An error occurred: {e}")
 ```
 
-In this improved `process_file` function, if a `FileNotFoundError` occurs, a more informative exception is raised, including the filename. The `from e` clause helps preserve the original traceback, facilitating debugging.
+In this improved `process_file` function, if a `FileNotFoundError` occurs, a more informative exception is raised, including the filename. The `from e` clause helps preserve the original traceback, aiding debugging.
 
 
 ## Re-raising Exceptions
@@ -99,5 +99,5 @@ This allows you to perform actions such as logging the error before passing it f
 
 ## Choosing the Right Exception
 
-Selecting the appropriate exception type is critical. Using built-in exceptions where suitable avoids unnecessary custom exception classes and improves code clarity.  Ensure that the exception message clearly communicates the error's nature.  Avoid overly generic exceptions like `Exception` unless absolutely necessary, as more specific exceptions enhance debugging and error handling.
+Selecting the appropriate exception type is critical. Using built-in exceptions where suitable avoids unnecessary custom exception classes and improves code clarity. Ensure that the exception message clearly communicates the error's nature. Avoid overly generic exceptions like `Exception` unless absolutely necessary, as more specific exceptions improve debugging and error handling.
 

@@ -4,7 +4,7 @@ date: "07/27/2024"
 categories: [ problem-solving ]
 ---
 
-The Lowest Common Ancestor (LCA) of two nodes in a binary tree is the lowest node that has both nodes as descendants.  This is a fundamental problem in tree algorithms with applications in file systems, version control systems, and phylogenetic analysis.  This post will explore efficient ways to solve the LCA problem in Python, focusing on different approaches and their complexities.
+The Lowest Common Ancestor (LCA) of two nodes in a binary tree is the lowest node that has both nodes as descendants.  This is a fundamental problem in tree algorithms with applications in file systems, version control systems, and phylogenetic analysis.  This post will look at efficient ways to solve the LCA problem in Python, focusing on different approaches and their complexities.
 
 
 ## Understanding the Problem

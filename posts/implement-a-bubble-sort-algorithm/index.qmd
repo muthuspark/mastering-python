@@ -4,7 +4,7 @@ date: "05/14/2024"
 categories: [ problem-solving ]
 ---
 
-Bubble Sort is one of the simplest sorting algorithms.  While not efficient for large datasets, understanding its mechanics is crucial for learning more advanced sorting techniques.  This post will guide you through implementing Bubble Sort in Python, explaining the code step-by-step.
+Bubble Sort is one of the simplest sorting algorithms. While not efficient for large datasets, understanding its mechanics is important for learning more advanced sorting techniques. This post will guide you through implementing Bubble Sort in Python, explaining the code step-by-step.
 
 
 ## Understanding Bubble Sort
@@ -61,7 +61,7 @@ def bubble_sort_optimized(list_):
     return list_
 ```
 
-This optimized version can significantly improve performance on partially sorted or already sorted lists.
+This optimized version can improve performance on partially sorted or already sorted lists.
 
 
 ## Time and Space Complexity

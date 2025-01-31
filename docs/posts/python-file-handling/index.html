@@ -218,7 +218,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <li><code>"b"</code>: Binary mode (for non-text files)</li>
 <li><code>"t"</code>: Text mode (default)</li>
 </ul>
-<p>It’s crucial to always close files using <code>close()</code> to ensure data is properly written and resources are released. However, using <code>with open(...) as f:</code> is the preferred method as it automatically handles closing the file, even if errors occur.</p>
+<p>It’s important to always close files using <code>close()</code> to ensure data is properly written and resources are released. However, using <code>with open(...) as f:</code> is the preferred method as it automatically handles closing the file, even if errors occur.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">"my_file.txt"</span>, <span class="st">"r"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        contents <span class="op">=</span> <span class="bu">file</span>.read()</span>
@@ -242,7 +242,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="reading-files" class="level2">
 <h2 class="anchored" data-anchor-id="reading-files">Reading Files</h2>
-<p>Python provides several ways to read file contents:</p>
+<p>Python provides many ways to read file contents:</p>
 <ul>
 <li><code>read()</code>: Reads the entire file into a single string.</li>
 <li><code>readline()</code>: Reads a single line from the file.</li>
@@ -321,6 +321,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

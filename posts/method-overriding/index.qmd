@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Method overriding is a powerful concept in object-oriented programming (OOP) that allows a subclass to provide a specific implementation for a method that is already defined in its superclass.  This enables you to customize the behavior of inherited methods without altering the superclass's code.  This guide will explore method overriding in Python with clear explanations and practical examples.
+Method overriding is a powerful concept in object-oriented programming (OOP) that allows a subclass to provide a specific implementation for a method that is already defined in its superclass.  This enables you to customize the behavior of inherited methods without altering the superclass's code.  This guide will look at method overriding in Python with clear explanations and practical examples.
 
 
 ## Understanding the Basics
@@ -80,10 +80,10 @@ This code demonstrates polymorphism.  Despite the list containing objects of dif
 
 ##  Important Considerations
 
-Remember that the overridden method in the subclass must have the same signature (name and parameters) as the method in the superclass. Otherwise, you'll be creating a new method, not overriding an existing one.  Careful consideration of method signatures is crucial for correct overriding behavior.
+Remember that the overridden method in the subclass must have the same signature (name and parameters) as the method in the superclass. Otherwise, you'll be creating a new method, not overriding an existing one.  Careful consideration of method signatures is important for correct overriding behavior.
 
 
 ##  Beyond Simple Examples: Real-World Applications
 
-Method overriding finds extensive use in building robust and flexible applications.  Consider scenarios like handling different data types, implementing customized user interfaces, or creating flexible algorithms adaptable to various contexts.  The power of method overriding lies in its ability to tailor behavior without modifying existing code, promoting maintainability and extensibility.
+Method overriding finds extensive use in building and flexible applications.  Consider scenarios like handling different data types, implementing customized user interfaces, or creating flexible algorithms adaptable to various contexts.  The power of method overriding lies in its ability to tailor behavior without modifying existing code, promoting maintainability and extensibility.
 

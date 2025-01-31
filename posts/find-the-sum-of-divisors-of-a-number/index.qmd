@@ -4,7 +4,7 @@ date: "09/04/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the sum of divisors of a number is a fundamental problem in number theory with applications in various areas of computer science and mathematics.  This post will explore different approaches to solving this problem in Python, ranging from simple brute-force methods to more efficient algorithms.  We'll examine the code, explain the logic, and analyze the time complexity of each approach.
+Finding the sum of divisors of a number is a fundamental problem in number theory with applications in various areas of computer science and mathematics.  This post will look at different approaches to solving this problem in Python, ranging from simple brute-force methods to more efficient algorithms.  We'll examine the code, explain the logic, and analyze the time complexity of each approach.
 
 ## Method 1: Brute-Force Approach
 
@@ -76,5 +76,5 @@ This optimized version has a time complexity of O(√n), a significant improveme
 
 ## Method 3: Using Prime Factorization (Advanced)
 
-For even greater efficiency, especially with very large numbers, prime factorization can be employed.  This method involves finding the prime factors of the number and using their exponents to calculate the sum of divisors.  However, this approach requires a separate algorithm for prime factorization, which can be computationally intensive for extremely large numbers.  We won't delve into the implementation details here as it's beyond the scope of this introductory post, but it's worth noting as a highly efficient solution for advanced scenarios.
+For even greater efficiency, especially with very large numbers, prime factorization can be employed.  This method involves finding the prime factors of the number and using their exponents to calculate the sum of divisors.  However, this approach requires a separate algorithm for prime factorization, which can be computationally intensive for extremely large numbers.  We won't look at the implementation details here as it's beyond the scope of this introductory post, but it's worth noting as a highly efficient solution for advanced scenarios.
 

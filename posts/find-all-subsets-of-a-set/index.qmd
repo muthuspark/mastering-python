@@ -4,7 +4,7 @@ date: "06/27/2024"
 categories: [ problem-solving ]
 ---
 
-Finding all subsets (or power set) of a given set is a fundamental problem in computer science with applications in various domains, from combinatorics to database queries.  Python offers elegant ways to achieve this, leveraging its built-in data structures and functional programming capabilities. This post will explore different methods to efficiently generate all subsets of a set in Python.
+Finding all subsets (or power set) of a given set is a fundamental problem in computer science with applications in various domains, from combinatorics to database queries.  Python offers elegant ways to achieve this, leveraging its built-in data structures and functional programming capabilities. This post will look at different methods to efficiently generate all subsets of a set in Python.
 
 
 ## Method 1: Iterative Approach using Bit Manipulation

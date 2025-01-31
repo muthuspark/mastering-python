@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python's lambda functions, also known as anonymous functions, offer a concise way to create small, single-expression functions without the need for the standard `def` keyword.  They're incredibly useful for short, simple operations where defining a full function might be overkill. This post will explore their syntax, usage, and practical applications with clear code examples.
+Python's lambda functions, also known as anonymous functions, offer a concise way to create small, single-expression functions without the need for the standard `def` keyword.  They're incredibly useful for short, simple operations where defining a full function might be overkill. This post will look at their syntax, usage, and practical applications with clear code examples.
 
 ## Understanding Lambda Function Syntax
 

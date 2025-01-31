@@ -112,5 +112,5 @@ print(squares) # Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ##  Methods for Dictionary Manipulation
 
 
-Python offers a rich set of built-in methods for manipulating dictionaries, enhancing their flexibility and utility.  Exploring these methods will allow for more sophisticated dictionary operations.  Further exploration of methods like `update()`, `clear()`, and others is highly recommended.
+Python offers a rich set of built-in methods for manipulating dictionaries, enhancing their flexibility and utility.  Exploring these methods will allow for more complex dictionary operations.  Further exploration of methods like `update()`, `clear()`, and others is highly recommended.
 

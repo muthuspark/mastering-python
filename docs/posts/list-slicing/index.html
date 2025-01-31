@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>List slicing is a powerful technique in Python that allows you to extract portions of a list, creating new lists without modifying the original. It’s a fundamental skill for any Python programmer, offering efficiency and readability in your code. This post will explore list slicing in detail, providing clear explanations and practical examples.</p>
+<p>List slicing is a powerful technique in Python that allows you to extract portions of a list, creating new lists without modifying the original. It’s a fundamental skill for any Python programmer, offering efficiency and readability in your code. This post will look at list slicing in detail, providing clear explanations and practical examples.</p>
 <section id="the-basics-of-list-slicing" class="level2">
 <h2 class="anchored" data-anchor-id="the-basics-of-list-slicing">The Basics of List Slicing</h2>
 <p>The general syntax for list slicing is:</p>
@@ -246,7 +246,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="slicing-and-immutability" class="level2">
 <h2 class="anchored" data-anchor-id="slicing-and-immutability">Slicing and Immutability</h2>
-<p>It’s crucial to remember that slicing creates a <em>copy</em> of the portion of the list. Modifying the sliced list does not affect the original list.</p>
+<p>Remember that slicing creates a <em>copy</em> of the portion of the list. Modifying the sliced list does not affect the original list.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sliced_list <span class="op">=</span> my_list[<span class="dv">1</span>:<span class="dv">4</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sliced_list[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">99</span>  <span class="co"># Modify the sliced list</span></span>
@@ -260,12 +260,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>even_numbers <span class="op">=</span> [num <span class="cf">for</span> num <span class="kw">in</span> numbers <span class="cf">if</span> num <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Even Numbers: </span><span class="sc">{</span>even_numbers<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: Even Numbers: [2, 4, 6, 8, 10]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This offers a glimpse into the versatility and power of list slicing in Python. By mastering these techniques, you’ll significantly enhance your ability to work efficiently with lists.</p>
+<p>This offers a glimpse into the versatility and power of list slicing in Python. By mastering these techniques, you’ll improve your ability to work efficiently with lists.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding the kth smallest element in an unsorted array is a classic computer science problem with applications in various domains. This blog post will explore efficient ways to solve this problem in Python, focusing on different approaches and their respective time complexities.</p>
+<p>Finding the kth smallest element in an unsorted array is a classic computer science problem with applications in various domains. This blog post will look at efficient ways to solve this problem in Python, focusing on different approaches and their respective time complexities.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>The problem statement is straightforward: given an unsorted array of numbers and an integer <code>k</code>, find the kth smallest element within that array. For example, if the array is <code>[7, 10, 4, 3, 20, 15]</code> and <code>k</code> is 3, the kth smallest element is 7 (after sorting: <code>[4, 7, 10, 15, 20]</code>).</p>
@@ -261,7 +261,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> find_kth_smallest_heapq(arr, k)</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">th smallest element is: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: 7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This approach is more efficient than sorting when <code>k</code> is significantly smaller than <code>n</code>.</p>
+<p>This approach is more efficient than sorting when <code>k</code> is smaller than <code>n</code>.</p>
 </section>
 <section id="approach-3-quickselect-average-on-time" class="level2">
 <h2 class="anchored" data-anchor-id="approach-3-quickselect-average-on-time">Approach 3: Quickselect (Average O(n) time)</h2>
@@ -318,6 +318,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

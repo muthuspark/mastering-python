@@ -53,7 +53,7 @@ print(f"Coin distribution: {distribution}")
 ##  Approach 3: Dynamic Programming (for more complex scenarios)
 
 
-For significantly more complex scenarios with many coins, constraints, and optimization goals (e.g., minimizing the difference in total coin value between people), dynamic programming might be necessary.  This is beyond the scope of a simple blog post, but it's worth mentioning as a more advanced solution for intricate distribution problems.
+For more complex scenarios with many coins, constraints, and optimization goals (e.g., minimizing the difference in total coin value between people), dynamic programming might be necessary. This is beyond the scope of a simple blog post, but it's worth mentioning as a more advanced solution.
 
 
 ##  Optimizations and Considerations

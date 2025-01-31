@@ -4,7 +4,7 @@ date: "06/26/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the longest common subsequence (LCS) is a classic computer science problem with applications in various fields, including bioinformatics (comparing DNA sequences), version control systems (identifying changes between files), and spell checking.  This post will explore how to efficiently solve this problem in Python using dynamic programming.
+Finding the longest common subsequence (LCS) is a classic computer science problem with applications in various fields, including bioinformatics (comparing DNA sequences), version control systems (identifying changes between files), and spell checking.  This post will look at how to efficiently solve this problem in Python using dynamic programming.
 
 ## Understanding the Problem
 
@@ -95,7 +95,7 @@ print_lcs(stringA,stringB) #Output: LCS is: GTAB
 
 ```
 
-This code efficiently calculates the length of the LCS and demonstrates how to extract the LCS itself.  The dynamic programming approach ensures a time complexity of O(m*n), where 'm' and 'n' are the lengths of the input strings.  This is significantly more efficient than brute-force approaches.
+This code efficiently calculates the length of the LCS and demonstrates how to extract the LCS itself. The dynamic programming approach ensures a time complexity of O(m*n), where 'm' and 'n' are the lengths of the input strings. This is more efficient than brute-force approaches.
 
 ## Optimizations
 

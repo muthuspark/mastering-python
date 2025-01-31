@@ -6,7 +6,7 @@ categories: [ problem-solving ]
 
 The Traveling Salesman Problem (TSP) is a classic optimization problem: given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?  It's notoriously difficult to solve optimally for large numbers of cities, as the number of possible routes grows factorially. However, dynamic programming offers a way to find the optimal solution, albeit with significant computational cost for larger problem instances.
 
-This blog post will explore how to solve the TSP using dynamic programming in Python.  We'll focus on understanding the underlying algorithm and providing a practical implementation.
+This blog post will look at how to solve the TSP using dynamic programming in Python.  We'll focus on understanding the underlying algorithm and providing a practical implementation.
 
 
 ## Understanding the Dynamic Programming Approach

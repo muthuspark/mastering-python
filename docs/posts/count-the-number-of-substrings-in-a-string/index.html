@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Counting substrings within a larger string is a common task in programming, particularly useful in text analysis, data processing, and algorithm design. Python offers several approaches to accomplish this, each with its own strengths and weaknesses. This blog post explores efficient methods to count substrings in Python, providing clear explanations and code examples to help you choose the best solution for your needs.</p>
+<p>Counting substrings within a larger string is a common task in programming, particularly useful in text analysis, data processing, and algorithm design. Python offers many approaches to accomplish this, each with its own strengths and weaknesses. This blog post explores efficient methods to count substrings in Python, providing clear explanations and code examples to help you choose the best solution for your needs.</p>
 <section id="method-1-brute-force-approach-nested-loops" class="level2">
 <h2 class="anchored" data-anchor-id="method-1-brute-force-approach-nested-loops">Method 1: Brute-Force Approach (Nested Loops)</h2>
 <p>The most straightforward approach involves nested loops. The outer loop iterates through each character as a potential starting point for a substring, while the inner loop builds and compares substrings of increasing length. This method is simple to understand but can be computationally expensive for large strings.</p>
@@ -236,7 +236,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="method-2-using-the-count-method" class="level2">
 <h2 class="anchored" data-anchor-id="method-2-using-the-count-method">Method 2: Using the <code>count()</code> method</h2>
-<p>Python’s built-in <code>count()</code> string method provides a more concise and efficient solution for counting non-overlapping substrings. This method is significantly faster than the brute-force approach, especially for larger strings.</p>
+<p>Python’s built-in <code>count()</code> string method provides a more concise and efficient solution for counting non-overlapping substrings. This method is faster than the brute-force approach, especially for larger strings.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_substrings_count_method(string, substring):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Counts occurrences of a substring using the built-in count() method.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -257,7 +257,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="method-3-handling-overlapping-substrings-more-complex-scenarios" class="level2">
 <h2 class="anchored" data-anchor-id="method-3-handling-overlapping-substrings-more-complex-scenarios">Method 3: Handling Overlapping Substrings (More Complex Scenarios)</h2>
-<p>The previous methods don’t handle overlapping substrings. For instance, counting “aba” in “ababa” would only return 1 using <code>count()</code>, even though “aba” appears twice. A more sophisticated approach is needed for such cases. This often involves a sliding window technique.</p>
+<p>The previous methods don’t handle overlapping substrings. For instance, counting “aba” in “ababa” would only return 1 using <code>count()</code>, even though “aba” appears twice. A more complex approach is needed for such cases. This often involves a sliding window technique.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_overlapping_substrings(string, substring):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Counts overlapping occurrences of a substring.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -293,6 +293,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

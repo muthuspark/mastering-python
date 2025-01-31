@@ -4,7 +4,7 @@ date: "09/23/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the intersection point of two linked lists is a classic interview question that tests your understanding of linked list manipulation and algorithm design.  This post will explore efficient ways to solve this problem in Python, along with detailed code examples and explanations.
+Finding the intersection point of two linked lists is a classic interview question that tests your understanding of linked list manipulation and algorithm design.  This post will look at efficient ways to solve this problem in Python, along with detailed code examples and explanations.
 
 ## Understanding the Problem
 
@@ -50,7 +50,7 @@ print(f"Intersection node (Brute Force): {intersection_node}") # Output: 3
 
 ## Hash Table Approach
 
-A more efficient solution involves using a hash table (dictionary in Python). We iterate through the first list, storing each node's address (memory location) as a key in the hash table. Then, we iterate through the second list, checking if each node's address is present in the hash table. If found, that node is the intersection point.  This approach boasts a time complexity of O(m + n), significantly faster than the brute force method.
+A more efficient solution involves using a hash table (dictionary in Python). We iterate through the first list, storing each node's address (memory location) as a key in the hash table. Then, we iterate through the second list, checking if each node's address is present in the hash table. If found, that node is the intersection point. This approach boasts a time complexity of O(m + n), faster than the brute force method.
 
 
 ```python
@@ -86,5 +86,5 @@ print(f"Intersection node (Hash Table): {intersection_node}") # Output: 3
 
 This method is arguably the most elegant and efficient.  We first calculate the lengths of both lists.  Then, we iterate through the longer list until we reach a point where the remaining length is equal to the shorter list's length. From there, we iterate both lists simultaneously until we find the intersection point, or reach the end of both lists. This also achieves O(m + n) time complexity but uses less space than the hash table approach.  We leave the implementation of this optimized approach as an exercise for the reader, encouraging you to try it out as a challenge.  Consider how to handle cases where one or both lists are empty.
 
-Implementing the two pointer approach will provide you with a deeper understanding of this problem. Remember to carefully handle edge cases for a robust solution.
+Implementing the two pointer approach will provide you with a deeper understanding of this problem. Remember to carefully handle edge cases for a solution.
 

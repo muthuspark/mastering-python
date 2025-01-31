@@ -4,7 +4,7 @@ date: "03/03/2024"
 categories: [ problem-solving ]
 ---
 
-Graphs are fundamental data structures used to represent relationships between objects.  Many algorithms rely on understanding the structure of a graph, and a crucial aspect of this understanding is determining whether a graph contains cycles—a closed path where you can start and end at the same node by traversing edges. This blog post explores how to detect cycles in graphs using Python, focusing on different graph representations and algorithms.
+Graphs are fundamental data structures used to represent relationships between objects.  Many algorithms rely on understanding the structure of a graph, and an aspect of this understanding is determining whether a graph contains cycles—a closed path where you can start and end at the same node by traversing edges. This blog post explores how to detect cycles in graphs using Python, focusing on different graph representations and algorithms.
 
 ## Understanding Graph Representations
 
@@ -17,7 +17,7 @@ Before diving into cycle detection algorithms, it's important to understand how 
 
 ## Cycle Detection Algorithms
 
-Several algorithms can effectively detect cycles in graphs.  We'll explore two popular methods:
+Several algorithms can effectively detect cycles in graphs.  We'll look at two popular methods:
 
 ### 1. Depth-First Search (DFS)
 

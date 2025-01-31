@@ -4,7 +4,7 @@ date: "10/05/2024"
 categories: [ problem-solving ]
 ---
 
-Validating parentheses is a classic computer science problem with applications in various areas, from compiler design to evaluating mathematical expressions.  This post will explore how to efficiently check if a given string containing parentheses (`()`, `[]`, `{}`) is valid in Python.  A valid string means that all opening parentheses have corresponding closing parentheses of the same type, and they are nested correctly.
+Validating parentheses is a classic computer science problem with applications in various areas, from compiler design to evaluating mathematical expressions.  This post will look at how to efficiently check if a given string containing parentheses (`()`, `[]`, `{}`) is valid in Python.  A valid string means that all opening parentheses have corresponding closing parentheses of the same type, and they are nested correctly.
 
 ## Understanding the Problem
 
@@ -57,12 +57,12 @@ print(is_valid_parentheses("(()")) #False
 
 ```
 
-This code uses a dictionary `mapping` to efficiently check for matching parenthesis pairs. The `else` block handles opening parentheses by pushing them onto the stack. The `if` block handles closing parentheses, performing the crucial matching and stack manipulation. The final `return not stack` cleverly checks for the empty stack condition, indicating a valid string.
+This code uses a dictionary `mapping` to efficiently check for matching parenthesis pairs. The `else` block handles opening parentheses by pushing them onto the stack. The `if` block handles closing parentheses, performing matching and stack manipulation. The final `return not stack` cleverly checks for the empty stack condition, indicating a valid string.
 
 
 ## Handling Edge Cases
 
-The code above efficiently handles several edge cases:
+The code above efficiently handles many edge cases:
 
 * **Empty String:** An empty string is considered valid because it contains no unmatched parentheses.
 * **Mismatched Parentheses:** The code correctly identifies strings with mismatched parenthesis types (e.g., `(]`).
@@ -71,5 +71,5 @@ The code above efficiently handles several edge cases:
 
 ## Time and Space Complexity
 
-The time complexity of this solution is O(n), where n is the length of the input string, because we iterate through the string once. The space complexity is also O(n) in the worst case, as the stack could potentially store all opening parentheses if they are deeply nested.  However, in many practical scenarios, the space used will be significantly less than O(n).
+The time complexity of this solution is O(n), where n is the length of the input string, because we iterate through the string once. The space complexity is also O(n) in the worst case, as the stack could potentially store all opening parentheses if they are deeply nested. However, in many practical scenarios, the space used will be less than O(n).
 

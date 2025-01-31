@@ -207,7 +207,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Level-order traversal, also known as breadth-first traversal, is a fundamental algorithm for exploring tree structures. Unlike depth-first traversals (pre-order, in-order, post-order), level-order visits nodes level by level, starting from the root and proceeding to the next level only after all nodes at the current level have been processed. This approach is incredibly useful in various applications, including finding the shortest path in a tree or visualizing tree structures. This post will delve into how to implement level-order traversal of a binary tree in Python, providing clear explanations and code examples.</p>
+<p>Level-order traversal, also known as breadth-first traversal, is a fundamental algorithm for exploring tree structures. Unlike depth-first traversals (pre-order, in-order, post-order), level-order visits nodes level by level, starting from the root and proceeding to the next level only after all nodes at the current level have been processed. This approach is incredibly useful in various applications, including finding the shortest path in a tree or visualizing tree structures. This post will implement level-order traversal of a binary tree in Python, providing clear explanations and code examples.</p>
 <section id="understanding-binary-trees-and-level-order-traversal" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-binary-trees-and-level-order-traversal">Understanding Binary Trees and Level-Order Traversal</h2>
 <p>A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child. Level-order traversal systematically visits each node, ensuring that all nodes at a given depth are visited before moving to the next deeper level. This is achieved using a queue data structure.</p>
@@ -265,7 +265,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="handling-empty-trees-and-null-children" class="level2">
 <h2 class="anchored" data-anchor-id="handling-empty-trees-and-null-children">Handling Empty Trees and Null Children</h2>
-<p>The code includes a check for an empty tree (<code>if root is None</code>). It also handles cases where a node might have only one child or no children by conditionally enqueueing left and right children. This robustness is crucial for handling various tree configurations.</p>
+<p>The code includes a check for an empty tree (<code>if root is None</code>). It also handles cases where a node might have only one child or no children by conditionally enqueueing left and right children. This robustness is for handling various tree configurations.</p>
 </section>
 <section id="using-the-collections.deque-for-improved-efficiency" class="level2">
 <h2 class="anchored" data-anchor-id="using-the-collections.deque-for-improved-efficiency">Using the <code>collections.deque</code> for improved efficiency</h2>
@@ -291,7 +291,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            nodes.append(curr.right)</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage (same as before, just replace levelOrder with levelOrderDeque)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This version leverages the optimized queue operations of <code>deque</code>, making it a more efficient solution for larger datasets.</p>
+<p>This version uses the optimized queue operations of <code>deque</code>, making it a more efficient solution for larger datasets.</p>
 </section>
 <section id="further-enhancements-and-applications" class="level2">
 <h2 class="anchored" data-anchor-id="further-enhancements-and-applications">Further Enhancements and Applications</h2>
@@ -301,6 +301,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

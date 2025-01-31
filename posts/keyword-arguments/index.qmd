@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python's flexibility shines through its support for various argument passing mechanisms. Among these, keyword arguments stand out for their readability and power, offering a cleaner and more maintainable way to work with functions. This post dives deep into keyword arguments, explaining their usage and benefits with clear code examples.
+Python's flexibility shines through its support for various argument passing mechanisms. Among these, keyword arguments stand out for their readability and power, offering a cleaner and more maintainable way to work with functions. This post explores keyword arguments, explaining their usage and benefits with clear code examples.
 
 
 ## Understanding Keyword Arguments
@@ -30,7 +30,7 @@ In this example, `name` is a positional argument (required), while `greeting` is
 
 ## Keyword Arguments with Multiple Parameters
 
-Keyword arguments become even more valuable when working with functions that have several parameters.  Consider a function to create a user profile:
+Keyword arguments become even more useful when working with functions that have many parameters.  Consider a function to create a user profile:
 
 ```python
 def create_profile(name, age, city, country="USA"):

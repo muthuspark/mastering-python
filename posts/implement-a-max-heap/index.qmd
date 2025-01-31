@@ -19,7 +19,7 @@ This property isn't just about the root; it applies recursively to every subtree
 
 ## Implementing the Max-Heap using a List
 
-Python doesn't have a built-in heap data structure, but we can cleverly use a list to represent it.  We'll leverage list indexing to represent the parent-child relationships inherent in a binary tree.  Specifically:
+Python doesn't have a built-in heap data structure, but we can cleverly use a list to represent it.  We'll use list indexing to represent the parent-child relationships in a binary tree.  Specifically:
 
 * The parent of node `i` is at index `(i-1)//2`.
 * The left child of node `i` is at index `2*i + 1`.
@@ -104,4 +104,4 @@ print("After extracting max:", arr)
 
 ```
 
-This example demonstrates how to build a max-heap, insert a new element, and extract the maximum element, illustrating the core functionality of a max-heap in Python.  Remember that the `heapify` function is crucial for maintaining the heap property after insertions and extractions.  This implementation provides a foundational understanding of max-heap operations and can be extended for more complex applications.
+This example demonstrates how to build a max-heap, insert a new element, and extract the maximum element, illustrating the core functionality of a max-heap in Python.  Remember that the `heapify` function is for maintaining the heap property after insertions and extractions.  This implementation provides a foundational understanding of max-heap operations and can be extended for more complex applications.

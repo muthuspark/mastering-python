@@ -4,7 +4,7 @@ date: "04/11/2024"
 categories: [ problem-solving ]
 ---
 
-The Boyer-Moore algorithm is a highly efficient string-searching algorithm.  Unlike naive string search, which checks every possible position, Boyer-Moore uses heuristics to skip characters and significantly reduce the number of comparisons. This makes it particularly useful for searching large texts for relatively short patterns. This post will guide you through implementing the Boyer-Moore algorithm in Python.
+The Boyer-Moore algorithm is a highly efficient string-searching algorithm. Unlike naive string search, which checks every possible position, Boyer-Moore uses heuristics to skip characters and reduce the number of comparisons. This makes it particularly useful for searching large texts for relatively short patterns. This post will guide you through implementing the Boyer-Moore algorithm in Python.
 
 ## Understanding the Heuristics
 
@@ -119,7 +119,7 @@ This code implements both the bad character and good suffix heuristics.  The `ba
 
 While this implementation provides a good understanding of the algorithm, further optimizations are possible, particularly for very large texts and patterns. Consider exploring these avenues for enhanced performance:
 
-* **Using more sophisticated data structures:**  Replacing dictionaries with more efficient structures for specific cases.
+* **Using more complex data structures:**  Replacing dictionaries with more efficient structures for specific cases.
 * **Further refinement of the good suffix heuristic:** Implementing variations for improved shift calculations.
 
 This post provides a solid foundation for understanding and implementing the Boyer-Moore algorithm.  Experiment with different texts and patterns to observe its efficiency firsthand.

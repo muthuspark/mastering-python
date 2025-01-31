@@ -85,9 +85,9 @@ else:
 
 ```
 
-This code provides a functional Sudoku solver.  Remember to adapt the `board` variable with your own Sudoku puzzle.  The `solve_sudoku` function recursively explores possibilities, and `is_valid` ensures the rules of Sudoku are followed.  This example demonstrates a basic implementation; you can further optimize it for larger puzzles or explore different solving techniques.
+This code provides a functional Sudoku solver. Remember to replace the `board` variable with your own Sudoku puzzle. The `solve_sudoku` function recursively explores possibilities, and `is_valid` ensures the rules of Sudoku are followed. This example demonstrates a basic implementation; you can further optimize it for larger puzzles or look at different solving techniques.
 
 
 ##  Further Improvements and Optimizations
 
-This implementation offers a solid foundation.  For enhanced performance with more complex puzzles, consider exploring advanced techniques like constraint propagation or more sophisticated heuristics to guide the backtracking process.  These optimizations can significantly reduce the search space and improve solving time.
+This implementation offers a solid foundation. For enhanced performance with more complex puzzles, consider exploring advanced techniques like constraint propagation or more complex heuristics to guide the backtracking process. These optimizations can reduce the search space and improve solving time.

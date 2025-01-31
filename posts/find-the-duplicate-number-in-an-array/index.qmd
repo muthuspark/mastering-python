@@ -4,12 +4,12 @@ date: "08/26/2024"
 categories: [ problem-solving ]
 ---
 
-Finding duplicate numbers within an array is a classic computer science problem with various applications, from data cleaning to detecting errors in datasets.  This post explores efficient ways to solve this problem in Python, focusing on clarity and understanding.  We'll cover several approaches, each with its own strengths and weaknesses.
+Finding duplicate numbers within an array is a classic computer science problem with various applications, from data cleaning to detecting errors in datasets.  This post explores efficient ways to solve this problem in Python, focusing on clarity and understanding.  We'll cover many approaches, each with its own strengths and weaknesses.
 
 
 ## Method 1: Using a Dictionary (Hash Table)
 
-This method leverages the efficiency of Python dictionaries (which act as hash tables). We iterate through the array, and for each number, we check if it's already a key in the dictionary. If not, we add it as a key with a value of 1. If it exists, we increment its value, indicating a duplicate.
+This method uses the efficiency of Python dictionaries (which act as hash tables). We iterate through the array, and for each number, we check if it's already a key in the dictionary. If not, we add it as a key with a value of 1. If it exists, we increment its value, indicating a duplicate.
 
 ```python
 def find_duplicates_dictionary(nums):

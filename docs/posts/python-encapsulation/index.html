@@ -209,17 +209,17 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python, known for its readability and versatility, offers powerful tools for managing the structure and integrity of your code. One of the key principles of object-oriented programming (OOP) that significantly improves code organization and maintainability is <strong>encapsulation</strong>. This post will look into the concept of encapsulation in Python and demonstrate its practical application with clear examples.</p>
+<p>Python, known for its readability and versatility, offers powerful tools for managing the structure and integrity of your code. One of the key principles of object-oriented programming (OOP) that improves code organization and maintainability is <strong>encapsulation</strong>. This post will look into the concept of encapsulation in Python and demonstrate its practical application with clear examples.</p>
 <section id="what-is-encapsulation" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-encapsulation">What is Encapsulation?</h2>
-<p>Encapsulation, in essence, bundles data (attributes) and the methods (functions) that operate on that data within a single unit—a class. This bundling protects the internal state of the object from outside interference and misuse. It promotes data hiding and controlled access, leading to more robust and secure code. Think of it as a protective capsule shielding the inner workings of your object.</p>
+<p>Encapsulation, in essence, bundles data (attributes) and the methods (functions) that operate on that data within a single unit—a class. This bundling protects the internal state of the object from outside interference and misuse. It promotes data hiding and controlled access, leading to more secure code. Think of it as a protective capsule shielding the inner workings of your object.</p>
 </section>
 <section id="achieving-encapsulation-in-python" class="level2">
 <h2 class="anchored" data-anchor-id="achieving-encapsulation-in-python">Achieving Encapsulation in Python</h2>
 <p>While Python doesn’t enforce strict access modifiers like <code>private</code> or <code>public</code> found in languages like Java or C++, we can achieve the effect of encapsulation using naming conventions and techniques.</p>
 <section id="name-mangling-__" class="level3">
 <h3 class="anchored" data-anchor-id="name-mangling-__">Name Mangling (__)</h3>
-<p>Python uses name mangling (prefixing with double underscores <code>__</code>) to indicate that an attribute or method should be treated as internal and not directly accessed from outside the class. This is a strong convention, though not truly “private” as determined access is still possible.</p>
+<p>Python uses name mangling (prefixing with double underscores __) to indicate that an attribute or method should be treated as internal and not directly accessed from outside the class. This is a strong convention, though not truly “private” as determined access is still possible.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Dog:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, age):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__name <span class="op">=</span> name  <span class="co"># Name mangling suggests this is internal</span></span>
@@ -278,12 +278,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="beyond-simple-getters-and-setters" class="level2">
 <h2 class="anchored" data-anchor-id="beyond-simple-getters-and-setters">Beyond Simple Getters and Setters</h2>
-<p>More sophisticated encapsulation can involve complex logic within getter and setter methods, allowing for more robust control and validation of the object’s state. This is especially useful when dealing with complex data structures or sensitive information.</p>
+<p>More complex encapsulation can involve complex logic within getter and setter methods, allowing for more control and validation of the object’s state. This is especially useful when dealing with complex data structures or sensitive information.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -10,7 +10,7 @@ Regular expressions (regex or regexp) are powerful tools for pattern matching wi
 
 ## Understanding the Basics
 
-At its core, a regular expression is a sequence of characters that define a search pattern.  This pattern can be simple, like searching for a specific word, or incredibly complex, allowing you to match intricate structures within text.  The `re` module provides functions to compile and use these patterns.
+At its core, a regular expression is a sequence of characters that define a search pattern. This pattern can be simple, like searching for a specific word, or incredibly complex, allowing you to match structures within text. The `re` module provides functions to compile and use these patterns.
 
 Let's start with a simple example: finding all occurrences of the word "cat" in a string.
 

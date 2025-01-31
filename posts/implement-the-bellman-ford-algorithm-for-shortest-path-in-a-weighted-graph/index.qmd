@@ -4,7 +4,7 @@ date: "12/12/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the shortest path between nodes in a weighted graph is a fundamental problem in computer science with applications ranging from GPS navigation to network routing. While Dijkstra's algorithm is a popular choice, it falters when dealing with graphs containing negative edge weights.  This is where the Bellman-Ford algorithm shines.  It's a dynamic programming approach capable of handling negative weights (though it can't handle negative cycles). Let's dive into its implementation in Python.
+Finding the shortest path between nodes in a weighted graph is a fundamental problem in computer science with applications ranging from GPS navigation to network routing. While Dijkstra's algorithm is a popular choice, it falters when dealing with graphs containing negative edge weights. This is where the Bellman-Ford algorithm shines. It's a dynamic programming approach capable of handling negative weights (though it can't handle negative cycles). Let's examine its implementation in Python.
 
 ## Understanding the Bellman-Ford Algorithm
 
@@ -73,5 +73,5 @@ else:
 
 ```
 
-This code efficiently calculates shortest paths, clearly handling negative edge weights and detecting negative cycles.  The use of an adjacency list makes the code readable and relatively easy to understand. Remember to adapt the graph representation to suit your specific needs.  You can easily modify this to also return the shortest paths themselves, not just the distances, by tracking the previous node in the path during the relaxation steps.
+This code efficiently calculates shortest paths, clearly handling negative edge weights and detecting negative cycles.  The use of an adjacency list makes the code readable and relatively easy to understand. Remember to adjust the graph representation to suit your specific needs.  You can easily modify this to also return the shortest paths themselves, not just the distances, by tracking the previous node in the path during the relaxation steps.
 

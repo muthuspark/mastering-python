@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding the longest common subsequence (LCS) is a classic computer science problem with applications in various fields, including bioinformatics (comparing DNA sequences), version control systems (identifying changes between files), and spell checking. This post will explore how to efficiently solve this problem in Python using dynamic programming.</p>
+<p>Finding the longest common subsequence (LCS) is a classic computer science problem with applications in various fields, including bioinformatics (comparing DNA sequences), version control systems (identifying changes between files), and spell checking. This post will look at how to efficiently solve this problem in Python using dynamic programming.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
 <p>A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. For example, “abc” is a subsequence of “abcabcbb”. The longest common subsequence problem aims to find the longest subsequence that is common to two or more input sequences.</p>
@@ -287,7 +287,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>                j<span class="op">-=</span><span class="dv">1</span></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"LCS is: </span><span class="sc">{</span>lcs<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>print_lcs(stringA,stringB) <span class="co">#Output: LCS is: GTAB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This code efficiently calculates the length of the LCS and demonstrates how to extract the LCS itself. The dynamic programming approach ensures a time complexity of O(m*n), where ‘m’ and ‘n’ are the lengths of the input strings. This is significantly more efficient than brute-force approaches.</p>
+<p>This code efficiently calculates the length of the LCS and demonstrates how to extract the LCS itself. The dynamic programming approach ensures a time complexity of O(m*n), where ‘m’ and ‘n’ are the lengths of the input strings. This is more efficient than brute-force approaches.</p>
 </section>
 <section id="optimizations" class="level2">
 <h2 class="anchored" data-anchor-id="optimizations">Optimizations</h2>
@@ -297,6 +297,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

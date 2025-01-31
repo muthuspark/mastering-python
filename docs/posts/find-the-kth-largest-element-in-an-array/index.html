@@ -204,7 +204,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding the kth largest element in an unsorted array is a classic problem in computer science with various applications in data analysis and algorithm design. This post explores several Pythonic ways to solve this problem, ranging from simple sorting to more sophisticated techniques like using heaps. We’ll analyze their time complexity and demonstrate their usage with clear code examples.</p>
+<p>Finding the kth largest element in an unsorted array is a classic problem in computer science with various applications in data analysis and algorithm design. This post explores many Pythonic ways to solve this problem, ranging from simple sorting to more complex techniques like using heaps. We’ll analyze their time complexity and demonstrate their usage with clear code examples.</p>
 <section id="method-1-sorting" class="level2">
 <h2 class="anchored" data-anchor-id="method-1-sorting">Method 1: Sorting</h2>
 <p>The simplest approach involves sorting the array in descending order and then returning the element at index <code>k-1</code>. While intuitive, this method is not the most efficient for large arrays.</p>
@@ -234,7 +234,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="method-2-using-the-heapq-module-min-heap" class="level2">
 <h2 class="anchored" data-anchor-id="method-2-using-the-heapq-module-min-heap">Method 2: Using the <code>heapq</code> Module (Min-Heap)</h2>
-<p>Python’s <code>heapq</code> module provides efficient heap-based priority queue functionality. We can leverage a min-heap to maintain the k largest elements encountered so far.</p>
+<p>Python’s <code>heapq</code> module provides efficient heap-based priority queue functionality. We can use a min-heap to maintain the k largest elements encountered so far.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_kth_largest_heap(nums, k):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">  Finds the kth largest element using a min-heap.</span></span>
@@ -255,7 +255,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">4</span>]</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">th largest element using heapq: </span><span class="sc">{</span>find_kth_largest_heap(nums, k)<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># Output: 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Time Complexity:</strong> O(N log k), where N is the length of the array. This is significantly more efficient than sorting when k is much smaller than N.</p>
+<p><strong>Time Complexity:</strong> O(N log k), where N is the length of the array. This is more efficient than sorting when k is much smaller than N.</p>
 </section>
 <section id="method-3-quickselect-average-linear-time" class="level2">
 <h2 class="anchored" data-anchor-id="method-3-quickselect-average-linear-time">Method 3: QuickSelect (Average Linear Time)</h2>
@@ -315,6 +315,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

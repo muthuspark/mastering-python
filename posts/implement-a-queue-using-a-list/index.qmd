@@ -19,7 +19,7 @@ Before diving into the Python code, let's briefly review the core operations of 
 
 ## Implementing a Queue with Python Lists
 
-We can leverage Python's list methods to create a queue.  Lists offer `append()` for adding elements to the end (enqueue) and `pop(0)` for removing elements from the beginning (dequeue).
+We can use Python's list methods to create a queue.  Lists offer `append()` for adding elements to the end (enqueue) and `pop(0)` for removing elements from the beginning (dequeue).
 
 Here's a Python class implementing a queue using a list:
 
@@ -63,14 +63,14 @@ print("Size after dequeue:", q.size()) # Output: Size after dequeue: 2
 
 ```
 
-This code defines a `Queue` class with methods for enqueue, dequeue, peek, checking emptiness, and getting the size.  The `is_empty()` and  `peek()` methods include error handling for attempting to operate on an empty queue.  You can adapt this error handling to suit your specific needs (e.g., raising exceptions instead of returning `None`).
+This code defines a `Queue` class with methods for enqueue, dequeue, peek, checking emptiness, and getting the size.  The `is_empty()` and `peek()` methods include error handling for attempting to operate on an empty queue. You can modify this error handling to suit your specific needs (e.g., raising exceptions instead of returning `None`).
 
 
 ##  Efficiency Considerations
 
-While using a list is straightforward, it's important to note that `pop(0)` on a list has a time complexity of O(n) because it requires shifting all subsequent elements.  For large queues where frequent dequeues are expected, using the `collections.deque` object is a more efficient alternative, offering O(1) time complexity for both enqueue and dequeue operations.  We will explore `collections.deque` in a future post.
+While using a list is straightforward, it's important to note that `pop(0)` on a list has a time complexity of O(n) because it requires shifting all subsequent elements.  For large queues where frequent dequeues are expected, using the `collections.deque` object is a more efficient alternative, offering O(1) time complexity for both enqueue and dequeue operations.  We will look at `collections.deque` in a future post.
 
 
 ##  Beyond the Basics
 
-This basic implementation provides a foundation for understanding queue operations.  More sophisticated queue implementations might include features like bounded queues (limiting the maximum size), priority queues (elements are dequeued based on priority), and thread-safe queues (for concurrent access in multi-threaded environments).
+This basic implementation provides a foundation for understanding queue operations.  More complex queue implementations might include features like bounded queues (limiting the maximum size), priority queues (elements are dequeued based on priority), and thread-safe queues (for concurrent access in multi-threaded environments).

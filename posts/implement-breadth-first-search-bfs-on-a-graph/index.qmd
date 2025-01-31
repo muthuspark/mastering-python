@@ -4,7 +4,7 @@ date: "11/15/2024"
 categories: [ problem-solving ]
 ---
 
-Breadth-First Search (BFS) is a fundamental graph traversal algorithm used to explore all the vertices of a graph.  Unlike Depth-First Search (DFS), which explores a branch as deeply as possible before backtracking, BFS explores the graph level by level. This makes it particularly useful for finding the shortest path between two nodes in an unweighted graph.
+Breadth-First Search (BFS) is a fundamental graph traversal algorithm used to look at all the vertices of a graph.  Unlike Depth-First Search (DFS), which explores a branch as deeply as possible before backtracking, BFS explores the graph level by level. This makes it particularly useful for finding the shortest path between two nodes in an unweighted graph.
 
 This blog post will guide you through implementing BFS in Python using both adjacency lists and adjacency matrices, providing clear explanations and code examples.
 

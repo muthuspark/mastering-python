@@ -4,7 +4,7 @@ date: "05/11/2024"
 categories: [ problem-solving ]
 ---
 
-Determining whether a given binary tree adheres to the rules of a Binary Search Tree (BST) is a common problem in computer science.  A BST is a node-based binary tree data structure where each node has a value greater than all values in its left subtree and less than all values in its right subtree. This post will explore efficient Pythonic ways to solve this problem.
+Determining whether a given binary tree adheres to the rules of a Binary Search Tree (BST) is a common problem in computer science.  A BST is a node-based binary tree data structure where each node has a value greater than all values in its left subtree and less than all values in its right subtree. This post will look at efficient Pythonic ways to solve this problem.
 
 ## Understanding the Problem
 
@@ -69,7 +69,7 @@ print(f"Is the tree a BST? {is_bst_recursive(root2, float('-inf'), float('inf'))
 
 ## Iterative Approach (Using Inorder Traversal)
 
-An alternative approach involves an inorder traversal of the tree.  The inorder traversal of a BST will always produce a sorted sequence.  We can leverage this property to check if the tree is a BST.
+An alternative approach involves an inorder traversal of the tree.  The inorder traversal of a BST will always produce a sorted sequence.  We can use this property to check if the tree is a BST.
 
 ```python
 def is_bst_iterative(root):

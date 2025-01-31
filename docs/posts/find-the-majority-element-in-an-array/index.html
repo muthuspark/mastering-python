@@ -275,7 +275,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="approach-3-boyer-moore-voting-algorithm" class="level2">
 <h2 class="anchored" data-anchor-id="approach-3-boyer-moore-voting-algorithm">Approach 3: Boyer-Moore Voting Algorithm</h2>
-<p>The Boyer-Moore Voting Algorithm is a significantly more efficient approach with a linear time complexity of O(n) and constant space complexity of O(1). It works by iteratively canceling out elements that are not the majority element.</p>
+<p>The Boyer-Moore Voting Algorithm is a more efficient approach with a linear time complexity of O(n) and constant space complexity of O(1). It works by iteratively canceling out elements that are not the majority element.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_majority_boyer_moore(nums):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Finds the majority element using the Boyer-Moore Voting Algorithm.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -297,12 +297,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>]</span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>majority_element <span class="op">=</span> find_majority_boyer_moore(nums)</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Majority element (Boyer-Moore): </span><span class="sc">{</span>majority_element<span class="sc">}</span><span class="ss">"</span>) <span class="co">#Output: 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This algorithm is highly optimized for this specific problem and offers a substantial performance advantage over the previous methods, especially for large arrays. It leverages the guarantee that a majority element exists to efficiently find it.</p>
+<p>This algorithm is highly optimized for this specific problem and offers a substantial performance advantage over the previous methods, especially for large arrays. It uses the guarantee that a majority element exists to efficiently find it.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -4,7 +4,7 @@ date: "04/01/2024"
 categories: [ problem-solving ]
 ---
 
-Tries (pronounced "try") are fascinating tree-like data structures renowned for their efficiency in searching and storing strings.  Unlike hash tables, tries excel when dealing with a large number of strings that share common prefixes. This makes them particularly well-suited for applications like autocomplete, spell checkers, and IP routing. This post will explore how to efficiently search for a word within a Trie implemented in Python.
+Tries (pronounced "try") are fascinating tree-like data structures renowned for their efficiency in searching and storing strings.  Unlike hash tables, tries excel when dealing with a large number of strings that share common prefixes. This makes them particularly well-suited for applications like autocomplete, spell checkers, and IP routing. This post will look at how to efficiently search for a word within a Trie implemented in Python.
 
 
 ## Understanding the Trie Structure
@@ -83,7 +83,7 @@ print(trie.search("bird")) # Output: False
 
 ```
 
-This demonstrates how efficiently the `search` method locates words within the Trie.  The time complexity of searching is proportional to the length of the word, making it significantly faster than linear searches for large datasets.
+This demonstrates how efficiently the `search` method locates words within the Trie. The time complexity of searching is proportional to the length of the word, making it faster than linear searches for large datasets.
 
 
 
@@ -106,5 +106,5 @@ This enhanced `search_prefix` method returns `True` if the Trie contains the giv
 
 ## Optimizations and Extensions
 
-Further optimizations could involve using more compact data structures for child nodes, especially when dealing with a large alphabet or character set.  You could also extend the Trie to support operations like deleting words or listing all words starting with a particular prefix.  These extensions would build upon the core concepts presented here, providing a robust and powerful string-handling tool.
+Further optimizations could involve using more compact data structures for child nodes, especially when dealing with a large alphabet or character set.  You could also extend the Trie to support operations like deleting words or listing all words starting with a particular prefix.  These extensions would build upon the core concepts presented here, providing a powerful string-handling tool.
 

@@ -87,7 +87,7 @@ While this is more readable, the time and space complexity remain the same as th
 
 ## Approach 3: Boyer-Moore Voting Algorithm
 
-The Boyer-Moore Voting Algorithm is a significantly more efficient approach with a linear time complexity of O(n) and constant space complexity of O(1).  It works by iteratively canceling out elements that are not the majority element.
+The Boyer-Moore Voting Algorithm is a more efficient approach with a linear time complexity of O(n) and constant space complexity of O(1). It works by iteratively canceling out elements that are not the majority element.
 
 
 ```python
@@ -114,5 +114,5 @@ majority_element = find_majority_boyer_moore(nums)
 print(f"Majority element (Boyer-Moore): {majority_element}") #Output: 2
 ```
 
-This algorithm is highly optimized for this specific problem and offers a substantial performance advantage over the previous methods, especially for large arrays.  It leverages the guarantee that a majority element exists to efficiently find it.
+This algorithm is highly optimized for this specific problem and offers a substantial performance advantage over the previous methods, especially for large arrays.  It uses the guarantee that a majority element exists to efficiently find it.
 

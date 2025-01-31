@@ -14,7 +14,7 @@ A min-heap is a complete binary tree where the value of each node is less than o
 
 ## Implementing a Min-Heap in Python
 
-We can implement a min-heap using a list to represent the underlying tree structure. This approach is memory-efficient and leverages Python's built-in list operations for ease of implementation.
+We can implement a min-heap using a list to represent the underlying tree structure. This approach is memory-efficient and uses Python's built-in list operations for ease of implementation.
 
 ```python
 class MinHeap:

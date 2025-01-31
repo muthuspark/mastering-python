@@ -4,7 +4,7 @@ date: "04/27/2024"
 categories: [ problem-solving ]
 ---
 
-Level-order traversal, also known as breadth-first traversal, is a fundamental algorithm for exploring tree structures.  Unlike depth-first traversals (pre-order, in-order, post-order), level-order visits nodes level by level, starting from the root and proceeding to the next level only after all nodes at the current level have been processed. This approach is incredibly useful in various applications, including finding the shortest path in a tree or visualizing tree structures.  This post will delve into how to implement level-order traversal of a binary tree in Python, providing clear explanations and code examples.
+Level-order traversal, also known as breadth-first traversal, is a fundamental algorithm for exploring tree structures.  Unlike depth-first traversals (pre-order, in-order, post-order), level-order visits nodes level by level, starting from the root and proceeding to the next level only after all nodes at the current level have been processed. This approach is incredibly useful in various applications, including finding the shortest path in a tree or visualizing tree structures.  This post will implement level-order traversal of a binary tree in Python, providing clear explanations and code examples.
 
 
 ## Understanding Binary Trees and Level-Order Traversal
@@ -69,7 +69,7 @@ This code efficiently implements level-order traversal. The `nodes` list acts as
 
 ## Handling Empty Trees and Null Children
 
-The code includes a check for an empty tree (`if root is None`).  It also handles cases where a node might have only one child or no children by conditionally enqueueing left and right children.  This robustness is crucial for handling various tree configurations.
+The code includes a check for an empty tree (`if root is None`). It also handles cases where a node might have only one child or no children by conditionally enqueueing left and right children. This robustness is for handling various tree configurations.
 
 
 ## Using the `collections.deque` for improved efficiency
@@ -100,7 +100,7 @@ def levelOrderDeque(root):
 # Example usage (same as before, just replace levelOrder with levelOrderDeque)
 ```
 
-This version leverages the optimized queue operations of `deque`, making it a more efficient solution for larger datasets.
+This version uses the optimized queue operations of `deque`, making it a more efficient solution for larger datasets.
 
 
 ##  Further Enhancements and Applications

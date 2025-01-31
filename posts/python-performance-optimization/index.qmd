@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, renowned for its readability and versatility, can sometimes struggle with performance, especially when dealing with large datasets or computationally intensive tasks.  However, several techniques can significantly boost your Python code's speed and efficiency. This post explores some key strategies with practical code examples.
+Python, renowned for its readability and versatility, can sometimes struggle with performance, especially when dealing with large datasets or computationally intensive tasks.  However, many techniques can boost your Python code's speed and efficiency. This post explores some key strategies with practical code examples.
 
 
 ## 1. List Comprehensions and Generator Expressions
@@ -37,7 +37,7 @@ squares = (i**2 for i in range(1000000))
 
 ## 2. NumPy for Numerical Computations
 
-NumPy is a fundamental package for numerical computing in Python.  It provides highly optimized functions that significantly outperform Python's built-in operations, especially for array manipulations.
+NumPy is a fundamental package for numerical computing in Python.  It provides highly optimized functions that outperform Python's built-in operations, especially for array manipulations.
 
 
 **Python Lists:**

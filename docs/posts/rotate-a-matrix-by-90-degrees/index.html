@@ -225,7 +225,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="method-1-using-zip-and-list-comprehension" class="level2">
 <h2 class="anchored" data-anchor-id="method-1-using-zip-and-list-comprehension">Method 1: Using Zip and List Comprehension</h2>
-<p>This elegant approach leverages Python’s built-in <code>zip</code> function and list comprehension for a concise and efficient solution.</p>
+<p>This elegant approach uses Python’s built-in <code>zip</code> function and list comprehension for a concise and efficient solution.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rotate_matrix_zip(matrix):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Rotates a square matrix by 90 degrees clockwise using zip and list comprehension."""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="bu">list</span>(row) <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">zip</span>(<span class="op">*</span>matrix[::<span class="op">-</span><span class="dv">1</span>])]</span>
@@ -243,7 +243,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="method-2-in-place-rotation-more-efficient-for-large-matrices" class="level2">
 <h2 class="anchored" data-anchor-id="method-2-in-place-rotation-more-efficient-for-large-matrices">Method 2: In-place Rotation (More Efficient for Large Matrices)</h2>
-<p>For larger matrices, an in-place rotation is significantly more memory-efficient. This method modifies the original matrix directly, avoiding the creation of a new matrix.</p>
+<p>For larger matrices, an in-place rotation is more memory-efficient. This method modifies the original matrix directly, avoiding the creation of a new matrix.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rotate_matrix_inplace(matrix):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Rotates a square matrix by 90 degrees clockwise in-place."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(matrix)</span>
@@ -267,7 +267,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="handling-non-square-matrices" class="level2">
 <h2 class="anchored" data-anchor-id="handling-non-square-matrices">Handling Non-Square Matrices</h2>
-<p>The above methods assume a square matrix (same number of rows and columns). Rotating a rectangular matrix by 90 degrees requires a more sophisticated approach, often involving padding or resizing to maintain a rectangular shape. We’ll explore this in a future post.</p>
+<p>The above methods assume a square matrix (same number of rows and columns). Rotating a rectangular matrix by 90 degrees requires a more complex approach, often involving padding or resizing to maintain a rectangular shape. We’ll look at this in a future post.</p>
 </section>
 <section id="choosing-the-right-method" class="level2">
 <h2 class="anchored" data-anchor-id="choosing-the-right-method">Choosing the Right Method</h2>
@@ -277,6 +277,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

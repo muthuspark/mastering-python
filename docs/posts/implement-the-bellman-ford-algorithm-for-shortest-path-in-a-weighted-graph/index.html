@@ -203,7 +203,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Finding the shortest path between nodes in a weighted graph is a fundamental problem in computer science with applications ranging from GPS navigation to network routing. While Dijkstra’s algorithm is a popular choice, it falters when dealing with graphs containing negative edge weights. This is where the Bellman-Ford algorithm shines. It’s a dynamic programming approach capable of handling negative weights (though it can’t handle negative cycles). Let’s dive into its implementation in Python.</p>
+<p>Finding the shortest path between nodes in a weighted graph is a fundamental problem in computer science with applications ranging from GPS navigation to network routing. While Dijkstra’s algorithm is a popular choice, it falters when dealing with graphs containing negative edge weights. This is where the Bellman-Ford algorithm shines. It’s a dynamic programming approach capable of handling negative weights (though it can’t handle negative cycles). Let’s examine its implementation in Python.</p>
 <section id="understanding-the-bellman-ford-algorithm" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-bellman-ford-algorithm">Understanding the Bellman-Ford Algorithm</h2>
 <p>The Bellman-Ford algorithm works by iteratively relaxing edges. “Relaxing” an edge means checking if a shorter path to a node can be found by going through that edge. It repeats this process |V| - 1 times, where |V| is the number of vertices in the graph. This ensures that all shortest paths are found, even those involving multiple intermediate nodes.</p>
@@ -266,12 +266,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"To </span><span class="sc">{</span>vertex<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>distance<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Graph contains a negative cycle."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This code efficiently calculates shortest paths, clearly handling negative edge weights and detecting negative cycles. The use of an adjacency list makes the code readable and relatively easy to understand. Remember to adapt the graph representation to suit your specific needs. You can easily modify this to also return the shortest paths themselves, not just the distances, by tracking the previous node in the path during the relaxation steps.</p>
+<p>This code efficiently calculates shortest paths, clearly handling negative edge weights and detecting negative cycles. The use of an adjacency list makes the code readable and relatively easy to understand. Remember to adjust the graph representation to suit your specific needs. You can easily modify this to also return the shortest paths themselves, not just the distances, by tracking the previous node in the path during the relaxation steps.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

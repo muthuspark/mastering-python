@@ -4,7 +4,7 @@ date: "12/27/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the longest palindromic subsequence within a given string is a classic computer science problem with applications in various fields, including bioinformatics and string algorithms.  A subsequence doesn't need to be contiguous; it's a sequence of characters from the original string that maintain their original order.  A palindrome is a sequence that reads the same forwards and backward. This post will explore how to efficiently solve this problem in Python using dynamic programming.
+Finding the longest palindromic subsequence within a given string is a classic computer science problem with applications in various fields, including bioinformatics and string algorithms.  A subsequence doesn't need to be contiguous; it's a sequence of characters from the original string that maintain their original order.  A palindrome is a sequence that reads the same forwards and backward. This post will look at how to efficiently solve this problem in Python using dynamic programming.
 
 ## Understanding the Problem
 

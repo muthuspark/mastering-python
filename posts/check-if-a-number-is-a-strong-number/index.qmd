@@ -4,7 +4,7 @@ date: "03/07/2024"
 categories: [ problem-solving ]
 ---
 
-Strong numbers, also known as strong perfect numbers, are numbers whose sum of the factorial of their digits is equal to the number itself.  This sounds complex, but it's surprisingly straightforward to implement in Python. Let's explore how to write a function to determine if a number is a strong number.
+Strong numbers, also known as strong perfect numbers, are numbers whose sum of the factorial of their digits is equal to the number itself.  This sounds complex, but it's surprisingly straightforward to implement in Python. Let's look at how to write a function to determine if a number is a strong number.
 
 
 ## Understanding Strong Numbers
@@ -62,5 +62,5 @@ While the above code is functional and easy to understand,  there's room for opt
 
 ##  Exploring Strong Numbers Further
 
-This blog post provides a foundational understanding of strong numbers and how to identify them using Python. You can expand on this by exploring algorithms to find all strong numbers within a given range or delve deeper into the mathematical properties of strong numbers themselves.  There are relatively few strong numbers, making them an interesting topic for mathematical exploration.
+This blog post provides a foundational understanding of strong numbers and how to identify them using Python. You can expand on this by exploring algorithms to find all strong numbers within a given range or  examine the mathematical properties of strong numbers themselves.  There are relatively few strong numbers, making them an interesting topic for mathematical exploration.
 

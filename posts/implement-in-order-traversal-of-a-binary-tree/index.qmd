@@ -74,5 +74,5 @@ The recursive approach is generally preferred for its readability and simplicity
 
 ##  Further Exploration
 
-You can adapt these methods to return a list of the nodes' data instead of printing them directly. This allows for more flexible use of the traversal results.  Experiment with different tree structures to solidify your understanding of in-order traversal. You can also explore other tree traversal methods like pre-order and post-order.
+You can modify these methods to return a list of the nodes' data instead of printing them directly. This allows for more flexible use of the traversal results. Experiment with different tree structures to solidify your understanding of in-order traversal. You can also look at other tree traversal methods like pre-order and post-order.
 

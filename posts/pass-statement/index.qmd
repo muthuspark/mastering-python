@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-The `pass` statement in Python is a powerful, albeit often overlooked, tool.  It's a null operation; it does absolutely nothing. While this might seem useless at first glance,  `pass` provides crucial functionality in several scenarios, enhancing code readability and structure. This post will explore its uses with clear examples.
+The `pass` statement in Python is a powerful, albeit often overlooked, tool. It's a null operation; it does absolutely nothing. While this might seem useless at first glance, `pass` provides functionality in many scenarios, enhancing code readability and structure. This post will look at its uses with clear examples.
 
 
 ## When to Use `pass`

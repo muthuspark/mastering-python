@@ -85,8 +85,8 @@ This function iterates through each item in the directory. If it's a file, it pr
 While powerful, recursion can lead to problems if not handled carefully:
 
 * **Stack Overflow:**  Excessive recursion can exhaust the call stack, leading to a `RecursionError`. This often happens when the base case is incorrect or missing, causing infinite recursion.
-* **Performance Issues:**  Recursive solutions can be less efficient than iterative solutions, especially for problems that can be easily solved iteratively.  Repeated calculations can significantly impact performance.
+* **Performance Issues:** Recursive solutions can be less efficient than iterative solutions, especially for problems that can be easily solved iteratively. Repeated calculations can impact performance.
 
 
-Understanding these potential issues is crucial for writing robust and efficient recursive functions.  Choosing between recursion and iteration often depends on the specific problem and its constraints.  Sometimes, a recursive solution offers clarity and elegance, while other times, an iterative approach might be more practical.
+Understanding these potential issues is important for writing efficient recursive functions. Choosing between recursion and iteration often depends on the specific problem and its constraints. Sometimes, a recursive solution offers clarity and elegance, while other times, an iterative approach might be more practical.
 

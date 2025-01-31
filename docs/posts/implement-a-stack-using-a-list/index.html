@@ -205,7 +205,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Stacks are fundamental data structures following the Last-In, First-Out (LIFO) principle. Think of a stack of plates – you can only add a new plate to the top and remove the topmost plate. Python doesn’t have a built-in stack data type, but we can easily implement one using a list. This approach leverages Python’s list capabilities for efficient stack operations.</p>
+<p>Stacks are fundamental data structures following the Last-In, First-Out (LIFO) principle. Think of a stack of plates – you can only add a new plate to the top and remove the topmost plate. Python doesn’t have a built-in stack data type, but we can easily implement one using a list. This approach uses Python’s list capabilities for efficient stack operations.</p>
 <section id="understanding-stack-operations" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-stack-operations">Understanding Stack Operations</h2>
 <p>Before diving into the code, let’s review the core stack operations:</p>
@@ -268,22 +268,25 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(stack.pop()) <span class="co">#This will cause an IndexError</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">IndexError</span> <span class="im">as</span> e:</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>) <span class="co">#Output: Error: Cannot pop from an empty stack</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This example demonstrates the basic stack operations. The <code>try-except</code> block showcases how to handle potential <code>IndexError</code> exceptions that can occur when attempting to <code>pop</code> or <code>peek</code> from an empty stack, a crucial aspect of robust code. Remember to always handle edge cases like empty stacks to prevent unexpected errors in your applications.</p>
+<p>This example demonstrates the basic stack operations. The <code>try-except</code> block showcases how to handle potential <code>IndexError</code> exceptions that can occur when attempting to <code>pop</code> or <code>peek</code> from an empty stack. Remember to always handle edge cases like empty stacks to prevent unexpected errors in your applications.</p>
 </section>
 <section id="advantages-of-using-lists-for-stack-implementation" class="level2">
 <h2 class="anchored" data-anchor-id="advantages-of-using-lists-for-stack-implementation">Advantages of using Lists for Stack Implementation</h2>
-<p>Using Python lists offers several advantages:</p>
+<p>Using Python lists offers many advantages:</p>
 <ul>
 <li><strong>Simplicity:</strong> The implementation is straightforward and easy to understand.</li>
 <li><strong>Efficiency:</strong> List’s <code>append()</code> and <code>pop()</code> methods are highly optimized, providing good performance.</li>
 <li><strong>Readily Available:</strong> Lists are a built-in data structure, requiring no additional libraries.</li>
 </ul>
-<p>This simple implementation provides a functional stack using readily available Python features. Remember to adapt and extend this code to meet the specific needs of your applications.</p>
+<p>This simple implementation provides a functional stack using readily available Python features. Remember to extend this code to meet the specific needs of your applications.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

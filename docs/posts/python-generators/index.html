@@ -206,7 +206,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Python generators are a powerful tool for creating iterators in a concise and efficient manner. Unlike regular functions that return a single value and then exit, generators can pause execution and resume it later, yielding values one at a time. This makes them incredibly useful for handling large datasets or infinite sequences without loading everything into memory at once. This post will explore the mechanics of Python generators and demonstrate their practical applications with code examples.</p>
+<p>Python generators are a powerful tool for creating iterators in a concise and efficient manner. Unlike regular functions that return a single value and then exit, generators can pause execution and resume it later, yielding values one at a time. This makes them incredibly useful for handling large datasets or infinite sequences without loading everything into memory at once. This post will look at the mechanics of Python generators and demonstrate their practical applications with code examples.</p>
 <section id="what-are-generators" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-generators">What are Generators?</h2>
 <p>At their core, generators are functions that use the <code>yield</code> keyword instead of <code>return</code>. The <code>yield</code> keyword pauses the function’s execution, saving its state, and returns a value to the caller. The next time the generator is called, it resumes execution from where it left off.</p>
@@ -219,7 +219,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> gen:</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)  <span class="co"># Output: 0 1 2 3 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this example, <code>my_generator</code> doesn’t return a list; it yields each number individually. This is crucial for memory efficiency when dealing with massive datasets.</p>
+<p>In this example, <code>my_generator</code> doesn’t return a list; it yields each number individually. This improves memory efficiency when dealing with massive datasets.</p>
 </section>
 <section id="generator-expressions-a-concise-syntax" class="level2">
 <h2 class="anchored" data-anchor-id="generator-expressions-a-concise-syntax">Generator Expressions: A Concise Syntax</h2>
@@ -239,7 +239,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="beyond-simple-sequences-more-complex-generators" class="level2">
 <h2 class="anchored" data-anchor-id="beyond-simple-sequences-more-complex-generators">Beyond Simple Sequences: More Complex Generators</h2>
-<p>Generators can be used for much more than simple numerical sequences. They are highly versatile and can be tailored to produce complex data structures or perform sophisticated operations:</p>
+<p>Generators can be used for much more than simple numerical sequences. They are highly versatile and can be tailored to produce complex data structures or perform complex operations:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci_generator():</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    a, b <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
@@ -259,12 +259,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <li><strong>Web Servers:</strong> Generating responses on demand saves memory and speeds up responses.</li>
 <li><strong>Infinite Sequences:</strong> Simulating infinite sequences (like Fibonacci numbers) without memory constraints is easily done with generators.</li>
 </ul>
-<p>By understanding and utilizing Python generators, developers can significantly improve the efficiency and scalability of their code, especially when dealing with large amounts of data or infinite sequences.</p>
+<p>By understanding and utilizing Python generators, developers can improve the efficiency and scalability of their code, especially when dealing with large amounts of data or infinite sequences.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

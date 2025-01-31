@@ -79,5 +79,5 @@ Always include error handling (like the `try...except` blocks shown above) in yo
 
 ##  Working with Large Files
 
-For extremely large files, consider using techniques like buffered writing to improve performance.  This involves writing data in chunks rather than one line at a time.  Libraries like `io` can assist with buffered file I/O for optimization.  We will explore this in another post.
+For extremely large files, consider using techniques like buffered writing to improve performance.  This involves writing data in chunks rather than one line at a time.  Libraries like `io` can assist with buffered file I/O for optimization.  We will look at this in another post.
 

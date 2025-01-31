@@ -5,12 +5,12 @@ categories: [ basic ]
 ---
 
 
-Properly closing files in Python is crucial for several reasons: it prevents data loss, frees up system resources, and avoids potential errors.  This post will explore different methods for closing files and highlight why it's a habit you should cultivate.
+Properly closing files in Python for many reasons: it prevents data loss, frees up system resources, and avoids potential errors.  This post will look at different methods for closing files and highlight why it's a habit you should cultivate.
 
 
 ## Why Close Files?
 
-Leaving files open unnecessarily can lead to several problems:
+Leaving files open unnecessarily can lead to many problems:
 
 * **Data Loss:**  If your program crashes while a file is open for writing, unsaved changes might be lost.
 * **Resource Leaks:**  Open files consume system resources.  Keeping many files open can eventually lead to performance degradation or even system instability.
@@ -20,12 +20,12 @@ Leaving files open unnecessarily can lead to several problems:
 
 ## Methods for Closing Files
 
-Python offers several ways to ensure files are closed reliably.  The most common and recommended approach is using the `with` statement.
+Python offers many ways to ensure files are closed reliably.  The most common and recommended approach is using the `with` statement.
 
 
 ### Using the `with` statement (Recommended)
 
-The `with` statement is the most elegant and robust way to handle file I/O.  It automatically closes the file, even if exceptions occur.
+The `with` statement is the most elegant way to handle file I/O. It automatically closes the file, even if exceptions occur.
 
 ```python
 try:

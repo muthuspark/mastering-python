@@ -56,7 +56,7 @@ print(f"Result using nested loops: {result}")
 
 ## Method 2: Using NumPy (Efficient Approach)
 
-NumPy is a powerful Python library for numerical computing. Its `dot()` function provides a highly optimized way to perform matrix multiplication.  This method is significantly faster and more efficient for larger matrices.
+NumPy is a powerful Python library for numerical computing. Its `dot()` function provides a highly optimized way to perform matrix multiplication. This method is faster and more efficient for larger matrices.
 
 ```python
 import numpy as np
@@ -88,10 +88,10 @@ print(f"Result using NumPy: {result}")
 
 ```
 
-This NumPy approach leverages optimized C code under the hood, making it far superior in performance for larger datasets.  For most practical applications, using NumPy is strongly recommended.
+This NumPy approach uses optimized C code under the hood, making it far superior in performance for larger datasets.  For most practical applications, using NumPy is strongly recommended.
 
 
 ## Handling Errors and Invalid Inputs
 
-Both methods include basic error handling to check if the matrix dimensions allow for multiplication.  More robust error handling could be added to validate input types and handle potential exceptions more comprehensively.  For instance, you might want to check if the input matrices are rectangular or contain only numeric values.
+Both methods include basic error handling to check if the matrix dimensions allow for multiplication. More error handling could be added to validate input types and handle potential exceptions more comprehensively. For instance, you might want to check if the input matrices are rectangular or contain only numeric values.
 

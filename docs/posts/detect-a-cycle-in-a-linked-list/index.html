@@ -205,14 +205,14 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 
 
 
-<p>Linked lists are fundamental data structures, but they can present unique challenges. One such challenge is efficiently detecting the presence of a cycle – a situation where a node in the list points back to a previously visited node, creating a loop. This blog post will explore different approaches to cycle detection in linked lists using Python, focusing on clarity and efficiency.</p>
+<p>Linked lists are fundamental data structures, but they can present unique challenges. One such challenge is efficiently detecting the presence of a cycle – a situation where a node in the list points back to a previously visited node, creating a loop. This blog post will look at different approaches to cycle detection in linked lists using Python, focusing on clarity and efficiency.</p>
 <section id="understanding-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-problem">Understanding the Problem</h2>
-<p>Before diving into solutions, let’s clarify what a cycle in a linked list actually is. Imagine a linked list where the <code>next</code> pointer of the last node points back to a node somewhere earlier in the list. This creates a closed loop, and traversing the list would never terminate. Detecting these cycles is crucial for maintaining the integrity and functionality of your linked list-based applications.</p>
+<p>Before diving into solutions, let’s clarify what a cycle in a linked list actually is. Imagine a linked list where the <code>next</code> pointer of the last node points back to a node somewhere earlier in the list. This creates a closed loop, and traversing the list would never terminate. Detecting these cycles is important for maintaining the integrity and functionality of your linked list-based applications.</p>
 </section>
 <section id="method-1-using-a-set-hashset" class="level2">
 <h2 class="anchored" data-anchor-id="method-1-using-a-set-hashset">Method 1: Using a Set (HashSet)</h2>
-<p>This approach leverages the constant-time lookup capability of a set (or hash set) to efficiently detect cycles. We iterate through the linked list, adding each node’s address (memory location) to the set. If we encounter a node whose address is already in the set, we’ve found a cycle.</p>
+<p>This approach uses the constant-time lookup capability of a set (or hash set) to efficiently detect cycles. We iterate through the linked list, adding each node’s address (memory location) to the set. If we encounter a node whose address is already in the set, we’ve found a cycle.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Node:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> data</span>
@@ -260,7 +260,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Example Usage (same as above, reuse head and head2)</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cycle detected using Floyd's Algorithm: </span><span class="sc">{</span>detectCycleFloyd(head)<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: True</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cycle detected using Floyd's Algorithm: </span><span class="sc">{</span>detectCycleFloyd(head2)<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Floyd’s algorithm boasts a time complexity of O(N) and a space complexity of O(1), making it significantly more memory-efficient than the HashSet approach, especially for very large linked lists. This makes it the preferred method in most scenarios.</p>
+<p>Floyd’s algorithm boasts a time complexity of O(N) and a space complexity of O(1), making it more memory-efficient than the HashSet approach, especially for very large linked lists. This makes it the preferred method in most scenarios.</p>
 </section>
 <section id="choosing-the-right-method" class="level2">
 <h2 class="anchored" data-anchor-id="choosing-the-right-method">Choosing the Right Method</h2>
@@ -270,6 +270,9 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -4,7 +4,7 @@ date: "12/28/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the kth largest element in an unsorted array is a classic problem in computer science with various applications in data analysis and algorithm design.  This post explores several Pythonic ways to solve this problem, ranging from simple sorting to more sophisticated techniques like using heaps.  We'll analyze their time complexity and demonstrate their usage with clear code examples.
+Finding the kth largest element in an unsorted array is a classic problem in computer science with various applications in data analysis and algorithm design.  This post explores many Pythonic ways to solve this problem, ranging from simple sorting to more complex techniques like using heaps.  We'll analyze their time complexity and demonstrate their usage with clear code examples.
 
 
 ## Method 1: Sorting
@@ -42,7 +42,7 @@ print(f"The {k}th largest element using sorting: {find_kth_largest_sorting(nums,
 
 ## Method 2: Using the `heapq` Module (Min-Heap)
 
-Python's `heapq` module provides efficient heap-based priority queue functionality. We can leverage a min-heap to maintain the k largest elements encountered so far.
+Python's `heapq` module provides efficient heap-based priority queue functionality. We can use a min-heap to maintain the k largest elements encountered so far.
 
 ```python
 def find_kth_largest_heap(nums, k):
@@ -67,7 +67,7 @@ k = 2
 print(f"The {k}th largest element using heapq: {find_kth_largest_heap(nums, k)}")  # Output: 5
 ```
 
-**Time Complexity:** O(N log k), where N is the length of the array. This is significantly more efficient than sorting when k is much smaller than N.
+**Time Complexity:** O(N log k), where N is the length of the array. This is more efficient than sorting when k is much smaller than N.
 
 
 ## Method 3: QuickSelect (Average Linear Time)

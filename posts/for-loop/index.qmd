@@ -155,5 +155,5 @@ for i in range(10):
 ```
 
 
-These examples demonstrate the core functionality of the Python `for` loop.  Understanding these concepts is crucial for writing efficient and readable Python code.  Many more advanced applications build upon these fundamental techniques.
+These examples demonstrate the core functionality of the Python `for` loop. Understanding these concepts is important for writing efficient and readable Python code. Many more advanced applications build upon these fundamental techniques.
 

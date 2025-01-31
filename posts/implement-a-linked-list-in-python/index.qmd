@@ -98,4 +98,4 @@ linked_list.print_list()  # Output: 0 -> 1 -> 3 -> None
 
 ```
 
-This demonstrates the basic functionality of adding, deleting, and traversing a linked list.  You can extend this class to include more sophisticated operations like searching, inserting at a specific index, and reversing the list.  Remember to handle edge cases, such as an empty list, for robust code.  Further exploration could involve implementing doubly linked lists or circular linked lists, which offer additional functionalities.
+This demonstrates the basic functionality of adding, deleting, and traversing a linked list. You can extend this class to include more complex operations like searching, inserting at a specific index, and reversing the list. Remember to handle edge cases, such as an empty list, for code. Further exploration could involve implementing doubly linked lists or circular linked lists, which offer additional functionalities.

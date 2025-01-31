@@ -4,7 +4,7 @@ date: "05/06/2024"
 categories: [ problem-solving ]
 ---
 
-Pre-order traversal is one of the fundamental ways to traverse a binary tree.  Understanding it is crucial for anyone working with tree data structures in computer science. This post will explain pre-order traversal and provide Python code examples to implement it.
+Pre-order traversal is one of the fundamental ways to traverse a binary tree. Understanding it is important for anyone working with tree data structures in computer science. This post will explain pre-order traversal and provide Python code examples to implement it.
 
 ## Understanding Pre-order Traversal
 

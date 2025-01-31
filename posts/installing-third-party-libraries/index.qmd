@@ -101,7 +101,7 @@ Then, to recreate the environment, simply run:
 pip install -r requirements.txt
 ```
 
-This will install all the libraries listed in the file.  This is crucial for collaborative projects and deploying your applications.
+This will install all the libraries listed in the file. This is important for collaborative projects and deploying your applications.
 
 
 ## Beyond `pip`: conda (for Anaconda/Miniconda users)

@@ -4,7 +4,7 @@ date: "01/05/2025"
 categories: [ problem-solving ]
 ---
 
-Finding the determinant of a matrix is a fundamental operation in linear algebra with applications across diverse fields like physics, engineering, and computer graphics.  Python, with its powerful libraries like NumPy, makes this calculation remarkably straightforward. This post will explore several methods for computing matrix determinants in Python, catering to different matrix sizes and levels of expertise.
+Finding the determinant of a matrix is a fundamental operation in linear algebra with applications across various fields like physics, engineering, and computer graphics.  Python, with its powerful libraries like NumPy, makes this calculation remarkably straightforward. This post will look at many methods for computing matrix determinants in Python, catering to different matrix sizes and levels of expertise.
 
 
 ## Understanding Determinants
@@ -59,7 +59,7 @@ det_2x2 = determinant_2x2(matrix_2x2)
 print(f"Determinant of 2x2 matrix: {det_2x2}")
 ```
 
-**3x3 Matrix (and beyond):**  Manual calculation for larger matrices becomes significantly more involved and is generally not recommended for practical applications due to its inefficiency compared to NumPy's optimized functions.  It would involve cofactor expansion and recursive calls.
+**3x3 Matrix (and beyond):** Manual calculation for larger matrices becomes more involved and is generally not recommended for practical applications due to its inefficiency compared to NumPy's optimized functions. It would involve cofactor expansion and recursive calls.
 
 
 ## Handling Singular Matrices

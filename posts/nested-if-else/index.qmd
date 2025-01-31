@@ -78,7 +78,7 @@ else:
 
 **Example 3: Improving readability with `elif`**
 
-The grade example above can be significantly improved using `elif` to avoid excessive nesting:
+The grade example above can be improved using `elif` to avoid excessive nesting:
 
 ```python
 score = 85
@@ -102,5 +102,5 @@ This version is much cleaner and easier to understand.  Remember that `elif` is 
 
 ##  Avoiding Deep Nesting
 
-Deeply nested `if-else` statements can quickly become unmanageable.  Always strive for clarity and simplicity. Consider alternative approaches such as using dictionaries or functions to simplify your code when dealing with complex conditional logic.  Refactoring to improve readability is crucial for maintainable code.
+Deeply nested `if-else` statements can quickly become unmanageable.  Always strive for clarity and simplicity. Consider alternative approaches such as using dictionaries or functions to simplify your code when dealing with complex conditional logic.  Refactoring to improve readability is important for maintainable code.
 

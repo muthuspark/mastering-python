@@ -4,7 +4,7 @@ date: "01/20/2024"
 categories: [ problem-solving ]
 ---
 
-Post-order traversal is one of the three fundamental ways to traverse a binary tree (the others being pre-order and in-order).  Understanding tree traversal is crucial for various algorithms and data structure manipulations.  This post focuses on efficiently implementing post-order traversal in Python, providing clear explanations and code examples.
+Post-order traversal is one of the three fundamental ways to traverse a binary tree (the others being pre-order and in-order). Understanding tree traversal is important for various algorithms and data structure manipulations. This post focuses on efficiently implementing post-order traversal in Python, providing clear explanations and code examples.
 
 
 ## Understanding Post-order Traversal
@@ -42,7 +42,7 @@ postorder_recursive(root)  # Output: 4 5 2 3 1
 
 ## Iterative Approach using a Stack
 
-While recursion is elegant, it can be less efficient for very deep trees due to stack overflow issues. An iterative approach using a stack provides a more robust solution.
+While recursion is elegant, it can be less efficient for very deep trees due to stack overflow issues. An iterative approach using a stack provides a more efficient solution.
 
 
 ```python
@@ -77,5 +77,5 @@ This iterative method uses a stack to mimic the recursive call stack, ensuring t
 
 ## Choosing the Right Approach
 
-The recursive approach is often preferred for its simplicity and readability. However, for large trees or situations where stack overflow is a concern, the iterative approach using a stack is a more robust and efficient alternative. The choice depends on the specific application and constraints.
+The recursive approach is often preferred for its simplicity and readability. However, for large trees or situations where stack overflow is a concern, the iterative approach using a stack is a more efficient alternative. The choice depends on the specific application and constraints.
 

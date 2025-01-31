@@ -4,7 +4,7 @@ date: "12/13/2024"
 categories: [ problem-solving ]
 ---
 
-Binary trees are fundamental data structures in computer science, used extensively in various applications.  Often, we need to perform specific operations on these trees, such as counting the number of leaf nodes.  Leaf nodes are nodes without any children – the endpoints of branches in the tree. This blog post will explore different approaches to efficiently count leaf nodes in a binary tree using Python.
+Binary trees are fundamental data structures in computer science, used extensively in various applications.  Often, we need to perform specific operations on these trees, such as counting the number of leaf nodes.  Leaf nodes are nodes without any children – the endpoints of branches in the tree. This blog post will look at different approaches to efficiently count leaf nodes in a binary tree using Python.
 
 ## Understanding Binary Trees
 

@@ -213,7 +213,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="implementing-depth-first-search-dfs" class="level2">
 <h2 class="anchored" data-anchor-id="implementing-depth-first-search-dfs">Implementing Depth-First Search (DFS)</h2>
-<p>A classic and efficient algorithm for finding connected components is Depth-First Search (DFS). DFS systematically explores a graph by going as deep as possible along each branch before backtracking. We can adapt DFS to identify connected components:</p>
+<p>A classic and efficient algorithm for finding connected components is Depth-First Search (DFS). DFS systematically explores a graph by going as deep as possible along each branch before backtracking. DFS can identify connected components:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dfs(graph, node, visited, component):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Performs Depth-First Search to find a connected component."""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    visited[node] <span class="op">=</span> <span class="va">True</span></span>
@@ -252,7 +252,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="implementing-breadth-first-search-bfs" class="level2">
 <h2 class="anchored" data-anchor-id="implementing-breadth-first-search-bfs">Implementing Breadth-First Search (BFS)</h2>
-<p>Alternatively, Breadth-First Search (BFS) can also be used to find connected components. BFS explores the graph level by level. Here’s how you can adapt BFS for this task:</p>
+<p>Alternatively, Breadth-First Search (BFS) can also be used to find connected components. BFS explores the graph level by level. Here’s how you can do this:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> deque</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bfs(graph, node, visited, component):</span>
@@ -277,12 +277,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="handling-different-graph-representations" class="level2">
 <h2 class="anchored" data-anchor-id="handling-different-graph-representations">Handling Different Graph Representations</h2>
-<p>The code examples above assume the graph is represented as an adjacency list (a dictionary where keys are nodes and values are lists of their neighbors). You might need to adapt the code if your graph is represented differently (e.g., an adjacency matrix). The core algorithm (DFS or BFS) remains the same, but the way you access neighbors will change.</p>
+<p>The code examples above assume the graph is represented as an adjacency list (a dictionary where keys are nodes and values are lists of their neighbors). If your graph is represented differently (e.g., an adjacency matrix), the way you access neighbors will change. The core algorithm (DFS or BFS) remains the same.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

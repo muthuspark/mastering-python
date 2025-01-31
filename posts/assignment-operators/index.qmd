@@ -16,7 +16,7 @@ name = "Python"  # Assigns the string "Python" to the variable name
 
 ## Compound Assignment Operators: Efficiency and Readability
 
-Python offers compound assignment operators that combine an arithmetic operation with an assignment. These operators significantly shorten your code and make it more readable.
+Python offers compound assignment operators that combine an arithmetic operation with an assignment. These operators shorten your code and make it more readable.
 
 
 ### `+=`, `-=`, `*=`, `/=`, `//=`, `%=`

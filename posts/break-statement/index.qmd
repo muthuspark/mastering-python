@@ -92,5 +92,5 @@ i=2, j=0
 
 ## Handling `break` Gracefully
 
-When using `break`, consider the implications on any code that depends on the loop completing its full iterations. You may need to adjust your logic to handle cases where the loop terminates early.  For example, if you are calculating a sum inside the loop, you might need to add a check after the loop to account for a possible incomplete sum if the loop is terminated early using `break`.
+When using `break`, consider any code that depends on the loop completing its full iterations. You may need to adjust your logic to handle cases where the loop terminates early.  For example, if you are calculating a sum inside the loop, you might need to add a check after the loop to account for a possible incomplete sum if the loop is terminated early using `break`.
 

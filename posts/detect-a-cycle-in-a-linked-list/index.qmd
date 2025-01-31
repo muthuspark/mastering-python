@@ -4,17 +4,17 @@ date: "05/26/2024"
 categories: [ problem-solving ]
 ---
 
-Linked lists are fundamental data structures, but they can present unique challenges. One such challenge is efficiently detecting the presence of a cycle – a situation where a node in the list points back to a previously visited node, creating a loop.  This blog post will explore different approaches to cycle detection in linked lists using Python, focusing on clarity and efficiency.
+Linked lists are fundamental data structures, but they can present unique challenges. One such challenge is efficiently detecting the presence of a cycle – a situation where a node in the list points back to a previously visited node, creating a loop.  This blog post will look at different approaches to cycle detection in linked lists using Python, focusing on clarity and efficiency.
 
 
 ## Understanding the Problem
 
-Before diving into solutions, let's clarify what a cycle in a linked list actually is.  Imagine a linked list where the `next` pointer of the last node points back to a node somewhere earlier in the list. This creates a closed loop, and traversing the list would never terminate.  Detecting these cycles is crucial for maintaining the integrity and functionality of your linked list-based applications.
+Before diving into solutions, let's clarify what a cycle in a linked list actually is. Imagine a linked list where the `next` pointer of the last node points back to a node somewhere earlier in the list. This creates a closed loop, and traversing the list would never terminate. Detecting these cycles is important for maintaining the integrity and functionality of your linked list-based applications.
 
 
 ## Method 1: Using a Set (HashSet)
 
-This approach leverages the constant-time lookup capability of a set (or hash set) to efficiently detect cycles. We iterate through the linked list, adding each node's address (memory location) to the set. If we encounter a node whose address is already in the set, we've found a cycle.
+This approach uses the constant-time lookup capability of a set (or hash set) to efficiently detect cycles. We iterate through the linked list, adding each node's address (memory location) to the set. If we encounter a node whose address is already in the set, we've found a cycle.
 
 ```python
 class Node:
@@ -72,7 +72,7 @@ print(f"Cycle detected using Floyd's Algorithm: {detectCycleFloyd(head)}") # Out
 print(f"Cycle detected using Floyd's Algorithm: {detectCycleFloyd(head2)}") # Output: False
 ```
 
-Floyd's algorithm boasts a time complexity of O(N) and a space complexity of O(1), making it significantly more memory-efficient than the HashSet approach, especially for very large linked lists.  This makes it the preferred method in most scenarios.
+Floyd's algorithm boasts a time complexity of O(N) and a space complexity of O(1), making it more memory-efficient than the HashSet approach, especially for very large linked lists. This makes it the preferred method in most scenarios.
 
 
 ## Choosing the Right Method

@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python's comparison operators are fundamental tools for evaluating relationships between values.  Understanding how these operators work is crucial for writing effective and efficient Python code. This guide provides a clear explanation of each operator with illustrative examples.
+Python's comparison operators are fundamental tools for evaluating relationships between values. Understanding how these operators work is important for writing effective and efficient Python code. This guide provides a clear explanation of each operator with illustrative examples.
 
 ## The Six Main Comparison Operators
 
@@ -21,7 +21,7 @@ Python offers six primary comparison operators, each designed to test a specific
 | `<=`     | Less than or equal to  | `5 <= 10`      | `True` |
 
 
-Let's explore each with code examples:
+Let's look at each with code examples:
 
 ### 1. `==` (Equal to)
 

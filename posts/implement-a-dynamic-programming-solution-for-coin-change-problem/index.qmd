@@ -4,7 +4,7 @@ date: "08/14/2024"
 categories: [ problem-solving ]
 ---
 
-The coin change problem is a classic computer science puzzle that challenges you to find the minimum number of coins needed to make a given amount of change, using a set of available coin denominations.  While brute-force approaches exist, they quickly become inefficient for larger amounts.  Dynamic programming offers a significantly more elegant and efficient solution. This post dives into implementing a dynamic programming solution for the coin change problem in Python.
+The coin change problem is a classic computer science puzzle that challenges you to find the minimum number of coins needed to make a given amount of change, using a set of available coin denominations.  While brute-force approaches exist, they quickly become inefficient for larger amounts.  Dynamic programming offers a more elegant and efficient solution. This post dives into implementing a dynamic programming solution for the coin change problem in Python.
 
 ## Understanding the Coin Change Problem
 

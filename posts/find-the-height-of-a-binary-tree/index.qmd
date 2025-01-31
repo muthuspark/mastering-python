@@ -4,7 +4,7 @@ date: "03/19/2024"
 categories: [ problem-solving ]
 ---
 
-Determining the height of a binary tree is a fundamental task in computer science, with applications ranging from algorithm analysis to data structure optimization.  This post will explore several approaches to calculating the height of a binary tree using Python, along with detailed explanations and code examples.
+Determining the height of a binary tree is a fundamental task in computer science, with applications ranging from algorithm analysis to data structure optimization.  This post will look at many approaches to calculating the height of a binary tree using Python, along with detailed explanations and code examples.
 
 ## Understanding Binary Tree Height
 

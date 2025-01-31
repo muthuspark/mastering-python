@@ -4,7 +4,7 @@ date: "11/23/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the largest rectangular area within a histogram is a classic algorithmic problem with applications in various fields, from image processing to data analysis. This post delves into efficient Python solutions for tackling this challenge.  We'll explore the problem, analyze different approaches, and provide optimized code examples for you to implement.
+Finding the largest rectangular area within a histogram is a classic algorithmic problem with applications in various fields, from image processing to data analysis. This post delves into efficient Python solutions for tackling this challenge.  We'll look at the problem, analyze different approaches, and provide optimized code examples for you to implement.
 
 ## Understanding the Problem
 
@@ -37,7 +37,7 @@ print(f"Largest Rectangle Area (Brute-Force): {largest_rectangle_brute_force(hei
 
 ##  Efficient Approach using a Stack
 
-A significantly more efficient solution leverages a stack data structure to achieve a time complexity of O(n).  The algorithm iterates through the histogram, using the stack to keep track of indices of bars.  When a shorter bar is encountered, it pops bars from the stack and calculates the area of the rectangles they form.
+A more efficient solution uses a stack data structure to achieve a time complexity of O(n).  The algorithm iterates through the histogram, using the stack to keep track of indices of bars.  When a shorter bar is encountered, it pops bars from the stack and calculates the area of the rectangles they form.
 
 ```python
 def largest_rectangle_stack(heights):

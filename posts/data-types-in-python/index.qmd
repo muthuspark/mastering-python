@@ -6,7 +6,7 @@ categories: [ basic ]
 
 ## Fundamental Data Types
 
-Python offers several built-in data types, each designed to handle specific kinds of data:
+Python offers many built-in data types, each designed to handle specific kinds of data:
 
 **1. Numeric Types:**
 
@@ -121,5 +121,5 @@ print(type(is_adult))  # Output: <class 'bool'>
 * **`memoryview`:** Allows access to the internal data of an object without copying.
 
 
-These data types form the foundation of Python programming.  Choosing the appropriate data type is crucial for efficient and correct code execution.  Further exploration into more advanced data structures and their applications will enhance your Python programming skills significantly.
+These data types form the foundation of Python programming. Choosing the appropriate data type ensures efficient and correct code execution. Further exploration into more advanced data structures and their applications will significantly improve your Python programming skills.
 

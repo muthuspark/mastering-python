@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python offers several ways to iterate over sequences (like lists, tuples, strings) or perform repetitive tasks.  This guide dives into the core looping constructs: `for` and `while` loops, demonstrating their usage with clear examples.
+Python offers many ways to iterate over sequences (like lists, tuples, strings) or perform repetitive tasks.  This guide dives into the core looping constructs: `for` and `while` loops, demonstrating their usage with clear examples.
 
 ## The `for` Loop: Iterating Over Iterables
 
@@ -55,7 +55,7 @@ while count < 5:
   count += 1
 ```
 
-This loop prints numbers from 0 to 4.  It's crucial to ensure the condition eventually becomes false; otherwise, you'll create an infinite loop.
+This loop prints numbers from 0 to 4.  It's important to ensure the condition eventually becomes false; otherwise, you'll create an infinite loop.
 
 Here's an example demonstrating a `while` loop with user input:
 

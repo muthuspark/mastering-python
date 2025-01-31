@@ -4,7 +4,7 @@ date: "01/01/2024"
 categories: [ problem-solving ]
 ---
 
-Counting substrings within a larger string is a common task in programming, particularly useful in text analysis, data processing, and algorithm design. Python offers several approaches to accomplish this, each with its own strengths and weaknesses. This blog post explores efficient methods to count substrings in Python, providing clear explanations and code examples to help you choose the best solution for your needs.
+Counting substrings within a larger string is a common task in programming, particularly useful in text analysis, data processing, and algorithm design. Python offers many approaches to accomplish this, each with its own strengths and weaknesses. This blog post explores efficient methods to count substrings in Python, providing clear explanations and code examples to help you choose the best solution for your needs.
 
 
 ## Method 1: Brute-Force Approach (Nested Loops)
@@ -41,7 +41,7 @@ print(f"The substring '{substring}' appears {count} times in '{string}'.") #Outp
 
 ## Method 2: Using the `count()` method
 
-Python's built-in `count()` string method provides a more concise and efficient solution for counting non-overlapping substrings.  This method is significantly faster than the brute-force approach, especially for larger strings.
+Python's built-in `count()` string method provides a more concise and efficient solution for counting non-overlapping substrings. This method is faster than the brute-force approach, especially for larger strings.
 
 
 ```python
@@ -67,7 +67,7 @@ print(f"The substring '{substring}' appears {count} times in '{string}'.") #Outp
 ## Method 3:  Handling Overlapping Substrings (More Complex Scenarios)
 
 
-The previous methods don't handle overlapping substrings. For instance, counting "aba" in "ababa" would only return 1 using `count()`, even though "aba" appears twice.  A more sophisticated approach is needed for such cases.  This often involves a sliding window technique.
+The previous methods don't handle overlapping substrings. For instance, counting "aba" in "ababa" would only return 1 using `count()`, even though "aba" appears twice.  A more complex approach is needed for such cases.  This often involves a sliding window technique.
 
 ```python
 def count_overlapping_substrings(string, substring):

@@ -217,7 +217,7 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 </section>
 <section id="implementing-the-max-heap-using-a-list" class="level2">
 <h2 class="anchored" data-anchor-id="implementing-the-max-heap-using-a-list">Implementing the Max-Heap using a List</h2>
-<p>Python doesn’t have a built-in heap data structure, but we can cleverly use a list to represent it. We’ll leverage list indexing to represent the parent-child relationships inherent in a binary tree. Specifically:</p>
+<p>Python doesn’t have a built-in heap data structure, but we can cleverly use a list to represent it. We’ll use list indexing to represent the parent-child relationships in a binary tree. Specifically:</p>
 <ul>
 <li>The parent of node <code>i</code> is at index <code>(i-1)//2</code>.</li>
 <li>The left child of node <code>i</code> is at index <code>2*i + 1</code>.</li>
@@ -283,12 +283,15 @@ gtag('config', 'G-HE366VCQBM', { 'anonymize_ip': true});
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>max_element <span class="op">=</span> extract_max(arr)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Extracted Max:"</span>, max_element)</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"After extracting max:"</span>, arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This example demonstrates how to build a max-heap, insert a new element, and extract the maximum element, illustrating the core functionality of a max-heap in Python. Remember that the <code>heapify</code> function is crucial for maintaining the heap property after insertions and extractions. This implementation provides a foundational understanding of max-heap operations and can be extended for more complex applications.</p>
+<p>This example demonstrates how to build a max-heap, insert a new element, and extract the maximum element, illustrating the core functionality of a max-heap in Python. Remember that the <code>heapify</code> function is for maintaining the heap property after insertions and extractions. This implementation provides a foundational understanding of max-heap operations and can be extended for more complex applications.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<footer>
+    <p>© 2024 · Content on this site is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a> · Built with ♥</p>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

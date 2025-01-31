@@ -5,7 +5,7 @@ categories: [ basic ]
 ---
 
 
-Python, like any other robust programming language, employs exceptions to handle runtime errors gracefully.  Understanding and effectively using exceptions is crucial for writing clean, robust, and maintainable Python code. This post looks into the world of Python exceptions, providing clear explanations and practical code examples.
+Python, like any other programming language, employs exceptions to handle runtime errors gracefully. Understanding and effectively using exceptions is crucial for writing clean, robust, and maintainable Python code. This post looks into the world of Python exceptions, providing clear explanations and practical code examples.
 
 
 ## What are Exceptions?

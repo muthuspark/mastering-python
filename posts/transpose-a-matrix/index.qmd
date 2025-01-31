@@ -107,5 +107,5 @@ print(f"Original Matrix: {matrix}")
 print(f"Transposed Matrix: {transposed_matrix}")
 ```
 
-The NumPy method is generally the most efficient, especially when dealing with large matrices.  Its optimized implementation significantly improves performance compared to the pure Python approaches.  Choose the method that best suits your needs and the size of your matrices.  For smaller matrices, the zip/list comprehension approach offers a good balance of readability and performance. For large scale applications, NumPy's efficiency is unparalleled.
+The NumPy method is generally the most efficient, especially when dealing with large matrices. Its optimized implementation improves performance compared to the pure Python approaches. Choose the method that best suits your needs and the size of your matrices. For smaller matrices, the zip/list comprehension approach offers a good balance of readability and performance. For large-scale applications, NumPy's efficiency is unparalleled.
 

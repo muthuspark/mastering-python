@@ -4,7 +4,7 @@ date: "10/25/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the largest palindrome number less than a given number `N` is a fascinating algorithmic problem with applications in number theory and cryptography.  A palindromic number reads the same forwards and backward (e.g., 121, 9009). This post will explore efficient Python solutions to tackle this challenge.
+Finding the largest palindrome number less than a given number `N` is a fascinating algorithmic problem with applications in number theory and cryptography.  A palindromic number reads the same forwards and backward (e.g., 121, 9009). This post will look at efficient Python solutions to tackle this challenge.
 
 ## Understanding the Problem
 
@@ -46,10 +46,10 @@ This code first defines a helper function `is_palindrome` which efficiently chec
 
 ## Optimizations for Larger Numbers
 
-For significantly larger values of `N`, this approach might still be slow.  More sophisticated algorithms could leverage number theory properties to speed up the search.  These advanced techniques are beyond the scope of this introductory post but could involve generating palindromes directly instead of checking each number.  Consider exploring techniques like generating palindromes by manipulating digits if you require handling extremely large numbers.
+For larger values of `N`, this approach might still be slow. More complex algorithms could use number theory properties to speed up the search. These advanced techniques are beyond the scope of this introductory post but could involve generating palindromes directly instead of checking each number. Consider exploring techniques like generating palindromes by manipulating digits if you require handling extremely large numbers.
 
 
 ##  Handling Edge Cases
 
-The code includes a check for `n <= 1` to handle edge cases where no palindrome exists (or 0 is considered the largest palindrome less than 1).  Proper handling of such cases is crucial for robust code.
+The code includes a check for `n <= 1` to handle edge cases where no palindrome exists (or 0 is considered the largest palindrome less than 1).
 

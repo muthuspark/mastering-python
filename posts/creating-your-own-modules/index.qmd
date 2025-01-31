@@ -6,7 +6,7 @@ categories: [ basic ]
 
 ## Why Create Your Own Modules?
 
-Before diving into the *how*, let's understand the *why*.  Creating modules offers several key advantages:
+Before diving into the *how*, let's understand the *why*.  Creating modules offers many key advantages:
 
 * **Code Reusability:** Write once, use many times.  Avoid repetitive code blocks by encapsulating them within a module.
 * **Organization:** Break down large projects into smaller, manageable units. This improves readability and makes debugging easier.
@@ -60,7 +60,7 @@ Multiplication: 14
 
 ##  Alternative Import Methods
 
-Python offers several ways to import modules, each with its advantages:
+Python offers many ways to import modules, each with its advantages:
 
 
 **1. Importing Specific Functions:**

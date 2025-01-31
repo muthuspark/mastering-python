@@ -4,7 +4,7 @@ date: "04/05/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the length of the longest substring without repeating characters is a classic computer science problem.  It tests your understanding of string manipulation, data structures, and algorithm optimization.  This post will explore several Python solutions, ranging from straightforward brute force to more efficient approaches using sliding windows.
+Finding the length of the longest substring without repeating characters is a classic computer science problem.  It tests your understanding of string manipulation, data structures, and algorithm optimization.  This post will look at many Python solutions, ranging from straightforward brute force to more efficient approaches using sliding windows.
 
 ## Understanding the Problem
 
@@ -71,5 +71,5 @@ The sliding window approach maintains a window within the string. It expands the
 
 ## Optimizations and Considerations
 
-While the sliding window approach is significantly faster, further optimizations are possible depending on the specific requirements and constraints of the application.  For extremely large strings, consider using more advanced data structures or parallel processing techniques.  The choice of the best approach will depend on factors like the size of the input string and performance requirements.
+While the sliding window approach is faster, further optimizations are possible depending on the specific requirements and constraints of the application.  For extremely large strings, consider using more advanced data structures or parallel processing techniques.  The choice of the best approach will depend on factors like the size of the input string and performance requirements.
 

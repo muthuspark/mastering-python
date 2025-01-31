@@ -31,7 +31,7 @@ In this example:
 
 ## Variable Naming Conventions
 
-Choosing meaningful names for your variables is crucial for code readability and maintainability.  Here are some key guidelines:
+Choosing meaningful names for your variables improves code readability and maintainability. Here are some key guidelines:
 
 * **Use descriptive names:**  Instead of `x`, use `customer_age` or `product_price`.
 * **Use lowercase letters:**  `my_variable` is preferred over `MyVariable`.
@@ -41,7 +41,7 @@ Choosing meaningful names for your variables is crucial for code readability and
 
 ## Variable Types
 
-Python supports several built-in data types:
+Python supports many built-in data types:
 
 * **Integers (int):** Whole numbers (e.g., 10, -5, 0).
 * **Floating-point numbers (float):** Numbers with decimal points (e.g., 3.14, -2.5).

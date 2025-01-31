@@ -4,7 +4,7 @@ date: "10/16/2024"
 categories: [ problem-solving ]
 ---
 
-Finding the Greatest Common Divisor (GCD) is a fundamental concept in number theory.  The GCD of two or more integers is the largest positive integer that divides all of the integers without leaving a remainder.  This task is frequently encountered in programming, especially in areas like cryptography and algorithm optimization.  This post will explore different ways to calculate the GCD of a list of numbers in Python, starting with the simplest approaches and moving towards more efficient solutions.
+Finding the Greatest Common Divisor (GCD) is a fundamental concept in number theory.  The GCD of two or more integers is the largest positive integer that divides all of the integers without leaving a remainder.  This task is frequently encountered in programming, especially in areas like cryptography and algorithm optimization.  This post will look at different ways to calculate the GCD of a list of numbers in Python, starting with the simplest approaches and moving towards more efficient solutions.
 
 
 ## Method 1: Using the `math.gcd()` function (Python 3.5+)
