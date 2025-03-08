@@ -9,7 +9,7 @@ website:
   open-graph: true
   google-analytics: 
     tracking-id: 'G-HE366VCQBM'
-  site-url: 'https://python.muthu.co'
+  site-url: 'https://py.muthu.co'
   site-path: '/'
   navbar:
     right:
@@ -27,6 +27,9 @@ format:
     image: false
     mermaid:
       theme: neutral
+    include-after-body:
+      - text: |
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3609399560636561" crossorigin="anonymous"></script>
 
 
 

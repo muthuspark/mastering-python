@@ -1,1 +1,1 @@
-Sitemap: https://python.muthu.co/sitemap.xml
+Sitemap: https://py.muthu.co/sitemap.xml
